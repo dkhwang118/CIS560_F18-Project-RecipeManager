@@ -61,9 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRecipeRepository.cs" />
+    <Compile Include="Recipe.cs" />
     <Compile Include="RecipeDatabaseDefaultDataSet.cs">
       <DependentUpon>RecipeDatabaseDefaultDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecipeRepository.cs" />
     <Compile Include="uiHomeUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +145,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\Procedures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

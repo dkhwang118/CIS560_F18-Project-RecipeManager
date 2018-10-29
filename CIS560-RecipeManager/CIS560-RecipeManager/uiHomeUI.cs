@@ -15,6 +15,7 @@ namespace CIS560_RecipeManager
         public uiHomeUI()
         {
             InitializeComponent();
+            uxConnectionString.Text = Properties.Settings.Default.RecipeDatabaseConnectionString;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)

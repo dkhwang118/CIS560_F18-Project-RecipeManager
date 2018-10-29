@@ -14,11 +14,19 @@
   <xs:element name="RecipeDatabaseDefaultDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="RecipeDatabaseDefaultDataSet" msprop:Generator_UserDSName="RecipeDatabaseDefaultDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Col1" msprop:Generator_ColumnVarNameInTable="columnCol1" msprop:Generator_ColumnPropNameInRow="Col1" msprop:Generator_ColumnPropNameInTable="Col1Column" msprop:Generator_UserColumnName="Col1" type="xs:string" minOccurs="0" />
               <xs:element name="Col2" msprop:Generator_ColumnVarNameInTable="columnCol2" msprop:Generator_ColumnPropNameInRow="Col2" msprop:Generator_ColumnPropNameInTable="Col2Column" msprop:Generator_UserColumnName="Col2" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Recipes_DEMO" msprop:Generator_TableClassName="Recipes_DEMODataTable" msprop:Generator_TableVarName="tableRecipes_DEMO" msprop:Generator_TablePropName="Recipes_DEMO" msprop:Generator_RowDeletingName="Recipes_DEMORowDeleting" msprop:Generator_RowChangingName="Recipes_DEMORowChanging" msprop:Generator_RowEvHandlerName="Recipes_DEMORowChangeEventHandler" msprop:Generator_RowDeletedName="Recipes_DEMORowDeleted" msprop:Generator_UserTableName="Recipes_DEMO" msprop:Generator_RowChangedName="Recipes_DEMORowChanged" msprop:Generator_RowEvArgName="Recipes_DEMORowChangeEvent" msprop:Generator_RowClassName="Recipes_DEMORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RecipeID" msprop:Generator_ColumnVarNameInTable="columnRecipeID" msprop:Generator_ColumnPropNameInRow="RecipeID" msprop:Generator_ColumnPropNameInTable="RecipeIDColumn" msprop:Generator_UserColumnName="RecipeID" type="xs:string" minOccurs="0" />
+              <xs:element name="RecipeName" msprop:Generator_ColumnVarNameInTable="columnRecipeName" msprop:Generator_ColumnPropNameInRow="RecipeName" msprop:Generator_ColumnPropNameInTable="RecipeNameColumn" msprop:Generator_UserColumnName="RecipeName" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
