@@ -21,6 +21,8 @@ namespace CIS560_RecipeManager
         {
             RecipeRepository rrTemp = new RecipeRepository();
             Recipe temp = rrTemp.CreateRecipe(uxTextBox_RecipeName.Text);
+            MessageBox.Show("Recipe " + temp.RecipeName + " was created!");
+            
         }
     }
 }
