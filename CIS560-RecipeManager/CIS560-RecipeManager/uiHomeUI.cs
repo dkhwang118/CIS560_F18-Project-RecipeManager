@@ -15,8 +15,6 @@ namespace CIS560_RecipeManager
         public uiHomeUI()
         {
             InitializeComponent();
-
-
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -29,7 +27,7 @@ namespace CIS560_RecipeManager
          */ 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
-            (new AddNewRecipe_BASIC()).ShowDialog();
+            (new uiAddNewRecipe_BASIC()).ShowDialog();
             this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
         }
 

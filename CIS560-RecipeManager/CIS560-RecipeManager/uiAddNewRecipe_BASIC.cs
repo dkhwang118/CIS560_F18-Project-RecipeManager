@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
 {
-    public partial class AddNewRecipe_BASIC : Form
+    public partial class uiAddNewRecipe_BASIC : Form
     {
-        public AddNewRecipe_BASIC()
+        public uiAddNewRecipe_BASIC()
         {
             InitializeComponent();
         }
