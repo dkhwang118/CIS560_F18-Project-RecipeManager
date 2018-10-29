@@ -19,7 +19,7 @@ namespace CIS560_RecipeManager
             {
                 using (var connection = new SqlConnection(connectionString))
                 {
-                    using (var command = new SqlCommand("[dbo].CreateRecipe", connection))
+                    using (var command = new SqlCommand("dbo.CreateRecipe", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure; // read var command as a stored procedure
 

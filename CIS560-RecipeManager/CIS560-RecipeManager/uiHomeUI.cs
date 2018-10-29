@@ -25,11 +25,12 @@ namespace CIS560_RecipeManager
         }
 
         /*
-         * Click Event for "Add Recipe" button"
+         * Click Event for "Add Recipe" button
          */ 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             (new AddNewRecipe_BASIC()).ShowDialog();
+            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
         }
 
         private void uiHomeUI_Load(object sender, EventArgs e)
