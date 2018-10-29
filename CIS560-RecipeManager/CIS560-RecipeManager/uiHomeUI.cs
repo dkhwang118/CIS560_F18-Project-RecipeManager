@@ -15,12 +15,21 @@ namespace CIS560_RecipeManager
         public uiHomeUI()
         {
             InitializeComponent();
-            uxConnectionString.Text = Properties.Settings.Default.RecipeDatabaseConnectionString;
+
+
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        /*
+         * Click Event for "Add Recipe" button"
+         */ 
+        private void uxButton_AddRecipe_Click(object sender, EventArgs e)
+        {
+            (new AddNewRecipe_BASIC()).ShowDialog();
         }
     }
 }

@@ -114,6 +114,7 @@
             this.uxButton_AddRecipe.TabIndex = 2;
             this.uxButton_AddRecipe.Text = "Add Recipe";
             this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
+            this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
             // 
             // uiHomeUI
             // 
