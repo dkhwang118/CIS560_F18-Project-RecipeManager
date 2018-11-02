@@ -19,7 +19,7 @@ namespace CIS560_RecipeManager
 
 
             // run uiHome
-            Application.Run(new uiHomeUI());
+            Application.Run(new uiHome());
 
 
 

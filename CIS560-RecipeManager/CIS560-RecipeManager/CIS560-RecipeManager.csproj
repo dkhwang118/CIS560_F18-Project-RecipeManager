@@ -62,6 +62,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RecipeDatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="uiAddNewRecipe_BASIC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,11 +81,17 @@
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecipeRepository.cs" />
-    <Compile Include="uiHomeUI.cs">
+    <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="uiHomeUI.Designer.cs">
-      <DependentUpon>uiHomeUI.cs</DependentUpon>
+    <Compile Include="uiHome.Designer.cs">
+      <DependentUpon>uiHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uiPantryItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="uiPantryItems.Designer.cs">
+      <DependentUpon>uiPantryItems.cs</DependentUpon>
     </Compile>
     <Compile Include="uiSplashWelcome.cs">
       <SubType>Form</SubType>
@@ -102,8 +113,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="uiHomeUI.resx">
-      <DependentUpon>uiHomeUI.cs</DependentUpon>
+    <EmbeddedResource Include="uiHome.resx">
+      <DependentUpon>uiHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uiPantryItems.resx">
+      <DependentUpon>uiPantryItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiSplashWelcome.resx">
       <DependentUpon>uiSplashWelcome.cs</DependentUpon>
@@ -117,6 +131,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="RecipeDatabaseDataSet.xsc">
+      <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RecipeDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RecipeDatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RecipeDatabaseDataSet.xss">
+      <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="RecipeDatabaseDataSet_DEMO.xsc">
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </None>
