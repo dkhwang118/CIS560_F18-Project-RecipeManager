@@ -16,11 +16,11 @@ namespace CIS560_RecipeManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new uiSplashWelcome());
 
-            // Load .mdf data then open uiHomeUI
 
+            // run uiHome
             Application.Run(new uiHomeUI());
+
 
 
 

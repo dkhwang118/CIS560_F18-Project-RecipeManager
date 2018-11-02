@@ -18,6 +18,10 @@ namespace CIS560_RecipeManager
         
         public string RecipeName { get; }
 
+        public string RecipeDescription { get; }
+
+        public int CategoryID { get; }
+
         public Recipe(int rID, string rName)
         {
             RecipeID = rID;
