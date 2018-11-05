@@ -13,6 +13,6 @@ namespace CIS560_RecipeManager
 
         Recipe GetRecipe(int recipeID);
 
-        Recipe CreateRecipe(string recipeName);
+        Recipe CreateRecipe(string recipeName, string recipeDesc);
     }
 }

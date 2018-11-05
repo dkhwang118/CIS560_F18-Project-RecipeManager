@@ -10,7 +10,7 @@ namespace CIS560_RecipeManager
     {
         string connectionString = Properties.Settings.Default.RecipeDatabaseConnectionString;
 
-        public Recipe CreateRecipe(string recipeName)
+        public Recipe CreateRecipe(string recipeName, string recipeDesc)
         {
             using (var transaction = new TransactionScope())
             {
@@ -21,6 +21,10 @@ namespace CIS560_RecipeManager
                         command.CommandType = CommandType.StoredProcedure; // read var command as a stored procedure
 
                         command.Parameters.AddWithValue("RecipeName", recipeName);
+
+                        command.Parameters.AddWithValue("RecipeDescription", recipeDesc);
+
+                        command.Parameters.AddWithValue("CategoryID", 1); // CategoryID value of "1" until Category Table is setup to allow creation of new categories
 
                         var param = command.Parameters.Add("RecipeID", SqlDbType.Int);
                         param.Direction = ParameterDirection.Output;
