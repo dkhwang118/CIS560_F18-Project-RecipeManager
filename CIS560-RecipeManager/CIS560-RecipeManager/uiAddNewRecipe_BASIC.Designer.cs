@@ -31,6 +31,8 @@
             this.uxTextBox_RecipeName = new System.Windows.Forms.TextBox();
             this.uxLabel_RecipeName = new System.Windows.Forms.Label();
             this.uxButton_AddRecipe = new System.Windows.Forms.Button();
+            this.uxLabel_RecipeDescription = new System.Windows.Forms.Label();
+            this.uxTextBox_RecipeDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // uxTextBox_RecipeName
@@ -51,7 +53,7 @@
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(448, 96);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(459, 221);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
             this.uxButton_AddRecipe.Size = new System.Drawing.Size(94, 28);
             this.uxButton_AddRecipe.TabIndex = 2;
@@ -59,15 +61,34 @@
             this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
             this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
             // 
-            // AddNewRecipe_BASIC
+            // uxLabel_RecipeDescription
+            // 
+            this.uxLabel_RecipeDescription.AutoSize = true;
+            this.uxLabel_RecipeDescription.Location = new System.Drawing.Point(20, 82);
+            this.uxLabel_RecipeDescription.Name = "uxLabel_RecipeDescription";
+            this.uxLabel_RecipeDescription.Size = new System.Drawing.Size(100, 13);
+            this.uxLabel_RecipeDescription.TabIndex = 3;
+            this.uxLabel_RecipeDescription.Text = "Recipe Description:";
+            // 
+            // uxTextBox_RecipeDescription
+            // 
+            this.uxTextBox_RecipeDescription.Location = new System.Drawing.Point(126, 79);
+            this.uxTextBox_RecipeDescription.Multiline = true;
+            this.uxTextBox_RecipeDescription.Name = "uxTextBox_RecipeDescription";
+            this.uxTextBox_RecipeDescription.Size = new System.Drawing.Size(379, 106);
+            this.uxTextBox_RecipeDescription.TabIndex = 4;
+            // 
+            // uiAddNewRecipe_BASIC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 136);
+            this.ClientSize = new System.Drawing.Size(565, 261);
+            this.Controls.Add(this.uxTextBox_RecipeDescription);
+            this.Controls.Add(this.uxLabel_RecipeDescription);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.Controls.Add(this.uxLabel_RecipeName);
             this.Controls.Add(this.uxTextBox_RecipeName);
-            this.Name = "AddNewRecipe_BASIC";
+            this.Name = "uiAddNewRecipe_BASIC";
             this.Text = "AddNewRecipe_BASIC";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -79,5 +100,7 @@
         private System.Windows.Forms.TextBox uxTextBox_RecipeName;
         private System.Windows.Forms.Label uxLabel_RecipeName;
         private System.Windows.Forms.Button uxButton_AddRecipe;
+        private System.Windows.Forms.Label uxLabel_RecipeDescription;
+        private System.Windows.Forms.TextBox uxTextBox_RecipeDescription;
     }
 }

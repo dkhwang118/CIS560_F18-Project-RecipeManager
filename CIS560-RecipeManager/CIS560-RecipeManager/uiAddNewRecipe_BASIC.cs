@@ -20,7 +20,7 @@ namespace CIS560_RecipeManager
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             RecipeRepository rrTemp = new RecipeRepository();
-            Recipe temp = rrTemp.CreateRecipe(uxTextBox_RecipeName.Text);
+            Recipe temp = rrTemp.CreateRecipe(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text);
             MessageBox.Show("Recipe " + temp.RecipeName + " was created!");
             
         }
