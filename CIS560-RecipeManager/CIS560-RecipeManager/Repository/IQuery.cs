@@ -14,7 +14,7 @@ namespace CIS560_RecipeManager
 
         void AddIngredient(Ingredient ingredient);
 
-        ICollection<Recipe> GetAvailableRecipes();
+        IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
         ShoppingList GetShoppingList(ICollection<Recipe> recipes);
 
