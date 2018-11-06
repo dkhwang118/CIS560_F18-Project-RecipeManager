@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
 {
-    public partial class uiSplashWelcome : Form
+    public partial class uiHome : Form
     {
-        public uiSplashWelcome()
+        public uiHome()
         {
             InitializeComponent();
         }

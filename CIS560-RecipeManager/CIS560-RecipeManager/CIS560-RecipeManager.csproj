@@ -71,11 +71,11 @@
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
-    <Compile Include="RecipeManager\uiAddNewRecipe_BASIC.cs">
+    <Compile Include="RecipeManager\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipeManager\uiAddNewRecipe_BASIC.Designer.cs">
-      <DependentUpon>uiAddNewRecipe_BASIC.cs</DependentUpon>
+    <Compile Include="RecipeManager\uiAddRecipeForm.Designer.cs">
+      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\IRecipeRepository.cs" />
     <Compile Include="RecipeManager\Recipe.cs" />
@@ -97,16 +97,16 @@
     <Compile Include="PantryManager\uiPantryManager.Designer.cs">
       <DependentUpon>uiPantryManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="uiSplashWelcome.cs">
+    <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="uiSplashWelcome.Designer.cs">
-      <DependentUpon>uiSplashWelcome.cs</DependentUpon>
+    <Compile Include="uiHome.Designer.cs">
+      <DependentUpon>uiHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="RecipeManager\uiAddNewRecipe_BASIC.resx">
-      <DependentUpon>uiAddNewRecipe_BASIC.cs</DependentUpon>
+    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
+      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,14 +117,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RecipeManager\uiHome.resx">
-      <DependentUpon>uiRecipeManager.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiPantryManager.resx">
       <DependentUpon>uiPantryManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="uiSplashWelcome.resx">
-      <DependentUpon>uiSplashWelcome.cs</DependentUpon>
+    <EmbeddedResource Include="RecipeManager\uiRecipeManager.resx">
+      <DependentUpon>uiRecipeManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uiHome.resx">
+      <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

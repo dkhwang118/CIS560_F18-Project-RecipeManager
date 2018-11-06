@@ -1,6 +1,6 @@
 ﻿namespace CIS560_RecipeManager
 {
-    partial class uiHome
+    partial class uiRecipeManager
     {
         /// <summary>
         /// Required designer variable.
@@ -122,7 +122,7 @@
             this.recipeDatabaseDataSetDEMOBindingSource1.DataSource = this.recipeDatabaseDataSet_DEMO;
             this.recipeDatabaseDataSetDEMOBindingSource1.Position = 0;
             // 
-            // uiHome
+            // uiRecipeManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,9 +132,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.Name = "uiHome";
+            this.Name = "uiRecipeManager";
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.uiHomeUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDefaultDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource1)).EndInit();

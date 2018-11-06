@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
 {
-    public partial class uiHome : Form
+    public partial class uiRecipeManager : Form
     {
-        public uiHome()
+        public uiRecipeManager()
         {
             InitializeComponent();
         }
@@ -27,16 +27,8 @@ namespace CIS560_RecipeManager
          */ 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
-            (new uiAddNewRecipe_BASIC()).ShowDialog();
+            (new uiAddRecipeForm()).ShowDialog();
             this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
-        }
-
-        private void uiHomeUI_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet_DEMO.Recipes' table. You can move, or remove it, as needed.
-            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
-            (new uiSplashWelcome()).ShowDialog();
-
         }
     }
 }

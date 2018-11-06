@@ -1,6 +1,6 @@
 ﻿namespace CIS560_RecipeManager
 {
-    partial class uiSplashWelcome
+    partial class uiHome
     {
         /// <summary>
         /// Required designer variable.

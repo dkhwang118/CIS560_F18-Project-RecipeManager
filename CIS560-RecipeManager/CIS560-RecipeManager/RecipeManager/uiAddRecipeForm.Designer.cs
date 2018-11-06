@@ -1,6 +1,6 @@
 ﻿namespace CIS560_RecipeManager
 {
-    partial class uiAddNewRecipe_BASIC
+    partial class uiAddRecipeForm
     {
         /// <summary>
         /// Required designer variable.
