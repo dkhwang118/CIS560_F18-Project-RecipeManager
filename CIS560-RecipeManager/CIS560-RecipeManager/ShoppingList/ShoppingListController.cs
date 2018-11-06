@@ -8,5 +8,9 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
+        public void LaunchShoppingListForm()
+        {
+            //not implemented yet
+        }
     }
 }

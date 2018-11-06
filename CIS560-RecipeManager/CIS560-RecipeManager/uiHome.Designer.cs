@@ -37,7 +37,7 @@
             // uxTextBox_dboFileLocation
             // 
             this.uxTextBox_dboFileLocation.Location = new System.Drawing.Point(116, 457);
-            this.uxTextBox_dboFileLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.uxTextBox_dboFileLocation.Margin = new System.Windows.Forms.Padding(2);
             this.uxTextBox_dboFileLocation.Name = "uxTextBox_dboFileLocation";
             this.uxTextBox_dboFileLocation.Size = new System.Drawing.Size(430, 20);
             this.uxTextBox_dboFileLocation.TabIndex = 0;
@@ -50,6 +50,7 @@
             this.manageRecipesButton.TabIndex = 1;
             this.manageRecipesButton.Text = "Manage Recipes";
             this.manageRecipesButton.UseVisualStyleBackColor = true;
+            this.manageRecipesButton.Click += new System.EventHandler(this.manageRecipesButton_Click);
             // 
             // managePantryButton
             // 
@@ -59,6 +60,7 @@
             this.managePantryButton.TabIndex = 2;
             this.managePantryButton.Text = "Manage Pantry";
             this.managePantryButton.UseVisualStyleBackColor = true;
+            this.managePantryButton.Click += new System.EventHandler(this.managePantryButton_Click);
             // 
             // manageShoppingListButton
             // 
@@ -68,8 +70,9 @@
             this.manageShoppingListButton.TabIndex = 3;
             this.manageShoppingListButton.Text = "Manage Shopping Lists";
             this.manageShoppingListButton.UseVisualStyleBackColor = true;
+            this.manageShoppingListButton.Click += new System.EventHandler(this.manageShoppingListButton_Click);
             // 
-            // uiSplashWelcome
+            // uiHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -78,8 +81,8 @@
             this.Controls.Add(this.managePantryButton);
             this.Controls.Add(this.manageRecipesButton);
             this.Controls.Add(this.uxTextBox_dboFileLocation);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "uiSplashWelcome";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "uiHome";
             this.Text = "Welcome to Your Recipe Management System";
             this.ResumeLayout(false);
             this.PerformLayout();
