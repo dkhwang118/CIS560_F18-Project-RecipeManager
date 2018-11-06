@@ -62,12 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ingredient.cs" />
     <Compile Include="IQuery.cs" />
+    <Compile Include="RecipeCategory.cs" />
     <Compile Include="RecipeDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingList.cs" />
     <Compile Include="uiAddNewRecipe_BASIC.cs">
       <SubType>Form</SubType>
     </Compile>

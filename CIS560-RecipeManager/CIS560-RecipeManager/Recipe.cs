@@ -14,18 +14,18 @@ namespace CIS560_RecipeManager
 {
     public class Recipe
     {
-        public int RecipeID { get; }
+        public int Id { get; }
         
-        public string RecipeName { get; }
+        public string Name { get; }
 
-        public string RecipeDescription { get; }
+        public string Description { get; }
 
         public int CategoryID { get; }
 
-        public Recipe(int rID, string rName)
+        public Recipe(int id, string name)
         {
-            RecipeID = rID;
-            RecipeName = rName;
+            Id = id;
+            Name = name;
         }
     }
 }
