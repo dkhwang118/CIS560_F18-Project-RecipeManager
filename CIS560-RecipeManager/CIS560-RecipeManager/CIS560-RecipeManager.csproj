@@ -73,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="ShoppingList\ShoppingList.cs" />
     <Compile Include="Recipe\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
@@ -80,7 +81,6 @@
     <Compile Include="Recipe\uiAddRecipeForm.Designer.cs">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Repository\IRecipeRepository.cs" />
     <Compile Include="Recipe\Recipe.cs" />
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>

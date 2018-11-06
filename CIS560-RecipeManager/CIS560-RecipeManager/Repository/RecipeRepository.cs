@@ -6,7 +6,7 @@ using System.Transactions;
 
 namespace CIS560_RecipeManager
 {
-    public class RecipeRepository : IRecipeRepository
+    public class RecipeRepository
     {
         string connectionString = Properties.Settings.Default.RecipeDatabaseConnectionString;
 

@@ -8,6 +8,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
+        private IQuery QueryRepository;
+
+        public ShoppingListController(IQuery query)
+        {
+            QueryRepository = query;
+        }
+
         public void LaunchShoppingListForm()
         {
             //not implemented yet
