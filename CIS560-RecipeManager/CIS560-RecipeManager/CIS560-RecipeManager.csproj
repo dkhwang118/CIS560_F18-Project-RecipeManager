@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HomeController.cs" />
     <Compile Include="PantryManager\Ingredient.cs" />
     <Compile Include="Repository\IQuery.cs" />
     <Compile Include="RecipeManager\RecipeCategory.cs" />

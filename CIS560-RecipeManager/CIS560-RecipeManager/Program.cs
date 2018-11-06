@@ -16,15 +16,7 @@ namespace CIS560_RecipeManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-
-            // run uiHome
-            Application.Run(new uiHome());
-
-
-
-
-
+            new HomeController().LaunchHomeForm();
         }
     }
 }
