@@ -29,21 +29,56 @@
         private void InitializeComponent()
         {
             this.uxTextBox_dboFileLocation = new System.Windows.Forms.TextBox();
+            this.manageRecipesButton = new System.Windows.Forms.Button();
+            this.managePantryButton = new System.Windows.Forms.Button();
+            this.manageShoppingListButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uxTextBox_dboFileLocation
             // 
-            this.uxTextBox_dboFileLocation.Location = new System.Drawing.Point(232, 879);
+            this.uxTextBox_dboFileLocation.Location = new System.Drawing.Point(116, 457);
+            this.uxTextBox_dboFileLocation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.uxTextBox_dboFileLocation.Name = "uxTextBox_dboFileLocation";
-            this.uxTextBox_dboFileLocation.Size = new System.Drawing.Size(856, 31);
+            this.uxTextBox_dboFileLocation.Size = new System.Drawing.Size(430, 20);
             this.uxTextBox_dboFileLocation.TabIndex = 0;
+            // 
+            // manageRecipesButton
+            // 
+            this.manageRecipesButton.Location = new System.Drawing.Point(40, 33);
+            this.manageRecipesButton.Name = "manageRecipesButton";
+            this.manageRecipesButton.Size = new System.Drawing.Size(290, 43);
+            this.manageRecipesButton.TabIndex = 1;
+            this.manageRecipesButton.Text = "Manage Recipes";
+            this.manageRecipesButton.UseVisualStyleBackColor = true;
+            // 
+            // managePantryButton
+            // 
+            this.managePantryButton.Location = new System.Drawing.Point(40, 105);
+            this.managePantryButton.Name = "managePantryButton";
+            this.managePantryButton.Size = new System.Drawing.Size(290, 43);
+            this.managePantryButton.TabIndex = 2;
+            this.managePantryButton.Text = "Manage Pantry";
+            this.managePantryButton.UseVisualStyleBackColor = true;
+            // 
+            // manageShoppingListButton
+            // 
+            this.manageShoppingListButton.Location = new System.Drawing.Point(40, 182);
+            this.manageShoppingListButton.Name = "manageShoppingListButton";
+            this.manageShoppingListButton.Size = new System.Drawing.Size(290, 43);
+            this.manageShoppingListButton.TabIndex = 3;
+            this.manageShoppingListButton.Text = "Manage Shopping Lists";
+            this.manageShoppingListButton.UseVisualStyleBackColor = true;
             // 
             // uiSplashWelcome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1357, 987);
+            this.ClientSize = new System.Drawing.Size(368, 263);
+            this.Controls.Add(this.manageShoppingListButton);
+            this.Controls.Add(this.managePantryButton);
+            this.Controls.Add(this.manageRecipesButton);
             this.Controls.Add(this.uxTextBox_dboFileLocation);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "uiSplashWelcome";
             this.Text = "Welcome to Your Recipe Management System";
             this.ResumeLayout(false);
@@ -54,6 +89,9 @@
         #endregion
 
         private System.Windows.Forms.TextBox uxTextBox_dboFileLocation;
+        private System.Windows.Forms.Button manageRecipesButton;
+        private System.Windows.Forms.Button managePantryButton;
+        private System.Windows.Forms.Button manageShoppingListButton;
     }
 }
 

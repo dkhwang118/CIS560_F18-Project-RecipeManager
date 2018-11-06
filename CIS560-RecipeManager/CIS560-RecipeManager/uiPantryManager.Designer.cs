@@ -1,6 +1,6 @@
 ﻿namespace CIS560_RecipeManager
 {
-    partial class uiPantryItems
+    partial class uiPantryManager
     {
         /// <summary>
         /// Required designer variable.

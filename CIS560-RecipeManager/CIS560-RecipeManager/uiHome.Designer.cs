@@ -43,7 +43,6 @@
             this.recipeDatabaseDataSetDEMOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipesTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSet_DEMOTableAdapters.RecipesTableAdapter();
             this.recipeDatabaseDataSetDEMOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.uxManagePantryItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDefaultDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource1)).BeginInit();
@@ -123,21 +122,11 @@
             this.recipeDatabaseDataSetDEMOBindingSource1.DataSource = this.recipeDatabaseDataSet_DEMO;
             this.recipeDatabaseDataSetDEMOBindingSource1.Position = 0;
             // 
-            // uxManagePantryItems
-            // 
-            this.uxManagePantryItems.Location = new System.Drawing.Point(899, 68);
-            this.uxManagePantryItems.Name = "uxManagePantryItems";
-            this.uxManagePantryItems.Size = new System.Drawing.Size(145, 40);
-            this.uxManagePantryItems.TabIndex = 3;
-            this.uxManagePantryItems.Text = "Manage Pantry";
-            this.uxManagePantryItems.UseVisualStyleBackColor = true;
-            // 
             // uiHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1056, 688);
-            this.Controls.Add(this.uxManagePantryItems);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.Controls.Add(this.dataGridView2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -175,6 +164,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn recipeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource recipesBindingSource1;
         private System.Windows.Forms.BindingSource recipeDatabaseDataSetDEMOBindingSource1;
-        private System.Windows.Forms.Button uxManagePantryItems;
     }
 }
