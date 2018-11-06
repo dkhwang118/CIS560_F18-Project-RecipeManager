@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
 {
-    public partial class uiPantryManager : Form
+    public partial class uiPantry : Form
     {
-        public uiPantryManager()
+        public uiPantry()
         {
             InitializeComponent();
         }

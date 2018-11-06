@@ -63,41 +63,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
-    <Compile Include="PantryManager\Ingredient.cs" />
+    <Compile Include="Pantry\Ingredient.cs" />
+    <Compile Include="Pantry\PantryController.cs" />
+    <Compile Include="Recipe\RecipeManagerController.cs" />
     <Compile Include="Repository\IQuery.cs" />
-    <Compile Include="RecipeManager\RecipeCategory.cs" />
+    <Compile Include="Recipe\RecipeCategory.cs" />
     <Compile Include="RecipeDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingListManager\ShoppingList.cs" />
-    <Compile Include="RecipeManager\uiAddRecipeForm.cs">
+    <Compile Include="ShoppingList\ShoppingList.cs" />
+    <Compile Include="Recipe\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipeManager\uiAddRecipeForm.Designer.cs">
+    <Compile Include="Recipe\uiAddRecipeForm.Designer.cs">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Repository\IRecipeRepository.cs" />
-    <Compile Include="RecipeManager\Recipe.cs" />
+    <Compile Include="Recipe\Recipe.cs" />
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repository\RecipeRepository.cs" />
-    <Compile Include="RecipeManager\uiRecipeManager.cs">
+    <Compile Include="Recipe\uiRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipeManager\uiHome.Designer.cs">
-      <DependentUpon>uiRecipeManager.cs</DependentUpon>
+    <Compile Include="Recipe\uiRecipe.Designer.cs">
+      <DependentUpon>uiRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="PantryManager\uiPantryManager.cs">
+    <Compile Include="Pantry\uiPantry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PantryManager\uiPantryManager.Designer.cs">
-      <DependentUpon>uiPantryManager.cs</DependentUpon>
+    <Compile Include="Pantry\uiPantry.Designer.cs">
+      <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingList\ShoppingListController.cs" />
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,7 +109,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
+    <EmbeddedResource Include="Recipe\uiAddRecipeForm.resx">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -118,11 +121,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PantryManager\uiPantryManager.resx">
-      <DependentUpon>uiPantryManager.cs</DependentUpon>
+    <EmbeddedResource Include="Pantry\uiPantry.resx">
+      <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiRecipeManager.resx">
-      <DependentUpon>uiRecipeManager.cs</DependentUpon>
+    <EmbeddedResource Include="Recipe\uiRecipe.resx">
+      <DependentUpon>uiRecipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
