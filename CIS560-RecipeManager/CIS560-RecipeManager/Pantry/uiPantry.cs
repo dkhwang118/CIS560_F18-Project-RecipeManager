@@ -18,11 +18,15 @@ namespace CIS560_RecipeManager
             InitializeComponent();
         }
 
+        /// <summary>
+        /// On Load, populates the DataGridView with dbo.Ingredient data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uiPantryItems_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'recipeDatabase_IngredientTable.Ingredient' table. You can move, or remove it, as needed.
             this.ingredientTableAdapter.Fill(this.recipeDatabase_IngredientTable.Ingredient);
-
         }
 
         /// <summary>

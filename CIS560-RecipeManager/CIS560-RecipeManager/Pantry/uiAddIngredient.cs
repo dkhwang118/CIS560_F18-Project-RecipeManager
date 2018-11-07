@@ -1,4 +1,12 @@
-﻿using System;
+﻿/*
+ * uiAddIngredient.cs
+ * Form to add a new ingredient to the database
+ * 
+ * Authors: Project Team 1 - CIS 560 KSU Fall 2018
+ * edited by: David K. Hwang
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,23 +31,22 @@ namespace CIS560_RecipeManager.Pantry
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Click event for the "Add Ingredient" button on the Add Ingredient Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
             try
             {
                 Ingredient temp = query.AddIngredient(uxTextBox_IngredientName.Text, uxTextBox_UnitMeasurement.Text, (Convert.ToInt32(uxTextBox_PantryQuantity.Text)));
-                
-
-
                 MessageBox.Show("Successfully added " + uxTextBox_IngredientName.Text + " to Ingredients!");
 
                 // update DataGridView in uiPantry to reflect changes
-                TransactionScope tran = new TransactionScope();
-
-                
-                uiPantry tempVar = (uiPantry)Application.OpenForms["uiPantry"];
-                tempVar.UpdateGridView();
-                query.CloseConnection();
+                uiPantry tempVar = (uiPantry)Application.OpenForms["uiPantry"]; // accesses the already open uiPantry Form
+                tempVar.UpdateGridView(); // updates the DataGridView in that Form
+                query.CloseConnection(); // then ends the transaction and closes the connection to the DB
                 this.Close();
             }
             catch (Exception ex)
@@ -48,6 +55,11 @@ namespace CIS560_RecipeManager.Pantry
             }
         }
 
+        /// <summary>
+        /// On Load, opens a new connection to the SQL server; Assumming this method of connection entry will be removed at a later date.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void uiAddIngredient_Load(object sender, EventArgs e)
         {
             try

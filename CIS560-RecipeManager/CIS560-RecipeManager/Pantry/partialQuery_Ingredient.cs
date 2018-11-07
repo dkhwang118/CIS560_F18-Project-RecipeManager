@@ -71,9 +71,7 @@ namespace CIS560_RecipeManager.Pantry
 
                 command.ExecuteNonQuery(); // no results coming back
 
-                
-
-                return new Ingredient((int)param.Value, ingredientName, unitOfMeasurement);
+                return new Ingredient((int)param.Value, ingredientName, unitOfMeasurement); // return an Ingredient object with the same data that has been written to the DB
             }
         }
 
