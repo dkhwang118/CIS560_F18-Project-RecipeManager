@@ -22,10 +22,13 @@ namespace CIS560_RecipeManager
 
         public int CategoryID { get; }
 
+        public IDictionary<Ingredient, int> MeasuredIngredients { get; }
+
         public Recipe(int id, string name)
         {
             Id = id;
             Name = name;
+            MeasuredIngredients = new Dictionary<Ingredient, int>();
         }
     }
 }
