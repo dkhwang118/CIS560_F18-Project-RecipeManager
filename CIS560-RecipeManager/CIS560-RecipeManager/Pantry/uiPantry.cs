@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CIS560_RecipeManager.Pantry;
 
 namespace CIS560_RecipeManager
 {
@@ -21,8 +22,6 @@ namespace CIS560_RecipeManager
         {
             // TODO: This line of code loads data into the 'recipeDatabase_IngredientTable.Ingredient' table. You can move, or remove it, as needed.
             this.ingredientTableAdapter.Fill(this.recipeDatabase_IngredientTable.Ingredient);
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.PantryItem' table. You can move, or remove it, as needed.
-            this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
 
         }
 
@@ -34,6 +33,14 @@ namespace CIS560_RecipeManager
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
             new uiAddIngredient().Show();
+        }
+
+        /// <summary>
+        /// Method to update the DataGridView table; Makes other forms able to call the update
+        /// </summary>
+        public void UpdateGridView()
+        {
+            this.ingredientTableAdapter.Fill(this.recipeDatabase_IngredientTable.Ingredient);
         }
     }
 }

@@ -43,6 +43,7 @@ namespace CIS560_RecipeManager.Pantry
         /// </summary>
         public void CloseConnection()
         {
+            Transaction.Complete();
             Connection.Close();
         }
 
@@ -70,7 +71,7 @@ namespace CIS560_RecipeManager.Pantry
 
                 command.ExecuteNonQuery(); // no results coming back
 
-                Transaction.Complete();
+                
 
                 return new Ingredient((int)param.Value, ingredientName, unitOfMeasurement);
             }

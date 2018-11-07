@@ -12,7 +12,7 @@ namespace CIS560_RecipeManager.Repository
             PopulateRecipes();
         }
 
-        public void AddIngredient(Ingredient ingredient)
+        public Ingredient AddIngredient(string ingredientName, string unitOfMeasurement, int initialUnitAmount)
         {
             throw new NotImplementedException();
         }
