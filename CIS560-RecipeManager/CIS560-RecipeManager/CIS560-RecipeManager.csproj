@@ -65,6 +65,7 @@
     <Compile Include="HomeController.cs" />
     <Compile Include="Pantry\Ingredient.cs" />
     <Compile Include="Pantry\PantryController.cs" />
+    <Compile Include="Pantry\partialQuery_Ingredient.cs" />
     <Compile Include="Recipe\RecipeController.cs" />
     <Compile Include="Repository\IQuery.cs" />
     <Compile Include="Recipe\RecipeCategory.cs" />

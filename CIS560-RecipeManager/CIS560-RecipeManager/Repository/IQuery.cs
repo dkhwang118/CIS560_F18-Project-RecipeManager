@@ -8,7 +8,7 @@ namespace CIS560_RecipeManager
 
         void DeleteRecipe(Recipe recipe);
 
-        void AddIngredient(Ingredient ingredient);
+        Ingredient AddIngredient(string ingredientName, string unitOfMeasurement, int unitCount);
 
         IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
