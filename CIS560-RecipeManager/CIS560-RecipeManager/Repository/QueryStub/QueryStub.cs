@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CIS560_RecipeManager.Repository
 {
@@ -13,47 +14,47 @@ namespace CIS560_RecipeManager.Repository
 
         public void AddIngredient(Ingredient ingredient)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void AddRecipe(Recipe recipe)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void AddRecipeCategory(RecipeCategory category)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void CookRecipe(Recipe recipe)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void DeleteRecipeCategory(RecipeCategory category)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public IReadOnlyCollection<Recipe> GetAvailableRecipes()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void PopulateRecipes()

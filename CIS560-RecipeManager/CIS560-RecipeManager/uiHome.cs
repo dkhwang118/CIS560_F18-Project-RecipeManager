@@ -22,17 +22,17 @@ namespace CIS560_RecipeManager
             InitializeComponent();
         }
 
-        private void manageRecipesButton_Click(object sender, System.EventArgs e)
+        private void manageRecipesButton_Click(object sender, EventArgs e)
         {
             launchRecipeManager();
         }
 
-        private void managePantryButton_Click(object sender, System.EventArgs e)
+        private void managePantryButton_Click(object sender, EventArgs e)
         {
             launchPantryManager();
         }
 
-        private void manageShoppingListButton_Click(object sender, System.EventArgs e)
+        private void manageShoppingListButton_Click(object sender, EventArgs e)
         {
             launchShoppingListManager();
         }
