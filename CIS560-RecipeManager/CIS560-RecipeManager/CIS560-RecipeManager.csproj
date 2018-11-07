@@ -62,51 +62,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ingredient.cs" />
-    <Compile Include="IQuery.cs" />
-    <Compile Include="RecipeCategory.cs" />
+    <Compile Include="HomeController.cs" />
+    <Compile Include="Pantry\Ingredient.cs" />
+    <Compile Include="Pantry\PantryController.cs" />
+    <Compile Include="Recipe\RecipeController.cs" />
+    <Compile Include="Repository\IQuery.cs" />
+    <Compile Include="Recipe\RecipeCategory.cs" />
     <Compile Include="RecipeDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingList.cs" />
-    <Compile Include="uiAddNewRecipe_BASIC.cs">
+    <Compile Include="Repository\QueryStub\QueryStub.cs" />
+    <Compile Include="ShoppingList\ShoppingList.cs" />
+    <Compile Include="Recipe\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="uiAddNewRecipe_BASIC.Designer.cs">
-      <DependentUpon>uiAddNewRecipe_BASIC.cs</DependentUpon>
+    <Compile Include="Recipe\uiAddRecipeForm.Designer.cs">
+      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IRecipeRepository.cs" />
-    <Compile Include="Recipe.cs" />
+    <Compile Include="Recipe\Recipe.cs" />
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecipeRepository.cs" />
+    <Compile Include="Repository\RecipeRepository.cs" />
+    <Compile Include="Recipe\uiRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipe\uiRecipe.Designer.cs">
+      <DependentUpon>uiRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pantry\uiPantry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantry\uiPantry.Designer.cs">
+      <DependentUpon>uiPantry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingList\ShoppingListController.cs" />
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="uiHome.Designer.cs">
       <DependentUpon>uiHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="uiPantryItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="uiPantryItems.Designer.cs">
-      <DependentUpon>uiPantryItems.cs</DependentUpon>
-    </Compile>
-    <Compile Include="uiSplashWelcome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="uiSplashWelcome.Designer.cs">
-      <DependentUpon>uiSplashWelcome.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="uiAddNewRecipe_BASIC.resx">
-      <DependentUpon>uiAddNewRecipe_BASIC.cs</DependentUpon>
+    <EmbeddedResource Include="Recipe\uiAddRecipeForm.resx">
+      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,14 +121,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Pantry\uiPantry.resx">
+      <DependentUpon>uiPantry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recipe\uiRecipe.resx">
+      <DependentUpon>uiRecipe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uiPantryItems.resx">
-      <DependentUpon>uiPantryItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="uiSplashWelcome.resx">
-      <DependentUpon>uiSplashWelcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

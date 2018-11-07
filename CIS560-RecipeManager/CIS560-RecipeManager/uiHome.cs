@@ -1,42 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using static CIS560_RecipeManager.HomeController;
 
 namespace CIS560_RecipeManager
 {
     public partial class uiHome : Form
     {
-        public uiHome()
+        private Action launchRecipeManager;
+        private Action launchPantryManager;
+        private Action launchShoppingListManager;
+
+        public uiHome(
+            Action rm,
+            Action pm,
+            Action sl)
         {
+            launchRecipeManager = rm;
+            launchPantryManager = pm;
+            launchShoppingListManager = sl;
             InitializeComponent();
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void manageRecipesButton_Click(object sender, EventArgs e)
         {
-
+            launchRecipeManager();
         }
 
-        /*
-         * Click Event for "Add Recipe" button
-         */ 
-        private void uxButton_AddRecipe_Click(object sender, EventArgs e)
+        private void managePantryButton_Click(object sender, EventArgs e)
         {
-            (new uiAddNewRecipe_BASIC()).ShowDialog();
-            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
+            launchPantryManager();
         }
 
-        private void uiHomeUI_Load(object sender, EventArgs e)
+        private void manageShoppingListButton_Click(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet_DEMO.Recipes' table. You can move, or remove it, as needed.
-            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
-            (new uiSplashWelcome()).ShowDialog();
-
+            launchShoppingListManager();
         }
     }
 }
