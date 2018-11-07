@@ -1,5 +1,6 @@
-﻿CREATE TABLE [dbo].[RecipeCategory]
-(
-	[CategoryID] INT NOT NULL PRIMARY KEY, 
-    [CategoryName] NVARCHAR(64) NOT NULL
-)
+﻿CREATE TABLE [dbo].[RecipeCategory] (
+    [CategoryId]   INT IDENTITY(1,1)          NOT NULL,
+    [CategoryName] NVARCHAR (64) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CategoryId] ASC)
+);
+
