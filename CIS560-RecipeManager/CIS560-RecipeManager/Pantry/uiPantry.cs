@@ -19,9 +19,21 @@ namespace CIS560_RecipeManager
 
         private void uiPantryItems_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'recipeDatabase_IngredientTable.Ingredient' table. You can move, or remove it, as needed.
+            this.ingredientTableAdapter.Fill(this.recipeDatabase_IngredientTable.Ingredient);
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.PantryItem' table. You can move, or remove it, as needed.
             this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
 
+        }
+
+        /// <summary>
+        /// Click event for "Add Ingredient" uxButton_AddIngredient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void uxButton_AddIngredient_Click(object sender, EventArgs e)
+        {
+            new uiAddIngredient().Show();
         }
     }
 }

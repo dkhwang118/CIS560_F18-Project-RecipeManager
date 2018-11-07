@@ -66,6 +66,17 @@
     <Compile Include="Pantry\Ingredient.cs" />
     <Compile Include="Pantry\PantryController.cs" />
     <Compile Include="Pantry\partialQuery_Ingredient.cs" />
+    <Compile Include="Pantry\uiAddIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantry\uiAddIngredient.Designer.cs">
+      <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeDatabase_IngredientTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RecipeDatabase_IngredientTable.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Recipe\RecipeController.cs" />
     <Compile Include="Repository\IQuery.cs" />
     <Compile Include="Recipe\RecipeCategory.cs" />
@@ -110,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pantry\uiAddIngredient.resx">
+      <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Recipe\uiAddRecipeForm.resx">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,6 +175,17 @@
     </None>
     <None Include="RecipeDatabaseDataSet_DEMO.xss">
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
+    </None>
+    <None Include="RecipeDatabase_IngredientTable.xsc">
+      <DependentUpon>RecipeDatabase_IngredientTable.xsd</DependentUpon>
+    </None>
+    <None Include="RecipeDatabase_IngredientTable.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RecipeDatabase_IngredientTable.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RecipeDatabase_IngredientTable.xss">
+      <DependentUpon>RecipeDatabase_IngredientTable.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
