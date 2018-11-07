@@ -4,6 +4,7 @@ namespace CIS560_RecipeManager.PantryManager
     public class PantryController
     {
         private IQuery QueryRepository;
+        private uiPantry pantry;
 
         public PantryController(IQuery query)
         {
@@ -12,7 +13,8 @@ namespace CIS560_RecipeManager.PantryManager
 
         public void LaunchPantryForm()
         {
-            new uiPantry().Show();
+            (pantry = new uiPantry(QueryRepository)).Show();
+            
         }
     }
 }

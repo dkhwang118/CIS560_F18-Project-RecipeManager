@@ -23,12 +23,14 @@ namespace CIS560_RecipeManager.Pantry
 {
     public partial class uiAddIngredient : Form
     {
-        public Query query;
+        private IQuery _queryRepository;
+        private Query query; // temp query to check to see if data is actually being written/read
 
 
-        public uiAddIngredient()
+        public uiAddIngredient(IQuery queryArg)
         {
             InitializeComponent();
+            _queryRepository = queryArg;
         }
 
         /// <summary>

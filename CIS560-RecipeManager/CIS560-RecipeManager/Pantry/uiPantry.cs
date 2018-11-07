@@ -13,9 +13,13 @@ namespace CIS560_RecipeManager
 {
     public partial class uiPantry : Form
     {
-        public uiPantry()
+
+        private IQuery QueryRepository;
+
+        public uiPantry(IQuery query)
         {
             InitializeComponent();
+            QueryRepository = query;
         }
 
         /// <summary>
@@ -36,7 +40,7 @@ namespace CIS560_RecipeManager
         /// <param name="e"></param>
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
-            new uiAddIngredient().Show();
+            new uiAddIngredient(QueryRepository).Show();
         }
 
         /// <summary>
