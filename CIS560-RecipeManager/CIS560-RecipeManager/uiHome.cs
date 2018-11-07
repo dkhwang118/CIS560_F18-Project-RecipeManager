@@ -1,18 +1,20 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+
 using static CIS560_RecipeManager.HomeController;
 
 namespace CIS560_RecipeManager
 {
     public partial class uiHome : Form
     {
-        private LaunchRecipeManager launchRecipeManager;
-        private LaunchPantryManager launchPantryManager;
-        private LaunchShoppingListManager launchShoppingListManager;
+        private Action launchRecipeManager;
+        private Action launchPantryManager;
+        private Action launchShoppingListManager;
 
         public uiHome(
-            LaunchRecipeManager rm,
-            LaunchPantryManager pm,
-            LaunchShoppingListManager sl)
+            Action rm,
+            Action pm,
+            Action sl)
         {
             launchRecipeManager = rm;
             launchPantryManager = pm;

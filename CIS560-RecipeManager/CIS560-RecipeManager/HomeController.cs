@@ -2,23 +2,22 @@
 using CIS560_RecipeManager.RecipeManager;
 using CIS560_RecipeManager.Repository;
 using CIS560_RecipeManager.ShoppingListManager;
+
+using System;
 using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
 {
     public class HomeController
     {
-        public delegate void LaunchRecipeManager();
-        public delegate void LaunchPantryManager();
-        public delegate void LaunchShoppingListManager();
-
         private RecipeController recipeController;
         private PantryController pantryController;
         private ShoppingListController shoppingListController;
 
-        private LaunchRecipeManager launchRecipeManager;
-        private LaunchPantryManager launchPantryManager;
-        private LaunchShoppingListManager launchShoppingListManager;
+        // Action is the type of methods with no inputs and no outputs.
+        private Action launchRecipeManager;
+        private Action launchPantryManager;
+        private Action launchShoppingListManager;
 
         private IQuery queryStub;
 
