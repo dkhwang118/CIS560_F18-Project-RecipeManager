@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="HomeController.cs" />
     <Compile Include="Pantry\Ingredient.cs" />
+    <Compile Include="Pantry\Pantry.cs" />
     <Compile Include="Pantry\PantryController.cs" />
     <Compile Include="Recipe\RecipeController.cs" />
     <Compile Include="Repository\IQuery.cs" />
@@ -81,7 +82,9 @@
     <Compile Include="Recipe\uiAddRecipeForm.Designer.cs">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recipe\Recipe.cs" />
+    <Compile Include="Recipe\Recipe.cs">
+      <DependentUpon>Pantry.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
