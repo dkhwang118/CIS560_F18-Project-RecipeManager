@@ -96,7 +96,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repository\RecipeRepository.cs" />
     <Compile Include="RecipeManager\uiRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
