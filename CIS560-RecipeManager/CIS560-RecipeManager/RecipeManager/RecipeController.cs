@@ -23,7 +23,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchRecipeForm()
         {
-            new uiRecipe(LaunchAddRecipeForm).Show();
+            new uiRecipe(LaunchAddRecipeForm, _recipeInventory).Show();
         }
 
         public void LaunchAddRecipeForm()
