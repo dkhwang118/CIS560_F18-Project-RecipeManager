@@ -25,7 +25,7 @@ namespace CIS560_RecipeManager
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             //Still need to implement UI functionality to allow the user to add ingredients to a Recipe
-            ICollection<Ingredient> ingredients = new List<Ingredient>();
+            IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
             _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
             MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
             
