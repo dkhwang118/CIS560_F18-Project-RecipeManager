@@ -14,7 +14,6 @@ namespace CIS560_RecipeManager
         private PantryController _pantryController;
         private ShoppingListController _shoppingListController;
 
-        // Action is the type of methods with no inputs and no outputs.
         private Action _launchRecipeManager;
         private Action _launchPantryManager;
         private Action _launchShoppingListManager;
