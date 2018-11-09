@@ -66,9 +66,10 @@
     <Compile Include="Pantry\Ingredient.cs" />
     <Compile Include="Pantry\Pantry.cs" />
     <Compile Include="Pantry\PantryController.cs" />
-    <Compile Include="Recipe\RecipeController.cs" />
+    <Compile Include="RecipeManager\RecipeController.cs" />
+    <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="Repository\IQuery.cs" />
-    <Compile Include="Recipe\RecipeCategory.cs" />
+    <Compile Include="RecipeManager\RecipeCategory.cs" />
     <Compile Include="RecipeDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,10 +77,10 @@
     </Compile>
     <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="ShoppingList\ShoppingList.cs" />
-    <Compile Include="Recipe\uiAddRecipeForm.cs">
+    <Compile Include="RecipeManager\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recipe\uiAddRecipeForm.Designer.cs">
+    <Compile Include="RecipeManager\uiAddRecipeForm.Designer.cs">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Recipe\Recipe.cs">
@@ -91,10 +92,10 @@
       <DependentUpon>RecipeDatabaseDataSet_DEMO.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repository\RecipeRepository.cs" />
-    <Compile Include="Recipe\uiRecipe.cs">
+    <Compile Include="RecipeManager\uiRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recipe\uiRecipe.Designer.cs">
+    <Compile Include="RecipeManager\uiRecipe.Designer.cs">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantry\uiPantry.cs">
@@ -112,7 +113,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Recipe\uiAddRecipeForm.resx">
+    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -127,7 +128,7 @@
     <EmbeddedResource Include="Pantry\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recipe\uiRecipe.resx">
+    <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">

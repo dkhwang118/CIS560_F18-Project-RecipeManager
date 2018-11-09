@@ -19,13 +19,16 @@ namespace CIS560_RecipeManager
         private Action launchPantryManager;
         private Action launchShoppingListManager;
 
+        private RecipeInventory recipeInventory;
+
         private IQuery queryStub;
 
         public HomeController()
         {
             queryStub = new QueryStub();
+            recipeInventory = new RecipeInventory();
 
-            recipeController = new RecipeController(queryStub);
+            recipeController = new RecipeController(queryStub, recipeInventory);
             pantryController = new PantryController(queryStub);
             shoppingListController = new ShoppingListController(queryStub);
 
