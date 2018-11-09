@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIS560_RecipeManager
+namespace CIS560_RecipeManager.RecipeManager
 {
     public class Recipe
     {

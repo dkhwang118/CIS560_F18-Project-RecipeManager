@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS560_RecipeManager.RecipeManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

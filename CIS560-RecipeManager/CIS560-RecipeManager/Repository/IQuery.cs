@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CIS560_RecipeManager.RecipeManager;
+using System.Collections.Generic;
 
 namespace CIS560_RecipeManager
 {
