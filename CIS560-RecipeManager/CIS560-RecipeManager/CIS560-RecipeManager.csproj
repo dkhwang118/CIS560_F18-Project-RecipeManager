@@ -69,6 +69,7 @@
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
+    <Compile Include="Repository\IngredientQuery.cs" />
     <Compile Include="Repository\IQuery.cs" />
     <Compile Include="RecipeManager\RecipeCategory.cs" />
     <Compile Include="RecipeDatabaseDataSet.Designer.cs">
