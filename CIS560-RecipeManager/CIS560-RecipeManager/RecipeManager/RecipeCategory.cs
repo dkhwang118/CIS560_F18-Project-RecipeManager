@@ -1,4 +1,4 @@
-﻿namespace CIS560_RecipeManager
+﻿namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeCategory
     {
