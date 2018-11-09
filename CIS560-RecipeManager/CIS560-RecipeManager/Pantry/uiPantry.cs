@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CIS560_RecipeManager.PantryManager.PantryController;
 
 namespace CIS560_RecipeManager
 {
     public partial class uiPantry : Form
     {
-        public uiPantry()
+        private CreateIngredientDelegate _createIngredientDelegate;
+
+        public uiPantry(CreateIngredientDelegate createIngredientDelegate)
         {
+            _createIngredientDelegate = createIngredientDelegate;
             InitializeComponent();
         }
 

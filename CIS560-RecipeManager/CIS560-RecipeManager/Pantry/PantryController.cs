@@ -3,6 +3,8 @@ namespace CIS560_RecipeManager.PantryManager
 {
     public class PantryController
     {
+        public delegate void CreateIngredientDelegate(string name, string unitOfMeasure, int quantity);
+
         private IQuery _queryRepository;
         private Pantry _pantry;
 
@@ -14,7 +16,13 @@ namespace CIS560_RecipeManager.PantryManager
 
         public void LaunchPantryForm()
         {
-            new uiPantry().Show();
+            new uiPantry(CreateIngredient).Show();
+        }
+
+        public void CreateIngredient(string name, string unitOfMeasure, int quantity)
+        {
+            Ingredient ingredient = _queryRepository.CreateIngredient(name, unitOfMeasure, quantity);
+            _pantry.AddToPantry(ingredient, quantity);
         }
     }
 }
