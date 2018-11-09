@@ -21,6 +21,8 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public string Description { get; }
 
+        public int CategoryName { get; }
+
         public int CategoryID { get; }
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; }
