@@ -10,40 +10,41 @@ namespace CIS560_RecipeManager
 {
     public class HomeController
     {
-        private RecipeController recipeController;
-        private PantryController pantryController;
-        private ShoppingListController shoppingListController;
+        private RecipeController _recipeController;
+        private PantryController _pantryController;
+        private ShoppingListController _shoppingListController;
 
         // Action is the type of methods with no inputs and no outputs.
-        private Action launchRecipeManager;
-        private Action launchPantryManager;
-        private Action launchShoppingListManager;
+        private Action _launchRecipeManager;
+        private Action _launchPantryManager;
+        private Action _launchShoppingListManager;
 
-        private RecipeInventory recipeInventory;
+        private RecipeInventory _recipeInventory;
+        private Pantry _pantry;
 
-        private IQuery queryStub;
+        private IQuery _queryStub;
 
         public HomeController()
         {
-            queryStub = new QueryStub();
-            recipeInventory = new RecipeInventory();
+            _queryStub = new QueryStub();
+            _recipeInventory = new RecipeInventory();
 
-            recipeController = new RecipeController(queryStub, recipeInventory);
-            pantryController = new PantryController(queryStub);
-            shoppingListController = new ShoppingListController(queryStub);
+            _recipeController = new RecipeController(_queryStub, _recipeInventory, _pantry);
+            _pantryController = new PantryController(_queryStub, _pantry);
+            _shoppingListController = new ShoppingListController(_queryStub, _pantry, _recipeInventory);
 
-            launchRecipeManager = recipeController.LaunchRecipeForm;
-            launchPantryManager = pantryController.LaunchPantryForm;
-            launchShoppingListManager = shoppingListController.LaunchShoppingListForm;
+            _launchRecipeManager = _recipeController.LaunchRecipeForm;
+            _launchPantryManager = _pantryController.LaunchPantryForm;
+            _launchShoppingListManager = _shoppingListController.LaunchShoppingListForm;
         }
 
 
         public void LaunchHomeForm()
         {
             Application.Run(new uiHome(
-                launchRecipeManager,
-                launchPantryManager,
-                launchShoppingListManager));
+                _launchRecipeManager,
+                _launchPantryManager,
+                _launchShoppingListManager));
         }
     }
 }
