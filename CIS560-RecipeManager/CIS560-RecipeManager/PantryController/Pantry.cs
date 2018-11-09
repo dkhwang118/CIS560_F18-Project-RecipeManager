@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace CIS560_RecipeManager
 {
-    public class Pantry
+    public class MyPantry
     {
         public Dictionary<Ingredient, int> PantryContents { get; } //a dictionary containing key value pairs of what is in the pantry
         //Ingredient for the ingredients
         //the integer represents the quantity of the ingredient
 
-        public Pantry()
+        public MyPantry()
         {
             PantryContents = new Dictionary<Ingredient, int>();
         }

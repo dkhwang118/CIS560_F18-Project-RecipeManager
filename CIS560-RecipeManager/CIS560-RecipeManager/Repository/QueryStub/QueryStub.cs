@@ -15,7 +15,7 @@ namespace CIS560_RecipeManager.Repository
 
         public Ingredient CreateIngredient(string name, string unit, int quantity)
         {
-            throw new NotImplementedException();
+            return new Ingredient(0, name, unit);
         }
 
         public void AddRecipeCategory(RecipeCategory category)

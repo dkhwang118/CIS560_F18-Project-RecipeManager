@@ -39,6 +39,7 @@
             this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.pantryItemTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter();
+            this.addIngredientButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxPantryItemsDataGridView)).BeginInit();
@@ -80,15 +81,14 @@
             this.itemUnitMeasurementDataGridViewTextBoxColumn,
             this.quantityInPantryDataGridViewTextBoxColumn});
             this.uxPantryItemsDataGridView.DataSource = this.pantryItemBindingSource;
-            this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(364, 430);
-            this.uxPantryItemsDataGridView.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(43, 12);
             this.uxPantryItemsDataGridView.MultiSelect = false;
             this.uxPantryItemsDataGridView.Name = "uxPantryItemsDataGridView";
             this.uxPantryItemsDataGridView.ReadOnly = true;
             this.uxPantryItemsDataGridView.RowHeadersVisible = false;
             this.uxPantryItemsDataGridView.RowHeadersWidth = 120;
             this.uxPantryItemsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(1659, 1244);
+            this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(621, 178);
             this.uxPantryItemsDataGridView.TabIndex = 0;
             // 
             // pantryItemNameDataGridViewTextBoxColumn
@@ -109,7 +109,7 @@
             this.itemUnitMeasurementDataGridViewTextBoxColumn.Name = "itemUnitMeasurementDataGridViewTextBoxColumn";
             this.itemUnitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
             this.itemUnitMeasurementDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.Width = 500;
+            this.itemUnitMeasurementDataGridViewTextBoxColumn.Width = 168;
             // 
             // quantityInPantryDataGridViewTextBoxColumn
             // 
@@ -119,7 +119,7 @@
             this.quantityInPantryDataGridViewTextBoxColumn.Name = "quantityInPantryDataGridViewTextBoxColumn";
             this.quantityInPantryDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityInPantryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.quantityInPantryDataGridViewTextBoxColumn.Width = 447;
+            this.quantityInPantryDataGridViewTextBoxColumn.Width = 150;
             // 
             // pantryItemBindingSource
             // 
@@ -135,14 +135,24 @@
             // 
             this.pantryItemTableAdapter.ClearBeforeFill = true;
             // 
+            // addIngredientButton
+            // 
+            this.addIngredientButton.Location = new System.Drawing.Point(489, 218);
+            this.addIngredientButton.Name = "addIngredientButton";
+            this.addIngredientButton.Size = new System.Drawing.Size(174, 44);
+            this.addIngredientButton.TabIndex = 1;
+            this.addIngredientButton.Text = "AddIngredient";
+            this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
+            // 
             // uiPantry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2571, 2093);
+            this.ClientSize = new System.Drawing.Size(731, 274);
+            this.Controls.Add(this.addIngredientButton);
             this.Controls.Add(this.uxPantryItemsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "uiPantry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pantry Items";
@@ -167,5 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pantryItemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemUnitMeasurementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityInPantryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button addIngredientButton;
     }
 }
