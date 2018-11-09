@@ -141,7 +141,7 @@
             this.addIngredientButton.Name = "addIngredientButton";
             this.addIngredientButton.Size = new System.Drawing.Size(174, 44);
             this.addIngredientButton.TabIndex = 1;
-            this.addIngredientButton.Text = "AddIngredient";
+            this.addIngredientButton.Text = "Add Ingredient";
             this.addIngredientButton.UseVisualStyleBackColor = true;
             this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 

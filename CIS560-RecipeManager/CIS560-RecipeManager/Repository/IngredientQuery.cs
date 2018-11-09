@@ -43,7 +43,7 @@ namespace CIS560_RecipeManager.Repository
             }
         }
 
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, ICollection<Ingredient> ingredients)
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
         {
             throw new NotImplementedException();
         }

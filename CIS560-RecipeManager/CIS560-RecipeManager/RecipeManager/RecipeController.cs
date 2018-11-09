@@ -9,7 +9,7 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
-        public delegate void AddRecipeDelegate(string name, string description, ICollection<Ingredient> ingredients);
+        public delegate void AddRecipeDelegate(string name, string description, IDictionary<Ingredient, int> measuredIngredients);
 
         public RecipeController(
             IQuery query, 
@@ -45,9 +45,9 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
-        public void AddRecipe(string recipeName, string recipeDescription, ICollection<Ingredient> ingredients)
+        public void AddRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
         {
-            Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, ingredients);
+            Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, measuredIngredients);
             _recipeInventory.AddRecipe(recipe);
         }
     }
