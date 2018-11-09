@@ -31,25 +31,5 @@ namespace CIS560_RecipeManager.RecipeManager
             Name = name;
             MeasuredIngredients = new Dictionary<Ingredient, int>();
         }
-
-        bool CookRecipe()
-        {
-            Pantry p = new Pantry(); //test pantry
-            Ingredient i = new Ingredient(123, "Flour", "cups");
-            foreach (KeyValuePair<Ingredient, int> item in MeasuredIngredients)
-            {
-                  //if the item is in the pantry subtract the quantity
-                  if (p.PantryContents.ContainsKey(item.Key))
-                  {
-                        p.PantryContents[item.Key] -= item.Value;
-                  }
-                  //else item not in pantry - cannot cook recipe
-                  else
-                  {
-                       //
-                  }
-            }
-            return true;
-        }
     }
 }
