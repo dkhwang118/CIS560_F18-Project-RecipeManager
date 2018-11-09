@@ -6,8 +6,6 @@
 
         public string Name { get; }
 
-        public int PantryQuantity { get; set; }
-
         public string Unit { get; }
 
         public Ingredient(int id, string name, string unit)
