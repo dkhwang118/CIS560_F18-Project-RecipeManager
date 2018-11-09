@@ -16,5 +16,10 @@ namespace CIS560_RecipeManager
             Name = name;
             ShoppingListItems = new Dictionary<Ingredient, int>();
         }
+
+        public void AddShoppingListItem(Ingredient i, int quantity)
+        {
+            ShoppingListItems.Add(i, quantity);
+        }
     }
 }
