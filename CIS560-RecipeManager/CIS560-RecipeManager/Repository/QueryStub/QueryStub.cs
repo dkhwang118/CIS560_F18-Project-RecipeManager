@@ -35,27 +35,49 @@ namespace CIS560_RecipeManager.Repository
 
         public void DeleteRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            //delete recipe
         }
 
         public void DeleteRecipeCategory(RecipeCategory category)
         {
-            throw new NotImplementedException();
+            //delete recipe category
         }
 
         public IReadOnlyCollection<Recipe> GetAvailableRecipes()
         {
-            throw new NotImplementedException();
+            List<Recipe> list = new List<Recipe>();
+
+            Dictionary<Ingredient, int> d1 = new Dictionary<Ingredient, int>();
+            d1.Add(new Ingredient(1, "Potato", "Quantity"), 5);
+            Recipe r1 = new Recipe(0, "Baked Potato", d1);
+            list.Add(r1);
+
+            Dictionary<Ingredient, int> d2 = new Dictionary<Ingredient, int>();
+            d2.Add(new Ingredient(2, "Macaroni", "Box"), 1);
+            d2.Add(new Ingredient(3, "Cheese", "Ounce"), 2);
+            Recipe r2 = new Recipe(0, "Mac & Cheese", d1);
+            list.Add(r2);
+
+            return list;
         }
 
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
         {
-            throw new NotImplementedException();
+            ShoppingList s = new ShoppingList(0, "ShoppingList1");
+            foreach (Recipe r in recipes)
+            {
+                foreach (KeyValuePair<Ingredient,int> kvp in r.MeasuredIngredients)
+                {
+                    s.AddShoppingListItem(kvp.Key, kvp.Value);
+                    //Todo : subtract the quantity from the pantry
+                }
+            }
+            return s;
         }
 
         public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
         {
-            throw new NotImplementedException();
+            //update Ingredient quantity
         }
 
         private void PopulateRecipes()
