@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS560_RecipeManager.RecipeManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,14 @@ namespace CIS560_RecipeManager
     public partial class uiRecipe : Form
     {
         private Action _launchAddRecipeForm;
+        private RecipeInventory _recipeInventory;
 
-        public uiRecipe(Action launchAddRecipeForm)
+        public uiRecipe(Action launchAddRecipeForm, RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
+            _recipeInventory = recipeInventory;
             InitializeComponent();
+            RecipeDataGridView.DataSource = recipeInventory.RecipeCollection;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
