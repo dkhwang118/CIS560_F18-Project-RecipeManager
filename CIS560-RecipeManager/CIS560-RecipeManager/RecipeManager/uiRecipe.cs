@@ -21,7 +21,8 @@ namespace CIS560_RecipeManager
             _launchAddRecipeForm = launchAddRecipeForm;
             _recipeInventory = recipeInventory;
             InitializeComponent();
-            RecipeDataGridView.DataSource = recipeInventory.RecipeCollection;
+            RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
+            RecipeDataGridView.DataSource = RecipeBindingSource;
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
