@@ -9,6 +9,7 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private Pantry _pantry;
+        public delegate void AddRecipeDelegate(string name, string description, ICollection<Ingredient> ingredients);
 
         public RecipeController(
             IQuery query, 
@@ -22,7 +23,12 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchRecipeForm()
         {
-            new uiRecipe().Show();
+            new uiRecipe(LaunchAddRecipeForm).Show();
+        }
+
+        public void LaunchAddRecipeForm()
+        {
+            new uiAddRecipeForm(AddRecipe).Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -37,6 +43,12 @@ namespace CIS560_RecipeManager.RecipeManager
                 //update the Ingredient quantity in the database
                 _queryRepository.UpdateIngredientQuantity(updatedQuantity,item.Key);
             }
+        }
+
+        public void AddRecipe(string recipeName, string recipeDescription, ICollection<Ingredient> ingredients)
+        {
+            Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, ingredients);
+            _recipeInventory.AddRecipe(recipe);
         }
     }
 }

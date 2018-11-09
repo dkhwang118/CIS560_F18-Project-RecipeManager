@@ -8,21 +8,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static CIS560_RecipeManager.RecipeManager.RecipeController;
 
 namespace CIS560_RecipeManager
 {
     public partial class uiAddRecipeForm : Form
     {
-        public uiAddRecipeForm()
+        private AddRecipeDelegate _addRecipeDelegate;
+
+        public uiAddRecipeForm(AddRecipeDelegate addRecipeDelegate)
         {
+            _addRecipeDelegate = addRecipeDelegate;
             InitializeComponent();
         }
 
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
-            RecipeRepository rrTemp = new RecipeRepository();
-            Recipe temp = rrTemp.CreateRecipe(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text);
-            MessageBox.Show("Recipe " + temp.Name + " was created!");
+            //Still need to implement UI functionality to allow the user to add ingredients to a Recipe
+            ICollection<Ingredient> ingredients = new List<Ingredient>();
+            _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
+            MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
             
         }
     }

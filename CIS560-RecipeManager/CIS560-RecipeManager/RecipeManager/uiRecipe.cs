@@ -12,8 +12,11 @@ namespace CIS560_RecipeManager
 {
     public partial class uiRecipe : Form
     {
-        public uiRecipe()
+        private Action _launchAddRecipeForm;
+
+        public uiRecipe(Action launchAddRecipeForm)
         {
+            _launchAddRecipeForm = launchAddRecipeForm;
             InitializeComponent();
         }
 
@@ -22,13 +25,9 @@ namespace CIS560_RecipeManager
 
         }
 
-        /*
-         * Click Event for "Add Recipe" button
-         */ 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
-            (new uiAddRecipeForm()).ShowDialog();
-            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet_DEMO.Recipes);
+            _launchAddRecipeForm();
         }
     }
 }
