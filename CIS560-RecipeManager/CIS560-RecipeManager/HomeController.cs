@@ -20,7 +20,7 @@ namespace CIS560_RecipeManager
         private Action _launchShoppingListManager;
 
         private RecipeInventory _recipeInventory;
-        private Pantry _pantry;
+        private MyPantry _pantry;
 
         private IQuery _queryStub;
 
@@ -28,6 +28,7 @@ namespace CIS560_RecipeManager
         {
             _queryStub = new QueryStub();
             _recipeInventory = new RecipeInventory();
+            _pantry = new MyPantry();
 
             _recipeController = new RecipeController(_queryStub, _recipeInventory, _pantry);
             _pantryController = new PantryController(_queryStub, _pantry);

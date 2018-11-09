@@ -13,19 +13,25 @@ namespace CIS560_RecipeManager
 {
     public partial class uiPantry : Form
     {
-        private CreateIngredientDelegate _createIngredientDelegate;
+        private Action _launchAddIngredientDelegate;
 
-        public uiPantry(CreateIngredientDelegate createIngredientDelegate)
+        public uiPantry(Action launchAddIngredientDelegate)
         {
-            _createIngredientDelegate = createIngredientDelegate;
+            _launchAddIngredientDelegate = launchAddIngredientDelegate;
             InitializeComponent();
         }
 
         private void uiPantryItems_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.PantryItem' table. You can move, or remove it, as needed.
-            this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
+            //this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
 
+        }
+
+        private void addIngredientButton_Click(object sender, EventArgs e)
+        {
+            _launchAddIngredientDelegate();
+            //todo: update Grid View
         }
     }
 }

@@ -63,9 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
-    <Compile Include="Pantry\Ingredient.cs" />
-    <Compile Include="Pantry\Pantry.cs" />
-    <Compile Include="Pantry\PantryController.cs" />
+    <Compile Include="PantryController\Ingredient.cs" />
+    <Compile Include="PantryController\Pantry.cs" />
+    <Compile Include="PantryController\PantryController.cs" />
+    <Compile Include="PantryController\uiAddIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantryController\uiAddIngredient.Designer.cs">
+      <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
@@ -97,10 +103,10 @@
     <Compile Include="RecipeManager\uiRecipe.Designer.cs">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantry\uiPantry.cs">
+    <Compile Include="PantryController\uiPantry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantry\uiPantry.Designer.cs">
+    <Compile Include="PantryController\uiPantry.Designer.cs">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
     <Compile Include="ShoppingList\ShoppingListController.cs" />
@@ -112,6 +118,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PantryController\uiAddIngredient.resx">
+      <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,7 +133,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Pantry\uiPantry.resx">
+    <EmbeddedResource Include="PantryController\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">

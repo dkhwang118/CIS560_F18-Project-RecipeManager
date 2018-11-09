@@ -10,12 +10,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
     public class ShoppingListController
     {
         private IQuery _queryRepository;
-        private Pantry _pantry;
+        private MyPantry _pantry;
         private RecipeInventory _recipeRepository;
         
         public ShoppingListController(
             IQuery query,
-            Pantry pantry,
+            MyPantry pantry,
             RecipeInventory recipeRepository)
         {
             _queryRepository = query;
