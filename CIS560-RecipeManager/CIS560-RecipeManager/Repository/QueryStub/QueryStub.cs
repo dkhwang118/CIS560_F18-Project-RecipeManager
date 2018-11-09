@@ -18,17 +18,17 @@ namespace CIS560_RecipeManager.Repository
             throw new NotImplementedException();
         }
 
-        public void AddRecipe(Recipe recipe)
-        {
-            throw new NotImplementedException();
-        }
-
         public void AddRecipeCategory(RecipeCategory category)
         {
             throw new NotImplementedException();
         }
 
         public void CookRecipe(Recipe recipe)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, ICollection<Ingredient> ingredients)
         {
             throw new NotImplementedException();
         }
