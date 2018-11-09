@@ -3,11 +3,13 @@ namespace CIS560_RecipeManager.PantryManager
 {
     public class PantryController
     {
-        private IQuery QueryRepository;
+        private IQuery _queryRepository;
+        private Pantry _pantry;
 
-        public PantryController(IQuery query)
+        public PantryController(IQuery query, Pantry pantry)
         {
-            QueryRepository = query;
+            _queryRepository = query;
+            _pantry = pantry;
         }
 
         public void LaunchPantryForm()
