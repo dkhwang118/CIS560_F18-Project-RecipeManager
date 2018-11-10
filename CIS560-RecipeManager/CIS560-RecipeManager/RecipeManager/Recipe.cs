@@ -27,10 +27,15 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; }
 
-        public Recipe(int id, string name, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe(
+            int id, 
+            string name,
+            string description,
+            IDictionary<Ingredient, int> measuredIngredients)
         {
             Id = id;
             Name = name;
+            Description = description;
             MeasuredIngredients = measuredIngredients;
         }
     }
