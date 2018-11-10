@@ -25,14 +25,15 @@ namespace CIS560_RecipeManager
             RecipeDataGridView.DataSource = RecipeBindingSource;
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             _launchAddRecipeForm();
+        }
+
+        private void ViewRecipeDetailsButton_Click(object sender, EventArgs e)
+        {
+            Recipe recipe = (Recipe) RecipeDataGridView.SelectedRows[0].DataBoundItem;
+            new uiRecipeDetailForm(recipe).Show();
         }
     }
 }

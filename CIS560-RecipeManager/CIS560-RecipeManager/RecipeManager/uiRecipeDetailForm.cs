@@ -12,9 +12,20 @@ namespace CIS560_RecipeManager.RecipeManager
 {
     public partial class uiRecipeDetailForm : Form
     {
-        public uiRecipeDetailForm()
+        private Recipe _recipe;
+
+        public uiRecipeDetailForm(Recipe recipe)
         {
+            _recipe = recipe;
             InitializeComponent();
+            PopulateRecipeDetails();
+        }
+
+        public void PopulateRecipeDetails()
+        {
+            RecipeNameLabel.Text = _recipe.Name;
+            RecipeDirectionTextBox.Text = _recipe.Description;
+            RecipeDetailDGV.DataSource = _recipe.MeasuredIngredients;
         }
     }
 }
