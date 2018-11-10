@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIS560_RecipeManager.RecipeManager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +14,26 @@ namespace CIS560_RecipeManager
     public partial class uiRecipe : Form
     {
         private Action _launchAddRecipeForm;
+        private RecipeInventory _recipeInventory;
 
-        public uiRecipe(Action launchAddRecipeForm)
+        public uiRecipe(Action launchAddRecipeForm, RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
+            _recipeInventory = recipeInventory;
             InitializeComponent();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
+            RecipeDataGridView.DataSource = RecipeBindingSource;
         }
 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             _launchAddRecipeForm();
+        }
+
+        private void ViewRecipeDetailsButton_Click(object sender, EventArgs e)
+        {
+            Recipe recipe = (Recipe) RecipeDataGridView.SelectedRows[0].DataBoundItem;
+            new uiRecipeDetailForm(recipe).Show();
         }
     }
 }

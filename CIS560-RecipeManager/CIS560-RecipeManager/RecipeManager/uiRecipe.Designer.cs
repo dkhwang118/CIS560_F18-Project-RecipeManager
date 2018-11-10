@@ -29,139 +29,101 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.recipeDatabaseDefaultDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.recipeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recipeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recipesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.recipeDatabaseDataSet_DEMO = new CIS560_RecipeManager.RecipeDatabaseDataSet_DEMO();
-            this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recipesDEMOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxButton_AddRecipe = new System.Windows.Forms.Button();
-            this.recipeDatabaseDataSetDEMOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recipesTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSet_DEMOTableAdapters.RecipesTableAdapter();
-            this.recipeDatabaseDataSetDEMOBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDefaultDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesDEMOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource1)).BeginInit();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ViewRecipeDetailsButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView2
+            // RecipeDataGridView
             // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.recipeIDDataGridViewTextBoxColumn,
-            this.recipeNameDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.recipesBindingSource1;
-            this.dataGridView2.Location = new System.Drawing.Point(97, 207);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 33;
-            this.dataGridView2.Size = new System.Drawing.Size(668, 268);
-            this.dataGridView2.TabIndex = 1;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.RecipeDataGridView.AllowUserToAddRows = false;
+            this.RecipeDataGridView.AutoGenerateColumns = false;
+            this.RecipeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecipeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.CategoryName});
+            this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
+            this.RecipeDataGridView.Location = new System.Drawing.Point(18, 19);
+            this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RecipeDataGridView.MultiSelect = false;
+            this.RecipeDataGridView.Name = "RecipeDataGridView";
+            this.RecipeDataGridView.ReadOnly = true;
+            this.RecipeDataGridView.RowTemplate.Height = 33;
+            this.RecipeDataGridView.Size = new System.Drawing.Size(361, 173);
+            this.RecipeDataGridView.TabIndex = 1;
             // 
-            // recipeIDDataGridViewTextBoxColumn
+            // CategoryName
             // 
-            this.recipeIDDataGridViewTextBoxColumn.DataPropertyName = "RecipeID";
-            this.recipeIDDataGridViewTextBoxColumn.HeaderText = "RecipeID";
-            this.recipeIDDataGridViewTextBoxColumn.Name = "recipeIDDataGridViewTextBoxColumn";
-            // 
-            // recipeNameDataGridViewTextBoxColumn
-            // 
-            this.recipeNameDataGridViewTextBoxColumn.DataPropertyName = "RecipeName";
-            this.recipeNameDataGridViewTextBoxColumn.HeaderText = "RecipeName";
-            this.recipeNameDataGridViewTextBoxColumn.Name = "recipeNameDataGridViewTextBoxColumn";
-            // 
-            // recipesBindingSource1
-            // 
-            this.recipesBindingSource1.DataMember = "Recipes";
-            this.recipesBindingSource1.DataSource = this.recipeDatabaseDataSet_DEMO;
-            // 
-            // recipeDatabaseDataSet_DEMO
-            // 
-            this.recipeDatabaseDataSet_DEMO.DataSetName = "RecipeDatabaseDataSet_DEMO";
-            this.recipeDatabaseDataSet_DEMO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // recipesBindingSource
-            // 
-            this.recipesBindingSource.DataMember = "Recipes";
-            this.recipesBindingSource.DataSource = this.recipeDatabaseDataSet_DEMO;
+            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "Category Name";
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ReadOnly = true;
+            this.CategoryName.Width = 96;
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(652, 501);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(278, 202);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
-            this.uxButton_AddRecipe.Size = new System.Drawing.Size(113, 37);
+            this.uxButton_AddRecipe.Size = new System.Drawing.Size(98, 34);
             this.uxButton_AddRecipe.TabIndex = 2;
             this.uxButton_AddRecipe.Text = "Add Recipe";
             this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
             this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
             // 
-            // recipeDatabaseDataSetDEMOBindingSource
+            // nameDataGridViewTextBoxColumn
             // 
-            this.recipeDatabaseDataSetDEMOBindingSource.DataSource = this.recipeDatabaseDataSet_DEMO;
-            this.recipeDatabaseDataSetDEMOBindingSource.Position = 0;
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // recipesTableAdapter
+            // RecipeBindingSource
             // 
-            this.recipesTableAdapter.ClearBeforeFill = true;
+            this.RecipeBindingSource.DataMember = "RecipeCollection";
+            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
             // 
-            // recipeDatabaseDataSetDEMOBindingSource1
+            // ViewRecipeDetailsButton
             // 
-            this.recipeDatabaseDataSetDEMOBindingSource1.DataSource = this.recipeDatabaseDataSet_DEMO;
-            this.recipeDatabaseDataSetDEMOBindingSource1.Position = 0;
+            this.ViewRecipeDetailsButton.Location = new System.Drawing.Point(131, 202);
+            this.ViewRecipeDetailsButton.Name = "ViewRecipeDetailsButton";
+            this.ViewRecipeDetailsButton.Size = new System.Drawing.Size(127, 34);
+            this.ViewRecipeDetailsButton.TabIndex = 3;
+            this.ViewRecipeDetailsButton.Text = "View Recipe Details";
+            this.ViewRecipeDetailsButton.UseVisualStyleBackColor = true;
+            this.ViewRecipeDetailsButton.Click += new System.EventHandler(this.ViewRecipeDetailsButton_Click);
             // 
-            // uiRecipeManager
+            // uiRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 688);
+            this.ClientSize = new System.Drawing.Size(403, 243);
+            this.Controls.Add(this.ViewRecipeDetailsButton);
             this.Controls.Add(this.uxButton_AddRecipe);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.RecipeDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.Name = "uiRecipeManager";
+            this.Name = "uiRecipe";
             this.Text = "Home";
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDefaultDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipesDEMOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource recipeDatabaseDefaultDataSetBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.BindingSource dataTable1BindingSource;
-        private System.Windows.Forms.BindingSource dataTable1BindingSource1;
-        private System.Windows.Forms.BindingSource recipesDEMOBindingSource;
+        private System.Windows.Forms.DataGridView RecipeDataGridView;
         private System.Windows.Forms.Button uxButton_AddRecipe;
-        private System.Windows.Forms.BindingSource recipeDatabaseDataSetDEMOBindingSource;
-        private RecipeDatabaseDataSet_DEMO recipeDatabaseDataSet_DEMO;
-        private System.Windows.Forms.BindingSource recipesBindingSource;
-        private RecipeDatabaseDataSet_DEMOTableAdapters.RecipesTableAdapter recipesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recipeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recipeNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource recipesBindingSource1;
-        private System.Windows.Forms.BindingSource recipeDatabaseDataSetDEMOBindingSource1;
+        private System.Windows.Forms.BindingSource RecipeBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.Button ViewRecipeDetailsButton;
     }
 }

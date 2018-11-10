@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeInventory
     {
-        public ICollection<Recipe> RecipeCollection {get;}
+        public BindingList<Recipe> RecipeCollection {get;}
 
         public RecipeInventory()
         {
-            RecipeCollection = new List<Recipe>();
+            RecipeCollection = new BindingList<Recipe>();
+            RecipeCollection.Add(new Recipe(0, "test","directions", new Dictionary<Ingredient, int>()));
         }
 
         public void AddRecipes(ICollection<Recipe> recipes)
