@@ -11,7 +11,7 @@ namespace CIS560_RecipeManager.RecipeManager
         public RecipeInventory()
         {
             RecipeCollection = new BindingList<Recipe>();
-            RecipeCollection.Add(new Recipe(0, "test", new Dictionary<Ingredient, int>()));
+            RecipeCollection.Add(new Recipe(0, "test","directions", new Dictionary<Ingredient, int>()));
         }
 
         public void AddRecipes(ICollection<Recipe> recipes)
