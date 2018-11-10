@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.RecipeNameLabel = new System.Windows.Forms.Label();
+            this.RecipeDirectionTextBox = new System.Windows.Forms.TextBox();
             this.RecipeDirectionsLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.RecipeDetailDGV = new System.Windows.Forms.DataGridView();
             this.RecipeIngredientsLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeDetailDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // RecipeNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Recipe Name";
+            this.RecipeNameLabel.AutoSize = true;
+            this.RecipeNameLabel.Location = new System.Drawing.Point(33, 20);
+            this.RecipeNameLabel.Name = "RecipeNameLabel";
+            this.RecipeNameLabel.Size = new System.Drawing.Size(72, 13);
+            this.RecipeNameLabel.TabIndex = 0;
+            this.RecipeNameLabel.Text = "Recipe Name";
             // 
-            // textBox1
+            // RecipeDirectionTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(36, 358);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(520, 80);
-            this.textBox1.TabIndex = 1;
+            this.RecipeDirectionTextBox.Location = new System.Drawing.Point(36, 358);
+            this.RecipeDirectionTextBox.Multiline = true;
+            this.RecipeDirectionTextBox.Name = "RecipeDirectionTextBox";
+            this.RecipeDirectionTextBox.ReadOnly = true;
+            this.RecipeDirectionTextBox.Size = new System.Drawing.Size(520, 80);
+            this.RecipeDirectionTextBox.TabIndex = 1;
             // 
             // RecipeDirectionsLabel
             // 
@@ -62,13 +63,13 @@
             this.RecipeDirectionsLabel.TabIndex = 2;
             this.RecipeDirectionsLabel.Text = "Directions:";
             // 
-            // dataGridView1
+            // RecipeDetailDGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(520, 224);
-            this.dataGridView1.TabIndex = 3;
+            this.RecipeDetailDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecipeDetailDGV.Location = new System.Drawing.Point(36, 85);
+            this.RecipeDetailDGV.Name = "RecipeDetailDGV";
+            this.RecipeDetailDGV.Size = new System.Drawing.Size(520, 224);
+            this.RecipeDetailDGV.TabIndex = 3;
             // 
             // RecipeIngredientsLabel
             // 
@@ -85,13 +86,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 450);
             this.Controls.Add(this.RecipeIngredientsLabel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.RecipeDetailDGV);
             this.Controls.Add(this.RecipeDirectionsLabel);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RecipeDirectionTextBox);
+            this.Controls.Add(this.RecipeNameLabel);
             this.Name = "uiRecipeDetailForm";
             this.Text = "uiRecipeDetailForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeDetailDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,10 +100,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label RecipeNameLabel;
+        private System.Windows.Forms.TextBox RecipeDirectionTextBox;
         private System.Windows.Forms.Label RecipeDirectionsLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView RecipeDetailDGV;
         private System.Windows.Forms.Label RecipeIngredientsLabel;
     }
 }
