@@ -19,13 +19,15 @@ namespace CIS560_RecipeManager.RecipeManager
             _recipe = recipe;
             InitializeComponent();
             PopulateRecipeDetails();
+            uiRecipeDetailFormBindingSource.DataSource = _recipe.IngredientBindingList;
+            RecipeDetailDGV.DataSource = uiRecipeDetailFormBindingSource;
         }
 
-        public void PopulateRecipeDetails()
+        private void PopulateRecipeDetails()
         {
             RecipeNameLabel.Text = _recipe.Name;
             RecipeDirectionTextBox.Text = _recipe.Description;
-            RecipeDetailDGV.DataSource = _recipe.MeasuredIngredients;
         }
+
     }
 }
