@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uxButton_AddRecipe = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uxButton_AddRecipe = new System.Windows.Forms.Button();
             this.ViewRecipeDetailsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -48,33 +48,14 @@
             this.nameDataGridViewTextBoxColumn,
             this.CategoryName});
             this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(18, 19);
-            this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RecipeDataGridView.Location = new System.Drawing.Point(57, 54);
+            this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.RecipeDataGridView.MultiSelect = false;
             this.RecipeDataGridView.Name = "RecipeDataGridView";
             this.RecipeDataGridView.ReadOnly = true;
             this.RecipeDataGridView.RowTemplate.Height = 33;
-            this.RecipeDataGridView.Size = new System.Drawing.Size(361, 173);
+            this.RecipeDataGridView.Size = new System.Drawing.Size(1143, 492);
             this.RecipeDataGridView.TabIndex = 1;
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CategoryName.DataPropertyName = "CategoryName";
-            this.CategoryName.HeaderText = "Category Name";
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.ReadOnly = true;
-            this.CategoryName.Width = 96;
-            // 
-            // uxButton_AddRecipe
-            // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(278, 202);
-            this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
-            this.uxButton_AddRecipe.Size = new System.Drawing.Size(98, 34);
-            this.uxButton_AddRecipe.TabIndex = 2;
-            this.uxButton_AddRecipe.Text = "Add Recipe";
-            this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
-            this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -84,16 +65,37 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // CategoryName
+            // 
+            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "Category Name";
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ReadOnly = true;
+            this.CategoryName.Width = 279;
+            // 
             // RecipeBindingSource
             // 
             this.RecipeBindingSource.DataMember = "RecipeCollection";
             this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
             // 
+            // uxButton_AddRecipe
+            // 
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(880, 575);
+            this.uxButton_AddRecipe.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
+            this.uxButton_AddRecipe.Size = new System.Drawing.Size(310, 97);
+            this.uxButton_AddRecipe.TabIndex = 2;
+            this.uxButton_AddRecipe.Text = "Add Recipe";
+            this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
+            this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
+            // 
             // ViewRecipeDetailsButton
             // 
-            this.ViewRecipeDetailsButton.Location = new System.Drawing.Point(131, 202);
+            this.ViewRecipeDetailsButton.Location = new System.Drawing.Point(415, 575);
+            this.ViewRecipeDetailsButton.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.ViewRecipeDetailsButton.Name = "ViewRecipeDetailsButton";
-            this.ViewRecipeDetailsButton.Size = new System.Drawing.Size(127, 34);
+            this.ViewRecipeDetailsButton.Size = new System.Drawing.Size(402, 97);
             this.ViewRecipeDetailsButton.TabIndex = 3;
             this.ViewRecipeDetailsButton.Text = "View Recipe Details";
             this.ViewRecipeDetailsButton.UseVisualStyleBackColor = true;
@@ -101,14 +103,14 @@
             // 
             // uiRecipe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 243);
+            this.ClientSize = new System.Drawing.Size(1276, 692);
             this.Controls.Add(this.ViewRecipeDetailsButton);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.Controls.Add(this.RecipeDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.Name = "uiRecipe";
             this.Text = "Home";
