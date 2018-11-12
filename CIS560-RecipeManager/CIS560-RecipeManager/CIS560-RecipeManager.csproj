@@ -63,13 +63,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
-    <Compile Include="PantryController\Ingredient.cs" />
-    <Compile Include="PantryController\Pantry.cs" />
-    <Compile Include="PantryController\PantryController.cs" />
-    <Compile Include="PantryController\uiAddIngredient.cs">
+    <Compile Include="PantryManager\Ingredient.cs" />
+    <Compile Include="PantryManager\Pantry.cs" />
+    <Compile Include="PantryManager\PantryController.cs" />
+    <Compile Include="PantryManager\uiAddIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PantryController\uiAddIngredient.Designer.cs">
+    <Compile Include="PantryManager\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipeDatabaseDataSet.cs">
@@ -95,7 +95,7 @@
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repository\QueryStub\QueryStub.cs" />
-    <Compile Include="ShoppingList\ShoppingList.cs" />
+    <Compile Include="ShoppingListManager\ShoppingList.cs" />
     <Compile Include="RecipeManager\uiAddRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,13 +113,13 @@
     <Compile Include="RecipeManager\uiRecipe.Designer.cs">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </Compile>
-    <Compile Include="PantryController\uiPantry.cs">
+    <Compile Include="PantryManager\uiPantry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PantryController\uiPantry.Designer.cs">
+    <Compile Include="PantryManager\uiPantry.Designer.cs">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShoppingList\ShoppingListController.cs" />
+    <Compile Include="ShoppingListManager\ShoppingListController.cs" />
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +128,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PantryController\uiAddIngredient.resx">
+    <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
@@ -143,7 +143,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="PantryController\uiPantry.resx">
+    <EmbeddedResource Include="PantryManager\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
