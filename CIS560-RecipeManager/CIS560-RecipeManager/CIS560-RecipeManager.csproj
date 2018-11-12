@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeController.cs" />
+    <Compile Include="PantryController\Class1.cs" />
     <Compile Include="PantryController\Ingredient.cs" />
     <Compile Include="PantryController\Pantry.cs" />
     <Compile Include="PantryController\PantryController.cs" />
@@ -71,6 +72,12 @@
     </Compile>
     <Compile Include="PantryController\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PantryController\uiUpdateIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantryController\uiUpdateIngredient.Designer.cs">
+      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
@@ -125,6 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PantryController\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantryController\uiUpdateIngredient.resx">
+      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
       <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
