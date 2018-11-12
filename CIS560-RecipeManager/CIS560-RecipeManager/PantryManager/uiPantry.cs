@@ -14,6 +14,7 @@ namespace CIS560_RecipeManager
     public partial class uiPantry : Form
     {
         private Action _launchAddIngredientDelegate;
+        private Action _launchUpdateIngredienDelegate;
 
         public uiPantry(Action launchAddIngredientDelegate)
         {
