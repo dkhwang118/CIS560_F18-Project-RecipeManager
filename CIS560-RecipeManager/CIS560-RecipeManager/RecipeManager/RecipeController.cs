@@ -1,6 +1,7 @@
 ﻿
 
 using System.Collections.Generic;
+using static CIS560_RecipeManager.RecipeManager.Recipe;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
