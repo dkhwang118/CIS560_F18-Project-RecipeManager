@@ -72,6 +72,9 @@
     <Compile Include="PantryController\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecipeDatabaseDataSet.cs">
+      <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
@@ -81,6 +84,8 @@
     <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
       <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Query\ReadRecipe.cs" />
+    <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IngredientQuery.cs" />
     <Compile Include="Repository\IQuery.cs" />
     <Compile Include="RecipeManager\RecipeCategory.cs" />
@@ -194,6 +199,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Sql\SampleData\AddPantryItem.sql" />
+    <Content Include="Sql\SampleData\AddRecipe.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

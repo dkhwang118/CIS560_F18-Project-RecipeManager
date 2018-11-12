@@ -38,5 +38,11 @@ namespace CIS560_RecipeManager.RecipeManager
             Description = description;
             MeasuredIngredients = measuredIngredients;
         }
+
+
+        public override string ToString()
+        {
+            return $"Recipe(id: {Id}, name: {Name}, description: {Description}, measuredIngredients: {MeasuredIngredients})";
+        }
     }
 }
