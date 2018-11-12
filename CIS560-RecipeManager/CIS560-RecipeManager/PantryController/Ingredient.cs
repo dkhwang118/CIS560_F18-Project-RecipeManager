@@ -14,5 +14,10 @@
             Name = name;
             Unit = unit;
         }
+
+        public override string ToString()
+        {
+            return $"Ingredient(id: {Id}, name: {Name}, unit: {Unit})";
+        }
     }
 }
