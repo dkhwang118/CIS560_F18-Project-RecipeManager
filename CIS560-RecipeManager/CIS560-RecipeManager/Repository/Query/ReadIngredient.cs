@@ -20,6 +20,7 @@ namespace CIS560_RecipeManager.Repository
                 {
 
                     connection.Open();
+                    Ingredient ingredient;
                     using (var command = new SqlCommand("[dbo].FindPantryItemByID", connection))
                     {
                         // Finds a row in the table using
@@ -40,8 +41,6 @@ namespace CIS560_RecipeManager.Repository
                         String name;
                         int quantity;
                         String unit;
-
-                        Ingredient ingredient;
                         if (result.HasRows)
                         {
                             result.Read();
@@ -58,9 +57,10 @@ namespace CIS560_RecipeManager.Repository
                         {
                             throw new NotImplementedException("Behavior for failed ingredient lookups has not been implemented yet");
                         }
-
-                        return ingredient;
                     }
+
+                    connection.Close();
+                    return ingredient;
                 }
             }
         }
