@@ -23,13 +23,11 @@ namespace CIS560_RecipeManager.Repository
             {
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.AddRecipeCategory", connection))
+                    using (var command = new SqlCommand("dbo.DeleteRecipeCategoryByName", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("CategoryName", categoryName);
-                        var param = command.Parameters.Add("CategoryID", SqlDbType.Int);
-                        param.Direction = ParameterDirection.Output;
-
+    
                         connection.Open();
 
                         command.ExecuteNonQuery(); // no results coming back
