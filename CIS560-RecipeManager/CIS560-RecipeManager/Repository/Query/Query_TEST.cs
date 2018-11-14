@@ -45,11 +45,6 @@ namespace CIS560_RecipeManager.Repository
             throw new NotImplementedException();
         }
 
-        public void AddRecipeCategory(RecipeCategory category)
-        {
-            // not implemented
-            throw new NotImplementedException();
-        }
 
         public void DeleteRecipeCategory(RecipeCategory category)
         {

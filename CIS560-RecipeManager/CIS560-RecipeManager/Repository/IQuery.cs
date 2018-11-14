@@ -17,7 +17,7 @@ namespace CIS560_RecipeManager
 
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);
 
-        void AddRecipeCategory(RecipeCategory category);
+        void AddRecipeCategory(string categoryName);
 
         void DeleteRecipeCategory(RecipeCategory category);
 
