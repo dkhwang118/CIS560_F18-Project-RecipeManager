@@ -41,6 +41,5 @@ namespace CIS560_RecipeManager.Repository
                 } // should close transaction here automatically
             } // should close connection here automatically
         }
-    }
-    }
+    }  
 }
