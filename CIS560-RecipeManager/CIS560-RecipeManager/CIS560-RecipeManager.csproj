@@ -84,7 +84,9 @@
     <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
       <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Query\AddRecipeCategory.cs" />
     <Compile Include="Repository\Query\CreateIngredient.cs" />
+    <Compile Include="Repository\Query\CreateRecipe.cs" />
     <Compile Include="Repository\Query\Query_TEST.cs" />
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
