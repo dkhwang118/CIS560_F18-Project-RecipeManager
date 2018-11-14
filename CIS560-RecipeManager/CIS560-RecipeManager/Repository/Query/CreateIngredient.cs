@@ -23,13 +23,13 @@ namespace CIS560_RecipeManager.Repository
             {
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.AddIngredient", connection))
+                    using (var command = new SqlCommand("dbo.CreateIngredient", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("Name", ingredientName);
+                        command.Parameters.AddWithValue("PantryItemName", ingredientName);
                         command.Parameters.AddWithValue("QuantityInPantry", unitCount);
-                        command.Parameters.AddWithValue("UnitMeasurement", unitOfMeasurement);
-                        var param = command.Parameters.Add("IngredientId", SqlDbType.Int);
+                        command.Parameters.AddWithValue("ItemUnitMeasurement", unitOfMeasurement);
+                        var param = command.Parameters.Add("PantryItemID", SqlDbType.Int);
                         param.Direction = ParameterDirection.Output;
 
                         connection.Open();

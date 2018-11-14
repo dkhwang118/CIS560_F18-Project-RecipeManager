@@ -14,11 +14,6 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
-        {
-            // not implemented
-            throw new NotImplementedException();
-        }
 
         public void DeleteRecipe(Recipe recipe)
         {
