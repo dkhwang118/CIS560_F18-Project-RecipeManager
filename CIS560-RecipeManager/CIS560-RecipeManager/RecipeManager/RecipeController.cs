@@ -1,5 +1,6 @@
 ﻿
 
+using CIS560_RecipeManager.Pantry;
 using System.Collections.Generic;
 using static CIS560_RecipeManager.RecipeManager.Recipe;
 
@@ -28,7 +29,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchAddRecipeForm()
         {
-            new uiAddRecipeForm(AddRecipe).Show();
+            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm).Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -49,6 +50,17 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, measuredIngredients);
             _recipeInventory.AddRecipe(recipe);
+        }
+
+        public void LaunchAddIngredientForm()
+        {
+            new uiAddIngredient(CreateIngredient).Show();
+        }
+
+        public void CreateIngredient(string name, string unitOfMeasure, int quantity)
+        {
+            Ingredient ingredient = _queryRepository.CreateIngredient(name, unitOfMeasure, quantity);
+            _pantry.AddToPantry(ingredient, quantity);
         }
     }
 }

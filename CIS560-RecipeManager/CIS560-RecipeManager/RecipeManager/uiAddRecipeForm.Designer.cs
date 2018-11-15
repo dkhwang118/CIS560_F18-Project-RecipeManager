@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uxTextBox_RecipeName = new System.Windows.Forms.TextBox();
             this.uxLabel_RecipeName = new System.Windows.Forms.Label();
             this.uxButton_AddRecipe = new System.Windows.Forms.Button();
@@ -38,8 +39,10 @@
             this.ingredientsInRecipeDGV = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.addIngredientButton = new System.Windows.Forms.Button();
+            this.ingredientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsInRecipeDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uxTextBox_RecipeName
@@ -137,6 +140,7 @@
             this.addIngredientButton.TabIndex = 9;
             this.addIngredientButton.Text = "Add New Ingredient";
             this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
             // uiAddRecipeForm
             // 
@@ -158,6 +162,7 @@
             this.Text = "AddNewRecipe_BASIC";
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsInRecipeDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ingredientListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +180,6 @@
         private System.Windows.Forms.DataGridView ingredientsInRecipeDGV;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addIngredientButton;
+        private System.Windows.Forms.BindingSource ingredientListBindingSource;
     }
 }

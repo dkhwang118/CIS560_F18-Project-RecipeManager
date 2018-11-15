@@ -6,6 +6,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace CIS560_RecipeManager
         public Dictionary<Ingredient, int> PantryContents { get; } //a dictionary containing key value pairs of what is in the pantry
         //Ingredient for the ingredients
         //the integer represents the quantity of the ingredient
+
 
         public MyPantry()
         {
