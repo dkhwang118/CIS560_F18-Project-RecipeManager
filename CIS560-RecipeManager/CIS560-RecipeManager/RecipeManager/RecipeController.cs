@@ -10,7 +10,6 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
-        public delegate void AddRecipeDelegate(string name, string description, IDictionary<Ingredient, int> measuredIngredients);
 
         public RecipeController(
             IQuery query, 
