@@ -32,12 +32,10 @@ namespace CIS560_RecipeManager
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
 
-            foreach (RecipeIngredient ing in _viewModel.RecipeIngredients)
+            for (int i = 0; i < _viewModel.RecipeIngredients.Count; i++)
             {
-                ingredients.Add(
-                    new Ingredient(ing.Id, ing.Name, ing.Unit),
-                    ing.Quantity
-                    );
+                int quantity = Convert.ToInt32(recipeIngredientsDGV.Rows[i].Cells[2].Value);
+                ingredients.Add(_viewModel.RecipeIngredients.ElementAt(i), quantity);
             }
 
             _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
@@ -56,10 +54,9 @@ namespace CIS560_RecipeManager
             {
                 DataGridViewRow row = totalIngredientsDGV.Rows[e.RowIndex];
                 Ingredient i = (Ingredient)row.DataBoundItem;
-                if (!_viewModel.RecipeIngredients.Any(x => x.Id == i.Id))
+                if (!_viewModel.RecipeIngredients.Contains(i))
                 {
-                    RecipeIngredient ri = new RecipeIngredient(i.Id, i.Name, i.Unit, 0);
-                    _viewModel.RecipeIngredients.Add(ri);
+                    _viewModel.RecipeIngredients.Add(i);
                 }
             }
         }

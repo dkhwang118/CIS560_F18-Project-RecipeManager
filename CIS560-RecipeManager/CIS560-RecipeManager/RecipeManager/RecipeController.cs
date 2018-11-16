@@ -36,7 +36,7 @@ namespace CIS560_RecipeManager.RecipeManager
             }
             var viewModel = new AddRecipeViewModel(
                 ingredients,
-                new List<RecipeIngredient>());
+                new Dictionary<Ingredient, int>());
 
             new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, viewModel).Show();
         }

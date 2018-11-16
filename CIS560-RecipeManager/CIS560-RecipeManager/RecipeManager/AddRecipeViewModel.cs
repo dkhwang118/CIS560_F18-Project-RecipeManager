@@ -11,21 +11,21 @@ namespace CIS560_RecipeManager.RecipeManager
     {
         public BindingList<Ingredient> TotalIngredients { get; }
 
-        public BindingList<RecipeIngredient> RecipeIngredients { get; }
+        public BindingList<Ingredient> RecipeIngredients { get; }
 
-        public AddRecipeViewModel(ICollection<Ingredient> totalIngredients, ICollection<RecipeIngredient> recipeIngredients)
+        public AddRecipeViewModel(ICollection<Ingredient> totalIngredients, IDictionary<Ingredient, int> measuredIngredients)
         {
             TotalIngredients = new BindingList<Ingredient>();
-            RecipeIngredients = new BindingList<RecipeIngredient>();
+            RecipeIngredients = new BindingList<Ingredient>();
 
             foreach (Ingredient i in totalIngredients)
             {
                 TotalIngredients.Add(i);
             }
 
-            foreach(RecipeIngredient ri in recipeIngredients)
+            foreach(var kvp in measuredIngredients)
             {
-                recipeIngredients.Add(ri);
+                RecipeIngredients.Add(kvp.Key);
             }
         }
     }
