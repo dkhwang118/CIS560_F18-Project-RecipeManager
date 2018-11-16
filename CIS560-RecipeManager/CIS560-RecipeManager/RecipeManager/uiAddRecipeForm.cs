@@ -1,10 +1,7 @@
 ﻿using CIS560_RecipeManager.RecipeManager;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
-using static CIS560_RecipeManager.RecipeManager.Recipe;
-using static CIS560_RecipeManager.RecipeManager.RecipeController;
 
 namespace CIS560_RecipeManager
 {
@@ -12,24 +9,24 @@ namespace CIS560_RecipeManager
     {
         private Action<string, string, IDictionary<Ingredient, int>> _addRecipeDelegate;
         private Action _launchAddIngredientForm;
-        public BindingList<RecipeIngredient> BindingIngredients { get; }
+        private AddRecipeViewModel _viewModel;
 
         public uiAddRecipeForm(
             Action<string, string, IDictionary<Ingredient,int>> addRecipeDelegate,
-            Action launchAddIngredientForm)
+            Action launchAddIngredientForm,
+            AddRecipeViewModel viewModel)
         {
-            BindingIngredients = new BindingList<RecipeIngredient>();
             _addRecipeDelegate = addRecipeDelegate;
             _launchAddIngredientForm = launchAddIngredientForm;
+            _viewModel = viewModel;
             InitializeComponent();
-            ingredientsInRecipeBindingList.DataSource = BindingIngredients;
-            ingredientsInRecipeDGV.DataSource = ingredientListBindingSource;
         }
 
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
-            foreach (RecipeIngredient ing in BindingIngredients)
+
+            foreach (RecipeIngredient ing in _viewModel.RecipeIngredients)
             {
                 ingredients.Add(
                     new Ingredient(ing.Id, ing.Name, ing.Unit),
@@ -59,7 +56,7 @@ namespace CIS560_RecipeManager
                     row.Cells[2].Value.ToString(),
                     0
                     );
-                BindingIngredients.Add(ing);
+                _viewModel.RecipeIngredients.Add(ing);
             }
         }
     }

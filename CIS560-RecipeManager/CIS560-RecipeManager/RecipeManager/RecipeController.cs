@@ -29,7 +29,16 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchAddRecipeForm()
         {
-            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm).Show();
+            var ingredients = new List<Ingredient>();
+            foreach (var i in _pantry.PantryContents)
+            {
+                ingredients.Add(i.Key);
+            }
+            var viewModel = new AddRecipeViewModel(
+                ingredients,
+                new List<RecipeIngredient>());
+
+            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, viewModel).Show();
         }
 
         public void CookRecipe(Recipe recipe)
