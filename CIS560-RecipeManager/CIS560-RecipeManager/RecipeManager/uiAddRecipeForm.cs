@@ -29,6 +29,13 @@ namespace CIS560_RecipeManager
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
+            foreach (RecipeIngredient ing in BindingIngredients)
+            {
+                ingredients.Add(
+                    new Ingredient(ing.Id, ing.Name, ing.Unit),
+                    ing.Quantity
+                    );
+            }
 
             _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
             MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
@@ -45,11 +52,14 @@ namespace CIS560_RecipeManager
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.totalIngredientsDGV.Rows[e.RowIndex];
-                ingredientsInRecipeDGV.Rows.Add(
-                    row.Cells[0].Value.ToString(),
+
+                RecipeIngredient ing = new RecipeIngredient(
+                    Convert.ToInt32(row.Cells[0].Value),
                     row.Cells[1].Value.ToString(),
-                    "0"
+                    row.Cells[2].Value.ToString(),
+                    0
                     );
+                BindingIngredients.Add(ing);
             }
         }
     }
