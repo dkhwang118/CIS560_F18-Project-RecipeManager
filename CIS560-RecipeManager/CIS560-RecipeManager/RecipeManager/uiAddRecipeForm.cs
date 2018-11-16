@@ -20,6 +20,11 @@ namespace CIS560_RecipeManager
             _launchAddIngredientForm = launchAddIngredientForm;
             _viewModel = viewModel;
             InitializeComponent();
+            totalIngredientsBindingSource.DataSource = _viewModel.TotalIngredients;
+            totalIngredientsDGV.DataSource = totalIngredientsBindingSource;
+            recipeIngredientsBindingSource.DataSource = _viewModel.RecipeIngredients;
+            recipeIngredientsDGV.DataSource = recipeIngredientsBindingSource;
+            
         }
 
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
@@ -48,15 +53,10 @@ namespace CIS560_RecipeManager
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = this.totalIngredientsDGV.Rows[e.RowIndex];
-
-                RecipeIngredient ing = new RecipeIngredient(
-                    Convert.ToInt32(row.Cells[0].Value),
-                    row.Cells[1].Value.ToString(),
-                    row.Cells[2].Value.ToString(),
-                    0
-                    );
-                _viewModel.RecipeIngredients.Add(ing);
+                DataGridViewRow row = totalIngredientsDGV.Rows[e.RowIndex];
+                Ingredient i = (Ingredient)row.DataBoundItem;
+                RecipeIngredient ri = new RecipeIngredient(i.Id, i.Name, i.Unit, 0);
+                _viewModel.RecipeIngredients.Add(ri);
             }
         }
     }

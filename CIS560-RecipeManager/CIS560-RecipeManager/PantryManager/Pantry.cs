@@ -23,6 +23,8 @@ namespace CIS560_RecipeManager
         public MyPantry()
         {
             PantryContents = new Dictionary<Ingredient, int>();
+            PantryContents.Add(
+                new Ingredient(0, "potato","quantity"), 4);
         }
 
         //updates the pantry contents with an ingredient and quantity
