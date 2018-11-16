@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace CIS560_RecipeManager
 {
@@ -55,8 +56,11 @@ namespace CIS560_RecipeManager
             {
                 DataGridViewRow row = totalIngredientsDGV.Rows[e.RowIndex];
                 Ingredient i = (Ingredient)row.DataBoundItem;
-                RecipeIngredient ri = new RecipeIngredient(i.Id, i.Name, i.Unit, 0);
-                _viewModel.RecipeIngredients.Add(ri);
+                if (!_viewModel.RecipeIngredients.Any(x => x.Id == i.Id))
+                {
+                    RecipeIngredient ri = new RecipeIngredient(i.Id, i.Name, i.Unit, 0);
+                    _viewModel.RecipeIngredients.Add(ri);
+                }
             }
         }
     }
