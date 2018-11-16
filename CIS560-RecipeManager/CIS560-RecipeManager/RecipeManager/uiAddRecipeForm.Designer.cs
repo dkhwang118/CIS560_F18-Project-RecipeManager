@@ -110,7 +110,7 @@
             this.totalIngredientsDGV.RowTemplate.Height = 46;
             this.totalIngredientsDGV.Size = new System.Drawing.Size(219, 155);
             this.totalIngredientsDGV.TabIndex = 5;
-            this.totalIngredientsDGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.totalIngredientsDGV_CellContentDoubleClick);
+            this.totalIngredientsDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.totalIngredientsDGV_CellDoubleClick);
             // 
             // label1
             // 

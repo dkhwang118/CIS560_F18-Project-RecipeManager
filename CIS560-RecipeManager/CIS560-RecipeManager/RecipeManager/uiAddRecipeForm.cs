@@ -50,7 +50,7 @@ namespace CIS560_RecipeManager
             _launchAddIngredientForm();
         }
 
-        private void totalIngredientsDGV_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void totalIngredientsDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
