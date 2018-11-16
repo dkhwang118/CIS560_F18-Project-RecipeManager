@@ -40,7 +40,8 @@ namespace CIS560_RecipeManager
 
             _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
             MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
-            
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void addIngredientButton_Click(object sender, EventArgs e)
