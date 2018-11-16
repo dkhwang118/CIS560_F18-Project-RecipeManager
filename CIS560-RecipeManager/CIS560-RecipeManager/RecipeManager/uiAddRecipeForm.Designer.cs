@@ -41,7 +41,6 @@
             this.addIngredientButton = new System.Windows.Forms.Button();
             this.ingredientListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
-            this.pantryItemTableAdapter1 = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter();
             this.pantryItemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientsInRecipeDGV)).BeginInit();
@@ -106,6 +105,7 @@
             this.totalIngredientsDGV.DataSource = this.ingredientListBindingSource;
             this.totalIngredientsDGV.Location = new System.Drawing.Point(103, 209);
             this.totalIngredientsDGV.Name = "totalIngredientsDGV";
+            this.totalIngredientsDGV.ReadOnly = true;
             this.totalIngredientsDGV.RowTemplate.Height = 46;
             this.totalIngredientsDGV.Size = new System.Drawing.Size(694, 442);
             this.totalIngredientsDGV.TabIndex = 5;
@@ -160,10 +160,6 @@
             this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
             this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // pantryItemTableAdapter1
-            // 
-            this.pantryItemTableAdapter1.ClearBeforeFill = true;
-            // 
             // pantryItemNameDataGridViewTextBoxColumn
             // 
             this.pantryItemNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -212,7 +208,6 @@
         private System.Windows.Forms.Button addIngredientButton;
         private System.Windows.Forms.BindingSource ingredientListBindingSource;
         private RecipeDatabaseDataSet recipeDatabaseDataSet;
-        private RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter pantryItemTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pantryItemNameDataGridViewTextBoxColumn;
     }
 }
