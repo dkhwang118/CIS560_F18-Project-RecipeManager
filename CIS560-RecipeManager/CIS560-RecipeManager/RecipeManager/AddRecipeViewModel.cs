@@ -28,5 +28,10 @@ namespace CIS560_RecipeManager.RecipeManager
                 RecipeIngredients.Add(kvp.Key);
             }
         }
+
+        public void AddIngredientToTotal(Ingredient i)
+        {
+            TotalIngredients.Add(i);
+        }
     }
 }

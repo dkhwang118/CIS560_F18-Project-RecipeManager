@@ -11,6 +11,7 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
+        private AddRecipeViewModel _viewModel;
 
         public RecipeController(
             IQuery query, 
@@ -34,11 +35,11 @@ namespace CIS560_RecipeManager.RecipeManager
             {
                 ingredients.Add(i.Key);
             }
-            var viewModel = new AddRecipeViewModel(
+            _viewModel = new AddRecipeViewModel(
                 ingredients,
                 new Dictionary<Ingredient, int>());
 
-            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, viewModel).Show();
+            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -70,6 +71,7 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             Ingredient ingredient = _queryRepository.CreateIngredient(name, unitOfMeasure, quantity);
             _pantry.AddToPantry(ingredient, quantity);
+            _viewModel.AddIngredientToTotal(ingredient);
         }
     }
 }
