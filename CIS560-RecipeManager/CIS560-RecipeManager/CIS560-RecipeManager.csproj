@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
+    <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
       <SubType>Form</SubType>
@@ -155,6 +156,7 @@
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />

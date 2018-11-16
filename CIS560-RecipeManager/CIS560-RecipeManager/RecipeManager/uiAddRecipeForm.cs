@@ -12,19 +12,24 @@ namespace CIS560_RecipeManager
     {
         private Action<string, string, IDictionary<Ingredient, int>> _addRecipeDelegate;
         private Action _launchAddIngredientForm;
+        public BindingList<RecipeIngredient> BindingIngredients { get; }
 
         public uiAddRecipeForm(
             Action<string, string, IDictionary<Ingredient,int>> addRecipeDelegate,
             Action launchAddIngredientForm)
         {
+            BindingIngredients = new BindingList<RecipeIngredient>();
             _addRecipeDelegate = addRecipeDelegate;
             _launchAddIngredientForm = launchAddIngredientForm;
             InitializeComponent();
+            ingredientsInRecipeBindingList.DataSource = BindingIngredients;
+            ingredientsInRecipeDGV.DataSource = ingredientListBindingSource;
         }
 
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
+
             _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
             MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
             

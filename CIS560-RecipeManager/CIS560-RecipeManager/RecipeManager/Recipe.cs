@@ -28,7 +28,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; }
 
-        public BindingList<BindingIngredient> IngredientBindingList { get; }
+        public BindingList<RecipeIngredient> IngredientBindingList { get; }
 
         public Recipe(
             int id, 
@@ -40,7 +40,7 @@ namespace CIS560_RecipeManager.RecipeManager
             Name = name;
             Description = description;
             MeasuredIngredients = measuredIngredients;
-            IngredientBindingList = new BindingList<BindingIngredient>();
+            IngredientBindingList = new BindingList<RecipeIngredient>();
             PopulateMeasuredIngredients(measuredIngredients);
         }
 
@@ -50,24 +50,9 @@ namespace CIS560_RecipeManager.RecipeManager
             foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
             {
                 IngredientBindingList.Add(
-                    new BindingIngredient(kvp.Key.Name, kvp.Key.Unit, kvp.Value));
+                    new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value));
             }
         }
-
-        public class BindingIngredient
-        {
-            public string Name { get; }
-            public string Unit { get; }
-            public int Quantity { get; }
-
-            public BindingIngredient(string name, string unit, int quantity)
-            {
-                Name = name;
-                Unit = unit;
-                Quantity = quantity;
-            }
-        }
-
 
         public override string ToString()
         {
