@@ -6,6 +6,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,12 @@ namespace CIS560_RecipeManager
         //Ingredient for the ingredients
         //the integer represents the quantity of the ingredient
 
+
         public MyPantry()
         {
             PantryContents = new Dictionary<Ingredient, int>();
+            PantryContents.Add(
+                new Ingredient(0, "potato","quantity"), 4);
         }
 
         //updates the pantry contents with an ingredient and quantity

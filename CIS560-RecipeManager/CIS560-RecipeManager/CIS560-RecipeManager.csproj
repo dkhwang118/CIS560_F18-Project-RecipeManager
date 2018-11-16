@@ -75,8 +75,10 @@
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecipeManager\AddRecipeViewModel.cs" />
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
+    <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
       <SubType>Form</SubType>
@@ -155,9 +157,12 @@
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
