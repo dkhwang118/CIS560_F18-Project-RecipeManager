@@ -28,6 +28,7 @@ namespace CIS560_RecipeManager
             totalIngredientsDGV.DataSource = totalIngredientsBindingSource;
             recipeIngredientsBindingSource.DataSource = _viewModel.RecipeIngredients;
             recipeIngredientsDGV.DataSource = recipeIngredientsBindingSource;
+            categoryComboBox.DataSource = _viewModel.RecipeCategories;
             PopulateRecipeDetails();
         }
 

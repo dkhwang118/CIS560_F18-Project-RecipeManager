@@ -12,6 +12,8 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public List<int> IngredientQuantities { get; }
 
+        public BindingList<RecipeCategory> RecipeCategories { get; }
+
         public Recipe CurrentRecipe { get; }
 
         public EditRecipeViewModel(
@@ -36,6 +38,9 @@ namespace CIS560_RecipeManager.RecipeManager
                     IngredientQuantities.Add(kvp.Value);
                 }
             }
+
+            RecipeCategories = new BindingList<RecipeCategory>();
+            RecipeCategories.Add(new RecipeCategory(0, "Desserts"));
         }
 
         public void AddIngredientToTotal(Ingredient i)
