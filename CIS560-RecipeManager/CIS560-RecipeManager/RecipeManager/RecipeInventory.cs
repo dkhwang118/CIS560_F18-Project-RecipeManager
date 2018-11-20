@@ -28,5 +28,10 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             RecipeCollection.Add(recipe);
         }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            RecipeCollection.Remove(recipe);
+        }
     }
 }

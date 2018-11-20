@@ -8,15 +8,18 @@ namespace CIS560_RecipeManager
     {
         private Action _launchAddRecipeForm;
         private Action<Recipe> _launchEditRecipeForm;
+        private Action<Recipe> _deleteRecipeDelegate;
         private RecipeInventory _recipeInventory;
 
         public uiRecipe(
             Action launchAddRecipeForm, 
             Action<Recipe> launchEditRecipeForm,
+            Action<Recipe> deleteRecipeDelegate,
             RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
             _launchEditRecipeForm = launchEditRecipeForm;
+            _deleteRecipeDelegate = deleteRecipeDelegate;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
@@ -42,6 +45,13 @@ namespace CIS560_RecipeManager
         {
             if (e.RowIndex < 0) return;
             e.ContextMenuStrip = recipeContextMenuStrip;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var row = RecipeDataGridView.SelectedRows[0];
+            Recipe recipe = (Recipe)row.DataBoundItem;
+            _deleteRecipeDelegate(recipe);
         }
     }
 }

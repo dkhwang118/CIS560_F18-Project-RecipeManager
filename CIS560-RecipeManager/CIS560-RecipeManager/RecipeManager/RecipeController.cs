@@ -25,6 +25,7 @@ namespace CIS560_RecipeManager.RecipeManager
             new uiRecipe(
                 LaunchAddRecipeForm,
                 LaunchEditRecipeForm,
+                DeleteRecipe,
                 _recipeInventory).Show();
         }
 
@@ -52,6 +53,12 @@ namespace CIS560_RecipeManager.RecipeManager
 
             _viewModel = new EditRecipeViewModel(ingredients, recipe);
             new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
+        }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            _recipeInventory.DeleteRecipe(recipe);
+            _queryRepository.DeleteRecipe(recipe);
         }
 
         public void CookRecipe(Recipe recipe)
