@@ -29,67 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uxButton_AddRecipe = new System.Windows.Forms.Button();
             this.recipeContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RecipeDataGridView = new Zuby.ADGV.AdvancedDataGridView();
+            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
-            this.recipeContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // RecipeDataGridView
-            // 
-            this.RecipeDataGridView.AllowUserToAddRows = false;
-            this.RecipeDataGridView.AutoGenerateColumns = false;
-            this.RecipeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RecipeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.CategoryName});
-            this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(18, 19);
-            this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.RecipeDataGridView.MultiSelect = false;
-            this.RecipeDataGridView.Name = "RecipeDataGridView";
-            this.RecipeDataGridView.ReadOnly = true;
-            this.RecipeDataGridView.RowTemplate.Height = 33;
-            this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecipeDataGridView.Size = new System.Drawing.Size(361, 173);
-            this.RecipeDataGridView.TabIndex = 1;
-            this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
-            this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CategoryName
-            // 
-            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.CategoryName.DataPropertyName = "CategoryName";
-            this.CategoryName.HeaderText = "Category Name";
-            this.CategoryName.Name = "CategoryName";
-            this.CategoryName.ReadOnly = true;
-            this.CategoryName.Width = 134;
-            // 
-            // RecipeBindingSource
-            // 
-            this.RecipeBindingSource.DataMember = "RecipeCollection";
-            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(278, 202);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(880, 575);
+            this.uxButton_AddRecipe.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
-            this.uxButton_AddRecipe.Size = new System.Drawing.Size(98, 34);
+            this.uxButton_AddRecipe.Size = new System.Drawing.Size(310, 97);
             this.uxButton_AddRecipe.TabIndex = 2;
             this.uxButton_AddRecipe.Text = "Add Recipe";
             this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
@@ -102,49 +60,89 @@
             this.deleteToolStripMenuItem,
             this.cookRecipeToolStripMenuItem});
             this.recipeContextMenuStrip.Name = "recipeContextMenuStrip";
-            this.recipeContextMenuStrip.Size = new System.Drawing.Size(421, 174);
+            this.recipeContextMenuStrip.Size = new System.Drawing.Size(299, 108);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(420, 52);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(298, 52);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // cookRecipeToolStripMenuItem
             // 
             this.cookRecipeToolStripMenuItem.Name = "cookRecipeToolStripMenuItem";
-            this.cookRecipeToolStripMenuItem.Size = new System.Drawing.Size(420, 52);
+            this.cookRecipeToolStripMenuItem.Size = new System.Drawing.Size(298, 52);
             this.cookRecipeToolStripMenuItem.Text = "Cook Recipe";
             this.cookRecipeToolStripMenuItem.Click += new System.EventHandler(this.cookRecipeToolStripMenuItem_Click);
             // 
+            // RecipeDataGridView
+            // 
+            this.RecipeDataGridView.AutoGenerateColumns = false;
+            this.RecipeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecipeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.categoryNameDataGridViewTextBoxColumn});
+            this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
+            this.RecipeDataGridView.FilterAndSortEnabled = true;
+            this.RecipeDataGridView.Location = new System.Drawing.Point(73, 74);
+            this.RecipeDataGridView.Name = "RecipeDataGridView";
+            this.RecipeDataGridView.RowTemplate.Height = 46;
+            this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RecipeDataGridView.Size = new System.Drawing.Size(1117, 465);
+            this.RecipeDataGridView.TabIndex = 3;
+            // 
+            // RecipeBindingSource
+            // 
+            this.RecipeBindingSource.DataMember = "RecipeCollection";
+            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "Category Name";
+            this.categoryNameDataGridViewTextBoxColumn.MinimumWidth = 22;
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryNameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
             // uiRecipe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 243);
-            this.Controls.Add(this.uxButton_AddRecipe);
+            this.ClientSize = new System.Drawing.Size(1276, 692);
             this.Controls.Add(this.RecipeDataGridView);
+            this.Controls.Add(this.uxButton_AddRecipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.MaximizeBox = false;
             this.Name = "uiRecipe";
             this.Text = "Home";
+            this.recipeContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).EndInit();
-            this.recipeContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView RecipeDataGridView;
         private System.Windows.Forms.Button uxButton_AddRecipe;
         private System.Windows.Forms.BindingSource RecipeBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
         private System.Windows.Forms.ContextMenuStrip recipeContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cookRecipeToolStripMenuItem;
+        private Zuby.ADGV.AdvancedDataGridView RecipeDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
     }
 }
