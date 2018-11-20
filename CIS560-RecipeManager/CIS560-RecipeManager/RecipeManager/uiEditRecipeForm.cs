@@ -75,5 +75,14 @@ namespace CIS560_RecipeManager
         {
             PopulateIngredientQuantities();
         }
+
+        private void recipeIngredientsDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                _viewModel.IngredientQuantities.RemoveAt(e.RowIndex);
+                _viewModel.RecipeIngredients.RemoveAt(e.RowIndex);
+            }
+        }
     }
 }
