@@ -1,12 +1,5 @@
 ﻿using CIS560_RecipeManager.RecipeManager;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
@@ -43,6 +36,12 @@ namespace CIS560_RecipeManager
                 Recipe recipe = (Recipe)row.DataBoundItem;
                 _launchEditRecipeForm(recipe);
             }
+        }
+
+        private void RecipeDataGridView_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            e.ContextMenuStrip = recipeContextMenuStrip;
         }
     }
 }
