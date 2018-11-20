@@ -73,9 +73,17 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
-        public void AddRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
+        public void AddRecipe(
+            string recipeName, 
+            string recipeDescription,
+            RecipeCategory category,
+            IDictionary<Ingredient, int> measuredIngredients)
         {
-            _recipeInventory.AddRecipe(recipeName, recipeDescription, measuredIngredients);
+            _recipeInventory.AddRecipe(
+                recipeName, 
+                recipeDescription, 
+                category,
+                measuredIngredients);
         }
 
         public void UpdateRecipe(Recipe recipe)

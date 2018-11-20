@@ -17,14 +17,12 @@ namespace CIS560_RecipeManager.RecipeManager
     public class Recipe
     {
         public int Id { get; }
-        
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public int CategoryName { get; }
-
-        public int CategoryID { get; }
+        public RecipeCategory Category {get; set;}
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
@@ -34,11 +32,13 @@ namespace CIS560_RecipeManager.RecipeManager
             int id, 
             string name,
             string description,
+            RecipeCategory category,
             IDictionary<Ingredient, int> measuredIngredients)
         {
             Id = id;
             Name = name;
             Description = description;
+            Category = category;
             MeasuredIngredients = measuredIngredients;
             IngredientBindingList = new BindingList<RecipeIngredient>();
             PopulateMeasuredIngredients(measuredIngredients);
