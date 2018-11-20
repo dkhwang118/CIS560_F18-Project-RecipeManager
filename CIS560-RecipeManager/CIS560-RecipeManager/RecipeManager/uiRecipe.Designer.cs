@@ -33,10 +33,10 @@
             this.recipeContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.RecipeDataGridView = new Zuby.ADGV.AdvancedDataGridView();
+            this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
             this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -82,17 +82,15 @@
             this.RecipeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecipeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.Category});
+            this.categoryDataGridViewTextBoxColumn});
             this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.FilterAndSortEnabled = true;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(73, 74);
+            this.RecipeDataGridView.Location = new System.Drawing.Point(86, 51);
+            this.RecipeDataGridView.MultiSelect = false;
             this.RecipeDataGridView.Name = "RecipeDataGridView";
             this.RecipeDataGridView.RowTemplate.Height = 46;
             this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecipeDataGridView.Size = new System.Drawing.Size(1117, 465);
+            this.RecipeDataGridView.Size = new System.Drawing.Size(1104, 476);
             this.RecipeDataGridView.TabIndex = 3;
-            this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
-            this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
             // 
             // RecipeBindingSource
             // 
@@ -104,18 +102,14 @@
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 22;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
-            // Category
+            // categoryDataGridViewTextBoxColumn
             // 
-            this.Category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 22;
-            this.Category.Name = "Category";
-            this.Category.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             // 
             // uiRecipe
             // 
@@ -142,9 +136,9 @@
         private System.Windows.Forms.ContextMenuStrip recipeContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cookRecipeToolStripMenuItem;
-        private Zuby.ADGV.AdvancedDataGridView RecipeDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView RecipeDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
     }
 }

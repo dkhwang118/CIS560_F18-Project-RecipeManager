@@ -14,7 +14,7 @@ using CIS560_RecipeManager;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
-    public class Recipe
+    public class Recipe : IComparable<Recipe>
     {
         public int Id { get; }
 
@@ -61,6 +61,11 @@ namespace CIS560_RecipeManager.RecipeManager
         public override string ToString()
         {
             return $"Recipe(id: {Id}, name: {Name}, description: {Description}, measuredIngredients: {MeasuredIngredients})";
+        }
+
+        public int CompareTo(Recipe other)
+        {
+            return string.Compare(Category.Name, other.Category.Name);
         }
     }
 }
