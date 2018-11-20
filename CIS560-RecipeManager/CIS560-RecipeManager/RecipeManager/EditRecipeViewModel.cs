@@ -10,6 +10,8 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public BindingList<Ingredient> RecipeIngredients { get; }
 
+        public List<int> IngredientQuantities { get; }
+
         public Recipe CurrentRecipe { get; }
 
         public EditRecipeViewModel(
@@ -18,6 +20,7 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             TotalIngredients = new BindingList<Ingredient>();
             RecipeIngredients = new BindingList<Ingredient>();
+            IngredientQuantities = new List<int>();
             CurrentRecipe = recipe;
 
             foreach (Ingredient i in totalIngredients)
@@ -30,6 +33,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 foreach (var kvp in recipe.MeasuredIngredients)
                 {
                     RecipeIngredients.Add(kvp.Key);
+                    IngredientQuantities.Add(kvp.Value);
                 }
             }
         }

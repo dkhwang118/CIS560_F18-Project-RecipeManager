@@ -25,7 +25,14 @@ namespace CIS560_RecipeManager
             totalIngredientsDGV.DataSource = totalIngredientsBindingSource;
             recipeIngredientsBindingSource.DataSource = _viewModel.RecipeIngredients;
             recipeIngredientsDGV.DataSource = recipeIngredientsBindingSource;
-            
+        }
+
+        private void PopulateIngredientQuantities()
+        {
+            for (int i = 0; i < recipeIngredientsDGV.RowCount; i++)
+            {
+                recipeIngredientsDGV.Rows[i].Cells[2].Value = _viewModel.IngredientQuantities[i];
+            }
         }
 
         public void uxButton_AddRecipe_Click(object sender, EventArgs e)
@@ -62,6 +69,11 @@ namespace CIS560_RecipeManager
                     recipeIngredientsDGV.Rows[recipeIngredientsDGV.RowCount - 1].Cells[2].Value = "1";
                 }
             }
+        }
+
+        private void recipeIngredientsDGV_BindingContextChanged(object sender, EventArgs e)
+        {
+            PopulateIngredientQuantities();
         }
     }
 }

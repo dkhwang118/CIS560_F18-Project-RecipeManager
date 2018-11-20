@@ -162,6 +162,7 @@
             this.recipeIngredientsDGV.RowTemplate.Height = 46;
             this.recipeIngredientsDGV.Size = new System.Drawing.Size(694, 441);
             this.recipeIngredientsDGV.TabIndex = 7;
+            this.recipeIngredientsDGV.BindingContextChanged += new System.EventHandler(this.recipeIngredientsDGV_BindingContextChanged);
             // 
             // nameDataGridViewTextBoxColumn1
             // 
@@ -211,7 +212,7 @@
             this.addIngredientButton.UseVisualStyleBackColor = true;
             this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
-            // uiAddRecipeForm
+            // uiEditRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,7 +228,7 @@
             this.Controls.Add(this.uxLabel_RecipeName);
             this.Controls.Add(this.uxTextBox_RecipeName);
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.Name = "uiAddRecipeForm";
+            this.Name = "uiEditRecipeForm";
             this.Text = "Add or Update Recipe";
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).EndInit();
