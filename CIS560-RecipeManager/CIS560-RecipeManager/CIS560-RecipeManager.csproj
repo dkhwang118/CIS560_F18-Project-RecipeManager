@@ -75,7 +75,7 @@
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="RecipeManager\AddRecipeViewModel.cs" />
+    <Compile Include="RecipeManager\EditRecipeViewModel.cs" />
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeIngredient.cs" />
@@ -98,11 +98,11 @@
     </Compile>
     <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
-    <Compile Include="RecipeManager\uiAddRecipeForm.cs">
+    <Compile Include="RecipeManager\uiEditRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipeManager\uiAddRecipeForm.Designer.cs">
-      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
+    <Compile Include="RecipeManager\uiEditRecipeForm.Designer.cs">
+      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
-      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
+    <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
+      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,6 +163,7 @@
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
     <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
+    <None Include="Properties\DataSources\uiRecipe.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

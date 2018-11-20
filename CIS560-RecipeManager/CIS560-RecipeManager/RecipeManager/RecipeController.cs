@@ -1,8 +1,5 @@
-﻿
-
-using CIS560_RecipeManager.Pantry;
+﻿using CIS560_RecipeManager.Pantry;
 using System.Collections.Generic;
-using static CIS560_RecipeManager.RecipeManager.Recipe;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
@@ -11,6 +8,7 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
+        private EditRecipeViewModel _viewModel;
 
         public RecipeController(
             IQuery query, 
@@ -24,7 +22,10 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchRecipeForm()
         {
-            new uiRecipe(LaunchAddRecipeForm, _recipeInventory).Show();
+            new uiRecipe(
+                LaunchAddRecipeForm,
+                LaunchEditRecipeForm,
+                _recipeInventory).Show();
         }
 
         public void LaunchAddRecipeForm()
@@ -34,11 +35,23 @@ namespace CIS560_RecipeManager.RecipeManager
             {
                 ingredients.Add(i.Key);
             }
-            var viewModel = new AddRecipeViewModel(
+            _viewModel = new EditRecipeViewModel(
                 ingredients,
-                new Dictionary<Ingredient, int>());
+                null);
 
-            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
+        }
+
+        public void LaunchEditRecipeForm(Recipe recipe)
+        {
+            var ingredients = new List<Ingredient>();
+            foreach (var i in _pantry.PantryContents)
+            {
+                ingredients.Add(i.Key);
+            }
+
+            _viewModel = new EditRecipeViewModel(ingredients, recipe);
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -61,6 +74,11 @@ namespace CIS560_RecipeManager.RecipeManager
             _recipeInventory.AddRecipe(recipe);
         }
 
+        public void UpdateRecipe(Recipe recipe)
+        {
+            _queryRepository.UpdateRecipe(recipe);
+        }
+
         public void LaunchAddIngredientForm()
         {
             new uiAddIngredient(CreateIngredient).Show();
@@ -70,6 +88,7 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             Ingredient ingredient = _queryRepository.CreateIngredient(name, unitOfMeasure, quantity);
             _pantry.AddToPantry(ingredient, quantity);
+            _viewModel.AddIngredientToTotal(ingredient);
         }
     }
 }
