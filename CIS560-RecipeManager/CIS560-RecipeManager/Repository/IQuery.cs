@@ -5,6 +5,8 @@ namespace CIS560_RecipeManager
 {
     public interface IQuery
     {
+        void UpdateRecipe(Recipe recipe);
+
         Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients);
 
         void DeleteRecipe(Recipe recipe);

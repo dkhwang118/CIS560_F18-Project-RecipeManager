@@ -18,9 +18,9 @@ namespace CIS560_RecipeManager.RecipeManager
     {
         public int Id { get; }
         
-        public string Name { get; }
+        public string Name { get; set; }
 
-        public string Description { get; }
+        public string Description { get; set; }
 
         public int CategoryName { get; }
 
@@ -44,9 +44,11 @@ namespace CIS560_RecipeManager.RecipeManager
             PopulateMeasuredIngredients(measuredIngredients);
         }
 
-        private void PopulateMeasuredIngredients(
+        public void PopulateMeasuredIngredients(
             IDictionary<Ingredient, int> measuredIngredients)
         {
+            IngredientBindingList.Clear();
+
             foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
             {
                 IngredientBindingList.Add(

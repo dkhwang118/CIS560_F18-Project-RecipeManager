@@ -39,7 +39,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 ingredients,
                 null);
 
-            new uiEditRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void LaunchEditRecipeForm(Recipe recipe)
@@ -51,7 +51,7 @@ namespace CIS560_RecipeManager.RecipeManager
             }
 
             _viewModel = new EditRecipeViewModel(ingredients, recipe);
-            new uiEditRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -72,6 +72,11 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, measuredIngredients);
             _recipeInventory.AddRecipe(recipe);
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            _queryRepository.UpdateRecipe(recipe);
         }
 
         public void LaunchAddIngredientForm()

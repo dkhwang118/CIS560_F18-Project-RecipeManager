@@ -79,7 +79,7 @@
             this.uxButton_EditRecipeOK.TabIndex = 2;
             this.uxButton_EditRecipeOK.Text = "OK";
             this.uxButton_EditRecipeOK.UseVisualStyleBackColor = true;
-            this.uxButton_EditRecipeOK.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
+            this.uxButton_EditRecipeOK.Click += new System.EventHandler(this.uxOKButton_Click);
             // 
             // uxLabel_RecipeDescription
             // 
