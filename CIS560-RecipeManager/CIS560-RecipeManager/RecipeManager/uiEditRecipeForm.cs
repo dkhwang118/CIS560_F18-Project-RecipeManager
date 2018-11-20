@@ -74,15 +74,6 @@ namespace CIS560_RecipeManager
             PopulateIngredientQuantities();
         }
 
-        private void recipeIngredientsDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                _viewModel.IngredientQuantities.RemoveAt(e.RowIndex);
-                _viewModel.RecipeIngredients.RemoveAt(e.RowIndex);
-            }
-        }
-
         private void uxOKButton_Click(object sender, EventArgs e)
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
@@ -104,10 +95,21 @@ namespace CIS560_RecipeManager
                 _viewModel.CurrentRecipe.Description = uxTextBox_RecipeDescription.Text;
                 _viewModel.CurrentRecipe.PopulateMeasuredIngredients(ingredients);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was updated!");
-
             }
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void recipeIngredientsDGV_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            e.ContextMenuStrip = ingredientContextMenuStrip;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _viewModel.IngredientQuantities.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
+            _viewModel.RecipeIngredients.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
         }
     }
 }
