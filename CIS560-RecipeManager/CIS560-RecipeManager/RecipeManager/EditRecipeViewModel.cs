@@ -12,10 +12,13 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public List<int> IngredientQuantities { get; }
 
+        public BindingList<RecipeCategory> RecipeCategories { get; }
+
         public Recipe CurrentRecipe { get; }
 
         public EditRecipeViewModel(
             ICollection<Ingredient> totalIngredients, 
+            ICollection<RecipeCategory> recipeCategories,
             Recipe recipe)
         {
             TotalIngredients = new BindingList<Ingredient>();
@@ -35,6 +38,12 @@ namespace CIS560_RecipeManager.RecipeManager
                     RecipeIngredients.Add(kvp.Key);
                     IngredientQuantities.Add(kvp.Value);
                 }
+            }
+
+            RecipeCategories = new BindingList<RecipeCategory>();
+            foreach (var c in recipeCategories)
+            {
+                RecipeCategories.Add(c);
             }
         }
 

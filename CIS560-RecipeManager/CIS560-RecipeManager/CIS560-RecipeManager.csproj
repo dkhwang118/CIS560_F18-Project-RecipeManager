@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=1.1.22318.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.1.22318.2\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
@@ -80,12 +83,6 @@
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
-    <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
-      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IngredientQuery.cs" />
@@ -151,12 +148,10 @@
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiRecipeDetailForm.resx">
-      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />

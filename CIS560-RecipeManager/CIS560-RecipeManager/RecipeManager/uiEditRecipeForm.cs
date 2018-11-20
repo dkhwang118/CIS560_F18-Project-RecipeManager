@@ -8,13 +8,13 @@ namespace CIS560_RecipeManager
 {
     public partial class uiEditRecipeForm : Form
     {
-        private Action<string, string, IDictionary<Ingredient, int>> _addRecipeDelegate;
+        private Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> _addRecipeDelegate;
         private Action<Recipe> _updateRecipeDelegate;
         private Action _launchAddIngredientForm;
         private EditRecipeViewModel _viewModel;
 
         public uiEditRecipeForm(
-            Action<string, string, IDictionary<Ingredient, int>> addRecipeDelegate,
+            Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> addRecipeDelegate,
             Action<Recipe> updateRecipeDelegate,
             Action launchAddIngredientForm,
             EditRecipeViewModel viewModel)
@@ -28,6 +28,7 @@ namespace CIS560_RecipeManager
             totalIngredientsDGV.DataSource = totalIngredientsBindingSource;
             recipeIngredientsBindingSource.DataSource = _viewModel.RecipeIngredients;
             recipeIngredientsDGV.DataSource = recipeIngredientsBindingSource;
+            categoryComboBox.DataSource = _viewModel.RecipeCategories;
             PopulateRecipeDetails();
         }
 
@@ -37,6 +38,7 @@ namespace CIS560_RecipeManager
             {
                 uxTextBox_RecipeName.Text = _viewModel.CurrentRecipe.Name;
                 uxTextBox_RecipeDescription.Text = _viewModel.CurrentRecipe.Description;
+                categoryComboBox.SelectedItem = _viewModel.RecipeCategories.First(x => x.Id == _viewModel.CurrentRecipe.Category.Id);
             }
         }
 
@@ -74,15 +76,6 @@ namespace CIS560_RecipeManager
             PopulateIngredientQuantities();
         }
 
-        private void recipeIngredientsDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                _viewModel.IngredientQuantities.RemoveAt(e.RowIndex);
-                _viewModel.RecipeIngredients.RemoveAt(e.RowIndex);
-            }
-        }
-
         private void uxOKButton_Click(object sender, EventArgs e)
         {
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
@@ -95,7 +88,11 @@ namespace CIS560_RecipeManager
 
             if (_viewModel.CurrentRecipe == null)
             {
-                _addRecipeDelegate(uxTextBox_RecipeName.Text, uxTextBox_RecipeDescription.Text, ingredients);
+                _addRecipeDelegate(
+                    uxTextBox_RecipeName.Text, 
+                    uxTextBox_RecipeDescription.Text,
+                    (RecipeCategory)categoryComboBox.SelectedItem,
+                    ingredients);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
             }
             else
@@ -103,11 +100,24 @@ namespace CIS560_RecipeManager
                 _viewModel.CurrentRecipe.Name = uxTextBox_RecipeName.Text;
                 _viewModel.CurrentRecipe.Description = uxTextBox_RecipeDescription.Text;
                 _viewModel.CurrentRecipe.PopulateMeasuredIngredients(ingredients);
+                _viewModel.CurrentRecipe.Category = (RecipeCategory) categoryComboBox.SelectedItem;
+                _updateRecipeDelegate(_viewModel.CurrentRecipe);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was updated!");
-
             }
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private void recipeIngredientsDGV_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            e.ContextMenuStrip = ingredientContextMenuStrip;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _viewModel.IngredientQuantities.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
+            _viewModel.RecipeIngredients.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
         }
     }
 }

@@ -14,19 +14,17 @@ using CIS560_RecipeManager;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
-    public class Recipe
+    public class Recipe : IComparable<Recipe>
     {
         public int Id { get; }
-        
+
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public int CategoryName { get; }
+        public RecipeCategory Category {get; set;}
 
-        public int CategoryID { get; }
-
-        public IDictionary<Ingredient, int> MeasuredIngredients { get; }
+        public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
         public BindingList<RecipeIngredient> IngredientBindingList { get; }
 
@@ -34,11 +32,13 @@ namespace CIS560_RecipeManager.RecipeManager
             int id, 
             string name,
             string description,
+            RecipeCategory category,
             IDictionary<Ingredient, int> measuredIngredients)
         {
             Id = id;
             Name = name;
             Description = description;
+            Category = category;
             MeasuredIngredients = measuredIngredients;
             IngredientBindingList = new BindingList<RecipeIngredient>();
             PopulateMeasuredIngredients(measuredIngredients);
@@ -54,11 +54,18 @@ namespace CIS560_RecipeManager.RecipeManager
                 IngredientBindingList.Add(
                     new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value));
             }
+
+            MeasuredIngredients = measuredIngredients;
         }
 
         public override string ToString()
         {
             return $"Recipe(id: {Id}, name: {Name}, description: {Description}, measuredIngredients: {MeasuredIngredients})";
+        }
+
+        public int CompareTo(Recipe other)
+        {
+            return string.Compare(Category.Name, other.Category.Name);
         }
     }
 }

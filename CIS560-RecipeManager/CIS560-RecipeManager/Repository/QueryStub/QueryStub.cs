@@ -28,9 +28,9 @@ namespace CIS560_RecipeManager.Repository
             //cook recipe
         }
 
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
         {
-            return new Recipe(0, recipeName, recipeDescription, measuredIngredients);
+            return new Recipe(0, recipeName, recipeDescription, category, measuredIngredients);
         }
 
         public void DeleteRecipe(Recipe recipe)
@@ -49,13 +49,13 @@ namespace CIS560_RecipeManager.Repository
 
             Dictionary<Ingredient, int> d1 = new Dictionary<Ingredient, int>();
             d1.Add(new Ingredient(1, "Potato", "Quantity"), 5);
-            Recipe r1 = new Recipe(0, "Baked Potato","directions", d1);
+            Recipe r1 = new Recipe(0, "Baked Potato", "directions", new RecipeCategory(0, "Entrees"), d1);
             list.Add(r1);
 
             Dictionary<Ingredient, int> d2 = new Dictionary<Ingredient, int>();
             d2.Add(new Ingredient(2, "Macaroni", "Box"), 1);
             d2.Add(new Ingredient(3, "Cheese", "Ounce"), 2);
-            Recipe r2 = new Recipe(0, "Mac & Cheese","directions", d1);
+            Recipe r2 = new Recipe(0, "Mac & Cheese","directions", new RecipeCategory(0, "Entrees"), d1);
             list.Add(r2);
 
             return list;
@@ -87,7 +87,15 @@ namespace CIS560_RecipeManager.Repository
 
         public void UpdateRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            //update recipe
+        }
+
+        public ICollection<RecipeCategory> GetRecipeCategories()
+        {
+            var categories = new List<RecipeCategory>();
+            categories.Add(new RecipeCategory(0, "Entrees"));
+            categories.Add(new RecipeCategory(1, "Desserts"));
+            return categories;
         }
     }
 }
