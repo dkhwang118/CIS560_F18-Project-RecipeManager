@@ -27,6 +27,14 @@ namespace CIS560_RecipeManager
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
             RecipeDataGridView.DataSource = RecipeBindingSource;
+            SetGrouper();
+        }
+
+        private void SetGrouper()
+        {
+            var grouper = new Subro.Controls.DataGridViewGrouper(RecipeDataGridView);
+            grouper.SetGroupOn(RecipeDataGridView.Columns[1]);
+            grouper.Options.StartCollapsed = true;
         }
 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
