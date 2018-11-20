@@ -6,10 +6,13 @@ namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeInventory
     {
+        private IQuery _query;
+
         public BindingList<Recipe> RecipeCollection {get;}
 
-        public RecipeInventory()
+        public RecipeInventory(IQuery query)
         {
+            _query = query;
             RecipeCollection = new BindingList<Recipe>();
             Dictionary<Ingredient, int> dict = new Dictionary<Ingredient, int>();
             dict.Add(new Ingredient(1, "Potato", "Quantity"), 5);
@@ -24,14 +27,21 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
-        public void AddRecipe(Recipe recipe)
+        public void AddRecipe(string name, string description, IDictionary<Ingredient, int> measuredIngredients)
         {
+            Recipe recipe = _query.CreateRecipe(name, description, measuredIngredients);
             RecipeCollection.Add(recipe);
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
             RecipeCollection.Remove(recipe);
+            _query.DeleteRecipe(recipe);
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            _query.UpdateRecipe(recipe);
         }
     }
 }

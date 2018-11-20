@@ -5,17 +5,14 @@ namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeController
     {
-        private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
         private EditRecipeViewModel _viewModel;
 
         public RecipeController(
-            IQuery query, 
             RecipeInventory recipeInventory,
             MyPantry pantry)
         {
-            _queryRepository = query;
             _recipeInventory = recipeInventory;
             _pantry = pantry;
         }
@@ -58,7 +55,6 @@ namespace CIS560_RecipeManager.RecipeManager
         public void DeleteRecipe(Recipe recipe)
         {
             _recipeInventory.DeleteRecipe(recipe);
-            _queryRepository.DeleteRecipe(recipe);
         }
 
         public void CookRecipe(Recipe recipe)
@@ -67,23 +63,22 @@ namespace CIS560_RecipeManager.RecipeManager
             {
                 //If we don't allow the user to delete Ingredients, there should
                 //never be an Ingredient that doesn't exist in the Pantry, so we should
-                //just let the IDictionary through a KeyNotFoundException
-                int updatedQuantity = (_pantry.PantryContents[item.Key] -= item.Value);
+                //just let the IDictionary throw a KeyNotFoundException
+                int updatedQuantity = _pantry.PantryContents[item.Key] - item.Value;
 
-                //update the Ingredient quantity in the database
-                _queryRepository.UpdateIngredientQuantity(updatedQuantity,item.Key);
+                //update the Ingredient quantity in the pantry
+                _pantry.UpdateIngredientQuantity(updatedQuantity, item.Key);
             }
         }
 
         public void AddRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
         {
-            Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, measuredIngredients);
-            _recipeInventory.AddRecipe(recipe);
+            _recipeInventory.AddRecipe(recipeName, recipeDescription, measuredIngredients);
         }
 
         public void UpdateRecipe(Recipe recipe)
         {
-            _queryRepository.UpdateRecipe(recipe);
+            _recipeInventory.UpdateRecipe(recipe);
         }
 
         public void LaunchAddIngredientForm()
@@ -93,8 +88,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void CreateIngredient(string name, string unitOfMeasure, int quantity)
         {
-            Ingredient ingredient = _queryRepository.CreateIngredient(name, unitOfMeasure, quantity);
-            _pantry.AddToPantry(ingredient, quantity);
+            var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity);
             _viewModel.AddIngredientToTotal(ingredient);
         }
     }
