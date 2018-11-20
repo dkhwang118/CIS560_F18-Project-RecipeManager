@@ -26,7 +26,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public int CategoryID { get; }
 
-        public IDictionary<Ingredient, int> MeasuredIngredients { get; }
+        public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
         public BindingList<RecipeIngredient> IngredientBindingList { get; }
 
@@ -54,6 +54,8 @@ namespace CIS560_RecipeManager.RecipeManager
                 IngredientBindingList.Add(
                     new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value));
             }
+
+            MeasuredIngredients = measuredIngredients;
         }
 
         public override string ToString()

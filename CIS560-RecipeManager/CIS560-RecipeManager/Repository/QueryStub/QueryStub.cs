@@ -87,7 +87,7 @@ namespace CIS560_RecipeManager.Repository
 
         public void UpdateRecipe(Recipe recipe)
         {
-            throw new NotImplementedException();
+            //update recipe
         }
     }
 }
