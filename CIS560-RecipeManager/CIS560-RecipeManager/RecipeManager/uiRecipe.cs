@@ -32,7 +32,7 @@ namespace CIS560_RecipeManager
 
         private void RecipeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 var row = RecipeDataGridView.Rows[e.RowIndex];
                 Recipe recipe = (Recipe)row.DataBoundItem;
