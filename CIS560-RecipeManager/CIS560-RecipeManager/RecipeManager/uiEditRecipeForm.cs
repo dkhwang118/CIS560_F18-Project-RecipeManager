@@ -38,6 +38,7 @@ namespace CIS560_RecipeManager
             {
                 uxTextBox_RecipeName.Text = _viewModel.CurrentRecipe.Name;
                 uxTextBox_RecipeDescription.Text = _viewModel.CurrentRecipe.Description;
+                categoryComboBox.SelectedItem = _viewModel.RecipeCategories.First(x => x.Id == _viewModel.CurrentRecipe.CategoryID);
             }
         }
 
