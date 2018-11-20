@@ -34,9 +34,9 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecipeDataGridView = new Zuby.ADGV.AdvancedDataGridView();
-            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -91,11 +91,8 @@
             this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.RecipeDataGridView.Size = new System.Drawing.Size(1117, 465);
             this.RecipeDataGridView.TabIndex = 3;
-            // 
-            // RecipeBindingSource
-            // 
-            this.RecipeBindingSource.DataMember = "RecipeCollection";
-            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
+            this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -116,6 +113,11 @@
             this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.categoryNameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
+            // RecipeBindingSource
+            // 
+            this.RecipeBindingSource.DataMember = "RecipeCollection";
+            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            // 
             // uiRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
@@ -124,7 +126,7 @@
             this.Controls.Add(this.RecipeDataGridView);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "uiRecipe";
             this.Text = "Home";
