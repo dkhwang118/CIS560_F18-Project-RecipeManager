@@ -29,12 +29,21 @@ namespace CIS560_RecipeManager.Pantry
         /// <param name="e"></param>
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
-            _createIngredientDelegate(
+            int pantryQuantity;
+
+            if (int.TryParse(uxTextBox_PantryQuantity.Text, out pantryQuantity))
+            {
+                _createIngredientDelegate(
                 uxTextBox_IngredientName.Text,
                 uxTextBox_UnitMeasurement.Text,
                 Convert.ToInt32(uxTextBox_PantryQuantity.Text)
                 );
-            Close();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Pantry Quantity field must contain only a whole number.");
+            }
         }
     }
 }
