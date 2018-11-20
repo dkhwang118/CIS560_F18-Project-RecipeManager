@@ -58,6 +58,8 @@ namespace CIS560_RecipeManager
                 if (!_viewModel.RecipeIngredients.Contains(i))
                 {
                     _viewModel.RecipeIngredients.Add(i);
+                    //setting the default value of the recipe quantity column to 1
+                    recipeIngredientsDGV.Rows[recipeIngredientsDGV.RowCount - 1].Cells[2].Value = "1";
                 }
             }
         }

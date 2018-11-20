@@ -30,10 +30,14 @@ namespace CIS560_RecipeManager
             _launchAddRecipeForm();
         }
 
-        private void ViewRecipeDetailsButton_Click(object sender, EventArgs e)
+        private void RecipeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Recipe recipe = (Recipe) RecipeDataGridView.SelectedRows[0].DataBoundItem;
-            new uiRecipeDetailForm(recipe).Show();
+            if (e.RowIndex > 0)
+            {
+                var row = RecipeDataGridView.Rows[e.RowIndex];
+                Recipe recipe = (Recipe)row.DataBoundItem;
+                new uiRecipeDetailForm(recipe).Show();
+            }
         }
     }
 }
