@@ -89,5 +89,13 @@ namespace CIS560_RecipeManager.Repository
         {
             //update recipe
         }
+
+        public ICollection<RecipeCategory> GetRecipeCategories()
+        {
+            var categories = new List<RecipeCategory>();
+            categories.Add(new RecipeCategory(0, "Entrees"));
+            categories.Add(new RecipeCategory(1, "Desserts"));
+            return categories;
+        }
     }
 }

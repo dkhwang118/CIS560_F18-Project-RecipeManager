@@ -36,6 +36,7 @@ namespace CIS560_RecipeManager.RecipeManager
             }
             _viewModel = new EditRecipeViewModel(
                 ingredients,
+                _recipeInventory.GetAllRecipeCategories(),
                 null);
 
             new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
@@ -49,7 +50,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 ingredients.Add(i.Key);
             }
 
-            _viewModel = new EditRecipeViewModel(ingredients, recipe);
+            _viewModel = new EditRecipeViewModel(ingredients, _recipeInventory.GetAllRecipeCategories(), recipe);
             new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 

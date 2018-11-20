@@ -18,6 +18,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public EditRecipeViewModel(
             ICollection<Ingredient> totalIngredients, 
+            ICollection<RecipeCategory> recipeCategories,
             Recipe recipe)
         {
             TotalIngredients = new BindingList<Ingredient>();
@@ -40,7 +41,10 @@ namespace CIS560_RecipeManager.RecipeManager
             }
 
             RecipeCategories = new BindingList<RecipeCategory>();
-            RecipeCategories.Add(new RecipeCategory(0, "Desserts"));
+            foreach (var c in recipeCategories)
+            {
+                RecipeCategories.Add(c);
+            }
         }
 
         public void AddIngredientToTotal(Ingredient i)

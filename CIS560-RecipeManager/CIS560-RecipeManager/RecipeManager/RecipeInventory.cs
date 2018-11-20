@@ -43,5 +43,10 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             _query.UpdateRecipe(recipe);
         }
+
+        public ICollection<RecipeCategory> GetAllRecipeCategories()
+        {
+            return _query.GetRecipeCategories();
+        }
     }
 }

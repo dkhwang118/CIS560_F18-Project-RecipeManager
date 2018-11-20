@@ -24,5 +24,7 @@ namespace CIS560_RecipeManager
         void DeleteRecipeCategory(RecipeCategory category);
 
         void CookRecipe(Recipe recipe);
+
+        ICollection<RecipeCategory> GetRecipeCategories();
     }
 }
