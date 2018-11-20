@@ -23,6 +23,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 LaunchAddRecipeForm,
                 LaunchEditRecipeForm,
                 DeleteRecipe,
+                CookRecipe,
                 _recipeInventory).Show();
         }
 

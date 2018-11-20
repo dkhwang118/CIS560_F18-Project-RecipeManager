@@ -26,8 +26,7 @@ namespace CIS560_RecipeManager
         {
             _query = query;
             PantryContents = new Dictionary<Ingredient, int>();
-            PantryContents.Add(
-                new Ingredient(0, "potato","quantity"), 4);
+            //todo: populate pantry with items from _query
         }
 
         //updates the pantry contents with an ingredient and quantity
