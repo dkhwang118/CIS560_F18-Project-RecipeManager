@@ -6,16 +6,16 @@ using System.Linq;
 
 namespace CIS560_RecipeManager
 {
-    public partial class uiAddRecipeForm : Form
+    public partial class uiEditRecipeForm : Form
     {
         private Action<string, string, IDictionary<Ingredient, int>> _addRecipeDelegate;
         private Action _launchAddIngredientForm;
-        private AddRecipeViewModel _viewModel;
+        private EditRecipeViewModel _viewModel;
 
-        public uiAddRecipeForm(
+        public uiEditRecipeForm(
             Action<string, string, IDictionary<Ingredient,int>> addRecipeDelegate,
             Action launchAddIngredientForm,
-            AddRecipeViewModel viewModel)
+            EditRecipeViewModel viewModel)
         {
             _addRecipeDelegate = addRecipeDelegate;
             _launchAddIngredientForm = launchAddIngredientForm;

@@ -14,11 +14,16 @@ namespace CIS560_RecipeManager
     public partial class uiRecipe : Form
     {
         private Action _launchAddRecipeForm;
+        private Action<Recipe> _launchEditRecipeForm;
         private RecipeInventory _recipeInventory;
 
-        public uiRecipe(Action launchAddRecipeForm, RecipeInventory recipeInventory)
+        public uiRecipe(
+            Action launchAddRecipeForm, 
+            Action<Recipe> launchEditRecipeForm,
+            RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
+            _launchEditRecipeForm = launchEditRecipeForm;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
@@ -36,7 +41,7 @@ namespace CIS560_RecipeManager
             {
                 var row = RecipeDataGridView.Rows[e.RowIndex];
                 Recipe recipe = (Recipe)row.DataBoundItem;
-                new uiRecipeDetailForm(recipe).Show();
+                _launchEditRecipeForm(recipe);
             }
         }
     }

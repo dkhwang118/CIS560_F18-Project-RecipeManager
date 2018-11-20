@@ -4,25 +4,33 @@ using System.ComponentModel;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
-    public class AddRecipeViewModel
+    public class EditRecipeViewModel
     {
         public BindingList<Ingredient> TotalIngredients { get; }
 
         public BindingList<Ingredient> RecipeIngredients { get; }
 
-        public AddRecipeViewModel(ICollection<Ingredient> totalIngredients, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CurrentRecipe { get; }
+
+        public EditRecipeViewModel(
+            ICollection<Ingredient> totalIngredients, 
+            Recipe recipe)
         {
             TotalIngredients = new BindingList<Ingredient>();
             RecipeIngredients = new BindingList<Ingredient>();
+            CurrentRecipe = recipe;
 
             foreach (Ingredient i in totalIngredients)
             {
                 TotalIngredients.Add(i);
             }
 
-            foreach(var kvp in measuredIngredients)
+            if (recipe != null)
             {
-                RecipeIngredients.Add(kvp.Key);
+                foreach (var kvp in recipe.MeasuredIngredients)
+                {
+                    RecipeIngredients.Add(kvp.Key);
+                }
             }
         }
 

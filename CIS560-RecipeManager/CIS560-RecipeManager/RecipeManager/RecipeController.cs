@@ -8,7 +8,7 @@ namespace CIS560_RecipeManager.RecipeManager
         private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
-        private AddRecipeViewModel _viewModel;
+        private EditRecipeViewModel _viewModel;
 
         public RecipeController(
             IQuery query, 
@@ -22,7 +22,10 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void LaunchRecipeForm()
         {
-            new uiRecipe(LaunchAddRecipeForm, _recipeInventory).Show();
+            new uiRecipe(
+                LaunchAddRecipeForm,
+                LaunchEditRecipeForm,
+                _recipeInventory).Show();
         }
 
         public void LaunchAddRecipeForm()
@@ -32,11 +35,23 @@ namespace CIS560_RecipeManager.RecipeManager
             {
                 ingredients.Add(i.Key);
             }
-            _viewModel = new AddRecipeViewModel(
+            _viewModel = new EditRecipeViewModel(
                 ingredients,
-                new Dictionary<Ingredient, int>());
+                null);
 
-            new uiAddRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
+        }
+
+        public void LaunchEditRecipeForm(Recipe recipe)
+        {
+            var ingredients = new List<Ingredient>();
+            foreach (var i in _pantry.PantryContents)
+            {
+                ingredients.Add(i.Key);
+            }
+
+            _viewModel = new EditRecipeViewModel(ingredients, recipe);
+            new uiEditRecipeForm(AddRecipe, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void CookRecipe(Recipe recipe)

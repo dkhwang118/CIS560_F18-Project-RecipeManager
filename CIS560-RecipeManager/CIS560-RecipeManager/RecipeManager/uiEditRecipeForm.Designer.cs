@@ -1,6 +1,6 @@
 ﻿namespace CIS560_RecipeManager
 {
-    partial class uiAddRecipeForm
+    partial class uiEditRecipeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,25 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.uxTextBox_RecipeName = new System.Windows.Forms.TextBox();
             this.uxLabel_RecipeName = new System.Windows.Forms.Label();
-            this.uxButton_AddRecipe = new System.Windows.Forms.Button();
+            this.uxButton_EditRecipeOK = new System.Windows.Forms.Button();
             this.uxLabel_RecipeDescription = new System.Windows.Forms.Label();
             this.uxTextBox_RecipeDescription = new System.Windows.Forms.TextBox();
             this.totalIngredientsDGV = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.recipeIngredientsDGV = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.addIngredientButton = new System.Windows.Forms.Button();
-            this.recipeIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.recipeIngredientsDGV = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recipeIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.addIngredientButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uxTextBox_RecipeName
@@ -70,16 +70,16 @@
             this.uxLabel_RecipeName.TabIndex = 1;
             this.uxLabel_RecipeName.Text = "Recipe Name:";
             // 
-            // uxButton_AddRecipe
+            // uxButton_EditRecipeOK
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(1457, 1113);
-            this.uxButton_AddRecipe.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
-            this.uxButton_AddRecipe.Size = new System.Drawing.Size(298, 80);
-            this.uxButton_AddRecipe.TabIndex = 2;
-            this.uxButton_AddRecipe.Text = "Add Recipe";
-            this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
-            this.uxButton_AddRecipe.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
+            this.uxButton_EditRecipeOK.Location = new System.Drawing.Point(1457, 1113);
+            this.uxButton_EditRecipeOK.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.uxButton_EditRecipeOK.Name = "uxButton_EditRecipeOK";
+            this.uxButton_EditRecipeOK.Size = new System.Drawing.Size(298, 80);
+            this.uxButton_EditRecipeOK.TabIndex = 2;
+            this.uxButton_EditRecipeOK.Text = "OK";
+            this.uxButton_EditRecipeOK.UseVisualStyleBackColor = true;
+            this.uxButton_EditRecipeOK.Click += new System.EventHandler(this.uxButton_AddRecipe_Click);
             // 
             // uxLabel_RecipeDescription
             // 
@@ -116,6 +116,27 @@
             this.totalIngredientsDGV.TabIndex = 5;
             this.totalIngredientsDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.totalIngredientsDGV_CellDoubleClick);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalIngredientsBindingSource
+            // 
+            this.totalIngredientsBindingSource.DataMember = "TotalIngredients";
+            this.totalIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -142,53 +163,6 @@
             this.recipeIngredientsDGV.Size = new System.Drawing.Size(694, 441);
             this.recipeIngredientsDGV.TabIndex = 7;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1112, 142);
-            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(323, 37);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Ingredients in Recipe:";
-            // 
-            // addIngredientButton
-            // 
-            this.addIngredientButton.Location = new System.Drawing.Point(526, 700);
-            this.addIngredientButton.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.addIngredientButton.Name = "addIngredientButton";
-            this.addIngredientButton.Size = new System.Drawing.Size(694, 77);
-            this.addIngredientButton.TabIndex = 9;
-            this.addIngredientButton.Text = "Add New Ingredient";
-            this.addIngredientButton.UseVisualStyleBackColor = true;
-            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
-            // 
-            // recipeIngredientsBindingSource
-            // 
-            this.recipeIngredientsBindingSource.DataMember = "RecipeIngredients";
-            this.recipeIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.AddRecipeViewModel);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalIngredientsBindingSource
-            // 
-            this.totalIngredientsBindingSource.DataMember = "TotalIngredients";
-            this.totalIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.AddRecipeViewModel);
-            // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -211,6 +185,32 @@
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             // 
+            // recipeIngredientsBindingSource
+            // 
+            this.recipeIngredientsBindingSource.DataMember = "RecipeIngredients";
+            this.recipeIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1112, 142);
+            this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(323, 37);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Ingredients in Recipe:";
+            // 
+            // addIngredientButton
+            // 
+            this.addIngredientButton.Location = new System.Drawing.Point(526, 700);
+            this.addIngredientButton.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.addIngredientButton.Name = "addIngredientButton";
+            this.addIngredientButton.Size = new System.Drawing.Size(694, 77);
+            this.addIngredientButton.TabIndex = 9;
+            this.addIngredientButton.Text = "Add New Ingredient";
+            this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
+            // 
             // uiAddRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
@@ -223,16 +223,16 @@
             this.Controls.Add(this.totalIngredientsDGV);
             this.Controls.Add(this.uxTextBox_RecipeDescription);
             this.Controls.Add(this.uxLabel_RecipeDescription);
-            this.Controls.Add(this.uxButton_AddRecipe);
+            this.Controls.Add(this.uxButton_EditRecipeOK);
             this.Controls.Add(this.uxLabel_RecipeName);
             this.Controls.Add(this.uxTextBox_RecipeName);
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "uiAddRecipeForm";
-            this.Text = "AddNewRecipe_BASIC";
+            this.Text = "Add or Update Recipe";
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,7 +242,7 @@
 
         private System.Windows.Forms.TextBox uxTextBox_RecipeName;
         private System.Windows.Forms.Label uxLabel_RecipeName;
-        private System.Windows.Forms.Button uxButton_AddRecipe;
+        private System.Windows.Forms.Button uxButton_EditRecipeOK;
         private System.Windows.Forms.Label uxLabel_RecipeDescription;
         private System.Windows.Forms.TextBox uxTextBox_RecipeDescription;
         private System.Windows.Forms.DataGridView totalIngredientsDGV;
