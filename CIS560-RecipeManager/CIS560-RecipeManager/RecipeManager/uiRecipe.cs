@@ -58,7 +58,7 @@ namespace CIS560_RecipeManager
 
         private void RecipeDataGridView_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
         {
-            if (e.RowIndex < 0) return;
+            if (e.RowIndex < 0 || _grouper.IsGroupRow(e.RowIndex)) return;
             e.ContextMenuStrip = recipeContextMenuStrip;
         }
 
