@@ -62,7 +62,7 @@ namespace Subro.Controls
                     grid.MouseMove -= new MouseEventHandler(grid_MouseMove);
                     grid.SelectionChanged -= new EventHandler(grid_SelectionChanged);
                     grid.DataSourceChanged -= new EventHandler(grid_DataSourceChanged);
-                    grid.AllowUserToAddRowsChanged -= new EventHandler(grid_AllowUserToAddRowsChanged);    
+                    //grid.AllowUserToAddRowsChanged -= new EventHandler(grid_AllowUserToAddRowsChanged);    
                 }
                 RemoveGrouping();
                 selectedGroups.Clear();
@@ -70,7 +70,6 @@ namespace Subro.Controls
 
                 if (grid != null)
                 {
-                    //grid.Sorted += new EventHandler(grid_Sorted);
                     grid.RowPrePaint += new DataGridViewRowPrePaintEventHandler(grid_RowPrePaint);
                     grid.RowPostPaint += new DataGridViewRowPostPaintEventHandler(grid_RowPostPaint);
                     grid.CellBeginEdit += new DataGridViewCellCancelEventHandler(grid_CellBeginEdit);
@@ -79,19 +78,10 @@ namespace Subro.Controls
                     grid.MouseMove += new MouseEventHandler(grid_MouseMove);
                     grid.SelectionChanged += new EventHandler(grid_SelectionChanged);
                     grid.DataSourceChanged += new EventHandler(grid_DataSourceChanged);
-                    grid.AllowUserToAddRowsChanged += new EventHandler(grid_AllowUserToAddRowsChanged);       
+                    grid.AllowUserToAddRows = false;
                 }
             }
         }
-
-
-        void grid_AllowUserToAddRowsChanged(object sender, EventArgs e)
-        {
-            source.CheckNewRow();
-        }
-
-
-
 
         #region Select /  Collapse/Expand
 
