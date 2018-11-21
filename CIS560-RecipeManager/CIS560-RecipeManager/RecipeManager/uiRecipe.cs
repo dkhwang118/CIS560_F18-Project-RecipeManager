@@ -76,5 +76,18 @@ namespace CIS560_RecipeManager
             _cookRecipeDelegate(recipe);
             MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
         }
+
+        private void RecipeDataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Selecting the current row on a right mouse click.  This is so that
+            //whenever the user right clicks on a row, the row will select and
+            //can be used as the current row for the Context Menu
+            if (e.Button == MouseButtons.Right)
+            {
+                var hti = RecipeDataGridView.HitTest(e.X, e.Y);
+                RecipeDataGridView.ClearSelection();
+                RecipeDataGridView.Rows[hti.RowIndex].Selected = true;
+            }
+        }
     }
 }
