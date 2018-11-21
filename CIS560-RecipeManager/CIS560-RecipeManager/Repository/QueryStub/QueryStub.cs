@@ -6,7 +6,8 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class QueryStub : IQuery
     {
-        private IReadOnlyCollection<Recipe> recipes;
+        private IReadOnlyCollection<Recipe> _recipes;
+        private ICollection<RecipeCategory> _recipeCategories = new List<RecipeCategory>();
 
         public QueryStub()
         {
@@ -92,15 +93,14 @@ namespace CIS560_RecipeManager.Repository
 
         public ICollection<RecipeCategory> GetRecipeCategories()
         {
-            var categories = new List<RecipeCategory>();
-            categories.Add(new RecipeCategory(0, "Entrees"));
-            categories.Add(new RecipeCategory(1, "Desserts"));
-            return categories;
+            return _recipeCategories;
         }
 
         public RecipeCategory CreateRecipeCategory(string name)
         {
-            return new RecipeCategory(0, name);
+            var category = new RecipeCategory(0, name);
+            _recipeCategories.Add(category);
+            return category;
         }
     }
 }
