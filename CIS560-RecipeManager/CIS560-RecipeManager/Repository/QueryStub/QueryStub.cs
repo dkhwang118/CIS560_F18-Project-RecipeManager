@@ -18,7 +18,7 @@ namespace CIS560_RecipeManager.Repository
             return new Ingredient(0, name, unit);
         }
 
-        public void AddRecipeCategory(RecipeCategory category)
+        public void CreateRecipeCategory(RecipeCategory category)
         {
             //add recipe category
         }
@@ -96,6 +96,11 @@ namespace CIS560_RecipeManager.Repository
             categories.Add(new RecipeCategory(0, "Entrees"));
             categories.Add(new RecipeCategory(1, "Desserts"));
             return categories;
+        }
+
+        public RecipeCategory CreateRecipeCategory(string name)
+        {
+            return new RecipeCategory(0, name);
         }
     }
 }

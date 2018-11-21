@@ -15,10 +15,6 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             _query = query;
             RecipeCollection = new BindingList<Recipe>();
-            Dictionary<Ingredient, int> dict = new Dictionary<Ingredient, int>();
-            dict.Add(new Ingredient(1, "Potato", "Quantity"), 5);
-            RecipeCollection.Add(new Recipe
-                (0, "test","directions", new RecipeCategory(0, "Entrees"), dict));
         }
 
         public void AddRecipes(ICollection<Recipe> recipes)
@@ -53,6 +49,11 @@ namespace CIS560_RecipeManager.RecipeManager
         public ICollection<RecipeCategory> GetAllRecipeCategories()
         {
             return _query.GetRecipeCategories();
+        }
+
+        public RecipeCategory AddRecipeCategory(string name)
+        {
+            return _query.CreateRecipeCategory(name);
         }
     }
 }

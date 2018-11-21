@@ -10,17 +10,20 @@ namespace CIS560_RecipeManager
     {
         private Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> _addRecipeDelegate;
         private Action<Recipe> _updateRecipeDelegate;
+        private Func<string,RecipeCategory> _addCategoryDelegate;
         private Action _launchAddIngredientForm;
         private EditRecipeViewModel _viewModel;
 
         public uiEditRecipeForm(
             Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> addRecipeDelegate,
             Action<Recipe> updateRecipeDelegate,
+            Func<string, RecipeCategory> addCategoryDelegate,
             Action launchAddIngredientForm,
             EditRecipeViewModel viewModel)
         {
             _addRecipeDelegate = addRecipeDelegate;
             _updateRecipeDelegate = updateRecipeDelegate;
+            _addCategoryDelegate = addCategoryDelegate;
             _launchAddIngredientForm = launchAddIngredientForm;
             _viewModel = viewModel;
             InitializeComponent();
@@ -91,7 +94,7 @@ namespace CIS560_RecipeManager
                 _addRecipeDelegate(
                     uxTextBox_RecipeName.Text, 
                     uxTextBox_RecipeDescription.Text,
-                    (RecipeCategory)categoryComboBox.SelectedItem,
+                    GetRecipeCategory(),
                     ingredients);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
             }
@@ -100,12 +103,26 @@ namespace CIS560_RecipeManager
                 _viewModel.CurrentRecipe.Name = uxTextBox_RecipeName.Text;
                 _viewModel.CurrentRecipe.Description = uxTextBox_RecipeDescription.Text;
                 _viewModel.CurrentRecipe.PopulateMeasuredIngredients(ingredients);
-                _viewModel.CurrentRecipe.Category = (RecipeCategory) categoryComboBox.SelectedItem;
+                _viewModel.CurrentRecipe.Category = GetRecipeCategory();
                 _updateRecipeDelegate(_viewModel.CurrentRecipe);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was updated!");
             }
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private RecipeCategory GetRecipeCategory()
+        {
+            //if the ComboBox contains a category that already exists
+            if (_viewModel.RecipeCategories.Any(c => c.Name == categoryComboBox.Text))
+            {
+                return (RecipeCategory) categoryComboBox.SelectedItem;
+            }
+            //if the user is creating a new category
+            else
+            {
+                return _addCategoryDelegate(categoryComboBox.Text);
+            }
         }
 
         private void recipeIngredientsDGV_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)

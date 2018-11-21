@@ -39,7 +39,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 _recipeInventory.GetAllRecipeCategories(),
                 null);
 
-            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, AddRecipeCategory, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void LaunchEditRecipeForm(Recipe recipe)
@@ -51,7 +51,7 @@ namespace CIS560_RecipeManager.RecipeManager
             }
 
             _viewModel = new EditRecipeViewModel(ingredients, _recipeInventory.GetAllRecipeCategories(), recipe);
-            new uiEditRecipeForm(AddRecipe, UpdateRecipe, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(AddRecipe, UpdateRecipe, AddRecipeCategory, LaunchAddIngredientForm, _viewModel).Show();
         }
 
         public void DeleteRecipe(Recipe recipe)
@@ -89,6 +89,11 @@ namespace CIS560_RecipeManager.RecipeManager
         public void UpdateRecipe(Recipe recipe)
         {
             _recipeInventory.UpdateRecipe(recipe);
+        }
+
+        public RecipeCategory AddRecipeCategory(string name)
+        {
+            return _recipeInventory.AddRecipeCategory(name);
         }
 
         public void LaunchAddIngredientForm()
