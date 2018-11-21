@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
 namespace Subro.Controls
 {
     /// <summary>

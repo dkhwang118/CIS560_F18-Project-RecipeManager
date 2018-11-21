@@ -5,6 +5,11 @@ using System.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
 namespace Subro.Controls
 {
     /// <summary>

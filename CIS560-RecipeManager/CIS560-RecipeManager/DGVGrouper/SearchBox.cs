@@ -10,9 +10,13 @@ using System.Drawing.Design;
 using System.Windows.Forms.Design;
 using System.Text.RegularExpressions;
 
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
 namespace Subro.Controls
 {
-
     public abstract partial class SearchBoxBase : UserControl, ISupportInitialize
     {
         public SearchBoxBase()

@@ -7,6 +7,11 @@ using System.Runtime.Serialization;
 using System.Linq;
 using Subro.IO;
 
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
 namespace Subro.Controls
 {
     [Serializable]

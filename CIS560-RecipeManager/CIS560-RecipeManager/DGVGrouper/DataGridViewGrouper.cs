@@ -7,6 +7,12 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
+
 namespace Subro.Controls
 {
     /// <summary>

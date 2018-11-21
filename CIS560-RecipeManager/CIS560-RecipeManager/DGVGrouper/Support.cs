@@ -11,7 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 //this file contains several support functions that are part of the library the grouper is kept in
-
+/// <summary>
+/// Author: Robert Verpalen
+/// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
+/// License: The Code Project Open License
+/// </summary>
 namespace Subro.IO
 {
     public static partial class IOFunctions
