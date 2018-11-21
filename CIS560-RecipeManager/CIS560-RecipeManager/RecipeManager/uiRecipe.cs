@@ -38,6 +38,7 @@ namespace CIS560_RecipeManager
             _grouper.SetGroupOn(RecipeDataGridView.Columns[1]);
             _grouper.Options.StartCollapsed = true;
             _grouper.Options.SelectRowsOnDoubleClick = false;
+            _grouper.Options.ShowGroupName = false;
         }
 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
