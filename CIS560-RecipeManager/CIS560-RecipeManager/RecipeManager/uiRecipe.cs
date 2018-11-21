@@ -1,4 +1,5 @@
 ﻿using CIS560_RecipeManager.RecipeManager;
+using Subro.Controls;
 using System;
 using System.Windows.Forms;
 
@@ -11,6 +12,7 @@ namespace CIS560_RecipeManager
         private Action<Recipe> _deleteRecipeDelegate;
         private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
+        private DataGridViewGrouper _grouper;
 
         public uiRecipe(
             Action launchAddRecipeForm,
@@ -32,9 +34,10 @@ namespace CIS560_RecipeManager
 
         private void SetGrouper()
         {
-            var grouper = new Subro.Controls.DataGridViewGrouper(RecipeDataGridView);
-            grouper.SetGroupOn(RecipeDataGridView.Columns[1]);
-            grouper.Options.StartCollapsed = true;
+            _grouper = new DataGridViewGrouper(RecipeDataGridView);
+            _grouper.SetGroupOn(RecipeDataGridView.Columns[1]);
+            _grouper.Options.StartCollapsed = true;
+            _grouper.Options.SelectRowsOnDoubleClick = false;
         }
 
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
@@ -44,11 +47,12 @@ namespace CIS560_RecipeManager
 
         private void RecipeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex >= 0 && (RecipeDataGridView.Rows[e.RowIndex].DataBoundItem is Recipe))
             {
                 var row = RecipeDataGridView.Rows[e.RowIndex];
                 Recipe recipe = (Recipe)row.DataBoundItem;
                 _launchEditRecipeForm(recipe);
+                _grouper.ResetGrouping();
             }
         }
 

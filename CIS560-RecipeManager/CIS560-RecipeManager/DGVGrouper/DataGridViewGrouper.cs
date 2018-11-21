@@ -11,6 +11,7 @@ using System.Drawing.Drawing2D;
 /// Author: Robert Verpalen
 /// Source: https://www.codeproject.com/Tips/995958/DataGridViewGrouper
 /// License: The Code Project Open License
+/// Modified by: Laurel Thomson
 /// </summary>
 
 namespace Subro.Controls
@@ -144,7 +145,7 @@ namespace Subro.Controls
         void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1) return;
-            if (e.RowIndex == capturedcollapsebox.Y)
+            if (IsGroupRow(e.RowIndex))
             {
                 var gr = GetGroupRow(e.RowIndex);
                 gr.Collapsed = !gr.Collapsed;
