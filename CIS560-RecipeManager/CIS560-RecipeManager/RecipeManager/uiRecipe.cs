@@ -1,12 +1,5 @@
 ﻿using CIS560_RecipeManager.RecipeManager;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CIS560_RecipeManager
@@ -14,11 +7,22 @@ namespace CIS560_RecipeManager
     public partial class uiRecipe : Form
     {
         private Action _launchAddRecipeForm;
+        private Action<Recipe> _launchEditRecipeForm;
+        private Action<Recipe> _deleteRecipeDelegate;
+        private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
 
-        public uiRecipe(Action launchAddRecipeForm, RecipeInventory recipeInventory)
+        public uiRecipe(
+            Action launchAddRecipeForm,
+            Action<Recipe> launchEditRecipeForm,
+            Action<Recipe> deleteRecipeDelegate,
+            Action<Recipe> cookRecipeDelegate,
+            RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
+            _launchEditRecipeForm = launchEditRecipeForm;
+            _deleteRecipeDelegate = deleteRecipeDelegate;
+            _cookRecipeDelegate = cookRecipeDelegate;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
@@ -30,10 +34,35 @@ namespace CIS560_RecipeManager
             _launchAddRecipeForm();
         }
 
-        private void ViewRecipeDetailsButton_Click(object sender, EventArgs e)
+        private void RecipeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            Recipe recipe = (Recipe) RecipeDataGridView.SelectedRows[0].DataBoundItem;
-            new uiRecipeDetailForm(recipe).Show();
+            if (e.RowIndex >= 0)
+            {
+                var row = RecipeDataGridView.Rows[e.RowIndex];
+                Recipe recipe = (Recipe)row.DataBoundItem;
+                _launchEditRecipeForm(recipe);
+            }
+        }
+
+        private void RecipeDataGridView_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            e.ContextMenuStrip = recipeContextMenuStrip;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var row = RecipeDataGridView.SelectedRows[0];
+            Recipe recipe = (Recipe)row.DataBoundItem;
+            _deleteRecipeDelegate(recipe);
+        }
+
+        private void cookRecipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var row = RecipeDataGridView.SelectedRows[0];
+            Recipe recipe = (Recipe)row.DataBoundItem;
+            _cookRecipeDelegate(recipe);
+            MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
         }
     }
 }

@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=1.1.22318.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DG.AdvancedDataGridView.1.1.22318.2\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
@@ -75,8 +78,10 @@
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="RecipeManager\EditRecipeViewModel.cs" />
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
+    <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
       <SubType>Form</SubType>
@@ -100,11 +105,11 @@
     </Compile>
     <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
-    <Compile Include="RecipeManager\uiAddRecipeForm.cs">
+    <Compile Include="RecipeManager\uiEditRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecipeManager\uiAddRecipeForm.Designer.cs">
-      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
+    <Compile Include="RecipeManager\uiEditRecipeForm.Designer.cs">
+      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RecipeDatabaseDataSet_DEMO.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,8 +140,8 @@
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
-      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
+    <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
+      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -153,15 +158,17 @@
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiRecipeDetailForm.resx">
-      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
+    <None Include="Properties\DataSources\uiRecipe.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

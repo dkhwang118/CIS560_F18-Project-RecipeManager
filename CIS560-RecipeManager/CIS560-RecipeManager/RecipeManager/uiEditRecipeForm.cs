@@ -1,0 +1,123 @@
+﻿using CIS560_RecipeManager.RecipeManager;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Linq;
+
+namespace CIS560_RecipeManager
+{
+    public partial class uiEditRecipeForm : Form
+    {
+        private Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> _addRecipeDelegate;
+        private Action<Recipe> _updateRecipeDelegate;
+        private Action _launchAddIngredientForm;
+        private EditRecipeViewModel _viewModel;
+
+        public uiEditRecipeForm(
+            Action<string, string, RecipeCategory, IDictionary<Ingredient, int>> addRecipeDelegate,
+            Action<Recipe> updateRecipeDelegate,
+            Action launchAddIngredientForm,
+            EditRecipeViewModel viewModel)
+        {
+            _addRecipeDelegate = addRecipeDelegate;
+            _updateRecipeDelegate = updateRecipeDelegate;
+            _launchAddIngredientForm = launchAddIngredientForm;
+            _viewModel = viewModel;
+            InitializeComponent();
+            totalIngredientsBindingSource.DataSource = _viewModel.TotalIngredients;
+            totalIngredientsDGV.DataSource = totalIngredientsBindingSource;
+            recipeIngredientsBindingSource.DataSource = _viewModel.RecipeIngredients;
+            recipeIngredientsDGV.DataSource = recipeIngredientsBindingSource;
+            categoryComboBox.DataSource = _viewModel.RecipeCategories;
+            PopulateRecipeDetails();
+        }
+
+        private void PopulateRecipeDetails()
+        {
+            if (_viewModel.CurrentRecipe != null)
+            {
+                uxTextBox_RecipeName.Text = _viewModel.CurrentRecipe.Name;
+                uxTextBox_RecipeDescription.Text = _viewModel.CurrentRecipe.Description;
+                categoryComboBox.SelectedItem = _viewModel.RecipeCategories.First(x => x.Id == _viewModel.CurrentRecipe.Category.Id);
+            }
+        }
+
+        private void PopulateIngredientQuantities()
+        {
+            for (int i = 0; i < recipeIngredientsDGV.RowCount; i++)
+            {
+                recipeIngredientsDGV.Rows[i].Cells[2].Value = _viewModel.IngredientQuantities[i];
+            }
+        }
+
+        private void addIngredientButton_Click(object sender, EventArgs e)
+        {
+            _launchAddIngredientForm();
+        }
+
+        private void totalIngredientsDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = totalIngredientsDGV.Rows[e.RowIndex];
+                Ingredient i = (Ingredient)row.DataBoundItem;
+                if (!_viewModel.RecipeIngredients.Contains(i))
+                {
+                    _viewModel.RecipeIngredients.Add(i);
+                    //setting the default value of the recipe quantity column to 1
+                    _viewModel.IngredientQuantities.Add(1);
+                    recipeIngredientsDGV.Rows[recipeIngredientsDGV.RowCount - 1].Cells[2].Value = "1";
+                }
+            }
+        }
+
+        private void recipeIngredientsDGV_BindingContextChanged(object sender, EventArgs e)
+        {
+            PopulateIngredientQuantities();
+        }
+
+        private void uxOKButton_Click(object sender, EventArgs e)
+        {
+            IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
+
+            for (int i = 0; i < _viewModel.RecipeIngredients.Count; i++)
+            {
+                int quantity = Convert.ToInt32(recipeIngredientsDGV.Rows[i].Cells[2].Value);
+                ingredients.Add(_viewModel.RecipeIngredients.ElementAt(i), quantity);
+            }
+
+            if (_viewModel.CurrentRecipe == null)
+            {
+                _addRecipeDelegate(
+                    uxTextBox_RecipeName.Text, 
+                    uxTextBox_RecipeDescription.Text,
+                    (RecipeCategory)categoryComboBox.SelectedItem,
+                    ingredients);
+                MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was created!");
+            }
+            else
+            {
+                _viewModel.CurrentRecipe.Name = uxTextBox_RecipeName.Text;
+                _viewModel.CurrentRecipe.Description = uxTextBox_RecipeDescription.Text;
+                _viewModel.CurrentRecipe.PopulateMeasuredIngredients(ingredients);
+                _viewModel.CurrentRecipe.Category = (RecipeCategory) categoryComboBox.SelectedItem;
+                _updateRecipeDelegate(_viewModel.CurrentRecipe);
+                MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was updated!");
+            }
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void recipeIngredientsDGV_RowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            e.ContextMenuStrip = ingredientContextMenuStrip;
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _viewModel.IngredientQuantities.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
+            _viewModel.RecipeIngredients.RemoveAt(recipeIngredientsDGV.CurrentRow.Index);
+        }
+    }
+}

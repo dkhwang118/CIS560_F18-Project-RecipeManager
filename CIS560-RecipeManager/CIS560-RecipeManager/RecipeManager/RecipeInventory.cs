@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeInventory
     {
+        private IQuery _query;
+
         public BindingList<Recipe> RecipeCollection {get;}
 
-        public RecipeInventory()
+        public RecipeInventory(IQuery query)
         {
+            _query = query;
             RecipeCollection = new BindingList<Recipe>();
             Dictionary<Ingredient, int> dict = new Dictionary<Ingredient, int>();
             dict.Add(new Ingredient(1, "Potato", "Quantity"), 5);
-            RecipeCollection.Add(new Recipe(0, "test","directions", dict));
+            RecipeCollection.Add(new Recipe
+                (0, "test","directions", new RecipeCategory(0, "Entrees"), dict));
         }
 
         public void AddRecipes(ICollection<Recipe> recipes)
@@ -24,9 +29,30 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
-        public void AddRecipe(Recipe recipe)
+        public void AddRecipe(
+            string name, 
+            string description,
+            RecipeCategory category,
+            IDictionary<Ingredient, int> measuredIngredients)
         {
+            Recipe recipe = _query.CreateRecipe(name, description, category, measuredIngredients);
             RecipeCollection.Add(recipe);
+        }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            RecipeCollection.Remove(recipe);
+            _query.DeleteRecipe(recipe);
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            _query.UpdateRecipe(recipe);
+        }
+
+        public ICollection<RecipeCategory> GetAllRecipeCategories()
+        {
+            return _query.GetRecipeCategories();
         }
     }
 }
