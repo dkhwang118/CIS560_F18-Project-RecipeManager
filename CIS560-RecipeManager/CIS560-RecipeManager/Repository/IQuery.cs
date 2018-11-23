@@ -19,7 +19,7 @@ namespace CIS560_RecipeManager
 
         void AddRecipeCategory(string categoryName);
 
-        void DeleteRecipeCategory(string categoryName);
+        void DeleteRecipeCategory(RecipeCategory category);
 
         void CookRecipe(Recipe recipe);
     }

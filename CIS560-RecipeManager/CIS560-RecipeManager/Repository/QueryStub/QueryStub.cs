@@ -18,7 +18,7 @@ namespace CIS560_RecipeManager.Repository
             return new Ingredient(0, name, unit);
         }
 
-        public void AddRecipeCategory(string categoryName)
+        public void AddRecipeCategory(RecipeCategory category)
         {
             //add recipe category
         }
@@ -28,7 +28,7 @@ namespace CIS560_RecipeManager.Repository
             //cook recipe
         }
 
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, int categoryId, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
         {
             return new Recipe(0, recipeName, recipeDescription, measuredIngredients);
         }
@@ -38,7 +38,7 @@ namespace CIS560_RecipeManager.Repository
             //delete recipe
         }
 
-        public void DeleteRecipeCategory(string categoryName)
+        public void DeleteRecipeCategory(RecipeCategory category)
         {
             //delete recipe category
         }
