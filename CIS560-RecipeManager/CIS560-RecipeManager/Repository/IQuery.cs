@@ -5,7 +5,9 @@ namespace CIS560_RecipeManager
 {
     public interface IQuery
     {
-        Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients);
+        void UpdateRecipe(Recipe recipe);
+
+        Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients);
 
         void DeleteRecipe(Recipe recipe);
 
@@ -22,5 +24,7 @@ namespace CIS560_RecipeManager
         void DeleteRecipeCategory(RecipeCategory category);
 
         void CookRecipe(Recipe recipe);
+
+        ICollection<RecipeCategory> GetRecipeCategories();
     }
 }
