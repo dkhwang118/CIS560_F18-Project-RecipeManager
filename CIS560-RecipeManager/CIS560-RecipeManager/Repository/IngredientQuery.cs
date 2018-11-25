@@ -12,7 +12,7 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public void AddRecipeCategory(RecipeCategory category)
+        public void CreateRecipeCategory(RecipeCategory category)
         {
             throw new NotImplementedException();
         }

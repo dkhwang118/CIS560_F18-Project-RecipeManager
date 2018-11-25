@@ -59,10 +59,10 @@
             // 
             // uxTextBox_RecipeName
             // 
-            this.uxTextBox_RecipeName.Location = new System.Drawing.Point(411, 57);
+            this.uxTextBox_RecipeName.Location = new System.Drawing.Point(412, 57);
             this.uxTextBox_RecipeName.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.uxTextBox_RecipeName.Name = "uxTextBox_RecipeName";
-            this.uxTextBox_RecipeName.Size = new System.Drawing.Size(1180, 44);
+            this.uxTextBox_RecipeName.Size = new System.Drawing.Size(1179, 44);
             this.uxTextBox_RecipeName.TabIndex = 0;
             // 
             // uxLabel_RecipeName
@@ -89,7 +89,7 @@
             // uxLabel_RecipeDescription
             // 
             this.uxLabel_RecipeDescription.AutoSize = true;
-            this.uxLabel_RecipeDescription.Location = new System.Drawing.Point(56, 1038);
+            this.uxLabel_RecipeDescription.Location = new System.Drawing.Point(57, 1039);
             this.uxLabel_RecipeDescription.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.uxLabel_RecipeDescription.Name = "uxLabel_RecipeDescription";
             this.uxLabel_RecipeDescription.Size = new System.Drawing.Size(292, 37);
@@ -98,7 +98,7 @@
             // 
             // uxTextBox_RecipeDescription
             // 
-            this.uxTextBox_RecipeDescription.Location = new System.Drawing.Point(411, 1035);
+            this.uxTextBox_RecipeDescription.Location = new System.Drawing.Point(412, 1036);
             this.uxTextBox_RecipeDescription.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.uxTextBox_RecipeDescription.Multiline = true;
             this.uxTextBox_RecipeDescription.Name = "uxTextBox_RecipeDescription";
@@ -146,7 +146,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(354, 300);
+            this.label1.Location = new System.Drawing.Point(355, 299);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(228, 37);
@@ -202,7 +202,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1106, 300);
+            this.label2.Location = new System.Drawing.Point(1105, 299);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(323, 37);
@@ -211,7 +211,7 @@
             // 
             // addIngredientButton
             // 
-            this.addIngredientButton.Location = new System.Drawing.Point(519, 886);
+            this.addIngredientButton.Location = new System.Drawing.Point(519, 885);
             this.addIngredientButton.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.addIngredientButton.Name = "addIngredientButton";
             this.addIngredientButton.Size = new System.Drawing.Size(694, 77);
@@ -248,15 +248,16 @@
             // categoryComboBox
             // 
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(411, 182);
+            this.categoryComboBox.Location = new System.Drawing.Point(412, 182);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(1180, 45);
+            this.categoryComboBox.Size = new System.Drawing.Size(1179, 45);
             this.categoryComboBox.TabIndex = 11;
             // 
             // uiEditRecipeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1685, 1452);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.label3);
