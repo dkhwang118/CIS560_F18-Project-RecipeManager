@@ -65,31 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DGVGrouper\DataGridViewGrouper.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DGVGrouper\DataGridViewGrouperContextMenuStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DGVGrouper\DataGridViewGrouperControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DGVGrouper\DataGridViewGrouperControl.designer.cs">
-      <DependentUpon>DataGridViewGrouperControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DGVGrouper\GroupingInfo.cs" />
-    <Compile Include="DGVGrouper\GroupingOptions.cs" />
-    <Compile Include="DGVGrouper\GroupingSource.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DGVGrouper\GroupList.cs" />
-    <Compile Include="DGVGrouper\SearchBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DGVGrouper\SearchBox.designer.cs">
-      <DependentUpon>SearchBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DGVGrouper\Support.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="PantryManager\Ingredient.cs" />
     <Compile Include="PantryManager\Pantry.cs" />
@@ -108,7 +83,16 @@
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
+<<<<<<< HEAD
+    <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
+      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
+=======
+>>>>>>> origin/master
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IngredientQuery.cs" />
@@ -153,12 +137,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DGVGrouper\DataGridViewGrouperControl.resx">
-      <DependentUpon>DataGridViewGrouperControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DGVGrouper\SearchBox.resx">
-      <DependentUpon>SearchBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,7 +205,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DGVGrouper\DataGridViewGrouper.csproj" />
     <Content Include="RecipeDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

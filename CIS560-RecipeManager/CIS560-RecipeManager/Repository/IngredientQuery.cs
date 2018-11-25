@@ -58,11 +58,6 @@ namespace CIS560_RecipeManager.Repository
             throw new NotImplementedException();
         }
 
-        public IReadOnlyCollection<Recipe> GetAvailableRecipes()
-        {
-            throw new NotImplementedException();
-        }
-
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
         {
             throw new NotImplementedException();
