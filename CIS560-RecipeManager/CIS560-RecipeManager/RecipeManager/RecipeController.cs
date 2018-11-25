@@ -24,7 +24,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 LaunchEditRecipeForm,
                 _recipeInventory.OnlyDisplayAvailableRecipes,
                 _recipeInventory.DisplayAllRecipes,
-                DeleteRecipe,
+                _recipeInventory.DeleteRecipe,
                 CookRecipe,
                 _recipeInventory).Show();
         }
@@ -41,7 +41,13 @@ namespace CIS560_RecipeManager.RecipeManager
                 _recipeInventory.GetAllRecipeCategories(),
                 null);
 
-            new uiEditRecipeForm(AddRecipe, UpdateRecipe, AddRecipeCategory, LaunchAddIngredientForm, _viewModel).Show();
+            new uiEditRecipeForm(
+                _recipeInventory.AddRecipe, 
+                _recipeInventory.UpdateRecipe, 
+                _recipeInventory.AddRecipeCategory, 
+                LaunchAddIngredientForm, 
+                _viewModel)
+                    .Show();
         }
 
         public void LaunchEditRecipeForm(Recipe recipe)
@@ -53,12 +59,13 @@ namespace CIS560_RecipeManager.RecipeManager
             }
 
             _viewModel = new EditRecipeViewModel(ingredients, _recipeInventory.GetAllRecipeCategories(), recipe);
-            new uiEditRecipeForm(AddRecipe, UpdateRecipe, AddRecipeCategory, LaunchAddIngredientForm, _viewModel).Show();
-        }
-
-        public void DeleteRecipe(Recipe recipe)
-        {
-            _recipeInventory.DeleteRecipe(recipe);
+            new uiEditRecipeForm(
+                _recipeInventory.AddRecipe, 
+                _recipeInventory.UpdateRecipe, 
+                _recipeInventory.AddRecipeCategory, 
+                LaunchAddIngredientForm, 
+                _viewModel)
+                    .Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -73,29 +80,6 @@ namespace CIS560_RecipeManager.RecipeManager
                 //update the Ingredient quantity in the pantry
                 _pantry.UpdateIngredientQuantity(updatedQuantity, item.Key);
             }
-        }
-
-        public void AddRecipe(
-            string recipeName, 
-            string recipeDescription,
-            RecipeCategory category,
-            IDictionary<Ingredient, int> measuredIngredients)
-        {
-            _recipeInventory.AddRecipe(
-                recipeName, 
-                recipeDescription, 
-                category,
-                measuredIngredients);
-        }
-
-        public void UpdateRecipe(Recipe recipe)
-        {
-            _recipeInventory.UpdateRecipe(recipe);
-        }
-
-        public RecipeCategory AddRecipeCategory(string name)
-        {
-            return _recipeInventory.AddRecipeCategory(name);
         }
 
         public void LaunchAddIngredientForm()

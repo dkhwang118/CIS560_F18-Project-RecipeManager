@@ -7,7 +7,7 @@ namespace CIS560_RecipeManager.RecipeManager
     public class RecipeInventory
     {
         private IQuery _query;
-        private IList<Recipe> _totalRecipes;
+        private IList<Recipe> _totalRecipes = new List<Recipe>();
 
         public BindingList<Recipe> VisibleRecipes {get;}
 
