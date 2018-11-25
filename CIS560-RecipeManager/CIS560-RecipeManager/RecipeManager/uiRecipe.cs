@@ -50,6 +50,7 @@ namespace CIS560_RecipeManager
         private void uxButton_AddRecipe_Click(object sender, EventArgs e)
         {
             _launchAddRecipeForm();
+            availableWithPantryCheckBox.Checked = false;
         }
 
         private void RecipeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
