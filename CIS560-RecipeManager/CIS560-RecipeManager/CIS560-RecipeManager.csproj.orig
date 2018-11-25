@@ -83,7 +83,16 @@
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
+<<<<<<< HEAD
+    <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
+      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
+=======
+>>>>>>> origin/master
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IngredientQuery.cs" />
