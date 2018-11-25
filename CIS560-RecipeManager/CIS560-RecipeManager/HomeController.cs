@@ -25,8 +25,7 @@ namespace CIS560_RecipeManager
 
         public HomeController()
         {
-            new Query().ReadRecipe(2);
-
+            
             _queryStub = new QueryStub();
             _recipeInventory = new RecipeInventory();
             _pantry = new MyPantry();

@@ -84,6 +84,7 @@
     <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
       <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IngredientQuery.cs" />
@@ -199,6 +200,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Sql\GetAvailableRecipes.sql" />
     <Content Include="Sql\SampleData\AddPantryItem.sql" />
     <Content Include="Sql\SampleData\AddRecipe.sql" />
   </ItemGroup>
