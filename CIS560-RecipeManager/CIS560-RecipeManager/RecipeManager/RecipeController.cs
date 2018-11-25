@@ -22,6 +22,8 @@ namespace CIS560_RecipeManager.RecipeManager
             new uiRecipe(
                 LaunchAddRecipeForm,
                 LaunchEditRecipeForm,
+                _recipeInventory.OnlyDisplayAvailableRecipes,
+                _recipeInventory.DisplayAllRecipes,
                 DeleteRecipe,
                 CookRecipe,
                 _recipeInventory).Show();

@@ -9,6 +9,8 @@ namespace CIS560_RecipeManager
     {
         private Action _launchAddRecipeForm;
         private Action<Recipe> _launchEditRecipeForm;
+        private Action _showOnlyAvailableRecipes;
+        private Action _showAllRecipes;
         private Action<Recipe> _deleteRecipeDelegate;
         private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
@@ -17,17 +19,21 @@ namespace CIS560_RecipeManager
         public uiRecipe(
             Action launchAddRecipeForm,
             Action<Recipe> launchEditRecipeForm,
+            Action showOnlyAvailableRecipes,
+            Action showAllRecipes,
             Action<Recipe> deleteRecipeDelegate,
             Action<Recipe> cookRecipeDelegate,
             RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
             _launchEditRecipeForm = launchEditRecipeForm;
+            _showOnlyAvailableRecipes = showOnlyAvailableRecipes;
+            _showAllRecipes = showAllRecipes;
             _deleteRecipeDelegate = deleteRecipeDelegate;
             _cookRecipeDelegate = cookRecipeDelegate;
             _recipeInventory = recipeInventory;
             InitializeComponent();
-            RecipeBindingSource.DataSource = _recipeInventory.RecipeCollection;
+            RecipeBindingSource.DataSource = _recipeInventory.VisibleRecipes;
             RecipeDataGridView.DataSource = RecipeBindingSource;
             SetGrouper();
         }
@@ -88,6 +94,18 @@ namespace CIS560_RecipeManager
                 var hti = RecipeDataGridView.HitTest(e.X, e.Y);
                 RecipeDataGridView.ClearSelection();
                 RecipeDataGridView.Rows[hti.RowIndex].Selected = true;
+            }
+        }
+
+        private void availableWithPantryCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (availableWithPantryCheckBox.Checked)
+            {
+                _showOnlyAvailableRecipes();
+            }
+            else
+            {
+                _showAllRecipes();
             }
         }
     }

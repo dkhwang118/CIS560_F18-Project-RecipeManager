@@ -1,28 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeInventory
     {
         private IQuery _query;
+        private IList<Recipe> _totalRecipes;
 
-        public BindingList<Recipe> RecipeCollection {get;}
+        public BindingList<Recipe> VisibleRecipes {get;}
 
         public RecipeInventory(IQuery query)
         {
             _query = query;
-            RecipeCollection = new BindingList<Recipe>();
-        }
-
-        public void AddRecipes(ICollection<Recipe> recipes)
-        {
-            foreach (Recipe r in recipes)
-            {
-                RecipeCollection.Add(r);
-            }
+            VisibleRecipes = new BindingList<Recipe>();
         }
 
         public void AddRecipe(
@@ -32,12 +24,14 @@ namespace CIS560_RecipeManager.RecipeManager
             IDictionary<Ingredient, int> measuredIngredients)
         {
             Recipe recipe = _query.CreateRecipe(name, description, category, measuredIngredients);
-            RecipeCollection.Add(recipe);
+            _totalRecipes.Add(recipe);
+            VisibleRecipes.Add(recipe);
         }
 
         public void DeleteRecipe(Recipe recipe)
         {
-            RecipeCollection.Remove(recipe);
+            _totalRecipes.Remove(recipe);
+            VisibleRecipes.Remove(recipe);
             _query.DeleteRecipe(recipe);
         }
 
@@ -54,6 +48,25 @@ namespace CIS560_RecipeManager.RecipeManager
         public RecipeCategory AddRecipeCategory(string name)
         {
             return _query.CreateRecipeCategory(name);
+        }
+
+        public void OnlyDisplayAvailableRecipes()
+        {
+            var available = _query.GetAvailableRecipes();
+            VisibleRecipes.Clear();
+            foreach (var r in available)
+            {
+                VisibleRecipes.Add(r);
+            }
+        }
+
+        public void DisplayAllRecipes()
+        {
+            VisibleRecipes.Clear();
+            foreach (var r in _totalRecipes)
+            {
+                VisibleRecipes.Add(r);
+            }
         }
     }
 }
