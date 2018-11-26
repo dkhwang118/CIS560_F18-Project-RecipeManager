@@ -1,5 +1,5 @@
 ﻿/*
- * AddRecipeCategory.cs
+ * CreateRecipeCategory.cs
  * partial Query class; includes the method to add a recipe category to the database
  */
 
@@ -17,7 +17,7 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public void AddRecipeCategory(string categoryName)
+        public RecipeCategory CreateRecipeCategory(string categoryName)
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
@@ -36,7 +36,7 @@ namespace CIS560_RecipeManager.Repository
 
                         transaction.Complete();
 
-                        //return new RecipeCategory((int)param.Value, categoryName); // return an Ingredient object with the same data that has been written to the DB
+                        return new RecipeCategory((int)param.Value, categoryName); // return an Ingredient object with the same data that has been written to the DB
                     }
                 } // should close transaction here automatically
             } // should close connection here automatically
