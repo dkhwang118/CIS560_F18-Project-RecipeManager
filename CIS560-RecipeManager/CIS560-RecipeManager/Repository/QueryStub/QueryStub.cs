@@ -6,7 +6,8 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class QueryStub : IQuery
     {
-        private IReadOnlyCollection<Recipe> recipes;
+        private IReadOnlyCollection<Recipe> _recipes;
+        private ICollection<RecipeCategory> _recipeCategories = new List<RecipeCategory>();
 
         public QueryStub()
         {
@@ -18,7 +19,7 @@ namespace CIS560_RecipeManager.Repository
             return new Ingredient(0, name, unit);
         }
 
-        public void AddRecipeCategory(RecipeCategory category)
+        public void CreateRecipeCategory(RecipeCategory category)
         {
             //add recipe category
         }
@@ -28,9 +29,9 @@ namespace CIS560_RecipeManager.Repository
             //cook recipe
         }
 
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
         {
-            return new Recipe(0, recipeName, recipeDescription, measuredIngredients);
+            return new Recipe(0, recipeName, recipeDescription, category, measuredIngredients);
         }
 
         public void DeleteRecipe(Recipe recipe)
@@ -46,16 +47,17 @@ namespace CIS560_RecipeManager.Repository
         public IReadOnlyCollection<Recipe> GetAvailableRecipes()
         {
             List<Recipe> list = new List<Recipe>();
+            var cat = new RecipeCategory(0, "Entrees");
 
             Dictionary<Ingredient, int> d1 = new Dictionary<Ingredient, int>();
             d1.Add(new Ingredient(1, "Potato", "Quantity"), 5);
-            Recipe r1 = new Recipe(0, "Baked Potato","directions", d1);
+            Recipe r1 = new Recipe(0, "Baked Potato", "directions", cat, d1);
             list.Add(r1);
 
             Dictionary<Ingredient, int> d2 = new Dictionary<Ingredient, int>();
             d2.Add(new Ingredient(2, "Macaroni", "Box"), 1);
             d2.Add(new Ingredient(3, "Cheese", "Ounce"), 2);
-            Recipe r2 = new Recipe(0, "Mac & Cheese","directions", d1);
+            Recipe r2 = new Recipe(0, "Mac & Cheese","directions", cat, d1);
             list.Add(r2);
 
             return list;
@@ -83,6 +85,23 @@ namespace CIS560_RecipeManager.Repository
         private void PopulateRecipes()
         {
             //add some recipes here
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            //update recipe
+        }
+
+        public ICollection<RecipeCategory> GetRecipeCategories()
+        {
+            return _recipeCategories;
+        }
+
+        public RecipeCategory CreateRecipeCategory(string name)
+        {
+            var category = new RecipeCategory(0, name);
+            _recipeCategories.Add(category);
+            return category;
         }
     }
 }

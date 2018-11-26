@@ -6,27 +6,67 @@ namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeInventory
     {
-        public BindingList<Recipe> RecipeCollection {get;}
+        private IQuery _query;
+        private IList<Recipe> _totalRecipes = new List<Recipe>();
 
-        public RecipeInventory()
+        public BindingList<Recipe> VisibleRecipes {get;}
+
+        public RecipeInventory(IQuery query)
         {
-            RecipeCollection = new BindingList<Recipe>();
-            Dictionary<Ingredient, int> dict = new Dictionary<Ingredient, int>();
-            dict.Add(new Ingredient(1, "Potato", "Quantity"), 5);
-            RecipeCollection.Add(new Recipe(0, "test","directions", dict));
+            _query = query;
+            VisibleRecipes = new BindingList<Recipe>();
         }
 
-        public void AddRecipes(ICollection<Recipe> recipes)
+        public void AddRecipe(
+            string name, 
+            string description,
+            RecipeCategory category,
+            IDictionary<Ingredient, int> measuredIngredients)
         {
-            foreach (Recipe r in recipes)
+            Recipe recipe = _query.CreateRecipe(name, description, category, measuredIngredients);
+            _totalRecipes.Add(recipe);
+            VisibleRecipes.Add(recipe);
+        }
+
+        public void DeleteRecipe(Recipe recipe)
+        {
+            _totalRecipes.Remove(recipe);
+            VisibleRecipes.Remove(recipe);
+            _query.DeleteRecipe(recipe);
+        }
+
+        public void UpdateRecipe(Recipe recipe)
+        {
+            _query.UpdateRecipe(recipe);
+        }
+
+        public ICollection<RecipeCategory> GetAllRecipeCategories()
+        {
+            return _query.GetRecipeCategories();
+        }
+
+        public RecipeCategory AddRecipeCategory(string name)
+        {
+            return _query.CreateRecipeCategory(name);
+        }
+
+        public void OnlyDisplayAvailableRecipes()
+        {
+            var available = _query.GetAvailableRecipes();
+            VisibleRecipes.Clear();
+            foreach (var r in available)
             {
-                RecipeCollection.Add(r);
+                VisibleRecipes.Add(r);
             }
         }
 
-        public void AddRecipe(Recipe recipe)
+        public void DisplayAllRecipes()
         {
-            RecipeCollection.Add(recipe);
+            VisibleRecipes.Clear();
+            foreach (var r in _totalRecipes)
+            {
+                VisibleRecipes.Add(r);
+            }
         }
     }
 }

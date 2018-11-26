@@ -1,35 +1,71 @@
-﻿
-
+﻿using CIS560_RecipeManager.Pantry;
 using System.Collections.Generic;
-using static CIS560_RecipeManager.RecipeManager.Recipe;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
     public class RecipeController
     {
-        private IQuery _queryRepository;
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
-        public delegate void AddRecipeDelegate(string name, string description, IDictionary<Ingredient, int> measuredIngredients);
+        private EditRecipeViewModel _viewModel;
 
         public RecipeController(
-            IQuery query, 
             RecipeInventory recipeInventory,
             MyPantry pantry)
         {
-            _queryRepository = query;
             _recipeInventory = recipeInventory;
             _pantry = pantry;
         }
 
         public void LaunchRecipeForm()
         {
-            new uiRecipe(LaunchAddRecipeForm, _recipeInventory).Show();
+            new uiRecipe(
+                LaunchAddRecipeForm,
+                LaunchEditRecipeForm,
+                _recipeInventory.OnlyDisplayAvailableRecipes,
+                _recipeInventory.DisplayAllRecipes,
+                _recipeInventory.DeleteRecipe,
+                CookRecipe,
+                _recipeInventory).Show();
         }
 
         public void LaunchAddRecipeForm()
         {
-            new uiAddRecipeForm(AddRecipe).Show();
+            var ingredients = new List<Ingredient>();
+            foreach (var i in _pantry.PantryContents)
+            {
+                ingredients.Add(i.Key);
+            }
+            _viewModel = new EditRecipeViewModel(
+                ingredients,
+                _recipeInventory.GetAllRecipeCategories(),
+                null);
+
+            new uiEditRecipeForm(
+                _recipeInventory.AddRecipe, 
+                _recipeInventory.UpdateRecipe, 
+                _recipeInventory.AddRecipeCategory, 
+                LaunchAddIngredientForm, 
+                _viewModel)
+                    .Show();
+        }
+
+        public void LaunchEditRecipeForm(Recipe recipe)
+        {
+            var ingredients = new List<Ingredient>();
+            foreach (var i in _pantry.PantryContents)
+            {
+                ingredients.Add(i.Key);
+            }
+
+            _viewModel = new EditRecipeViewModel(ingredients, _recipeInventory.GetAllRecipeCategories(), recipe);
+            new uiEditRecipeForm(
+                _recipeInventory.AddRecipe, 
+                _recipeInventory.UpdateRecipe, 
+                _recipeInventory.AddRecipeCategory, 
+                LaunchAddIngredientForm, 
+                _viewModel)
+                    .Show();
         }
 
         public void CookRecipe(Recipe recipe)
@@ -38,18 +74,23 @@ namespace CIS560_RecipeManager.RecipeManager
             {
                 //If we don't allow the user to delete Ingredients, there should
                 //never be an Ingredient that doesn't exist in the Pantry, so we should
-                //just let the IDictionary through a KeyNotFoundException
-                int updatedQuantity = (_pantry.PantryContents[item.Key] -= item.Value);
+                //just let the IDictionary throw a KeyNotFoundException
+                int updatedQuantity = _pantry.PantryContents[item.Key] - item.Value;
 
-                //update the Ingredient quantity in the database
-                _queryRepository.UpdateIngredientQuantity(updatedQuantity,item.Key);
+                //update the Ingredient quantity in the pantry
+                _pantry.UpdateIngredientQuantity(updatedQuantity, item.Key);
             }
         }
 
-        public void AddRecipe(string recipeName, string recipeDescription, IDictionary<Ingredient, int> measuredIngredients)
+        public void LaunchAddIngredientForm()
         {
-            Recipe recipe = _queryRepository.CreateRecipe(recipeName, recipeDescription, measuredIngredients);
-            _recipeInventory.AddRecipe(recipe);
+            new uiAddIngredient(CreateIngredient).Show();
+        }
+
+        public void CreateIngredient(string name, string unitOfMeasure, int quantity)
+        {
+            var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity);
+            _viewModel.AddIngredientToTotal(ingredient);
         }
     }
 }
