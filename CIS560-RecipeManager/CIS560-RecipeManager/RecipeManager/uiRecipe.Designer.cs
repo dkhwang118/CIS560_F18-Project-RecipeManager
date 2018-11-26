@@ -34,9 +34,10 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
             this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -44,7 +45,7 @@
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(880, 575);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(635, 610);
             this.uxButton_AddRecipe.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
             this.uxButton_AddRecipe.Size = new System.Drawing.Size(310, 97);
@@ -80,46 +81,61 @@
             // 
             this.RecipeDataGridView.AutoGenerateColumns = false;
             this.RecipeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RecipeDataGridView.ColumnHeadersVisible = false;
             this.RecipeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.categoryDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.Category});
             this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(86, 51);
+            this.RecipeDataGridView.Location = new System.Drawing.Point(86, 162);
             this.RecipeDataGridView.MultiSelect = false;
             this.RecipeDataGridView.Name = "RecipeDataGridView";
             this.RecipeDataGridView.RowTemplate.Height = 46;
             this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecipeDataGridView.Size = new System.Drawing.Size(1104, 476);
+            this.RecipeDataGridView.Size = new System.Drawing.Size(859, 405);
             this.RecipeDataGridView.TabIndex = 3;
             this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
             this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
+            this.RecipeDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RecipeDataGridView_MouseDown);
             // 
-            // nameDataGridViewTextBoxColumn
+            // availableWithPantryCheckBox
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.availableWithPantryCheckBox.AutoSize = true;
+            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(86, 62);
+            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
+            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(703, 41);
+            this.availableWithPantryCheckBox.TabIndex = 4;
+            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
+            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
+            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
             // 
             // RecipeBindingSource
             // 
-            this.RecipeBindingSource.DataMember = "RecipeCollection";
+            this.RecipeBindingSource.DataMember = "VisibleRecipes";
             this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            this.Category.Visible = false;
             // 
             // uiRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 692);
+            this.ClientSize = new System.Drawing.Size(983, 752);
+            this.Controls.Add(this.availableWithPantryCheckBox);
             this.Controls.Add(this.RecipeDataGridView);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -131,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +161,8 @@
         private System.Windows.Forms.DataGridView RecipeDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox availableWithPantryCheckBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
     }
 }

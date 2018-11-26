@@ -12,7 +12,7 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public void AddRecipeCategory(RecipeCategory category)
+        public void CreateRecipeCategory(RecipeCategory category)
         {
             throw new NotImplementedException();
         }
@@ -54,11 +54,6 @@ namespace CIS560_RecipeManager.Repository
         }
 
         public void DeleteRecipeCategory(RecipeCategory category)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IReadOnlyCollection<Recipe> GetAvailableRecipes()
         {
             throw new NotImplementedException();
         }
