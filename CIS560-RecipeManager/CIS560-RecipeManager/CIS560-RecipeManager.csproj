@@ -159,6 +159,24 @@
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListManager\ShoppingListController.cs" />
+    <Compile Include="ShoppingListManager\uiAddShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiAddShoppingList.Designer.cs">
+      <DependentUpon>uiAddShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShoppingList.Designer.cs">
+      <DependentUpon>uiShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +214,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
       <DependentUpon>uiRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiAddShoppingList.resx">
+      <DependentUpon>uiAddShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiShoppingList.resx">
+      <DependentUpon>uiShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
