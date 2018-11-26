@@ -17,6 +17,14 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
+        /// <summary>
+        /// Creates an Ingredient from user parameters and updates the database
+        /// NOTE: Updates the "PantryItem" Table; Does not create a RecipeIngredient
+        /// </summary>
+        /// <param name="ingredientName">Name of ingredient</param>
+        /// <param name="unitOfMeasurement">Measurement unit to be used with ingredient in recipes</param>
+        /// <param name="unitCount">Amount of ingredient currently held by user</param>
+        /// <returns></returns>
         public Ingredient CreateIngredient(string ingredientName, string unitOfMeasurement, int unitCount)
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
