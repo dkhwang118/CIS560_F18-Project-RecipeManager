@@ -131,6 +131,7 @@
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Repository\QueryStub\QueryStub.cs" />
+    <Compile Include="Repository\Query\UpdateIngredientQuantity.cs" />
     <Compile Include="Repository\Query\UpdateRecipe.cs" />
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
     <Compile Include="RecipeManager\uiEditRecipeForm.cs">

@@ -21,12 +21,6 @@ namespace CIS560_RecipeManager.Repository
             throw new NotImplementedException();
         }
 
-        public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
-        {
-            // not implemented
-            throw new NotImplementedException();
-        }
-
         public void CookRecipe(Recipe recipe)
         {
             // not implemented
