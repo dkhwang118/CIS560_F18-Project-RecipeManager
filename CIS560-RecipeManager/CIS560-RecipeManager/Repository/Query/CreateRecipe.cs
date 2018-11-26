@@ -51,7 +51,7 @@ namespace CIS560_RecipeManager.Repository
                     }
                 } // should close transaction here automatically
 
-                // Second Transaction: Add recipe ingredients from measuredIngredients to RecipeIngredient Table             
+                // Second Transaction(s): Add recipe ingredients from measuredIngredients to RecipeIngredient Table             
                 // Loop over measuredIngredients to add each ingredient individually
                 foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
                 {
