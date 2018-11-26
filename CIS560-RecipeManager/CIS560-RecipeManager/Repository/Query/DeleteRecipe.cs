@@ -30,7 +30,7 @@ namespace CIS560_RecipeManager.Repository
                 // First, delete associated ingredients from RecipeIngredient Table
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.DeleteRecipeIngredientsByRecipeId", connection))
+                    using (var command = new SqlCommand("[dbo].DeleteRecipeIngredientsByRecipeId", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeID", recipe.Id);
@@ -42,7 +42,7 @@ namespace CIS560_RecipeManager.Repository
                 // Second, delete recipe from Recipes Table
                 using (var transaction2 = new TransactionScope())
                 {
-                    using (var command2 = new SqlCommand("dbo.DeleteRecipeById", connection))
+                    using (var command2 = new SqlCommand("[dbo].DeleteRecipeById", connection))
                     {
                         command2.CommandType = CommandType.StoredProcedure;
                         command2.Parameters.AddWithValue("RecipeID", recipe.Id);

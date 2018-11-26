@@ -31,7 +31,7 @@ namespace CIS560_RecipeManager.Repository
                 // First Transaction to Add the Recipe to the Recipe Table; Also creates valid RecipeID for RecipeIngredient Table
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.CreateRecipe", connection))
+                    using (var command = new SqlCommand("[dbo].CreateRecipe", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeName", recipeName);
@@ -58,7 +58,7 @@ namespace CIS560_RecipeManager.Repository
                     //using individual transactions for each ingredient; hoping this is less buggy than one transaction for the entire list
                     using (var transactionMulti = new TransactionScope())
                     {
-                        using (var command2 = new SqlCommand("dbo.AddRecipeIngredient", connection))
+                        using (var command2 = new SqlCommand("[dbo].AddRecipeIngredient", connection))
                         {
                             command2.CommandType = CommandType.StoredProcedure;
                             command2.Parameters.AddWithValue("PantryItemID", kvp.Key.Id);

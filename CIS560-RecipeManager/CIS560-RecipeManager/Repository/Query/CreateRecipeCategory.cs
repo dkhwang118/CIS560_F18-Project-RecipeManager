@@ -23,7 +23,7 @@ namespace CIS560_RecipeManager.Repository
             {
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.CreateRecipeCategory", connection))
+                    using (var command = new SqlCommand("[dbo].CreateRecipeCategory", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("CategoryName", categoryName);

@@ -36,7 +36,7 @@ namespace CIS560_RecipeManager.Repository
                 // First Transaction: Update Recipe in Recipe Table
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.UpdateRecipeInRecipeTable", connection))
+                    using (var command = new SqlCommand("[dbo].UpdateRecipeInRecipeTable", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeID", recipe.Id);
@@ -53,7 +53,7 @@ namespace CIS560_RecipeManager.Repository
                     // Second Transaction: Delete All RecipeIngredients associated w/ old recipe
                     using (var transaction2 = new TransactionScope())
                     {
-                        using (var command2 = new SqlCommand("dbo.DeleteRecipeIngredientsByRecipeId", connection))
+                        using (var command2 = new SqlCommand("[dbo].DeleteRecipeIngredientsByRecipeId", connection))
                         {
                             command2.CommandType = CommandType.StoredProcedure;
                             command2.Parameters.AddWithValue("RecipeID", recipe.Id);
@@ -67,7 +67,7 @@ namespace CIS560_RecipeManager.Repository
                     {
                         using (var transactionMulti = new TransactionScope())
                         {
-                            using (var commandMulti = new SqlCommand("dbo.AddRecipeIngredient", connection))
+                            using (var commandMulti = new SqlCommand("[dbo].AddRecipeIngredient", connection))
                             {
                                 commandMulti.CommandType = CommandType.StoredProcedure;
                                 commandMulti.Parameters.AddWithValue("PantryItemID", kvp.Key.Id);
