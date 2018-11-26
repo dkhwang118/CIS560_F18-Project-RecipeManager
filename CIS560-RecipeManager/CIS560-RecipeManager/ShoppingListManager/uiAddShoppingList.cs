@@ -20,7 +20,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             _recipeInventory = recipeInventory;
             InitializeComponent();
-            recipesBindingSource.DataSource = _recipeInventory.RecipeCollection;
+            recipesBindingSource.DataSource = _recipeInventory.VisibleRecipes;
             uxDataGridView_RecipesForShoppingList.DataSource = recipesBindingSource;
             _getShoppingListDelegate = getShoppingList;
         }
