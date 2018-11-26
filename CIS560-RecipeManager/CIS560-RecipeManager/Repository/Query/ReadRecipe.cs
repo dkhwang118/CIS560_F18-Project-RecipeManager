@@ -12,20 +12,6 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
-        {
-            throw new NotImplementedException();
-        }
-
-        public RecipeCategory CreateRecipeCategory(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<RecipeCategory> GetRecipeCategories()
-        {
-            throw new NotImplementedException();
-        }
 
         public Recipe ReadRecipe(int recipeId)
         {
@@ -127,11 +113,6 @@ namespace CIS560_RecipeManager.Repository
                     return recipe;
                 }
             }
-        }
-
-        public void UpdateRecipe(Recipe recipe)
-        {
-            throw new NotImplementedException();
         }
     }
 }
