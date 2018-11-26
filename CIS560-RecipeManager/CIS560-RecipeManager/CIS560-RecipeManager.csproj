@@ -100,6 +100,12 @@
     <Compile Include="PantryManager\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="PantryManager\uiUpdateIngredient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantryManager\uiUpdateIngredient.Designer.cs">
+      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
@@ -169,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantryManager\uiUpdateIngredient.resx">
+      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
       <DependentUpon>uiEditRecipeForm.cs</DependentUpon>

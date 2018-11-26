@@ -14,6 +14,7 @@ namespace CIS560_RecipeManager
     public partial class uiPantry : Form
     {
         private Action _launchAddIngredientDelegate;
+        private Action _launchUpdateIngredienDelegate;
 
         public uiPantry(Action launchAddIngredientDelegate)
         {
@@ -32,6 +33,17 @@ namespace CIS560_RecipeManager
         {
             _launchAddIngredientDelegate();
             //todo: update Grid View
+        }
+
+        private void deleteIngredientButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateIngredientButton_Click(object sender, EventArgs e)
+        {
+            //launch updateIngredient form
+            
         }
     }
 }

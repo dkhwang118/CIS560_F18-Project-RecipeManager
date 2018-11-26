@@ -140,6 +140,9 @@
             // 
             // uxButton_AddIngredient
             // 
+<<<<<<< HEAD
+            this.uxButton_AddIngredient.Location = new System.Drawing.Point(43, 218);
+            this.uxButton_AddIngredient.Name = "uxButton_AddIngredient";
             this.uxButton_AddIngredient.Size = new System.Drawing.Size(174, 44);
             this.uxButton_AddIngredient.TabIndex = 1;
             this.uxButton_AddIngredient.Text = "Add Ingredient";
@@ -165,15 +168,30 @@
             this.uxButton_UpdateIngredient.Text = "Update Ingredient";
             this.uxButton_UpdateIngredient.UseVisualStyleBackColor = true;
             this.uxButton_UpdateIngredient.Click += new System.EventHandler(this.updateIngredientButton_Click);
+=======
+            this.addIngredientButton.Location = new System.Drawing.Point(1549, 620);
+            this.addIngredientButton.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.addIngredientButton.Name = "addIngredientButton";
+            this.addIngredientButton.Size = new System.Drawing.Size(551, 125);
+            this.addIngredientButton.TabIndex = 1;
+            this.addIngredientButton.Text = "Add Ingredient";
+            this.addIngredientButton.UseVisualStyleBackColor = true;
+            this.addIngredientButton.Click += new System.EventHandler(this.addIngredientButton_Click);
+>>>>>>> master
             // 
             // uiPantry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2315, 780);
+<<<<<<< HEAD
+            this.ClientSize = new System.Drawing.Size(731, 274);
             this.Controls.Add(this.uxButton_UpdateIngredient);
             this.Controls.Add(this.uxButton_DeleteIngredient);
             this.Controls.Add(this.uxButton_AddIngredient);
+=======
+            this.ClientSize = new System.Drawing.Size(2315, 780);
+            this.Controls.Add(this.addIngredientButton);
+>>>>>>> master
             this.Controls.Add(this.uxPantryItemsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
