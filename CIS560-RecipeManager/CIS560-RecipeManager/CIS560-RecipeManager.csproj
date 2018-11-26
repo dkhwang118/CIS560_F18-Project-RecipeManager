@@ -111,12 +111,6 @@
     <Compile Include="Repository\Query\CookRecipe.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
-    <Compile Include="RecipeManager\uiRecipeDetailForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RecipeManager\uiRecipeDetailForm.Designer.cs">
-      <DependentUpon>uiRecipeDetailForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Repository\Query\CreateRecipeCategory.cs" />
     <Compile Include="Repository\Query\CreateIngredient.cs" />
     <Compile Include="Repository\Query\CreateRecipe.cs" />

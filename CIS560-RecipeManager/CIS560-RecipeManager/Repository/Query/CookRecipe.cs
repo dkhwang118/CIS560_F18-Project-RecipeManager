@@ -30,5 +30,10 @@ namespace CIS560_RecipeManager.Repository
             }
             
         }
+
+        public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
