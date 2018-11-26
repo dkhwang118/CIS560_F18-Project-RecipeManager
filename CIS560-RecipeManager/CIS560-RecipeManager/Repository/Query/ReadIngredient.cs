@@ -31,11 +31,11 @@ namespace CIS560_RecipeManager.Repository
                         //param.Direction = ParameterDirection.Output;
 
                         var result = command.ExecuteReader();
-                        Console.WriteLine("--------------------------------------------------------");
-                        Console.WriteLine(connection.Database);
-                        Console.WriteLine(result);
-                        Console.WriteLine(result?.GetType());
-                        Console.WriteLine("--------------------------------------------------------");
+                        //Console.WriteLine("--------------------------------------------------------");
+                        //Console.WriteLine(connection.Database);
+                        //Console.WriteLine(result);
+                        //Console.WriteLine(result?.GetType());
+                        //Console.WriteLine("--------------------------------------------------------");
 
                         int id;
                         String name;
@@ -50,8 +50,6 @@ namespace CIS560_RecipeManager.Repository
                             unit = result.GetFieldValue<String>(3);
 
                             ingredient = new Ingredient(id, name, unit);
-
-                            Console.WriteLine(ingredient);
                         }
                         else
                         {

@@ -17,6 +17,11 @@ namespace CIS560_RecipeManager.Repository
             throw new NotImplementedException();
         }
 
+        public RecipeCategory CreateRecipeCategory(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<RecipeCategory> GetRecipeCategories()
         {
             throw new NotImplementedException();
