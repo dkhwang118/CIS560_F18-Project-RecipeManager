@@ -13,8 +13,10 @@ namespace CIS560_RecipeManager.ShoppingListManager
     public partial class uiShoppingList : Form
     {
         private Action _launchAddShoppingListDelegate;
-        public uiShoppingList(Action launchAddShoppingListDelegate)
+        private Action _launchShowShoppingListDelegate;
+        public uiShoppingList(Action launchAddShoppingListDelegate, Action launchShowShoppingListDelegate)
         {
+            _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
             InitializeComponent();
         }
@@ -29,6 +31,11 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private void uxButton_AddShoppingList_Click(object sender, EventArgs e)
         {
             _launchAddShoppingListDelegate();
+        }
+
+        private void uxButton_ShowShoppingList_Click(object sender, EventArgs e)
+        {
+            _launchShowShoppingListDelegate();
         }
     }
 }

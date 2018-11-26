@@ -27,7 +27,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         public void LaunchShoppingListForm()
         {
-            new uiShoppingList(LaunchAddShoppingListForm).Show();
+            new uiShoppingList(LaunchAddShoppingListForm, LaunchShowShoppingListForm).Show();
         }
 
         public void LaunchAddShoppingListForm()
@@ -41,5 +41,11 @@ namespace CIS560_RecipeManager.ShoppingListManager
             _shoppingLists.Add(shoppingList);
             return shoppingList;
         }
+
+        public void LaunchShowShoppingListForm()
+        {
+            new uiShowShoppingList().Show();
+        }
+
     }
 }

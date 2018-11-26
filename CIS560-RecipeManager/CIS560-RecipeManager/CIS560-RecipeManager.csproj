@@ -165,6 +165,12 @@
     <Compile Include="ShoppingListManager\uiShoppingList.Designer.cs">
       <DependentUpon>uiShoppingList.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShoppingListManager\uiShoppingList.resx">
       <DependentUpon>uiShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
