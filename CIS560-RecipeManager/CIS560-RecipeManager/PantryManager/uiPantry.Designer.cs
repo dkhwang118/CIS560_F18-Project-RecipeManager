@@ -140,7 +140,6 @@
             // 
             // uxButton_AddIngredient
             // 
-            this.addIngredientButton.Location = new System.Drawing.Point(489, 218);
             this.uxButton_AddIngredient.Size = new System.Drawing.Size(174, 44);
             this.uxButton_AddIngredient.TabIndex = 1;
             this.uxButton_AddIngredient.Text = "Add Ingredient";
