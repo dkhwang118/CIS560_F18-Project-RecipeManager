@@ -15,19 +15,6 @@ namespace CIS560_RecipeManager.Repository
     public partial class Query : IQuery
     {
 
-        public void DeleteRecipe(Recipe recipe)
-        {
-            // not implemented
-            throw new NotImplementedException();
-        }
-
-
-        public IReadOnlyCollection<Recipe> GetAvailableRecipes()
-        {
-            // not implemented
-            throw new NotImplementedException();
-        }
-
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
         {
             // not implemented
