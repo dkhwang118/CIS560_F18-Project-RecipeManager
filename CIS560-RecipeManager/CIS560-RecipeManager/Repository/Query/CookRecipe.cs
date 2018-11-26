@@ -21,7 +21,7 @@ namespace CIS560_RecipeManager.Repository
         /// Subtracts the ingredient(s) quantity as defined by the given recipe from the PantryItem Table
         /// </summary>
         /// <param name="recipe">Recipe to "Cook"</param>
-        void CookRecipe(Recipe recipe)
+        public void CookRecipe(Recipe recipe)
         {
             // Loop through each ingredient and update quantity
             foreach (KeyValuePair<Ingredient, int> kvp in recipe.MeasuredIngredients)

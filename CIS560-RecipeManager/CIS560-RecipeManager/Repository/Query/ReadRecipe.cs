@@ -13,11 +13,6 @@ namespace CIS560_RecipeManager.Repository
     public partial class Query : IQuery
     {
 
-        public ICollection<RecipeCategory> GetRecipeCategories()
-        {
-            throw new NotImplementedException();
-        }
-
         public Recipe ReadRecipe(int recipeId)
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
