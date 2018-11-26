@@ -30,17 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
-            this.shoppingListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shoppingListTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter();
             this.shoppingListIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shoppingListNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.createdOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatedOnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shoppingListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
+            this.shoppingListTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter();
             this.uxButton_AddShoppingList = new System.Windows.Forms.Button();
+            this.uxButton_ShowShoppingList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoppingListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -53,24 +54,11 @@
             this.createdOnDataGridViewTextBoxColumn,
             this.updatedOnDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.shoppingListBindingSource;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(443, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // recipeDatabaseDataSet
-            // 
-            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
-            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // shoppingListBindingSource
-            // 
-            this.shoppingListBindingSource.DataMember = "ShoppingList";
-            this.shoppingListBindingSource.DataSource = this.recipeDatabaseDataSet;
-            // 
-            // shoppingListTableAdapter
-            // 
-            this.shoppingListTableAdapter.ClearBeforeFill = true;
             // 
             // shoppingListIDDataGridViewTextBoxColumn
             // 
@@ -96,10 +84,24 @@
             this.updatedOnDataGridViewTextBoxColumn.HeaderText = "UpdatedOn";
             this.updatedOnDataGridViewTextBoxColumn.Name = "updatedOnDataGridViewTextBoxColumn";
             // 
+            // shoppingListBindingSource
+            // 
+            this.shoppingListBindingSource.DataMember = "ShoppingList";
+            this.shoppingListBindingSource.DataSource = this.recipeDatabaseDataSet;
+            // 
+            // recipeDatabaseDataSet
+            // 
+            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
+            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // shoppingListTableAdapter
+            // 
+            this.shoppingListTableAdapter.ClearBeforeFill = true;
+            // 
             // uxButton_AddShoppingList
             // 
             this.uxButton_AddShoppingList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.uxButton_AddShoppingList.Location = new System.Drawing.Point(144, 175);
+            this.uxButton_AddShoppingList.Location = new System.Drawing.Point(21, 174);
             this.uxButton_AddShoppingList.Name = "uxButton_AddShoppingList";
             this.uxButton_AddShoppingList.Size = new System.Drawing.Size(150, 36);
             this.uxButton_AddShoppingList.TabIndex = 1;
@@ -107,19 +109,31 @@
             this.uxButton_AddShoppingList.UseVisualStyleBackColor = true;
             this.uxButton_AddShoppingList.Click += new System.EventHandler(this.uxButton_AddShoppingList_Click);
             // 
+            // uxButton_ShowShoppingList
+            // 
+            this.uxButton_ShowShoppingList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxButton_ShowShoppingList.Location = new System.Drawing.Point(231, 174);
+            this.uxButton_ShowShoppingList.Name = "uxButton_ShowShoppingList";
+            this.uxButton_ShowShoppingList.Size = new System.Drawing.Size(176, 36);
+            this.uxButton_ShowShoppingList.TabIndex = 2;
+            this.uxButton_ShowShoppingList.Text = "Show Shopping List";
+            this.uxButton_ShowShoppingList.UseVisualStyleBackColor = true;
+            this.uxButton_ShowShoppingList.Click += new System.EventHandler(this.uxButton_ShowShoppingList_Click);
+            // 
             // uiShoppingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 231);
+            this.Controls.Add(this.uxButton_ShowShoppingList);
             this.Controls.Add(this.uxButton_AddShoppingList);
             this.Controls.Add(this.dataGridView1);
             this.Name = "uiShoppingList";
             this.Text = "Shopping List Home";
             this.Load += new System.EventHandler(this.uiShoppingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoppingListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -135,5 +149,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createdOnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatedOnDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button uxButton_AddShoppingList;
+        private System.Windows.Forms.Button uxButton_ShowShoppingList;
     }
 }
