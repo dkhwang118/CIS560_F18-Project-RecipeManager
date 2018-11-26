@@ -24,7 +24,7 @@ namespace CIS560_RecipeManager.Repository
         /// <returns></returns>
         public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
         {
-            int recipeID;
+            int recipeID; // Store ID for use in adding to RecipeIngredient table
 
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
