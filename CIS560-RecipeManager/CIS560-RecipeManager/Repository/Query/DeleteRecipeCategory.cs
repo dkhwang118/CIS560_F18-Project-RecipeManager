@@ -17,16 +17,21 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public void DeleteRecipeCategory(string categoryName)
+        /// <summary>
+        /// Deletes a RecipeCategory from the RecipeCategory table
+        /// NOTE: Does not check for recipies that are currently associated with the category to be deleted
+        /// </summary>
+        /// <param name="recipeCategory">Category to be deleted from the DB</param>
+        public void DeleteRecipeCategory(RecipeCategory recipeCategory)
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("dbo.DeleteRecipeCategoryByName", connection))
+                    using (var command = new SqlCommand("dbo.DeleteRecipeCategoryById", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("CategoryName", categoryName);
+                        command.Parameters.AddWithValue("CategoryID", recipeCategory.Id);
     
                         connection.Open();
 
@@ -34,7 +39,6 @@ namespace CIS560_RecipeManager.Repository
 
                         transaction.Complete();
 
-                        //return new RecipeCategory((int)param.Value, categoryName); // return an Ingredient object with the same data that has been written to the DB
                     }
                 } // should close transaction here automatically
             } // should close connection here automatically
