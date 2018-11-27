@@ -7,7 +7,7 @@ namespace CIS560_RecipeManager.RecipeManager
     public class RecipeInventory
     {
         private IQuery _query;
-        private IList<Recipe> _totalRecipes = new List<Recipe>();
+        private ICollection<Recipe> _totalRecipes;
 
         public BindingList<Recipe> VisibleRecipes {get;}
 
@@ -20,8 +20,8 @@ namespace CIS560_RecipeManager.RecipeManager
 
         private void PopulateVisibleRecipes()
         {
-            var recipes = _query.GetAllRecipes();
-            foreach (var r in recipes)
+            _totalRecipes = _query.GetAllRecipes();
+            foreach (var r in _totalRecipes)
             {
                 VisibleRecipes.Add(r);
             }
