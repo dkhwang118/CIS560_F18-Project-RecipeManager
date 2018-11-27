@@ -34,10 +34,10 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
-            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -45,10 +45,9 @@
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(635, 610);
-            this.uxButton_AddRecipe.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(200, 246);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
-            this.uxButton_AddRecipe.Size = new System.Drawing.Size(310, 97);
+            this.uxButton_AddRecipe.Size = new System.Drawing.Size(98, 34);
             this.uxButton_AddRecipe.TabIndex = 2;
             this.uxButton_AddRecipe.Text = "Add Recipe";
             this.uxButton_AddRecipe.UseVisualStyleBackColor = true;
@@ -86,32 +85,17 @@
             this.dataGridViewTextBoxColumn1,
             this.Category});
             this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(86, 162);
+            this.RecipeDataGridView.Location = new System.Drawing.Point(27, 78);
+            this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.RecipeDataGridView.MultiSelect = false;
             this.RecipeDataGridView.Name = "RecipeDataGridView";
             this.RecipeDataGridView.RowTemplate.Height = 46;
             this.RecipeDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RecipeDataGridView.Size = new System.Drawing.Size(859, 405);
+            this.RecipeDataGridView.Size = new System.Drawing.Size(271, 142);
             this.RecipeDataGridView.TabIndex = 3;
             this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
             this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
             this.RecipeDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RecipeDataGridView_MouseDown);
-            // 
-            // availableWithPantryCheckBox
-            // 
-            this.availableWithPantryCheckBox.AutoSize = true;
-            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(86, 62);
-            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
-            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(703, 41);
-            this.availableWithPantryCheckBox.TabIndex = 4;
-            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
-            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
-            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
-            // 
-            // RecipeBindingSource
-            // 
-            this.RecipeBindingSource.DataMember = "VisibleRecipes";
-            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -130,16 +114,33 @@
             this.Category.ReadOnly = true;
             this.Category.Visible = false;
             // 
+            // RecipeBindingSource
+            // 
+            this.RecipeBindingSource.DataMember = "VisibleRecipes";
+            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            // 
+            // availableWithPantryCheckBox
+            // 
+            this.availableWithPantryCheckBox.AutoSize = true;
+            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(27, 22);
+            this.availableWithPantryCheckBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
+            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(265, 41);
+            this.availableWithPantryCheckBox.TabIndex = 4;
+            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
+            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
+            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
+            // 
             // uiRecipe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 752);
+            this.ClientSize = new System.Drawing.Size(327, 304);
             this.Controls.Add(this.availableWithPantryCheckBox);
             this.Controls.Add(this.RecipeDataGridView);
             this.Controls.Add(this.uxButton_AddRecipe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "uiRecipe";
             this.Text = "Home";
