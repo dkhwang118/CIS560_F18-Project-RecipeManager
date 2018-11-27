@@ -15,6 +15,16 @@ namespace CIS560_RecipeManager.Repository
 
         public Recipe ReadRecipe(int recipeId)
         {
+
+
+            int id;
+            String name;
+            int quantity;
+            string description;
+            int categoryID;
+            IDictionary<int, int> measuredIngredientIDs = new Dictionary<int, int>();
+            IDictionary<Ingredient, int> measuredIngredients = new Dictionary<Ingredient, int>();
+
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
                 using (var transaction = new TransactionScope())
@@ -22,14 +32,6 @@ namespace CIS560_RecipeManager.Repository
 
                     connection.Open();
 
-
-                    int id;
-                    String name;
-                    int quantity;
-                    string description;
-                    int categoryID;
-                    IDictionary<int, int> measuredIngredientIDs = new Dictionary<int, int>();
-                    IDictionary<Ingredient, int> measuredIngredients = new Dictionary<Ingredient, int>();
 
                     using (var command = new SqlCommand("[dbo].FindRecipeItemByID", connection))
                     {
@@ -101,18 +103,18 @@ namespace CIS560_RecipeManager.Repository
 
                     connection.Close();
 
-                    // Now that the connection is closed, we may do further ingredient lookups.
-                    foreach (var ingredientID in measuredIngredientIDs)
-                    {
-                        Ingredient ingredient = ReadIngredient(ingredientID.Key);
-                        measuredIngredients[ingredient] = ingredientID.Value;
-                    }
-
-                    //ToDo: add the recipe category in
-                    Recipe recipe = new Recipe(id, name, description, new RecipeCategory(0, "Entrees"), measuredIngredients);
-                    return recipe;
+                    
                 }
             }
+            // Now that the connection is closed, we may do further ingredient lookups.
+            foreach (var ingredientID in measuredIngredientIDs)
+            {
+                Ingredient ingredient = ReadIngredient(ingredientID.Key);
+                measuredIngredients[ingredient] = ingredientID.Value;
+            }
+
+            Recipe recipe = new Recipe(id, name, description, GetRecipeCategory(id), measuredIngredients);
+            return recipe;
         }
     }
 }

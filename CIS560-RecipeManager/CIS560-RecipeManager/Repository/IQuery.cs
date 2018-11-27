@@ -30,5 +30,7 @@ namespace CIS560_RecipeManager
         ICollection<RecipeCategory> GetRecipeCategories();
 
         void RateRecipe(Recipe recipe, int recipeRating);
+
+        RecipeCategory GetRecipeCategory(int recipeId);
     }
 }
