@@ -13,8 +13,8 @@ namespace CIS560_RecipeManager.ShoppingListManager
     public partial class uiShoppingList : Form
     {
         private Action _launchAddShoppingListDelegate;
-        private Action _launchShowShoppingListDelegate;
-        public uiShoppingList(Action launchAddShoppingListDelegate, Action launchShowShoppingListDelegate)
+        private Action<ShoppingList> _launchShowShoppingListDelegate;
+        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate)
         {
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
@@ -35,7 +35,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         private void uxButton_ShowShoppingList_Click(object sender, EventArgs e)
         {
-            _launchShowShoppingListDelegate();
+            ShoppingList current = new ShoppingList(0, "name");
+            foreach(DataGridViewRow row in uxDataGridView_ShoppingList.SelectedRows)
+            {
+                current = (ShoppingList)row.DataBoundItem;
+            }
+            _launchShowShoppingListDelegate(current);
         }
     }
 }

@@ -230,6 +230,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.EditRecipeViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />

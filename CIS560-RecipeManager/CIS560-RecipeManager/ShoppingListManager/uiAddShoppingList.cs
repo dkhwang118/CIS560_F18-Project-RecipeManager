@@ -14,9 +14,9 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiAddShoppingList : Form
     {
-        private GetShoppinglistDelegate _getShoppingListDelegate;
+        private Action<ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
-        public uiAddShoppingList(RecipeInventory recipeInventory, GetShoppinglistDelegate getShoppingList)
+        public uiAddShoppingList(RecipeInventory recipeInventory, Action<ICollection<Recipe>> getShoppingList)
         {
             _recipeInventory = recipeInventory;
             InitializeComponent();

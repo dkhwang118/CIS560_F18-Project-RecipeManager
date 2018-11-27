@@ -81,7 +81,7 @@
             // recipeNameDataGridViewTextBoxColumn
             // 
             this.recipeNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.recipeNameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.recipeNameDataGridViewTextBoxColumn.DataPropertyName = "RecipeName";
             this.recipeNameDataGridViewTextBoxColumn.HeaderText = "RecipeName";
             this.recipeNameDataGridViewTextBoxColumn.Name = "recipeNameDataGridViewTextBoxColumn";
             this.recipeNameDataGridViewTextBoxColumn.ReadOnly = true;
