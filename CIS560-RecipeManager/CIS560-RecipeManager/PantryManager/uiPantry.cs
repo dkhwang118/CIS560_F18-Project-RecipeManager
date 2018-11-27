@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static CIS560_RecipeManager.PantryManager.PantryController;
+using CIS560_RecipeManager.PantryManager; //.PantryController;
 
 namespace CIS560_RecipeManager
 {
     public partial class uiPantry : Form
     {
         private Action _launchAddIngredientDelegate;
-        private Action _launchUpdateIngredienDelegate;
 
         public uiPantry(Action launchAddIngredientDelegate)
         {
@@ -43,7 +42,10 @@ namespace CIS560_RecipeManager
         private void updateIngredientButton_Click(object sender, EventArgs e)
         {
             //launch updateIngredient form
-            
+            using (uiUpdateIngredient f2 = new uiUpdateIngredient())
+            {
+                f2.ShowDialog(this);
+            }
         }
 
         private void uxPantryItemsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
