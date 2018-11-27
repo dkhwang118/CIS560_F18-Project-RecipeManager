@@ -15,7 +15,6 @@ namespace CIS560_RecipeManager.Repository
 
         public Recipe ReadRecipe(int recipeId)
         {
-            int id;
             String name;
             int quantity;
             string description;
@@ -41,7 +40,6 @@ namespace CIS560_RecipeManager.Repository
                         if (result.HasRows)
                         {
                             result.Read();
-                            id = result.GetFieldValue<int>(0);
                             name = result.GetFieldValue<string>(1);
                             description = result.GetFieldValue<string>(2);
                             categoryID = result.GetFieldValue<int>(3);
@@ -64,7 +62,7 @@ namespace CIS560_RecipeManager.Repository
                     connection.Close();
                     connection.Open();
 
-                    using (var command = new SqlCommand("CREATE PROCEDURE [dbo].FindRecipeIngredientInfoByID @ItemID int AS SELECT ri.RecipeID, ri.RecipeID, ri.RecipeQuantity FROM RecipeIngredient ri WHERE ri.RecipeID = @ItemID", connection))
+                    using (var command = new SqlCommand("CREATE PROCEDURE [dbo].FindRecipeIngredientInfoByID @ItemID int AS SELECT ri.RecipeID, ri.PantryItemID, ri.RecipeQuantity FROM RecipeIngredient ri WHERE ri.RecipeID = @ItemID", connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -111,7 +109,7 @@ namespace CIS560_RecipeManager.Repository
                 measuredIngredients[ingredient] = ingredientID.Value;
             }
 
-            Recipe recipe = new Recipe(id, name, description, GetRecipeCategory(id), measuredIngredients);
+            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients);
             return recipe;
         }
     }
