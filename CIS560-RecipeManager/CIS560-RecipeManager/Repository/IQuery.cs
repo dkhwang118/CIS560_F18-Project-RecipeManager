@@ -15,6 +15,8 @@ namespace CIS560_RecipeManager
 
         IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
+        ICollection<Recipe> GetAllRecipes();
+
         ShoppingList GetShoppingList(ICollection<Recipe> recipes);
 
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);

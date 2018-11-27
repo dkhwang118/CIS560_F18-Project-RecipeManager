@@ -15,6 +15,16 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             _query = query;
             VisibleRecipes = new BindingList<Recipe>();
+            PopulateVisibleRecipes();
+        }
+
+        private void PopulateVisibleRecipes()
+        {
+            var recipes = _query.GetAllRecipes();
+            foreach (var r in recipes)
+            {
+                VisibleRecipes.Add(r);
+            }
         }
 
         public void AddRecipe(

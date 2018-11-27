@@ -116,6 +116,7 @@
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="Repository\Query\CookRecipe.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
+    <Compile Include="Repository\Query\GetAllRecipes.cs" />
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
     <Compile Include="Repository\Query\CreateRecipeCategory.cs" />
     <Compile Include="Repository\Query\CreateIngredient.cs" />
@@ -131,7 +132,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="Repository\Query\UpdateIngredientQuantity.cs" />
     <Compile Include="Repository\Query\UpdateRecipe.cs" />
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
