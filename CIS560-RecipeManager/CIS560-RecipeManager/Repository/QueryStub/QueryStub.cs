@@ -14,7 +14,7 @@ namespace CIS560_RecipeManager.Repository
             PopulateRecipes();
         }
 
-        public Ingredient CreateIngredient(string name, string unit, int quantity)
+        public Ingredient CreateIngredient(string name, string unit, int quantity, int unitPriceInCents)
         {
             return new Ingredient(0, name, unit);
         }

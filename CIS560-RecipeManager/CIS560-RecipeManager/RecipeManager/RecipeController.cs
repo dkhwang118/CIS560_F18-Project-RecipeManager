@@ -87,9 +87,9 @@ namespace CIS560_RecipeManager.RecipeManager
             new uiAddIngredient(CreateIngredient).Show();
         }
 
-        public void CreateIngredient(string name, string unitOfMeasure, int quantity)
+        public void CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)
         {
-            var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity);
+            var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity, unitPriceInCents);
             _viewModel.AddIngredientToTotal(ingredient);
         }
     }

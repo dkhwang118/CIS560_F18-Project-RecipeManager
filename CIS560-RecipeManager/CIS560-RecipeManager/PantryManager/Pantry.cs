@@ -30,9 +30,9 @@ namespace CIS560_RecipeManager
         }
 
         //updates the pantry contents with an ingredient and quantity
-        public Ingredient CreateIngredient(string name, string unitOfMeasure, int quantity)
+        public Ingredient CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)
         {
-            Ingredient ingredient = _query.CreateIngredient(name, unitOfMeasure, quantity);
+            Ingredient ingredient = _query.CreateIngredient(name, unitOfMeasure, quantity, unitPriceInCents);
             PantryContents.Add(ingredient, quantity);
             return ingredient;
         }

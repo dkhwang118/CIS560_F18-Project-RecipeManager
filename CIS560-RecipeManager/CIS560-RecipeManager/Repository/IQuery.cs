@@ -11,7 +11,7 @@ namespace CIS560_RecipeManager
 
         void DeleteRecipe(Recipe recipe);
 
-        Ingredient CreateIngredient(string name, string unitOfMeasure, int quantity);
+        Ingredient CreateIngredient(string name, string unitOfMeasure, int quantity, int UnitPriceInCents);
 
         IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
