@@ -22,7 +22,11 @@ namespace CIS560_RecipeManager.Repository
         /// <param name="category"></param>
         /// <param name="measuredIngredients"></param>
         /// <returns></returns>
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CreateRecipe(string recipeName, 
+                                    string recipeDescription, 
+                                    RecipeCategory category, 
+                                    IDictionary<Ingredient, int> measuredIngredients,
+                                    int? recipeRating = null)
         {
             int recipeID; // Store ID for use in adding to RecipeIngredient table
 
@@ -37,6 +41,7 @@ namespace CIS560_RecipeManager.Repository
                         command.Parameters.AddWithValue("RecipeName", recipeName);
                         command.Parameters.AddWithValue("RecipeDescription", recipeDescription);
                         command.Parameters.AddWithValue("CategoryID", category.Id);
+                        command.Parameters.AddWithValue("RecipeRating", recipeRating);
                         var param = command.Parameters.Add("RecipeID", SqlDbType.Int);
                         param.Direction = ParameterDirection.Output;
 

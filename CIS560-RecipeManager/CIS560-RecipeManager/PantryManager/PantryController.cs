@@ -4,7 +4,7 @@ namespace CIS560_RecipeManager.PantryManager
 {
     public class PantryController
     {
-        public delegate void CreateIngredientDelegate(string name, string unitOfMeasure, int quantity);
+        public delegate void CreateIngredientDelegate(string name, string unitOfMeasure, int quantity, int unitPriceInCents);
         private MyPantry _pantry;
 
         public PantryController(MyPantry pantry)
@@ -22,9 +22,9 @@ namespace CIS560_RecipeManager.PantryManager
             new uiAddIngredient(CreateIngredient).Show();
         }
 
-        public void CreateIngredient(string name, string unitOfMeasure, int quantity)
+        public void CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)
         {
-            _pantry.CreateIngredient(name, unitOfMeasure, quantity);
+            _pantry.CreateIngredient(name, unitOfMeasure, quantity, unitPriceInCents);
         }
     }
 }
