@@ -45,5 +45,10 @@ namespace CIS560_RecipeManager
             //launch updateIngredient form
             
         }
+
+        private void uxPantryItemsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
