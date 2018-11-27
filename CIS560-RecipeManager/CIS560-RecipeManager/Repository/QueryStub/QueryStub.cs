@@ -63,7 +63,7 @@ namespace CIS560_RecipeManager.Repository
             return list;
         }
 
-        public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
+        public ShoppingList CreateShoppingList(string shoppingListName, ICollection<Recipe> recipes)
         {
             ShoppingList s = new ShoppingList(0, "ShoppingList1");
             foreach (Recipe r in recipes)
