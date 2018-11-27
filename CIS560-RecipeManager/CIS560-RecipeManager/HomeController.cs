@@ -21,18 +21,18 @@ namespace CIS560_RecipeManager
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
 
-        private IQuery _queryStub;
+        private IQuery _query;
 
         public HomeController()
         {
             
-            _queryStub = new QueryStub();
-            _recipeInventory = new RecipeInventory(_queryStub);
-            _pantry = new MyPantry(_queryStub);
+            _query = new Query();
+            _recipeInventory = new RecipeInventory(_query);
+            _pantry = new MyPantry(_query);
 
             _recipeController = new RecipeController(_recipeInventory, _pantry);
             _pantryController = new PantryController(_pantry);
-            _shoppingListController = new ShoppingListController(_queryStub, _pantry, _recipeInventory);
+            _shoppingListController = new ShoppingListController(_query, _pantry, _recipeInventory);
 
             _launchRecipeManager = _recipeController.LaunchRecipeForm;
             _launchPantryManager = _pantryController.LaunchPantryForm;
