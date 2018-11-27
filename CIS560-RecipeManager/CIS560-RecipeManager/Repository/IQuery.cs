@@ -7,7 +7,7 @@ namespace CIS560_RecipeManager
     {
         void UpdateRecipe(Recipe recipe);
 
-        Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients);
+        Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients, int? recipeRating = 0);
 
         void DeleteRecipe(Recipe recipe);
 
@@ -26,5 +26,7 @@ namespace CIS560_RecipeManager
         void CookRecipe(Recipe recipe);
 
         ICollection<RecipeCategory> GetRecipeCategories();
+
+        void RateRecipe(Recipe recipe, int recipeRating);
     }
 }
