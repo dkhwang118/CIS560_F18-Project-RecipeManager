@@ -92,7 +92,6 @@
             this.uxPantryItemsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(529, 317);
             this.uxPantryItemsDataGridView.TabIndex = 0;
-            this.uxPantryItemsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uxPantryItemsDataGridView_CellContentClick);
             // 
             // pantryItemNameDataGridViewTextBoxColumn
             // 
@@ -141,7 +140,7 @@
             // uxButton_AddIngredient
             // 
             this.uxButton_AddIngredient.Location = new System.Drawing.Point(10, 333);
-            this.uxButton_AddIngredient.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.uxButton_AddIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_AddIngredient.Name = "uxButton_AddIngredient";
             this.uxButton_AddIngredient.Size = new System.Drawing.Size(142, 41);
             this.uxButton_AddIngredient.TabIndex = 1;
@@ -152,7 +151,7 @@
             // uxButton_DeleteIngredient
             // 
             this.uxButton_DeleteIngredient.Location = new System.Drawing.Point(406, 333);
-            this.uxButton_DeleteIngredient.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.uxButton_DeleteIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_DeleteIngredient.Name = "uxButton_DeleteIngredient";
             this.uxButton_DeleteIngredient.Size = new System.Drawing.Size(135, 41);
             this.uxButton_DeleteIngredient.TabIndex = 2;
@@ -163,7 +162,7 @@
             // uxButton_UpdateIngredient
             // 
             this.uxButton_UpdateIngredient.Location = new System.Drawing.Point(212, 333);
-            this.uxButton_UpdateIngredient.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.uxButton_UpdateIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_UpdateIngredient.Name = "uxButton_UpdateIngredient";
             this.uxButton_UpdateIngredient.Size = new System.Drawing.Size(141, 41);
             this.uxButton_UpdateIngredient.TabIndex = 4;

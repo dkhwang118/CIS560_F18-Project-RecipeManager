@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CIS560_RecipeManager.PantryManager; //.PantryController;
+using CIS560_RecipeManager.PantryManager;
 
 namespace CIS560_RecipeManager
 {
@@ -19,12 +19,16 @@ namespace CIS560_RecipeManager
         {
             _launchAddIngredientDelegate = launchAddIngredientDelegate;
             InitializeComponent();
+
+            //small reordering of units and quantity
+            uxPantryItemsDataGridView.Columns[2].DisplayIndex = 1;
+            uxPantryItemsDataGridView.Columns[1].DisplayIndex = 2;
         }
 
         private void uiPantryItems_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.PantryItem' table. You can move, or remove it, as needed.
-            //this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
+            this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
 
         }
 
@@ -46,11 +50,6 @@ namespace CIS560_RecipeManager
             {
                 f2.ShowDialog(this);
             }
-        }
-
-        private void uxPantryItemsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
