@@ -25,7 +25,7 @@ namespace CIS560_RecipeManager.Repository
         /// <param name="unitOfMeasurement">Measurement unit to be used with ingredient in recipes</param>
         /// <param name="unitCount">Amount of ingredient currently held by user</param>
         /// <returns></returns>
-        public Ingredient CreateIngredient(string ingredientName, string unitOfMeasurement, int unitCount)
+        public Ingredient CreateIngredient(string ingredientName, string unitOfMeasurement, int unitCount, int unitPriceInCents)
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
@@ -37,6 +37,7 @@ namespace CIS560_RecipeManager.Repository
                         command.Parameters.AddWithValue("PantryItemName", ingredientName);
                         command.Parameters.AddWithValue("QuantityInPantry", unitCount);
                         command.Parameters.AddWithValue("ItemUnitMeasurement", unitOfMeasurement);
+                        command.Parameters.AddWithValue("UnitPriceInCents", unitPriceInCents);
                         var param = command.Parameters.Add("PantryItemID", SqlDbType.Int);
                         param.Direction = ParameterDirection.Output;
 

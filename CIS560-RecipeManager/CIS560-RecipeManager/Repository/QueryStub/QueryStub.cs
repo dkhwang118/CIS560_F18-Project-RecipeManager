@@ -14,7 +14,7 @@ namespace CIS560_RecipeManager.Repository
             PopulateRecipes();
         }
 
-        public Ingredient CreateIngredient(string name, string unit, int quantity)
+        public Ingredient CreateIngredient(string name, string unit, int quantity, int unitPriceInCents)
         {
             return new Ingredient(0, name, unit);
         }
@@ -29,7 +29,7 @@ namespace CIS560_RecipeManager.Repository
             //cook recipe
         }
 
-        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients)
+        public Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients, int? recipeRating = null)
         {
             return new Recipe(0, recipeName, recipeDescription, category, measuredIngredients);
         }
@@ -102,6 +102,11 @@ namespace CIS560_RecipeManager.Repository
             var category = new RecipeCategory(0, name);
             _recipeCategories.Add(category);
             return category;
+        }
+
+        public void RateRecipe(Recipe recipe, int recipeRating)
+        {
+            // update recipe rating in DB
         }
     }
 }
