@@ -14,7 +14,18 @@ namespace CIS560_RecipeManager.Repository
     {
         public ICollection<Recipe> GetAllRecipes()
         {
-            ICollection<Recipe> recipes = new List<Recipe>();
+            var ids = getAllRecipeIds();
+            var recipes = new List<Recipe>();
+            foreach (var id in ids)
+            {
+                recipes.Add(ReadRecipe(id));
+            }
+            return recipes;
+        }
+
+        private ICollection<int> getAllRecipeIds()
+        {
+            ICollection<int> ids = new List<int>();
 
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
@@ -31,14 +42,14 @@ namespace CIS560_RecipeManager.Repository
                         {
                             while (result.Read())
                             {
-                                recipes.Add(new Recipe(result.GetFieldValue<int>(0), "Test Name", "Test Description", new RecipeCategory(0, "Test Category"), new Dictionary<Ingredient, int>()));
+                                ids.Add(result.GetFieldValue<int>(0));
                             }
                         }
 
                     }
                 }
             }
-            return recipes;
+            return ids;
         }
     }
 }
