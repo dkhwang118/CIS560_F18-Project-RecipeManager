@@ -28,7 +28,24 @@ namespace CIS560_RecipeManager.Repository
             {
                 UpdateIngredientQuantity((kvp.Value*-1), kvp.Key); // subtract the quantity given by recipe from the ingredient quantity in pantry
             }
-            
+
+            // Update RecipesCookedDates table
+            using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
+            {
+                using (var transaction = new TransactionScope())
+                {
+                    using (var command = new SqlCommand("[dbo].UpdateRecipesCookedDates", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("RecipeID", recipe.Id);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery(); // no results coming back
+                    }
+                } // should close transaction here automatically
+            } // should close connection here automatically
+
         }
 
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
