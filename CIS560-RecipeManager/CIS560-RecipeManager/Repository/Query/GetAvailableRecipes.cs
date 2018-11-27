@@ -14,6 +14,7 @@ namespace CIS560_RecipeManager.Repository
     {
         public IReadOnlyCollection<Recipe> GetAvailableRecipes()
         {
+            List<int> recipeIDs = new List<int>();
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
                 using (var transaction = new TransactionScope())
@@ -21,13 +22,11 @@ namespace CIS560_RecipeManager.Repository
 
                     connection.Open();
 
-
                     int id;
                     String name;
                     int quantity;
                     string description;
                     int categoryID;
-                    List<int> recipeIDs = new List<int>();
 
                     using (var command = new SqlCommand(@"
 SELECT R.RecipeID
@@ -58,10 +57,9 @@ WHERE NOT EXISTS
                     }
 
                     connection.Close();
-
-                    return recipeIDs.Select(i => ReadRecipe(i)).ToList();
                 }
             }
+            return recipeIDs.Select(i => ReadRecipe(i)).ToList();
         }
     }
 }

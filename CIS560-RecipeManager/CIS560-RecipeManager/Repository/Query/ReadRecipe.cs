@@ -15,8 +15,6 @@ namespace CIS560_RecipeManager.Repository
 
         public Recipe ReadRecipe(int recipeId)
         {
-
-
             int id;
             String name;
             int quantity;
