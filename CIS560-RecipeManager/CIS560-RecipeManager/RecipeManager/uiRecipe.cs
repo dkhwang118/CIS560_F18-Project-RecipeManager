@@ -114,11 +114,17 @@ namespace CIS560_RecipeManager
 
         private void rateRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //rate recipe
-            var row = RecipeDataGridView.SelectedRows[0];
-            Recipe recipe = (Recipe)row.DataBoundItem;
-            _rateRecipe(recipe,1);
-            MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
+            using (var form = new RateRecipeForm())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    var row = RecipeDataGridView.SelectedRows[0];
+                    Recipe recipe = (Recipe)row.DataBoundItem;
+                    _rateRecipe(recipe, form.Rating);
+                    MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
+                }
+            }
         }
     }
 }
