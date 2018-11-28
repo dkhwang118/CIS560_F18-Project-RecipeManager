@@ -10,11 +10,14 @@ namespace CIS560_RecipeManager
 
         public string Unit { get; }
 
-        public Ingredient(int id, string name, string unit)
+        public int Price { get; }
+
+        public Ingredient(int id, string name, string unit, int price)
         {
             Id = id;
             Name = name;
             Unit = unit;
+            Price = price;
         }
 
         public override string ToString()
