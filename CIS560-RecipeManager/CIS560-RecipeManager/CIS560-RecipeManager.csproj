@@ -115,6 +115,7 @@
     <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="Repository\Query\CookRecipe.cs" />
+    <Compile Include="Repository\Query\CreateShoppingList.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
     <Compile Include="Repository\Query\GetAllIngredients.cs" />
     <Compile Include="Repository\Query\GetAllRecipes.cs" />

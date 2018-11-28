@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.recipeDatabaseDataSet_DEMO = new CIS560_RecipeManager.RecipeDatabaseDataSet_DEMO();
             this.recipeDatabaseDataSetDEMOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uxPantryItemsDataGridView = new System.Windows.Forms.DataGridView();
@@ -68,14 +68,14 @@
             this.uxPantryItemsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uxPantryItemsDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uxPantryItemsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uxPantryItemsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.uxPantryItemsDataGridView.ColumnHeadersHeight = 40;
             this.uxPantryItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.uxPantryItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -83,15 +83,14 @@
             this.itemUnitMeasurementDataGridViewTextBoxColumn,
             this.quantityInPantryDataGridViewTextBoxColumn});
             this.uxPantryItemsDataGridView.DataSource = this.pantryItemBindingSource;
-            this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(136, 34);
-            this.uxPantryItemsDataGridView.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.uxPantryItemsDataGridView.MultiSelect = false;
             this.uxPantryItemsDataGridView.Name = "uxPantryItemsDataGridView";
             this.uxPantryItemsDataGridView.ReadOnly = true;
             this.uxPantryItemsDataGridView.RowHeadersVisible = false;
             this.uxPantryItemsDataGridView.RowHeadersWidth = 120;
             this.uxPantryItemsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(1967, 507);
+            this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(529, 317);
             this.uxPantryItemsDataGridView.TabIndex = 0;
             // 
             // pantryItemNameDataGridViewTextBoxColumn
@@ -112,7 +111,7 @@
             this.itemUnitMeasurementDataGridViewTextBoxColumn.Name = "itemUnitMeasurementDataGridViewTextBoxColumn";
             this.itemUnitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
             this.itemUnitMeasurementDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.Width = 500;
+            this.itemUnitMeasurementDataGridViewTextBoxColumn.Width = 168;
             // 
             // quantityInPantryDataGridViewTextBoxColumn
             // 
@@ -122,7 +121,7 @@
             this.quantityInPantryDataGridViewTextBoxColumn.Name = "quantityInPantryDataGridViewTextBoxColumn";
             this.quantityInPantryDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityInPantryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.quantityInPantryDataGridViewTextBoxColumn.Width = 447;
+            this.quantityInPantryDataGridViewTextBoxColumn.Width = 150;
             // 
             // pantryItemBindingSource
             // 
@@ -140,7 +139,10 @@
             // 
             // uxButton_AddIngredient
             // 
-            this.uxButton_AddIngredient.Size = new System.Drawing.Size(174, 44);
+            this.uxButton_AddIngredient.Location = new System.Drawing.Point(10, 333);
+            this.uxButton_AddIngredient.Margin = new System.Windows.Forms.Padding(1);
+            this.uxButton_AddIngredient.Name = "uxButton_AddIngredient";
+            this.uxButton_AddIngredient.Size = new System.Drawing.Size(142, 41);
             this.uxButton_AddIngredient.TabIndex = 1;
             this.uxButton_AddIngredient.Text = "Add Ingredient";
             this.uxButton_AddIngredient.UseVisualStyleBackColor = true;
@@ -148,9 +150,10 @@
             // 
             // uxButton_DeleteIngredient
             // 
-            this.uxButton_DeleteIngredient.Location = new System.Drawing.Point(404, 218);
+            this.uxButton_DeleteIngredient.Location = new System.Drawing.Point(406, 333);
+            this.uxButton_DeleteIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_DeleteIngredient.Name = "uxButton_DeleteIngredient";
-            this.uxButton_DeleteIngredient.Size = new System.Drawing.Size(158, 44);
+            this.uxButton_DeleteIngredient.Size = new System.Drawing.Size(135, 41);
             this.uxButton_DeleteIngredient.TabIndex = 2;
             this.uxButton_DeleteIngredient.Text = "Delete Ingredient";
             this.uxButton_DeleteIngredient.UseVisualStyleBackColor = true;
@@ -158,9 +161,10 @@
             // 
             // uxButton_UpdateIngredient
             // 
-            this.uxButton_UpdateIngredient.Location = new System.Drawing.Point(223, 218);
+            this.uxButton_UpdateIngredient.Location = new System.Drawing.Point(212, 333);
+            this.uxButton_UpdateIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_UpdateIngredient.Name = "uxButton_UpdateIngredient";
-            this.uxButton_UpdateIngredient.Size = new System.Drawing.Size(175, 44);
+            this.uxButton_UpdateIngredient.Size = new System.Drawing.Size(141, 41);
             this.uxButton_UpdateIngredient.TabIndex = 4;
             this.uxButton_UpdateIngredient.Text = "Update Ingredient";
             this.uxButton_UpdateIngredient.UseVisualStyleBackColor = true;
@@ -168,15 +172,14 @@
             // 
             // uiPantry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2315, 780);
+            this.ClientSize = new System.Drawing.Size(551, 381);
             this.Controls.Add(this.uxButton_UpdateIngredient);
             this.Controls.Add(this.uxButton_DeleteIngredient);
             this.Controls.Add(this.uxButton_AddIngredient);
             this.Controls.Add(this.uxPantryItemsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.Name = "uiPantry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pantry Items";
