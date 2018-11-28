@@ -35,28 +35,27 @@
             this.uxLabel_RecipeDescription = new System.Windows.Forms.Label();
             this.uxTextBox_RecipeDescription = new System.Windows.Forms.TextBox();
             this.totalIngredientsDGV = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.recipeIngredientsDGV = new System.Windows.Forms.DataGridView();
+            this.recipeIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.addIngredientButton = new System.Windows.Forms.Button();
             this.ingredientContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
-            this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IngredientPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recipeIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).BeginInit();
-            this.ingredientContextMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).BeginInit();
+            this.ingredientContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxTextBox_RecipeName
@@ -122,6 +121,35 @@
             this.totalIngredientsDGV.TabIndex = 5;
             this.totalIngredientsDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.totalIngredientsDGV_CellDoubleClick);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // FormattedPrice
+            // 
+            this.FormattedPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FormattedPrice.DataPropertyName = "FormattedPrice";
+            this.FormattedPrice.HeaderText = "Price";
+            this.FormattedPrice.Name = "FormattedPrice";
+            this.FormattedPrice.ReadOnly = true;
+            // 
+            // totalIngredientsBindingSource
+            // 
+            this.totalIngredientsBindingSource.DataMember = "TotalIngredients";
+            this.totalIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -139,8 +167,7 @@
             this.recipeIngredientsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn1,
             this.unitDataGridViewTextBoxColumn1,
-            this.Quantity,
-            this.IngredientPrice});
+            this.Quantity});
             this.recipeIngredientsDGV.DataSource = this.recipeIngredientsBindingSource;
             this.recipeIngredientsDGV.Location = new System.Drawing.Point(287, 135);
             this.recipeIngredientsDGV.Margin = new System.Windows.Forms.Padding(1);
@@ -152,6 +179,11 @@
             this.recipeIngredientsDGV.TabIndex = 7;
             this.recipeIngredientsDGV.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.recipeIngredientsDGV_RowContextMenuStripNeeded);
             this.recipeIngredientsDGV.BindingContextChanged += new System.EventHandler(this.recipeIngredientsDGV_BindingContextChanged);
+            // 
+            // recipeIngredientsBindingSource
+            // 
+            this.recipeIngredientsBindingSource.DataMember = "RecipeIngredients";
+            this.recipeIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
             // 
             // label2
             // 
@@ -205,28 +237,6 @@
             this.categoryComboBox.Size = new System.Drawing.Size(365, 21);
             this.categoryComboBox.TabIndex = 11;
             // 
-            // FormattedPrice
-            // 
-            this.FormattedPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FormattedPrice.DataPropertyName = "FormattedPrice";
-            this.FormattedPrice.HeaderText = "Price";
-            this.FormattedPrice.Name = "FormattedPrice";
-            this.FormattedPrice.ReadOnly = true;
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // IngredientPrice
-            // 
-            this.IngredientPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IngredientPrice.DataPropertyName = "FormattedPrice";
-            this.IngredientPrice.HeaderText = "Price";
-            this.IngredientPrice.Name = "IngredientPrice";
-            this.IngredientPrice.ReadOnly = true;
-            // 
             // nameDataGridViewTextBoxColumn1
             // 
             this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -243,31 +253,11 @@
             this.unitDataGridViewTextBoxColumn1.Name = "unitDataGridViewTextBoxColumn1";
             this.unitDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // recipeIngredientsBindingSource
+            // Quantity
             // 
-            this.recipeIngredientsBindingSource.DataMember = "RecipeIngredients";
-            this.recipeIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitDataGridViewTextBoxColumn
-            // 
-            this.unitDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
-            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
-            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
-            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalIngredientsBindingSource
-            // 
-            this.totalIngredientsBindingSource.DataMember = "TotalIngredients";
-            this.totalIngredientsBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.EditRecipeViewModel);
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
             // 
             // uiEditRecipeForm
             // 
@@ -291,10 +281,10 @@
             this.Name = "uiEditRecipeForm";
             this.Text = "Add or Update Recipe";
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).EndInit();
-            this.ingredientContextMenuStrip.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsBindingSource)).EndInit();
+            this.ingredientContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,6 +315,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IngredientPrice;
     }
 }
