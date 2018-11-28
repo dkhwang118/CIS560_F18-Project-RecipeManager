@@ -38,6 +38,7 @@ namespace CIS560_RecipeManager.Repository
                             string itemUnitMeasurement;
                             int quantityToPurchase;
                             ShoppingList tempSL;
+
                             // First time through; setup new shopping list and first item
                             result.Read();
 
@@ -48,12 +49,12 @@ namespace CIS560_RecipeManager.Repository
                             itemUnitMeasurement = result.GetFieldValue<string>(4);
                             quantityToPurchase = result.GetFieldValue<int>(5);
 
-                            tempSL = new ShoppingList(shoppingListID, shoppingListName);
+                            tempSL = new ShoppingList(shoppingListID, shoppingListName); // create first ShoppingList object
                             tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement), quantityToPurchase);
 
                             lastShoppingListId = shoppingListID;
 
-                            // continue through the rows
+                            // continue to read through the rows
                             while (result.Read())
                             {
                                 shoppingListID = result.GetFieldValue<int>(0);
@@ -73,93 +74,26 @@ namespace CIS560_RecipeManager.Repository
                                     // List number has changed; add ShoppingList to returnList and create new list
                                     returnList.Add(tempSL);
                                     tempSL = new ShoppingList(shoppingListID, shoppingListName);
+                                    tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement), quantityToPurchase);
+
                                 }
 
-                                
+                                // update lastShoppingListID
+                                lastShoppingListId = shoppingListID;
+
                             }
-                        }
+
+                            // out of loop; close out last shopping list and return the List of ShoppingLists
+                            returnList.Add(tempSL);
+
+                        } // out of if statement; jump here if no rows present and return an empty list
+
+                        return returnList;
                     }
                 } // end current transaction
-
-
-
-
-
-                ///
-                // First Attempt; Please Ignore; Saving just in case it's needed
-                ///
-
-
-                /*
-                IDictionary<int, ShoppingList> retList = new Dictionary<int, ShoppingList>();
-                List<int[]> shoppingListItems = new List<int[]>();
-                using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
-                {
-                    connection.Open();
-                    // Get all shoppingListID's and their names
-                    using (var transaction = new TransactionScope())
-                    {
-                        using (var command = new SqlCommand("[dbo].GetAllShoppingLists", connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-
-                            var result = command.ExecuteReader();
-
-                            if (result.HasRows)
-                            {
-                                int curShopListID;
-                                string curShopListName;
-                                while (result.Read())
-                                {
-                                    curShopListID = result.GetFieldValue<int>(0);
-                                    curShopListName = result.GetFieldValue<string>(1);
-
-                                    // add to retList
-                                    retList.Add(curShopListID, new ShoppingList(curShopListID, curShopListName));
-                                }
-                            }
-                        }
-                    } // end current transaction
-
-
-                    // Get all ShoppingListItems and place data into list
-                    using (var transaction2 = new TransactionScope())
-                    {
-                        using (var command2 = new SqlCommand("[dbo].GetAllShoppingListItems", connection))
-                        {
-                            command2.CommandType = CommandType.StoredProcedure;
-
-                            var result = command2.ExecuteReader();
-
-                            if (result.HasRows)
-                            {
-                                while (result.Read())
-                                {
-                                    curShopListID = result.GetFieldValue<int>(1);
-                                    shoppingListItems.Add(new int[3]{curShopListID, // shoppingListID first for ease of search
-                                                                     result.GetFieldValue<int>(0), // then PantryItemID
-                                                                     result.GetFieldValue<int>(2) });   // finally, quantity of pantryItem in shopping list
-
-                                    if (numberOfShoppingLists < curShopListID) numberOfShoppingLists = curShopListID;
-                                }
-                            }
-                        }
-                    } // end current transaction
-                } // close connection and then do calculations
-
-                // for every shopping list
-                for (int i = 1; i < (numberOfShoppingLists+1); i++)
-                {
-                    ShoppingList tempSL = new ShoppingList()
-                    // search through each item and add when matched with current list
-                    foreach (int[] slItem in shoppingListItems)
-                    {
-
-                    }
-                }
-                */
-
             }
 
+        }
     }
 }
+
