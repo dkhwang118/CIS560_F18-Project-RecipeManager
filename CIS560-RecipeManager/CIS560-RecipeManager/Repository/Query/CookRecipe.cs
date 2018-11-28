@@ -47,10 +47,5 @@ namespace CIS560_RecipeManager.Repository
             } // should close connection here automatically
 
         }
-
-        public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

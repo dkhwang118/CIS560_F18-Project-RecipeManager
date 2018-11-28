@@ -30,6 +30,7 @@ namespace CIS560_RecipeManager.Repository
 
                         if (result.HasRows)
                         {
+                            // all fields being read from each row
                             int lastShoppingListId;
                             int shoppingListID;
                             string shoppingListName;
@@ -37,7 +38,7 @@ namespace CIS560_RecipeManager.Repository
                             string pantryItemName;
                             string itemUnitMeasurement;
                             int quantityToPurchase;
-                            ShoppingList tempSL;
+                            ShoppingList tempSL; // plus the first shopping list
 
                             // First time through; setup new shopping list and first item
                             result.Read();
