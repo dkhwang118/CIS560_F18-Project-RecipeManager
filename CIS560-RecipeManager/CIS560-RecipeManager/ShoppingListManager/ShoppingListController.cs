@@ -37,7 +37,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
         {
-            ShoppingList shoppingList = _queryRepository.GetShoppingList(recipes);
+            ShoppingList shoppingList = _queryRepository.CreateShoppingList("ShoppingListName", recipes); // Need to pass a string value here to name the shopping list
             _shoppingLists.Add(shoppingList);
             return shoppingList;
         }

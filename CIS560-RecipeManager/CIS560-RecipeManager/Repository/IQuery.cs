@@ -36,7 +36,5 @@ namespace CIS560_RecipeManager
         RecipeCategory GetRecipeCategory(int recipeId);
 
         IDictionary<Ingredient,int> GetPantryContents();
-
-        ShoppingList GetShoppingList(ICollection<Recipe> recipes);
     }
 }
