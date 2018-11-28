@@ -117,6 +117,7 @@
     <Compile Include="Repository\Query\CookRecipe.cs" />
     <Compile Include="Repository\Query\CreateShoppingList.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
+    <Compile Include="Repository\Query\GetAllShoppingLists.cs" />
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
     <Compile Include="Repository\Query\CreateRecipeCategory.cs" />
     <Compile Include="Repository\Query\CreateIngredient.cs" />

@@ -17,6 +17,8 @@ namespace CIS560_RecipeManager
 
         ShoppingList CreateShoppingList(string shoppingListName, ICollection<Recipe> recipes);
 
+        ICollection<ShoppingList> GetAllShoppingLists();
+
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);
 
         RecipeCategory CreateRecipeCategory(string name);
