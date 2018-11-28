@@ -20,7 +20,7 @@ namespace CIS560_RecipeManager.Repository
         /// <summary>
         /// Updates the given ingredient with the given quantity in the PantryItem table
         /// </summary>
-        /// <param name="quantity">Number of ingredient untis to be added/subtracted (positive/negative value) from PantryItem</param>
+        /// <param name="quantity">Updated Ingredient Quantity value to be set in PantryItem Table</param>
         /// <param name="ingredient">Ingredient to be Updated</param>
         public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
         {
@@ -47,11 +47,10 @@ namespace CIS560_RecipeManager.Repository
                         {
                             throw new NotImplementedException("Behavior for failed ingredient lookups has not been implemented yet");
                         }
+                        result.Close();
                     }
                 }
-                connection.Close();
 
-                connection.Open();
                 // Quantity Check
                 if ((currentQuantity + quantity) < 0)
                 {
@@ -64,11 +63,12 @@ namespace CIS560_RecipeManager.Repository
                     {
                         command2.CommandType = CommandType.StoredProcedure;
                         command2.Parameters.AddWithValue("PantryItemID", ingredient.Id);
-                        command2.Parameters.AddWithValue("QuantityInPantry", (currentQuantity + quantity));
+                        command2.Parameters.AddWithValue("QuantityInPantry", quantity);
 
                         command2.ExecuteNonQuery();
                     }
                 }
+                connection.Close();
             }
         }
     }
