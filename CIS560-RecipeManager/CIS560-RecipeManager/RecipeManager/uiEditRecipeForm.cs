@@ -102,7 +102,6 @@ namespace CIS560_RecipeManager
             {
                 _viewModel.CurrentRecipe.Name = uxTextBox_RecipeName.Text;
                 _viewModel.CurrentRecipe.Description = uxTextBox_RecipeDescription.Text;
-                _viewModel.CurrentRecipe.PopulateMeasuredIngredients(ingredients);
                 _viewModel.CurrentRecipe.Category = GetRecipeCategory();
                 _updateRecipeDelegate(_viewModel.CurrentRecipe);
                 MessageBox.Show("Recipe " + uxTextBox_RecipeName.Text + " was updated!");

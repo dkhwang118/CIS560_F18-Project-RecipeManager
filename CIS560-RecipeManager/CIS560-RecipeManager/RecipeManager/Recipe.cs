@@ -26,8 +26,6 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
-        public BindingList<RecipeIngredient> IngredientBindingList { get; }
-
         public Recipe(
             int id, 
             string name,
@@ -39,22 +37,6 @@ namespace CIS560_RecipeManager.RecipeManager
             Name = name;
             Description = description;
             Category = category;
-            MeasuredIngredients = measuredIngredients;
-            IngredientBindingList = new BindingList<RecipeIngredient>();
-            PopulateMeasuredIngredients(measuredIngredients);
-        }
-
-        public void PopulateMeasuredIngredients(
-            IDictionary<Ingredient, int> measuredIngredients)
-        {
-            IngredientBindingList.Clear();
-
-            foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
-            {
-                IngredientBindingList.Add(
-                    new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value, kvp.Key.PriceInCents));
-            }
-
             MeasuredIngredients = measuredIngredients;
         }
 
