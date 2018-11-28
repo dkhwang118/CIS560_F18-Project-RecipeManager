@@ -30,7 +30,8 @@ namespace CIS560_RecipeManager.Repository
                                 ingredients.Add(new Ingredient(
                                     result.GetFieldValue<int>(0), 
                                     result.GetFieldValue<string>(1),
-                                    result.GetFieldValue<string>(3)),
+                                    result.GetFieldValue<string>(3),
+                                    result.GetFieldValue<int>(4)),
                                         result.GetFieldValue<int>(2));
                             }
                         }

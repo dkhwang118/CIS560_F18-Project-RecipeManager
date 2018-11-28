@@ -47,7 +47,7 @@ namespace CIS560_RecipeManager.Repository
 
                         transaction.Complete();
 
-                        return new Ingredient((int)param.Value, ingredientName, unitOfMeasurement); // return an Ingredient object with the same data that has been written to the DB
+                        return new Ingredient((int)param.Value, ingredientName, unitOfMeasurement, unitPriceInCents); // return an Ingredient object with the same data that has been written to the DB
                     }
                 } // should close transaction here automatically
             } // should close connection here automatically

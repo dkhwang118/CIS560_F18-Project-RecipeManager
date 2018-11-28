@@ -51,7 +51,7 @@ namespace CIS560_RecipeManager.Repository
                             quantityToPurchase = result.GetFieldValue<int>(5);
 
                             tempSL = new ShoppingList(shoppingListID, shoppingListName); // create first ShoppingList object
-                            tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement), quantityToPurchase);
+                            tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement, 0), quantityToPurchase);
 
                             lastShoppingListId = shoppingListID;
 
@@ -68,14 +68,14 @@ namespace CIS560_RecipeManager.Repository
                                 if (lastShoppingListId == shoppingListID) // if the shoppingListItem is still on the same list
                                 {
                                     // add the ingredient to the list
-                                    tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement), quantityToPurchase);
+                                    tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement,0), quantityToPurchase);
                                 }
                                 else
                                 {
                                     // List number has changed; add ShoppingList to returnList and create new list
                                     returnList.Add(tempSL);
                                     tempSL = new ShoppingList(shoppingListID, shoppingListName);
-                                    tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement), quantityToPurchase);
+                                    tempSL.AddShoppingListItem(new Ingredient(pantryItemID, pantryItemName, itemUnitMeasurement,0), quantityToPurchase);
 
                                 }
 
