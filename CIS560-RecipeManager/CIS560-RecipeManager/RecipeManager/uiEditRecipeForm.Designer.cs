@@ -75,7 +75,7 @@
             // 
             // uxButton_EditRecipeOK
             // 
-            this.uxButton_EditRecipeOK.Location = new System.Drawing.Point(412, 310);
+            this.uxButton_EditRecipeOK.Location = new System.Drawing.Point(423, 461);
             this.uxButton_EditRecipeOK.Name = "uxButton_EditRecipeOK";
             this.uxButton_EditRecipeOK.Size = new System.Drawing.Size(94, 28);
             this.uxButton_EditRecipeOK.TabIndex = 2;
@@ -86,7 +86,7 @@
             // uxLabel_RecipeDescription
             // 
             this.uxLabel_RecipeDescription.AutoSize = true;
-            this.uxLabel_RecipeDescription.Location = new System.Drawing.Point(57, 1039);
+            this.uxLabel_RecipeDescription.Location = new System.Drawing.Point(85, 340);
             this.uxLabel_RecipeDescription.Name = "uxLabel_RecipeDescription";
             this.uxLabel_RecipeDescription.Size = new System.Drawing.Size(100, 13);
             this.uxLabel_RecipeDescription.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             // uxTextBox_RecipeDescription
             // 
-            this.uxTextBox_RecipeDescription.Location = new System.Drawing.Point(412, 1036);
+            this.uxTextBox_RecipeDescription.Location = new System.Drawing.Point(88, 366);
             this.uxTextBox_RecipeDescription.Multiline = true;
             this.uxTextBox_RecipeDescription.Name = "uxTextBox_RecipeDescription";
             this.uxTextBox_RecipeDescription.Size = new System.Drawing.Size(379, 76);
@@ -164,7 +164,7 @@
             // 
             // addIngredientButton
             // 
-            this.addIngredientButton.Location = new System.Drawing.Point(519, 885);
+            this.addIngredientButton.Location = new System.Drawing.Point(170, 303);
             this.addIngredientButton.Name = "addIngredientButton";
             this.addIngredientButton.Size = new System.Drawing.Size(219, 27);
             this.addIngredientButton.TabIndex = 9;
@@ -252,7 +252,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(565, 381);
+            this.ClientSize = new System.Drawing.Size(573, 512);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.addIngredientButton);

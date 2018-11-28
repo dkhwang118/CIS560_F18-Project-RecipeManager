@@ -15,7 +15,9 @@ namespace CIS560_RecipeManager
 
         IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
+        ICollection<Recipe> GetAllRecipes();
         ShoppingList CreateShoppingList(string shoppingListName, ICollection<Recipe> recipes);
+
 
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);
 
@@ -28,5 +30,11 @@ namespace CIS560_RecipeManager
         ICollection<RecipeCategory> GetRecipeCategories();
 
         void RateRecipe(Recipe recipe, int recipeRating);
+
+        RecipeCategory GetRecipeCategory(int recipeId);
+
+        ICollection<Ingredient> GetAllIngredients();
+
+        ShoppingList GetShoppingList(ICollection<Recipe> recipes);
     }
 }
