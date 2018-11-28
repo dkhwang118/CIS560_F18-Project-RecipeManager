@@ -278,10 +278,10 @@
   <ItemGroup>
     <Content Include="DGVGrouper\DataGridViewGrouper.csproj" />
     <Content Include="RecipeDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="RecipeDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Sql\GetAvailableRecipes.sql" />
