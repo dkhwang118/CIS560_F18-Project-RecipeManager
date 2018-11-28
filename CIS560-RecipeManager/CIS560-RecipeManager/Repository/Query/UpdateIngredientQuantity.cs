@@ -49,7 +49,9 @@ namespace CIS560_RecipeManager.Repository
                         }
                     }
                 }
+                connection.Close();
 
+                connection.Open();
                 // Quantity Check
                 if ((currentQuantity + quantity) < 0)
                 {
