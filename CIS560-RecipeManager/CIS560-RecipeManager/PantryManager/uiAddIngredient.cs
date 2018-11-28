@@ -37,7 +37,7 @@ namespace CIS560_RecipeManager.Pantry
                 uxTextBox_IngredientName.Text,
                 uxTextBox_UnitMeasurement.Text,
                 Convert.ToInt32(uxTextBox_PantryQuantity.Text),
-                100 // This is just a placeholder value until a decision about how to get price from the GUI is made. I don't wish to mess-up naming conventions for someone -DKH
+                Convert.ToInt32(uxTextBox_PriceInCents.Text)
                 );
                 Close();
             }
