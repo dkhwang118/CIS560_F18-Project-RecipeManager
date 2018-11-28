@@ -60,7 +60,6 @@ namespace CIS560_RecipeManager
                 var row = RecipeDataGridView.Rows[e.RowIndex];
                 Recipe recipe = (Recipe)row.DataBoundItem;
                 _launchEditRecipeForm(recipe);
-                _grouper.ResetGrouping();
             }
         }
 

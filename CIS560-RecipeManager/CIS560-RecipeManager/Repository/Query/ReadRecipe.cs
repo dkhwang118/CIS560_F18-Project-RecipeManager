@@ -15,6 +15,13 @@ namespace CIS560_RecipeManager.Repository
 
         public Recipe ReadRecipe(int recipeId)
         {
+            String name;
+            int quantity;
+            string description;
+            int categoryID;
+            IDictionary<int, int> measuredIngredientIDs = new Dictionary<int, int>();
+            IDictionary<Ingredient, int> measuredIngredients = new Dictionary<Ingredient, int>();
+
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
                 using (var transaction = new TransactionScope())
@@ -22,14 +29,6 @@ namespace CIS560_RecipeManager.Repository
 
                     connection.Open();
 
-
-                    int id;
-                    String name;
-                    int quantity;
-                    string description;
-                    int categoryID;
-                    IDictionary<int, int> measuredIngredientIDs = new Dictionary<int, int>();
-                    IDictionary<Ingredient, int> measuredIngredients = new Dictionary<Ingredient, int>();
 
                     using (var command = new SqlCommand("[dbo].FindRecipeItemByID", connection))
                     {
@@ -41,7 +40,6 @@ namespace CIS560_RecipeManager.Repository
                         if (result.HasRows)
                         {
                             result.Read();
-                            id = result.GetFieldValue<int>(0);
                             name = result.GetFieldValue<string>(1);
                             description = result.GetFieldValue<string>(2);
                             categoryID = result.GetFieldValue<int>(3);
@@ -64,7 +62,7 @@ namespace CIS560_RecipeManager.Repository
                     connection.Close();
                     connection.Open();
 
-                    using (var command = new SqlCommand("CREATE PROCEDURE [dbo].FindRecipeIngredientInfoByID @ItemID int AS SELECT ri.RecipeID, ri.RecipeID, ri.RecipeQuantity FROM RecipeIngredient ri WHERE ri.RecipeID = @ItemID", connection))
+                    using (var command = new SqlCommand("CREATE PROCEDURE [dbo].FindRecipeIngredientInfoByID @ItemID int AS SELECT ri.RecipeID, ri.PantryItemID, ri.RecipeQuantity FROM RecipeIngredient ri WHERE ri.RecipeID = @ItemID", connection))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -101,18 +99,18 @@ namespace CIS560_RecipeManager.Repository
 
                     connection.Close();
 
-                    // Now that the connection is closed, we may do further ingredient lookups.
-                    foreach (var ingredientID in measuredIngredientIDs)
-                    {
-                        Ingredient ingredient = ReadIngredient(ingredientID.Key);
-                        measuredIngredients[ingredient] = ingredientID.Value;
-                    }
-
-                    //ToDo: add the recipe category in
-                    Recipe recipe = new Recipe(id, name, description, new RecipeCategory(0, "Entrees"), measuredIngredients);
-                    return recipe;
+                    
                 }
             }
+            // Now that the connection is closed, we may do further ingredient lookups.
+            foreach (var ingredientID in measuredIngredientIDs)
+            {
+                Ingredient ingredient = ReadIngredient(ingredientID.Key);
+                measuredIngredients[ingredient] = ingredientID.Value;
+            }
+
+            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients);
+            return recipe;
         }
     }
 }
