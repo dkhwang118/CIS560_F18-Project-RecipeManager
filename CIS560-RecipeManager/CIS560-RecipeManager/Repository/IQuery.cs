@@ -19,6 +19,8 @@ namespace CIS560_RecipeManager
 
         ShoppingList CreateShoppingList(string shoppingListName, ICollection<Recipe> recipes);
 
+        ICollection<ShoppingList> GetAllShoppingLists();
+
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);
 
         RecipeCategory CreateRecipeCategory(string name);
@@ -34,7 +36,5 @@ namespace CIS560_RecipeManager
         RecipeCategory GetRecipeCategory(int recipeId);
 
         IDictionary<Ingredient,int> GetPantryContents();
-
-        ShoppingList GetShoppingList(ICollection<Recipe> recipes);
     }
 }
