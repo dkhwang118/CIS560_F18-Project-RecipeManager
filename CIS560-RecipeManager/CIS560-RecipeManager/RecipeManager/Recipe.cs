@@ -26,6 +26,27 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
+        public int PriceInCents
+        {
+            get
+            {
+                int sum = 0;
+                foreach (var kvp in MeasuredIngredients)
+                {
+                    sum += (kvp.Key.PriceInCents * kvp.Value);
+                }
+                return sum;
+            }
+        }
+
+        public string FormattedPrice
+        {
+            get
+            {
+                return "$" + (PriceInCents / 100).ToString("#.##");
+            }
+        }
+
         public Recipe(
             int id, 
             string name,
