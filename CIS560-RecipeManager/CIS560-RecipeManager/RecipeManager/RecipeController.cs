@@ -24,6 +24,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 LaunchEditRecipeForm,
                 _recipeInventory.OnlyDisplayAvailableRecipes,
                 _recipeInventory.DisplayAllRecipes,
+                _recipeInventory.RateRecipe,
                 _recipeInventory.DeleteRecipe,
                 CookRecipe,
                 _recipeInventory).ShowDialog();

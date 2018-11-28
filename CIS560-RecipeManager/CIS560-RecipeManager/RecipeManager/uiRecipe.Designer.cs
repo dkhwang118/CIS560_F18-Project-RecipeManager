@@ -34,11 +34,12 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
+            this.rateRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
@@ -59,21 +60,22 @@
             this.recipeContextMenuStrip.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.recipeContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem,
-            this.cookRecipeToolStripMenuItem});
+            this.cookRecipeToolStripMenuItem,
+            this.rateRecipeToolStripMenuItem});
             this.recipeContextMenuStrip.Name = "recipeContextMenuStrip";
-            this.recipeContextMenuStrip.Size = new System.Drawing.Size(299, 108);
+            this.recipeContextMenuStrip.Size = new System.Drawing.Size(421, 226);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(298, 52);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(420, 52);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // cookRecipeToolStripMenuItem
             // 
             this.cookRecipeToolStripMenuItem.Name = "cookRecipeToolStripMenuItem";
-            this.cookRecipeToolStripMenuItem.Size = new System.Drawing.Size(298, 52);
+            this.cookRecipeToolStripMenuItem.Size = new System.Drawing.Size(420, 52);
             this.cookRecipeToolStripMenuItem.Text = "Cook Recipe";
             this.cookRecipeToolStripMenuItem.Click += new System.EventHandler(this.cookRecipeToolStripMenuItem_Click);
             // 
@@ -99,23 +101,6 @@
             this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
             this.RecipeDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RecipeDataGridView_MouseDown);
             // 
-            // RecipeBindingSource
-            // 
-            this.RecipeBindingSource.DataMember = "VisibleRecipes";
-            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
-            // 
-            // availableWithPantryCheckBox
-            // 
-            this.availableWithPantryCheckBox.AutoSize = true;
-            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(27, 22);
-            this.availableWithPantryCheckBox.Margin = new System.Windows.Forms.Padding(1);
-            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
-            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(265, 41);
-            this.availableWithPantryCheckBox.TabIndex = 4;
-            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
-            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
-            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -140,6 +125,30 @@
             this.FormattedPrice.HeaderText = "Price";
             this.FormattedPrice.Name = "FormattedPrice";
             this.FormattedPrice.ReadOnly = true;
+            // 
+            // RecipeBindingSource
+            // 
+            this.RecipeBindingSource.DataMember = "VisibleRecipes";
+            this.RecipeBindingSource.DataSource = typeof(CIS560_RecipeManager.RecipeManager.RecipeInventory);
+            // 
+            // availableWithPantryCheckBox
+            // 
+            this.availableWithPantryCheckBox.AutoSize = true;
+            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(27, 22);
+            this.availableWithPantryCheckBox.Margin = new System.Windows.Forms.Padding(1);
+            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
+            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(265, 41);
+            this.availableWithPantryCheckBox.TabIndex = 4;
+            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
+            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
+            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
+            // 
+            // rateRecipeToolStripMenuItem
+            // 
+            this.rateRecipeToolStripMenuItem.Name = "rateRecipeToolStripMenuItem";
+            this.rateRecipeToolStripMenuItem.Size = new System.Drawing.Size(420, 52);
+            this.rateRecipeToolStripMenuItem.Text = "Rate Recipe";
+            this.rateRecipeToolStripMenuItem.Click += new System.EventHandler(this.rateRecipeToolStripMenuItem_Click);
             // 
             // uiRecipe
             // 
@@ -176,5 +185,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
+        private System.Windows.Forms.ToolStripMenuItem rateRecipeToolStripMenuItem;
     }
 }

@@ -22,7 +22,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public string Description { get; set; }
 
-        public RecipeCategory Category {get; set;}
+        public RecipeCategory Category { get; set; }
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
@@ -46,6 +46,8 @@ namespace CIS560_RecipeManager.RecipeManager
                 return "$" + (PriceInCents / 100).ToString("#.##");
             }
         }
+
+        public int? Rating { get; set; }
 
         public Recipe(
             int id, 
