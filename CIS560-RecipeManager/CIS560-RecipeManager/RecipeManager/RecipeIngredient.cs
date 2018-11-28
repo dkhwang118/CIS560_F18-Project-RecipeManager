@@ -13,12 +13,23 @@ namespace CIS560_RecipeManager.RecipeManager
         public string Unit { get; }
         public int Quantity { get; }
 
-        public RecipeIngredient(int id, string name, string unit, int quantity)
+        public int PriceInCents { get; }
+
+        public string FormattedPrice
+        {
+            get
+            {
+                return "$" + (PriceInCents * Quantity / 100).ToString("#.##");
+            }
+        }
+
+        public RecipeIngredient(int id, string name, string unit, int quantity, int price)
         {
             Id = id;
             Name = name;
             Unit = unit;
             Quantity = quantity;
+            PriceInCents = price;
         }
     }
 }

@@ -37,13 +37,15 @@
             this.totalIngredientsDGV = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.recipeIngredientsDGV = new System.Windows.Forms.DataGridView();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.addIngredientButton = new System.Windows.Forms.Button();
             this.ingredientContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IngredientPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipeIngredientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -106,12 +108,14 @@
             this.totalIngredientsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.totalIngredientsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.unitDataGridViewTextBoxColumn});
+            this.unitDataGridViewTextBoxColumn,
+            this.FormattedPrice});
             this.totalIngredientsDGV.DataSource = this.totalIngredientsBindingSource;
             this.totalIngredientsDGV.Location = new System.Drawing.Point(39, 135);
             this.totalIngredientsDGV.Margin = new System.Windows.Forms.Padding(1);
             this.totalIngredientsDGV.Name = "totalIngredientsDGV";
             this.totalIngredientsDGV.ReadOnly = true;
+            this.totalIngredientsDGV.RowHeadersVisible = false;
             this.totalIngredientsDGV.RowTemplate.Height = 46;
             this.totalIngredientsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.totalIngredientsDGV.Size = new System.Drawing.Size(219, 155);
@@ -135,23 +139,19 @@
             this.recipeIngredientsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn1,
             this.unitDataGridViewTextBoxColumn1,
-            this.Quantity});
+            this.Quantity,
+            this.IngredientPrice});
             this.recipeIngredientsDGV.DataSource = this.recipeIngredientsBindingSource;
             this.recipeIngredientsDGV.Location = new System.Drawing.Point(287, 135);
             this.recipeIngredientsDGV.Margin = new System.Windows.Forms.Padding(1);
             this.recipeIngredientsDGV.Name = "recipeIngredientsDGV";
+            this.recipeIngredientsDGV.RowHeadersVisible = false;
             this.recipeIngredientsDGV.RowTemplate.Height = 46;
             this.recipeIngredientsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.recipeIngredientsDGV.Size = new System.Drawing.Size(219, 155);
             this.recipeIngredientsDGV.TabIndex = 7;
             this.recipeIngredientsDGV.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.recipeIngredientsDGV_RowContextMenuStripNeeded);
             this.recipeIngredientsDGV.BindingContextChanged += new System.EventHandler(this.recipeIngredientsDGV_BindingContextChanged);
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
             // 
             // label2
             // 
@@ -204,6 +204,28 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(365, 21);
             this.categoryComboBox.TabIndex = 11;
+            // 
+            // FormattedPrice
+            // 
+            this.FormattedPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FormattedPrice.DataPropertyName = "FormattedPrice";
+            this.FormattedPrice.HeaderText = "Price";
+            this.FormattedPrice.Name = "FormattedPrice";
+            this.FormattedPrice.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            // IngredientPrice
+            // 
+            this.IngredientPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IngredientPrice.DataPropertyName = "FormattedPrice";
+            this.IngredientPrice.HeaderText = "Price";
+            this.IngredientPrice.Name = "IngredientPrice";
+            this.IngredientPrice.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn1
             // 
@@ -291,16 +313,18 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addIngredientButton;
         private System.Windows.Forms.BindingSource totalIngredientsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource recipeIngredientsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.ContextMenuStrip ingredientContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IngredientPrice;
     }
 }

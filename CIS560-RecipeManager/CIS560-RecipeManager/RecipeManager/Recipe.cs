@@ -52,7 +52,7 @@ namespace CIS560_RecipeManager.RecipeManager
             foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
             {
                 IngredientBindingList.Add(
-                    new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value));
+                    new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value, kvp.Key.PriceInCents));
             }
 
             MeasuredIngredients = measuredIngredients;
