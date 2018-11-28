@@ -10,14 +10,22 @@ namespace CIS560_RecipeManager
 
         public string Unit { get; }
 
-        public int Price { get; }
+        public int PriceInCents { get; }
+
+        public string FormattedPrice
+        {
+            get
+            {
+                return "$" + (PriceInCents/100).ToString("#.##");
+            }
+        }
 
         public Ingredient(int id, string name, string unit, int price)
         {
             Id = id;
             Name = name;
             Unit = unit;
-            Price = price;
+            PriceInCents = price;
         }
 
         public override string ToString()
