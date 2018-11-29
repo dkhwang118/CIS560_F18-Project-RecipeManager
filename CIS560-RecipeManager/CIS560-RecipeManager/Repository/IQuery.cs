@@ -36,5 +36,9 @@ namespace CIS560_RecipeManager
         RecipeCategory GetRecipeCategory(int recipeId);
 
         IDictionary<Ingredient,int> GetPantryContents();
+
+        ICollection<Recipe> GetAffordableRecipes(int maxAmountToSpendInCents);
+
+        ICollection<Recipe> GetTopRatedRecipesWithTies(int recipesPerCategory);
     }
 }

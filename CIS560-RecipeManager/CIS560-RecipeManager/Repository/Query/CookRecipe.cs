@@ -35,8 +35,6 @@ namespace CIS560_RecipeManager.Repository
                         connection.Open();
                         using (var command = new SqlCommand("[dbo].FindPantryItemByID", connection))
                         {
-                            // Finds a row in the table using
-                            // https://docs.microsoft.com/en-us/visualstudio/data-tools/query-datasets?view=vs-2015#to-find-a-row-in-an-untyped-dataset-with-a-primary-key-value
                             command.CommandType = CommandType.StoredProcedure;
                             command.Parameters.AddWithValue("ItemID", kvp.Key.Id);
 
