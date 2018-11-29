@@ -10,7 +10,7 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        IDictionary<Recipe, string> GetRecipesCookedLeastRecent()
+        public IDictionary<Recipe, string> GetRecipesCookedLeastRecent()
         {
             Dictionary<Recipe, string> returnDict = new Dictionary<Recipe, string>();
             Dictionary<int, string> tempRecipeIDs = new Dictionary<int, string>(); // Dict holds recipeID and LastDateCooked

@@ -16,7 +16,7 @@ namespace CIS560_RecipeManager.Repository
         /// Gets the average rating of all rated recipes (recipeRating != NULL) in each category
         /// </summary>
         /// <returns>Dictionary with kvp = RecipeCategory object: AverageRecipeRatingWithinCategory</returns>
-        IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory()
+        public IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory()
         {
             Dictionary<RecipeCategory, decimal> returnDict = new Dictionary<RecipeCategory, decimal>();
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
