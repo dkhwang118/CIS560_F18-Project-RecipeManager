@@ -1,11 +1,13 @@
 ﻿CREATE PROCEDURE [dbo].CreateRecipe
 	@RecipeID INT OUTPUT,
-	@RecipeName NVARCHAR(64),
+	@RecipeName NVARCHAR(32),
 	@RecipeDescription NVARCHAR(MAX),
-	@CategoryID INT
+	@CategoryID INT,
+	@RecipeRating INT
+
 AS
 
-INSERT [dbo].Recipes(RecipeName, RecipeDescription, CategoryID)
-VALUES(@RecipeName, @RecipeDescription, @CategoryID);
+INSERT [dbo].Recipes(RecipeName, RecipeDescription, CategoryID, RecipeRating)
+VALUES(@RecipeName, @RecipeDescription, @CategoryID, @RecipeRating);
 
 SET @RecipeID = SCOPE_IDENTITY();
