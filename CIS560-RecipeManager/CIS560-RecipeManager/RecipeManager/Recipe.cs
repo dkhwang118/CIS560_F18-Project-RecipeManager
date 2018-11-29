@@ -22,7 +22,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public string Description { get; set; }
 
-        public RecipeCategory Category {get; set;}
+        public RecipeCategory Category { get; set; }
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
@@ -47,18 +47,22 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
+        public int? Rating { get; set; }
+
         public Recipe(
             int id, 
             string name,
             string description,
             RecipeCategory category,
-            IDictionary<Ingredient, int> measuredIngredients)
+            IDictionary<Ingredient, int> measuredIngredients,
+            int? rating = null)
         {
             Id = id;
             Name = name;
             Description = description;
             Category = category;
             MeasuredIngredients = measuredIngredients;
+            if (rating != null) Rating = rating;
         }
 
         public override string ToString()
