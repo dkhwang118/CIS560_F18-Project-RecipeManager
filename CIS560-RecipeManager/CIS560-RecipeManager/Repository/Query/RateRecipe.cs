@@ -21,6 +21,7 @@ namespace CIS560_RecipeManager.Repository
         {
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
+                connection.Open();
                 using (var transaction = new TransactionScope())
                 {
                     using (var command = new SqlCommand("[dbo].RateRecipe", connection))
@@ -28,8 +29,6 @@ namespace CIS560_RecipeManager.Repository
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeID", recipe.Id);
                         command.Parameters.AddWithValue("RecipeRating", recipeRating);
-
-                        connection.Open();
 
                         command.ExecuteNonQuery();
                     }
