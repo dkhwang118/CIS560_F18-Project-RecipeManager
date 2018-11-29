@@ -81,6 +81,7 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void RateRecipe(Recipe recipe, int rating)
         {
+            recipe.Rating = rating;
             _query.RateRecipe(recipe, rating);
         }
     }

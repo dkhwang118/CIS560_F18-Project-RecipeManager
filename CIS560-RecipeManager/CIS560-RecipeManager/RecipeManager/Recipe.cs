@@ -54,13 +54,15 @@ namespace CIS560_RecipeManager.RecipeManager
             string name,
             string description,
             RecipeCategory category,
-            IDictionary<Ingredient, int> measuredIngredients)
+            IDictionary<Ingredient, int> measuredIngredients,
+            int? rating = null)
         {
             Id = id;
             Name = name;
             Description = description;
             Category = category;
             MeasuredIngredients = measuredIngredients;
+            if (rating != null) Rating = rating;
         }
 
         public override string ToString()
