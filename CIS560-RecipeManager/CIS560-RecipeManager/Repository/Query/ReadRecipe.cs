@@ -19,6 +19,7 @@ namespace CIS560_RecipeManager.Repository
             int quantity;
             string description;
             int categoryID;
+            int? rating = null;
             IDictionary<int, int> measuredIngredientIDs = new Dictionary<int, int>();
             IDictionary<Ingredient, int> measuredIngredients = new Dictionary<Ingredient, int>();
 
@@ -43,6 +44,10 @@ namespace CIS560_RecipeManager.Repository
                             name = result.GetFieldValue<string>(1);
                             description = result.GetFieldValue<string>(2);
                             categoryID = result.GetFieldValue<int>(3);
+                            if (!result.IsDBNull(4))
+                            {
+                                rating = result.GetFieldValue<int?>(4);
+                            }
                         }
                         else
                         {
@@ -109,7 +114,7 @@ namespace CIS560_RecipeManager.Repository
                 measuredIngredients[ingredient] = ingredientID.Value;
             }
 
-            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients);
+            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients,rating);
             return recipe;
         }
     }
