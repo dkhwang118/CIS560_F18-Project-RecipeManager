@@ -42,5 +42,7 @@ namespace CIS560_RecipeManager
         ICollection<Recipe> GetTopRatedRecipesWithTies(int recipesPerCategory);
 
         IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory();
+
+        IDictionary<Recipe, string> GetRecipesCookedLeastRecent();
     }
 }
