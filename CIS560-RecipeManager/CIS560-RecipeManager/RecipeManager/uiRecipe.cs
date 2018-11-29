@@ -11,6 +11,7 @@ namespace CIS560_RecipeManager
         private Action<Recipe> _launchEditRecipeForm;
         private Action _showOnlyAvailableRecipes;
         private Action _showAllRecipes;
+        private Action<Recipe,int> _rateRecipe;
         private Action<Recipe> _deleteRecipeDelegate;
         private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
@@ -21,6 +22,7 @@ namespace CIS560_RecipeManager
             Action<Recipe> launchEditRecipeForm,
             Action showOnlyAvailableRecipes,
             Action showAllRecipes,
+            Action<Recipe,int> rateRecipe,
             Action<Recipe> deleteRecipeDelegate,
             Action<Recipe> cookRecipeDelegate,
             RecipeInventory recipeInventory)
@@ -32,6 +34,7 @@ namespace CIS560_RecipeManager
             _deleteRecipeDelegate = deleteRecipeDelegate;
             _cookRecipeDelegate = cookRecipeDelegate;
             _recipeInventory = recipeInventory;
+            _rateRecipe = rateRecipe;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.VisibleRecipes;
             RecipeDataGridView.DataSource = RecipeBindingSource;
@@ -106,6 +109,21 @@ namespace CIS560_RecipeManager
             else
             {
                 _showAllRecipes();
+            }
+        }
+
+        private void rateRecipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var form = new RateRecipeForm())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    var row = RecipeDataGridView.SelectedRows[0];
+                    Recipe recipe = (Recipe)row.DataBoundItem;
+                    _rateRecipe(recipe, form.Rating);
+                    MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
+                }
             }
         }
     }

@@ -35,13 +35,16 @@ namespace CIS560_RecipeManager.Repository
                 // First Transaction to Add the Recipe to the Recipe Table; Also creates valid RecipeID for RecipeIngredient Table
                 using (var transaction = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("[dbo].CreateRecipe", connection))
+                    string storedProcedure;
+                    if (recipeRating == null) storedProcedure = "[dbo].CreateRecipeWithoutRating";
+                    else storedProcedure = "[dbo].CreateRecipe";
+                    using (var command = new SqlCommand(storedProcedure, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeName", recipeName);
                         command.Parameters.AddWithValue("RecipeDescription", recipeDescription);
                         command.Parameters.AddWithValue("CategoryID", category.Id);
-                        command.Parameters.AddWithValue("RecipeRating", recipeRating);
+                        if (recipeRating != null) command.Parameters.AddWithValue("RecipeRating", recipeRating);
                         var param = command.Parameters.Add("RecipeID", SqlDbType.Int);
                         param.Direction = ParameterDirection.Output;
 

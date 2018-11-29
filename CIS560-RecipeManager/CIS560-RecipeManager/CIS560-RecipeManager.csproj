@@ -110,6 +110,12 @@
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecipeManager\EditRecipeViewModel.cs" />
+    <Compile Include="RecipeManager\RateRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeManager\RateRecipeForm.Designer.cs">
+      <DependentUpon>RateRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiUpdateIngredient.resx">
       <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeManager\RateRecipeForm.resx">
+      <DependentUpon>RateRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
       <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
