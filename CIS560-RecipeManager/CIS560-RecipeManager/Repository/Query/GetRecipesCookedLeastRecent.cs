@@ -45,11 +45,14 @@ namespace CIS560_RecipeManager.Repository
                     }
                 } // should close transaction here automatically
 
+                // Create a recipe object for each RecipeID found, then place into returnDict
                 foreach (KeyValuePair<int, string> kvp in tempRecipeIDs)
                 {
-
+                    returnDict.Add(ReadRecipe(kvp.Key), kvp.Value);
                 }
             }
+
+            return returnDict;
         }
     }
 }
