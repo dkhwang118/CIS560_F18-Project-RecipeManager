@@ -123,6 +123,7 @@
     <Compile Include="Repository\Query\CreateShoppingList.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
     <Compile Include="Repository\Query\GetAffordableRecipes.cs" />
+    <Compile Include="Repository\Query\GetAvgRatingPerCategory.cs" />
     <Compile Include="Repository\Query\GetPantryContents.cs" />
     <Compile Include="Repository\Query\GetAllRecipes.cs" />
     <Compile Include="Repository\Query\GetAllShoppingLists.cs" />
@@ -133,6 +134,8 @@
     <Compile Include="Repository\Query\DeleteRecipeCategory.cs" />
     <Compile Include="Repository\Query\GetRecipeCategories.cs" />
     <Compile Include="Repository\Query\GetRecipeCategory.cs" />
+    <Compile Include="Repository\Query\GetRecipesCookedLeastRecent.cs" />
+    <Compile Include="Repository\Query\GetRecipesNotCooked.cs" />
     <Compile Include="Repository\Query\GetTopRatedRecipesWithTies.cs" />
     <Compile Include="Repository\Query\RateRecipe.cs" />
     <Compile Include="Repository\Query\ReadRecipe.cs" />

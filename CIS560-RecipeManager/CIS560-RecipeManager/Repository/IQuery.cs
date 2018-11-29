@@ -40,5 +40,11 @@ namespace CIS560_RecipeManager
         ICollection<Recipe> GetAffordableRecipes(int maxAmountToSpendInCents);
 
         ICollection<Recipe> GetTopRatedRecipesWithTies(int recipesPerCategory);
+
+        IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory();
+
+        IDictionary<Recipe, string> GetRecipesCookedLeastRecent();
+
+        ICollection<Recipe> GetRecipesNotCooked();
     }
 }
