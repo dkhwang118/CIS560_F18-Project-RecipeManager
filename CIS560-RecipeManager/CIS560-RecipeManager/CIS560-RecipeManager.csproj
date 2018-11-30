@@ -227,6 +227,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="PantryManager\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
@@ -301,6 +302,8 @@
     <Content Include="Sql\GetAvailableRecipes.sql" />
     <Content Include="Sql\SampleData\AddPantryItem.sql" />
     <Content Include="Sql\SampleData\AddRecipe.sql" />
+    <Content Include="Sql\SampleData\wordlist-citation.txt" />
+    <Content Include="Sql\SampleData\wordlist.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
