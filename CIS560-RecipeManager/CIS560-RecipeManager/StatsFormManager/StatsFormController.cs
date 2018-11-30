@@ -18,15 +18,9 @@ namespace CIS560_RecipeManager.StatsFormManager
 
         public void LaunchStatsForm()
         {
-            (new uiStats(LaunchMakeWithPantryPlusAmtForm,
-                            LaunchNotCookedLatelyForm,
+            (new uiStats(LaunchNotCookedLatelyForm,
                             LaunchRecipeRatingsForm)
                             ).ShowDialog();
-        }
-
-        public void LaunchMakeWithPantryPlusAmtForm()
-        {
-            new uiMakeWithPantryPlusAmtForm().ShowDialog();
         }
 
         public void LaunchNotCookedLatelyForm()

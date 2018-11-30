@@ -12,24 +12,16 @@ namespace CIS560_RecipeManager.StatsFormManager
 {
     public partial class uiStats : Form
     {
-        private Action _launchMakeWithCurrentPantryPlusAmtForm;
         private Action _launchRecipesNotCookedRecentForm;
         private Action _launchRecipeRatingsForm;
 
-        public uiStats(Action launchMakeWithCurrentPantryPlusAmtForm,
-                        Action launchRecipesNotCookedRecentForm,
+        public uiStats(Action launchRecipesNotCookedRecentForm,
                         Action launchRecipeRatingsForm)
         {
-            _launchMakeWithCurrentPantryPlusAmtForm = launchMakeWithCurrentPantryPlusAmtForm;
             _launchRecipesNotCookedRecentForm = launchRecipesNotCookedRecentForm;
             _launchRecipeRatingsForm = launchRecipeRatingsForm;
 
             InitializeComponent();
-        }
-
-        private void uxButton_WhatCanIMake_Click(object sender, EventArgs e)
-        {
-            _launchMakeWithCurrentPantryPlusAmtForm();
         }
 
         private void uxButton_RecipesNotCookedRecent_Click(object sender, EventArgs e)
