@@ -38,11 +38,6 @@ namespace CIS560_RecipeManager
             //todo: update Grid View
         }
 
-        private void deleteIngredientButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void updateIngredientButton_Click(object sender, EventArgs e)
         {
             //launch updateIngredient form
