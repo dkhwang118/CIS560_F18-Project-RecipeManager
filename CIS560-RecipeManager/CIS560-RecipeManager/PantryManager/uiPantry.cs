@@ -39,15 +39,6 @@ namespace CIS560_RecipeManager
             //todo: update Grid View
         }
 
-        private void updateIngredientButton_Click(object sender, EventArgs e)
-        {
-            //launch updateIngredient form
-            using (uiUpdateIngredient f2 = new uiUpdateIngredient())
-            {
-                f2.ShowDialog(this);
-            }
-        }
-
         private void uxPantryItemsDataGridView_BindingContextChanged(object sender, EventArgs e)
         {
             PopulateIngredientQuantities();

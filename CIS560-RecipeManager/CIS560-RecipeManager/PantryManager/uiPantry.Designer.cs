@@ -31,9 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uxPantryItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.uxButton_AddIngredient = new System.Windows.Forms.Button();
-            this.uxButton_UpdateIngredient = new System.Windows.Forms.Button();
             this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uxButton_AddIngredient = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,9 +76,14 @@
             this.uxPantryItemsDataGridView.TabIndex = 0;
             this.uxPantryItemsDataGridView.BindingContextChanged += new System.EventHandler(this.uxPantryItemsDataGridView_BindingContextChanged);
             // 
+            // pantryItemBindingSource
+            // 
+            this.pantryItemBindingSource.DataMember = "IngredientList";
+            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
+            // 
             // uxButton_AddIngredient
             // 
-            this.uxButton_AddIngredient.Location = new System.Drawing.Point(10, 333);
+            this.uxButton_AddIngredient.Location = new System.Drawing.Point(399, 333);
             this.uxButton_AddIngredient.Margin = new System.Windows.Forms.Padding(1);
             this.uxButton_AddIngredient.Name = "uxButton_AddIngredient";
             this.uxButton_AddIngredient.Size = new System.Drawing.Size(142, 41);
@@ -87,22 +91,6 @@
             this.uxButton_AddIngredient.Text = "Add Ingredient";
             this.uxButton_AddIngredient.UseVisualStyleBackColor = true;
             this.uxButton_AddIngredient.Click += new System.EventHandler(this.addIngredientButton_Click);
-            // 
-            // uxButton_UpdateIngredient
-            // 
-            this.uxButton_UpdateIngredient.Location = new System.Drawing.Point(212, 333);
-            this.uxButton_UpdateIngredient.Margin = new System.Windows.Forms.Padding(1);
-            this.uxButton_UpdateIngredient.Name = "uxButton_UpdateIngredient";
-            this.uxButton_UpdateIngredient.Size = new System.Drawing.Size(141, 41);
-            this.uxButton_UpdateIngredient.TabIndex = 4;
-            this.uxButton_UpdateIngredient.Text = "Update Ingredient";
-            this.uxButton_UpdateIngredient.UseVisualStyleBackColor = true;
-            this.uxButton_UpdateIngredient.Click += new System.EventHandler(this.updateIngredientButton_Click);
-            // 
-            // pantryItemBindingSource
-            // 
-            this.pantryItemBindingSource.DataMember = "IngredientList";
-            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -133,14 +121,12 @@
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
             // 
             // uiPantry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 381);
-            this.Controls.Add(this.uxButton_UpdateIngredient);
             this.Controls.Add(this.uxButton_AddIngredient);
             this.Controls.Add(this.uxPantryItemsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -157,7 +143,6 @@
         private System.Windows.Forms.DataGridView uxPantryItemsDataGridView;
         private System.Windows.Forms.BindingSource pantryItemBindingSource;
         private System.Windows.Forms.Button uxButton_AddIngredient;
-        private System.Windows.Forms.Button uxButton_UpdateIngredient;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
