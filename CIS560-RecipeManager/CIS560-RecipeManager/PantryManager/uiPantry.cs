@@ -25,6 +25,14 @@ namespace CIS560_RecipeManager
             uxPantryItemsDataGridView.DataSource = pantryItemBindingSource;
         }
 
+        private void PopulateIngredientQuantities()
+        {
+            for (int i = 0; i < uxPantryItemsDataGridView.RowCount; i++)
+            {
+                uxPantryItemsDataGridView.Rows[i].Cells[3].Value = _viewModel.IngredientQuantities[i];
+            }
+        }
+
         private void addIngredientButton_Click(object sender, EventArgs e)
         {
             _launchAddIngredientDelegate();
@@ -38,6 +46,11 @@ namespace CIS560_RecipeManager
             {
                 f2.ShowDialog(this);
             }
+        }
+
+        private void uxPantryItemsDataGridView_BindingContextChanged(object sender, EventArgs e)
+        {
+            PopulateIngredientQuantities();
         }
     }
 }

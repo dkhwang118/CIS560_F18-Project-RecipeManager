@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uxPantryItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.uxButton_AddIngredient = new System.Windows.Forms.Button();
             this.uxButton_UpdateIngredient = new System.Windows.Forms.Button();
+            this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,6 @@
             // uxPantryItemsDataGridView
             // 
             this.uxPantryItemsDataGridView.AllowUserToAddRows = false;
-            this.uxPantryItemsDataGridView.AllowUserToDeleteRows = false;
             this.uxPantryItemsDataGridView.AllowUserToResizeColumns = false;
             this.uxPantryItemsDataGridView.AllowUserToResizeRows = false;
             this.uxPantryItemsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -76,11 +75,7 @@
             this.uxPantryItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(529, 317);
             this.uxPantryItemsDataGridView.TabIndex = 0;
-            // 
-            // pantryItemBindingSource
-            // 
-            this.pantryItemBindingSource.DataMember = "IngredientList";
-            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
+            this.uxPantryItemsDataGridView.BindingContextChanged += new System.EventHandler(this.uxPantryItemsDataGridView_BindingContextChanged);
             // 
             // uxButton_AddIngredient
             // 
@@ -103,6 +98,11 @@
             this.uxButton_UpdateIngredient.Text = "Update Ingredient";
             this.uxButton_UpdateIngredient.UseVisualStyleBackColor = true;
             this.uxButton_UpdateIngredient.Click += new System.EventHandler(this.updateIngredientButton_Click);
+            // 
+            // pantryItemBindingSource
+            // 
+            this.pantryItemBindingSource.DataMember = "IngredientList";
+            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -133,6 +133,7 @@
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
             // 
             // uiPantry
             // 
