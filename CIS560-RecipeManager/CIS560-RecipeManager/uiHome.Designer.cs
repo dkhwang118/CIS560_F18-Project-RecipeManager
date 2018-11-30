@@ -32,6 +32,7 @@
             this.manageRecipesButton = new System.Windows.Forms.Button();
             this.managePantryButton = new System.Windows.Forms.Button();
             this.manageShoppingListButton = new System.Windows.Forms.Button();
+            this.uxButton_ExtraFeatures = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uxTextBox_dboFileLocation
@@ -64,7 +65,7 @@
             // 
             // manageShoppingListButton
             // 
-            this.manageShoppingListButton.Location = new System.Drawing.Point(40, 182);
+            this.manageShoppingListButton.Location = new System.Drawing.Point(40, 176);
             this.manageShoppingListButton.Name = "manageShoppingListButton";
             this.manageShoppingListButton.Size = new System.Drawing.Size(290, 43);
             this.manageShoppingListButton.TabIndex = 3;
@@ -72,11 +73,22 @@
             this.manageShoppingListButton.UseVisualStyleBackColor = true;
             this.manageShoppingListButton.Click += new System.EventHandler(this.manageShoppingListButton_Click);
             // 
+            // uxButton_ExtraFeatures
+            // 
+            this.uxButton_ExtraFeatures.Location = new System.Drawing.Point(68, 246);
+            this.uxButton_ExtraFeatures.Name = "uxButton_ExtraFeatures";
+            this.uxButton_ExtraFeatures.Size = new System.Drawing.Size(228, 43);
+            this.uxButton_ExtraFeatures.TabIndex = 4;
+            this.uxButton_ExtraFeatures.Text = "Extra Features";
+            this.uxButton_ExtraFeatures.UseVisualStyleBackColor = true;
+            this.uxButton_ExtraFeatures.Click += new System.EventHandler(this.uxButton_ExtraFeatures_Click);
+            // 
             // uiHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 263);
+            this.ClientSize = new System.Drawing.Size(368, 318);
+            this.Controls.Add(this.uxButton_ExtraFeatures);
             this.Controls.Add(this.manageShoppingListButton);
             this.Controls.Add(this.managePantryButton);
             this.Controls.Add(this.manageRecipesButton);
@@ -95,6 +107,7 @@
         private System.Windows.Forms.Button manageRecipesButton;
         private System.Windows.Forms.Button managePantryButton;
         private System.Windows.Forms.Button manageShoppingListButton;
+        private System.Windows.Forms.Button uxButton_ExtraFeatures;
     }
 }
 

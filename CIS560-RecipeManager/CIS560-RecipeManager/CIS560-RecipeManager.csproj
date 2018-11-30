@@ -192,8 +192,26 @@
     <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatsFormManager\StatsController.cs" />
+    <Compile Include="StatsFormManager\uiMakeWithPantryPlusAmtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiMakeWithPantryPlusAmtForm.Designer.cs">
+      <DependentUpon>uiMakeWithPantryPlusAmtForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsFormManager\StatsFormController.cs" />
     <Compile Include="StatsFormManager\StatsDGVmanager.cs" />
+    <Compile Include="StatsFormManager\uiNotCookedLatelyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiNotCookedLatelyForm.Designer.cs">
+      <DependentUpon>uiNotCookedLatelyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsFormManager\uiRecipeRatingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiRecipeRatingsForm.Designer.cs">
+      <DependentUpon>uiRecipeRatingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatsFormManager\uiStats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +267,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiMakeWithPantryPlusAmtForm.resx">
+      <DependentUpon>uiMakeWithPantryPlusAmtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiNotCookedLatelyForm.resx">
+      <DependentUpon>uiNotCookedLatelyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiRecipeRatingsForm.resx">
+      <DependentUpon>uiRecipeRatingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatsFormManager\uiStats.resx">
       <DependentUpon>uiStats.cs</DependentUpon>

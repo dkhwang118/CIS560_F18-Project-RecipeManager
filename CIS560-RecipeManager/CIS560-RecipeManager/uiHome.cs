@@ -10,15 +10,18 @@ namespace CIS560_RecipeManager
         private Action launchRecipeManager;
         private Action launchPantryManager;
         private Action launchShoppingListManager;
+        private Action launchStatsFormManager;
 
         public uiHome(
             Action rm,
             Action pm,
-            Action sl)
+            Action sl,
+            Action st)
         {
             launchRecipeManager = rm;
             launchPantryManager = pm;
             launchShoppingListManager = sl;
+            launchStatsFormManager = st;
             InitializeComponent();
         }
 
@@ -35,6 +38,11 @@ namespace CIS560_RecipeManager
         private void manageShoppingListButton_Click(object sender, EventArgs e)
         {
             launchShoppingListManager();
+        }
+
+        private void uxButton_ExtraFeatures_Click(object sender, EventArgs e)
+        {
+            launchStatsFormManager();
         }
     }
 }

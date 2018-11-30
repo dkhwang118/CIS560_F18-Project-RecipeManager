@@ -14,13 +14,13 @@ namespace CIS560_RecipeManager
         private RecipeController _recipeController;
         private PantryController _pantryController;
         private ShoppingListController _shoppingListController;
-        private StatsController _statsController;
+        private StatsFormController _statsFormController;
 
 
         private Action _launchRecipeManager;
         private Action _launchPantryManager;
         private Action _launchShoppingListManager;
-        private Action _launchStatsManager;
+        private Action _launchStatsFormManager;
 
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
@@ -37,11 +37,12 @@ namespace CIS560_RecipeManager
             _recipeController = new RecipeController(_recipeInventory, _pantry);
             _pantryController = new PantryController(_pantry);
             _shoppingListController = new ShoppingListController(_query, _pantry, _recipeInventory);
-            _statsController = new StatsController(_query);
+            _statsFormController = new StatsFormController(_query);
 
             _launchRecipeManager = _recipeController.LaunchRecipeForm;
             _launchPantryManager = _pantryController.LaunchPantryForm;
             _launchShoppingListManager = _shoppingListController.LaunchShoppingListForm;
+            _launchStatsFormManager = _statsFormController.LaunchStatsForm;
         }
 
 
@@ -50,7 +51,8 @@ namespace CIS560_RecipeManager
             Application.Run(new uiHome(
                 _launchRecipeManager,
                 _launchPantryManager,
-                _launchShoppingListManager));
+                _launchShoppingListManager,
+                _launchStatsFormManager));
         }
     }
 }
