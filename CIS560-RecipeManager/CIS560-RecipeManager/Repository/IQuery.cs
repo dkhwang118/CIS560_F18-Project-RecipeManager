@@ -29,6 +29,6 @@ namespace CIS560_RecipeManager
 
         void RateRecipe(Recipe recipe, int recipeRating);
 
-        ICollection<ShoppingList> GetAllShoppingLists();
+        //ICollection<ShoppingList> GetAllShoppingLists();
     }
 }

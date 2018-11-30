@@ -35,6 +35,8 @@
             this.recipesTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.RecipesTableAdapter();
             this.uxDataGridView_RecipesForShoppingList = new System.Windows.Forms.DataGridView();
             this.recipeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uxTextBox_ShoppingListName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_RecipesForShoppingList)).BeginInit();
@@ -42,7 +44,7 @@
             // 
             // uxButton_CreateShoppingListFromRecipe
             // 
-            this.uxButton_CreateShoppingListFromRecipe.Location = new System.Drawing.Point(171, 231);
+            this.uxButton_CreateShoppingListFromRecipe.Location = new System.Drawing.Point(157, 259);
             this.uxButton_CreateShoppingListFromRecipe.Name = "uxButton_CreateShoppingListFromRecipe";
             this.uxButton_CreateShoppingListFromRecipe.Size = new System.Drawing.Size(129, 46);
             this.uxButton_CreateShoppingListFromRecipe.TabIndex = 1;
@@ -86,11 +88,29 @@
             this.recipeNameDataGridViewTextBoxColumn.Name = "recipeNameDataGridViewTextBoxColumn";
             this.recipeNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // uxTextBox_ShoppingListName
+            // 
+            this.uxTextBox_ShoppingListName.Location = new System.Drawing.Point(12, 233);
+            this.uxTextBox_ShoppingListName.Name = "uxTextBox_ShoppingListName";
+            this.uxTextBox_ShoppingListName.Size = new System.Drawing.Size(431, 20);
+            this.uxTextBox_ShoppingListName.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 207);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Shopping list name";
+            // 
             // uiAddShoppingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 317);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.uxTextBox_ShoppingListName);
             this.Controls.Add(this.uxDataGridView_RecipesForShoppingList);
             this.Controls.Add(this.uxButton_CreateShoppingListFromRecipe);
             this.Name = "uiAddShoppingList";
@@ -100,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_RecipesForShoppingList)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,5 +131,7 @@
         private RecipeDatabaseDataSetTableAdapters.RecipesTableAdapter recipesTableAdapter;
         private System.Windows.Forms.DataGridView uxDataGridView_RecipesForShoppingList;
         private System.Windows.Forms.DataGridViewTextBoxColumn recipeNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox uxTextBox_ShoppingListName;
+        private System.Windows.Forms.Label label1;
     }
 }

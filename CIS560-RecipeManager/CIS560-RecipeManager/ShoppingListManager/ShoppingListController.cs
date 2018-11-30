@@ -9,8 +9,8 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
-        private ICollection<ShoppingList> _shoppingLists;
-        public Action<ICollection<Recipe>> GetShoppinglistDelegate;
+        private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
+        public Action<string, ICollection<Recipe>> GetShoppinglistDelegate;
 
         private IQuery _queryRepository;
         private MyPantry _pantry;
@@ -24,7 +24,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
             _queryRepository = query;
             _pantry = pantry;
             _recipeInventory = recipeInventory;
-            _shoppingLists = _queryRepository.GetAllShoppingLists();
+            //_shoppingLists = _queryRepository.GetAllShoppingLists();
         }
 
         public void LaunchShoppingListForm()
@@ -37,9 +37,9 @@ namespace CIS560_RecipeManager.ShoppingListManager
             new uiAddShoppingList(_recipeInventory, GetShoppingList).Show();
         }
 
-        public void GetShoppingList(ICollection<Recipe> recipes)
+        public void GetShoppingList(string name, ICollection<Recipe> recipes)
         {
-            ShoppingList shoppingList = _queryRepository.GetShoppingList(recipes);
+            ShoppingList shoppingList = _queryRepository.CreateShoppingList(name, recipes);
             _shoppingLists.Add(shoppingList);
         }
 
