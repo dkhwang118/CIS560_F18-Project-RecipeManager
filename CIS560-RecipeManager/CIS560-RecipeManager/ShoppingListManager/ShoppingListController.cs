@@ -24,7 +24,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
             _queryRepository = query;
             _pantry = pantry;
             _recipeInventory = recipeInventory;
-            //_shoppingLists = _queryRepository.GetAllShoppingLists();
+            _shoppingLists = _queryRepository.GetAllShoppingLists();
         }
 
         public void LaunchShoppingListForm()

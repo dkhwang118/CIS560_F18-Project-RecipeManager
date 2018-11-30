@@ -12,7 +12,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiShowShoppingList : Form
     {
-        private Action<ShoppingList> _showShoppingListDelegate;
+        //private Action<ShoppingList> _showShoppingListDelegate;
         private ShoppingList _currentShoppingList;
         public uiShowShoppingList(ShoppingList currentShoppingList)
         {
@@ -30,7 +30,5 @@ namespace CIS560_RecipeManager.ShoppingListManager
                 uxDataGridView_ShowShoppingList.Rows[count].Cells[1].Value = i.Value;
             }
         }
-        //list of shopping lists in controller should use query to get all shopping lists, then can search through list to find current one selected to display all ingredients and quantities.
-        //how to display in data gride view though?
     }
 }
