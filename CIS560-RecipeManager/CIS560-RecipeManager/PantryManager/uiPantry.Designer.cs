@@ -40,7 +40,6 @@
             this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.pantryItemTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter();
             this.uxButton_AddIngredient = new System.Windows.Forms.Button();
-            this.uxButton_DeleteIngredient = new System.Windows.Forms.Button();
             this.uxButton_UpdateIngredient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).BeginInit();
@@ -148,17 +147,6 @@
             this.uxButton_AddIngredient.UseVisualStyleBackColor = true;
             this.uxButton_AddIngredient.Click += new System.EventHandler(this.addIngredientButton_Click);
             // 
-            // uxButton_DeleteIngredient
-            // 
-            this.uxButton_DeleteIngredient.Location = new System.Drawing.Point(406, 333);
-            this.uxButton_DeleteIngredient.Margin = new System.Windows.Forms.Padding(1);
-            this.uxButton_DeleteIngredient.Name = "uxButton_DeleteIngredient";
-            this.uxButton_DeleteIngredient.Size = new System.Drawing.Size(135, 41);
-            this.uxButton_DeleteIngredient.TabIndex = 2;
-            this.uxButton_DeleteIngredient.Text = "Delete Ingredient";
-            this.uxButton_DeleteIngredient.UseVisualStyleBackColor = true;
-            this.uxButton_DeleteIngredient.Click += new System.EventHandler(this.deleteIngredientButton_Click);
-            // 
             // uxButton_UpdateIngredient
             // 
             this.uxButton_UpdateIngredient.Location = new System.Drawing.Point(212, 333);
@@ -176,7 +164,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(551, 381);
             this.Controls.Add(this.uxButton_UpdateIngredient);
-            this.Controls.Add(this.uxButton_DeleteIngredient);
             this.Controls.Add(this.uxButton_AddIngredient);
             this.Controls.Add(this.uxPantryItemsDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -205,7 +192,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemUnitMeasurementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityInPantryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button uxButton_AddIngredient;
-        private System.Windows.Forms.Button uxButton_DeleteIngredient;
         private System.Windows.Forms.Button uxButton_UpdateIngredient;
     }
 }
