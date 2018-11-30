@@ -13,11 +13,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
     public partial class uiShoppingList : Form
     {
         private Action _launchAddShoppingListDelegate;
+        private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
         private Action<ShoppingList> _launchShowShoppingListDelegate;
-        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate)
+        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ICollection<ShoppingList> shoppingLists)
         {
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
+            _shoppingLists = shoppingLists;
             InitializeComponent();
         }
 
@@ -25,6 +27,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.ShoppingList' table. You can move, or remove it, as needed.
             this.shoppingListTableAdapter.Fill(this.recipeDatabaseDataSet.ShoppingList);
+            foreach(ShoppingList list in _shoppingLists)
+            {
+                for(int i = 0; i < _shoppingLists.Count; i ++)
+                {
+                    uxDataGridView_ShoppingList.Rows[i].Cells[0].Value = list.Name;
+                }
+            }
 
         }
 
