@@ -10,10 +10,13 @@ namespace CIS560_RecipeManager.StatsFormManager
     public class StatsFormController
     {
         private IQuery _query;
+        private GetStatsManager _getStatsManager;
 
-        public StatsFormController(IQuery query)
+        public StatsFormController(IQuery query,
+                                    GetStatsManager getStatsManager)
         {
             _query = query;
+            _getStatsManager = getStatsManager;
         }
 
         public void LaunchStatsForm()

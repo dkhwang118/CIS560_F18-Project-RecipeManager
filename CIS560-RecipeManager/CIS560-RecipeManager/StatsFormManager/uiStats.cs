@@ -14,6 +14,7 @@ namespace CIS560_RecipeManager.StatsFormManager
     {
         private Action _launchRecipesNotCookedRecentForm;
         private Action _launchRecipeRatingsForm;
+        private GetStatsManager _statsManager;
 
         public uiStats(Action launchRecipesNotCookedRecentForm,
                         Action launchRecipeRatingsForm)

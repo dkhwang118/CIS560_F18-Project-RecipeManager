@@ -12,6 +12,9 @@ namespace CIS560_RecipeManager.StatsFormManager
 {
     public partial class uiNotCookedLatelyForm : Form
     {
+        IQuery _query;
+
+
         public uiNotCookedLatelyForm()
         {
             InitializeComponent();
