@@ -780,6 +780,7 @@ namespace Subro.Controls
 
             public override object GetValue(object component)
             {
+                if (Owner.groupon == null) return null;
                 if (component is GroupRow)
                 {
                     if (Owner.groupon.IsProperty(Property))

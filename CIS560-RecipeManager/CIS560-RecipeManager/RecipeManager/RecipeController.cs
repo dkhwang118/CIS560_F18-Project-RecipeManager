@@ -24,9 +24,10 @@ namespace CIS560_RecipeManager.RecipeManager
                 LaunchEditRecipeForm,
                 _recipeInventory.OnlyDisplayAvailableRecipes,
                 _recipeInventory.DisplayAllRecipes,
+                _recipeInventory.RateRecipe,
                 _recipeInventory.DeleteRecipe,
                 CookRecipe,
-                _recipeInventory).Show();
+                _recipeInventory).ShowDialog();
         }
 
         public void LaunchAddRecipeForm()
@@ -47,7 +48,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 _recipeInventory.AddRecipeCategory, 
                 LaunchAddIngredientForm, 
                 _viewModel)
-                    .Show();
+                    .ShowDialog();
         }
 
         public void LaunchEditRecipeForm(Recipe recipe)
@@ -65,7 +66,7 @@ namespace CIS560_RecipeManager.RecipeManager
                 _recipeInventory.AddRecipeCategory, 
                 LaunchAddIngredientForm, 
                 _viewModel)
-                    .Show();
+                    .ShowDialog();
         }
 
         public void CookRecipe(Recipe recipe)

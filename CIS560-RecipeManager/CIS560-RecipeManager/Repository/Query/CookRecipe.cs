@@ -26,7 +26,36 @@ namespace CIS560_RecipeManager.Repository
             // Loop through each ingredient and update quantity
             foreach (KeyValuePair<Ingredient, int> kvp in recipe.MeasuredIngredients)
             {
-                UpdateIngredientQuantity((kvp.Value*-1), kvp.Key); // subtract the quantity given by recipe from the ingredient quantity in pantry
+                // Get Ingredient's Current Quantity in Pantry
+                int currentQuantity;
+                using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
+                {
+                    using (var transaction = new TransactionScope())
+                    {
+                        connection.Open();
+                        using (var command = new SqlCommand("[dbo].FindPantryItemByID", connection))
+                        {
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.AddWithValue("ItemID", kvp.Key.Id);
+
+                            var result = command.ExecuteReader();
+
+                            if (result.HasRows)
+                            {
+                                result.Read();
+                                currentQuantity = result.GetFieldValue<int>(2);
+                            }
+                            else
+                            {
+                                throw new NotImplementedException("Behavior for failed ingredient lookups has not been implemented yet");
+                            }
+                            result.Close();
+                        }
+                        connection.Close();
+                    }
+                }
+
+                UpdateIngredientQuantity((currentQuantity - kvp.Value), kvp.Key); // subtract the quantity given by recipe from the ingredient quantity in pantry
             }
 
             // Update RecipesCookedDates table
@@ -46,11 +75,6 @@ namespace CIS560_RecipeManager.Repository
                 } // should close transaction here automatically
             } // should close connection here automatically
 
-        }
-
-        public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
-        {
-            throw new NotImplementedException();
         }
     }
 }

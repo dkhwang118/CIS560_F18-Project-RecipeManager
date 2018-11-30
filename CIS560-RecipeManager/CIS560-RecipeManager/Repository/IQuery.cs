@@ -7,7 +7,7 @@ namespace CIS560_RecipeManager
     {
         void UpdateRecipe(Recipe recipe);
 
-        Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients, int? recipeRating = 0);
+        Recipe CreateRecipe(string recipeName, string recipeDescription, RecipeCategory category, IDictionary<Ingredient, int> measuredIngredients, int? recipeRating = null);
 
         void DeleteRecipe(Recipe recipe);
 
@@ -15,7 +15,11 @@ namespace CIS560_RecipeManager
 
         IReadOnlyCollection<Recipe> GetAvailableRecipes();
 
+        ICollection<Recipe> GetAllRecipes();
+
         ShoppingList CreateShoppingList(string shoppingListName, ICollection<Recipe> recipes);
+
+        ICollection<ShoppingList> GetAllShoppingLists();
 
         void UpdateIngredientQuantity(int quantity, Ingredient ingredient);
 
@@ -29,6 +33,18 @@ namespace CIS560_RecipeManager
 
         void RateRecipe(Recipe recipe, int recipeRating);
 
-        //ICollection<ShoppingList> GetAllShoppingLists();
+        RecipeCategory GetRecipeCategory(int recipeId);
+
+        IDictionary<Ingredient,int> GetPantryContents();
+
+        ICollection<Recipe> GetAffordableRecipes(int maxAmountToSpendInCents);
+
+        ICollection<Recipe> GetTopRatedRecipesWithTies(int recipesPerCategory);
+
+        IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory();
+
+        IDictionary<Recipe, string> GetRecipesCookedLeastRecent();
+
+        ICollection<Recipe> GetRecipesNotCooked();
     }
 }

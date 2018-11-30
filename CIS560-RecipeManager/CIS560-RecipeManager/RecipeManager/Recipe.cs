@@ -22,40 +22,47 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public string Description { get; set; }
 
-        public RecipeCategory Category {get; set;}
+        public RecipeCategory Category { get; set; }
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
-        public BindingList<RecipeIngredient> IngredientBindingList { get; }
+        public int PriceInCents
+        {
+            get
+            {
+                int sum = 0;
+                foreach (var kvp in MeasuredIngredients)
+                {
+                    sum += (kvp.Key.PriceInCents * kvp.Value);
+                }
+                return sum;
+            }
+        }
+
+        public string FormattedPrice
+        {
+            get
+            {
+                return "$" + (PriceInCents / 100).ToString("#.##");
+            }
+        }
+
+        public int? Rating { get; set; }
 
         public Recipe(
             int id, 
             string name,
             string description,
             RecipeCategory category,
-            IDictionary<Ingredient, int> measuredIngredients)
+            IDictionary<Ingredient, int> measuredIngredients,
+            int? rating = null)
         {
             Id = id;
             Name = name;
             Description = description;
             Category = category;
             MeasuredIngredients = measuredIngredients;
-            IngredientBindingList = new BindingList<RecipeIngredient>();
-            PopulateMeasuredIngredients(measuredIngredients);
-        }
-
-        public void PopulateMeasuredIngredients(
-            IDictionary<Ingredient, int> measuredIngredients)
-        {
-            IngredientBindingList.Clear();
-
-            foreach (KeyValuePair<Ingredient, int> kvp in measuredIngredients)
-            {
-                IngredientBindingList.Add(
-                    new RecipeIngredient(kvp.Key.Id, kvp.Key.Name, kvp.Key.Unit, kvp.Value));
-            }
-
-            MeasuredIngredients = measuredIngredients;
+            if (rating != null) Rating = rating;
         }
 
         public override string ToString()
