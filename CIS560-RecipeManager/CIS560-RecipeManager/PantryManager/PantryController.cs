@@ -14,7 +14,10 @@ namespace CIS560_RecipeManager.PantryManager
 
         public void LaunchPantryForm()
         {
-            new uiPantry(LaunchAddIngredientForm, new PantryViewModel(_pantry.PantryContents)).Show();
+            new uiPantry(
+                LaunchAddIngredientForm,
+                _pantry.UpdateIngredientQuantity,
+                new PantryViewModel(_pantry.PantryContents)).Show();
         }
 
         public void LaunchAddIngredientForm()

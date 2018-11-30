@@ -14,12 +14,17 @@ namespace CIS560_RecipeManager
     public partial class uiPantry : Form
     {
         private Action _launchAddIngredientDelegate;
+        private Action<Ingredient,int> _updateIngredientQuantity;
         private PantryViewModel _viewModel;
 
-        public uiPantry(Action launchAddIngredientDelegate, PantryViewModel viewModel)
+        public uiPantry(
+            Action launchAddIngredientDelegate,
+            Action<Ingredient, int> updateIngredientQuantity,
+            PantryViewModel viewModel)
         {
             _viewModel = viewModel;
             _launchAddIngredientDelegate = launchAddIngredientDelegate;
+            _updateIngredientQuantity = updateIngredientQuantity;
             InitializeComponent();
             pantryItemBindingSource.DataSource = _viewModel.IngredientList;
             uxPantryItemsDataGridView.DataSource = pantryItemBindingSource;
@@ -42,6 +47,14 @@ namespace CIS560_RecipeManager
         private void uxPantryItemsDataGridView_BindingContextChanged(object sender, EventArgs e)
         {
             PopulateIngredientQuantities();
+        }
+
+        private void uxPantryItemsDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = uxPantryItemsDataGridView.Rows[e.RowIndex];
+            var ing = (Ingredient)row.DataBoundItem;
+            var quantity = Convert.ToInt32(row.Cells[3].Value.ToString());
+            _updateIngredientQuantity(ing, quantity);
         }
     }
 }

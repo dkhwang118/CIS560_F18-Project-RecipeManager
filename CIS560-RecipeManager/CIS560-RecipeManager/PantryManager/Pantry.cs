@@ -36,7 +36,7 @@ namespace CIS560_RecipeManager
             return ingredient;
         }
 
-        public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
+        public void UpdateIngredientQuantity(Ingredient ingredient, int quantity)
         {
             PantryContents[ingredient] = quantity;
             _query.UpdateIngredientQuantity(quantity, ingredient);
