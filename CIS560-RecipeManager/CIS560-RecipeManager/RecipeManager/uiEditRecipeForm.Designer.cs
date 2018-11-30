@@ -327,11 +327,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }
