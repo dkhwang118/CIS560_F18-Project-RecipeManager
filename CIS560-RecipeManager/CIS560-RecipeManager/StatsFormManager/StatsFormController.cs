@@ -12,11 +12,10 @@ namespace CIS560_RecipeManager.StatsFormManager
         private IQuery _query;
         private GetStatsManager _getStatsManager;
 
-        public StatsFormController(IQuery query,
-                                    GetStatsManager getStatsManager)
+        public StatsFormController(IQuery query)
         {
             _query = query;
-            _getStatsManager = getStatsManager;
+            _getStatsManager = new GetStatsManager(query);
         }
 
         public void LaunchStatsForm()
@@ -28,12 +27,12 @@ namespace CIS560_RecipeManager.StatsFormManager
 
         public void LaunchNotCookedLatelyForm()
         {
-            new uiNotCookedLatelyForm().ShowDialog();
+            new uiNotCookedLatelyForm(_getStatsManager).ShowDialog();
         }
 
         public void LaunchRecipeRatingsForm()
         {
-            new uiRecipeRatingsForm().ShowDialog();
+            new uiRecipeRatingsForm(_getStatsManager).ShowDialog();
         }
     }
 }

@@ -12,8 +12,10 @@ namespace CIS560_RecipeManager.StatsFormManager
 {
     public partial class uiRecipeRatingsForm : Form
     {
-        public uiRecipeRatingsForm()
+        GetStatsManager _statsManager;
+        public uiRecipeRatingsForm(GetStatsManager gsm)
         {
+            _statsManager = gsm;
             InitializeComponent();
         }
     }

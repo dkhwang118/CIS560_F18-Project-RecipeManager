@@ -12,12 +12,25 @@ namespace CIS560_RecipeManager.StatsFormManager
 {
     public partial class uiNotCookedLatelyForm : Form
     {
-        IQuery _query;
+        GetStatsManager _statsManager;
 
 
-        public uiNotCookedLatelyForm()
+        public uiNotCookedLatelyForm(GetStatsManager gsm)
         {
+            _statsManager = gsm;
             InitializeComponent();
+        }
+
+        private void uxButton_ShowLeastRecentCookedRecipes_Click(object sender, EventArgs e)
+        {
+            RecentlyCookedBindingSource.DataSource = _statsManager.GetLeastRecentlyCookedRecipes();
+            uxDGV_RecipesCookedStatsOutput.DataSource = RecentlyCookedBindingSource;
+        }
+
+        private void uxButton_ShowUncookedRecipes_Click(object sender, EventArgs e)
+        {
+            RecentlyCookedBindingSource.DataSource = _statsManager.GetRecipesNotCooked();
+            uxDGV_RecipesCookedStatsOutput.DataSource = RecentlyCookedBindingSource;
         }
     }
 }
