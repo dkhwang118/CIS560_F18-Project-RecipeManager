@@ -192,12 +192,12 @@
     <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatsManager\StatsController.cs" />
-    <Compile Include="StatsManager\StatsDGVmanager.cs" />
-    <Compile Include="StatsManager\uiStats.cs">
+    <Compile Include="StatsFormManager\StatsController.cs" />
+    <Compile Include="StatsFormManager\StatsDGVmanager.cs" />
+    <Compile Include="StatsFormManager\uiStats.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatsManager\uiStats.Designer.cs">
+    <Compile Include="StatsFormManager\uiStats.Designer.cs">
       <DependentUpon>uiStats.cs</DependentUpon>
     </Compile>
     <Compile Include="uiHome.cs">
@@ -250,7 +250,7 @@
     <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatsManager\uiStats.resx">
+    <EmbeddedResource Include="StatsFormManager\uiStats.resx">
       <DependentUpon>uiStats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">

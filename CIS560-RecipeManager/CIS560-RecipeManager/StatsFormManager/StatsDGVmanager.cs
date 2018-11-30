@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using CIS560_RecipeManager.RecipeManager;
 
-namespace CIS560_RecipeManager.StatsManager
+namespace CIS560_RecipeManager.StatsFormManager
 {
     public class StatsDGVmanager
     {
