@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGenerator\DataGenerator.cs" />
     <Compile Include="DGVGrouper\DataGridViewGrouper.cs">
       <SubType>Component</SubType>
     </Compile>
