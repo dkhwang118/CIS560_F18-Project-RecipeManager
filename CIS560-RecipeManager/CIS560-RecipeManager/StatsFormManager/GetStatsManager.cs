@@ -22,9 +22,24 @@ namespace CIS560_RecipeManager.StatsFormManager
             _query = query;
         }
 
-        private void PopulateDGV(int dataTypeParam)
+        public void PopulateDGV(int dataTypeParam)
         {
             // method to update the DGV with query information.
+        }
+
+        public IDictionary<Recipe, string> GetLeastRecentlyCookedRecipes()
+        {
+            return _query.GetRecipesCookedLeastRecent();
+        }
+
+        public ICollection<Recipe> GetRecipesNotCooked()
+        {
+            return _query.GetRecipesNotCooked();
+        }
+
+        public ICollection<Recipe> GetTopRatedRecipesWithTies(int amtPerCategory = 5)
+        {
+            return _query.GetTopRatedRecipesWithTies(amtPerCategory);
         }
 
     }
