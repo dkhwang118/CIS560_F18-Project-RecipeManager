@@ -8,7 +8,7 @@ using CIS560_RecipeManager.RecipeManager;
 
 namespace CIS560_RecipeManager.StatsFormManager
 {
-    public class StatsDGVmanager
+    public class GetStatsManager
     {
         private IQuery _query;
         private ICollection<Recipe> _totalRecipes;
@@ -17,7 +17,7 @@ namespace CIS560_RecipeManager.StatsFormManager
         public BindingList<Recipe> VisibleRecipes { get; }
         public BindingList<RecipeCategory> VisibleRecipeCategories { get; }
 
-        public StatsDGVmanager(IQuery query)
+        public GetStatsManager(IQuery query)
         {
             _query = query;
         }

@@ -199,7 +199,7 @@
       <DependentUpon>uiMakeWithPantryPlusAmtForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StatsFormManager\StatsFormController.cs" />
-    <Compile Include="StatsFormManager\StatsDGVmanager.cs" />
+    <Compile Include="StatsFormManager\GetStatsManager.cs" />
     <Compile Include="StatsFormManager\uiNotCookedLatelyForm.cs">
       <SubType>Form</SubType>
     </Compile>
