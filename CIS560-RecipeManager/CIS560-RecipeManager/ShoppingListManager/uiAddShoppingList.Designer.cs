@@ -114,7 +114,7 @@
             this.Controls.Add(this.uxDataGridView_RecipesForShoppingList);
             this.Controls.Add(this.uxButton_CreateShoppingListFromRecipe);
             this.Name = "uiAddShoppingList";
-            this.Text = "uiAddShoppingList";
+            this.Text = "Add a Shopping List";
             this.Load += new System.EventHandler(this.uiAddShoppingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();

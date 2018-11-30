@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.uxDataGridView_ShowShoppingList = new System.Windows.Forms.DataGridView();
+            this.uxDataGridView_IngredientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uxDataGridView_IngredientQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shoppingListItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.shoppingListItemTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListItemTableAdapter();
             this.shoppingListItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.shoppingListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shoppingListTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter();
-            this.uxDataGridView_IngredientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uxDataGridView_IngredientQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_ShowShoppingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
@@ -56,6 +56,18 @@
             this.uxDataGridView_ShowShoppingList.Name = "uxDataGridView_ShowShoppingList";
             this.uxDataGridView_ShowShoppingList.Size = new System.Drawing.Size(470, 346);
             this.uxDataGridView_ShowShoppingList.TabIndex = 0;
+            // 
+            // uxDataGridView_IngredientName
+            // 
+            this.uxDataGridView_IngredientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.uxDataGridView_IngredientName.HeaderText = "Name";
+            this.uxDataGridView_IngredientName.Name = "uxDataGridView_IngredientName";
+            // 
+            // uxDataGridView_IngredientQuantity
+            // 
+            this.uxDataGridView_IngredientQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.uxDataGridView_IngredientQuantity.HeaderText = "Quantity";
+            this.uxDataGridView_IngredientQuantity.Name = "uxDataGridView_IngredientQuantity";
             // 
             // shoppingListItemBindingSource
             // 
@@ -85,18 +97,6 @@
             // 
             this.shoppingListTableAdapter.ClearBeforeFill = true;
             // 
-            // uxDataGridView_IngredientName
-            // 
-            this.uxDataGridView_IngredientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.uxDataGridView_IngredientName.HeaderText = "Name";
-            this.uxDataGridView_IngredientName.Name = "uxDataGridView_IngredientName";
-            // 
-            // uxDataGridView_IngredientQuantity
-            // 
-            this.uxDataGridView_IngredientQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.uxDataGridView_IngredientQuantity.HeaderText = "Quantity";
-            this.uxDataGridView_IngredientQuantity.Name = "uxDataGridView_IngredientQuantity";
-            // 
             // uiShowShoppingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,7 +104,7 @@
             this.ClientSize = new System.Drawing.Size(470, 346);
             this.Controls.Add(this.uxDataGridView_ShowShoppingList);
             this.Name = "uiShowShoppingList";
-            this.Text = "Shopping List";
+            this.Text = "Current Shopping List";
             this.Load += new System.EventHandler(this.uiShowShoppingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_ShowShoppingList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource)).EndInit();

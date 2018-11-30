@@ -96,7 +96,7 @@
             // shoppingListNameDataGridViewTextBoxColumn
             // 
             this.shoppingListNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shoppingListNameDataGridViewTextBoxColumn.DataPropertyName = "ShoppingListName";
+            this.shoppingListNameDataGridViewTextBoxColumn.DataPropertyName = "Shopping List Name";
             this.shoppingListNameDataGridViewTextBoxColumn.HeaderText = "ShoppingListName";
             this.shoppingListNameDataGridViewTextBoxColumn.Name = "shoppingListNameDataGridViewTextBoxColumn";
             // 
