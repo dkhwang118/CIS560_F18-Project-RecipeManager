@@ -11,7 +11,7 @@ namespace CIS560_RecipeManager
         private Action<Recipe> _launchEditRecipeForm;
         private Action _showOnlyAvailableRecipes;
         private Action _showAllRecipes;
-        private Action<Recipe,int> _rateRecipe;
+        private Action<Recipe, int> _rateRecipe;
         private Action<Recipe> _deleteRecipeDelegate;
         private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
@@ -22,7 +22,7 @@ namespace CIS560_RecipeManager
             Action<Recipe> launchEditRecipeForm,
             Action showOnlyAvailableRecipes,
             Action showAllRecipes,
-            Action<Recipe,int> rateRecipe,
+            Action<Recipe, int> rateRecipe,
             Action<Recipe> deleteRecipeDelegate,
             Action<Recipe> cookRecipeDelegate,
             RecipeInventory recipeInventory)
@@ -102,14 +102,7 @@ namespace CIS560_RecipeManager
 
         private void availableWithPantryCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (availableWithPantryCheckBox.Checked)
-            {
-                _showOnlyAvailableRecipes();
-            }
-            else
-            {
-                _showAllRecipes();
-            }
+            updateDataGridView();
         }
 
         private void rateRecipeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,8 +115,21 @@ namespace CIS560_RecipeManager
                     var row = RecipeDataGridView.SelectedRows[0];
                     Recipe recipe = (Recipe)row.DataBoundItem;
                     _rateRecipe(recipe, form.Rating);
+                    updateDataGridView(); // update DGV before MessageBox for "instant" update to DGV
                     MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
                 }
+            }
+        }
+
+        private void updateDataGridView()
+        {
+            if (availableWithPantryCheckBox.Checked)
+            {
+                _showOnlyAvailableRecipes();
+            }
+            else
+            {
+                _showAllRecipes();
             }
         }
     }
