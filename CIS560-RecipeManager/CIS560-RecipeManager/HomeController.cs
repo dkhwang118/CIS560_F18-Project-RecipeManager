@@ -2,6 +2,7 @@
 using CIS560_RecipeManager.RecipeManager;
 using CIS560_RecipeManager.Repository;
 using CIS560_RecipeManager.ShoppingListManager;
+using CIS560_RecipeManager.StatsFormManager;
 
 using System;
 using System.Windows.Forms;
@@ -13,10 +14,13 @@ namespace CIS560_RecipeManager
         private RecipeController _recipeController;
         private PantryController _pantryController;
         private ShoppingListController _shoppingListController;
+        private StatsFormController _statsFormController;
+
 
         private Action _launchRecipeManager;
         private Action _launchPantryManager;
         private Action _launchShoppingListManager;
+        private Action _launchStatsFormManager;
 
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
