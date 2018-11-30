@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using CIS560_RecipeManager.RecipeManager;
 using CIS560_RecipeManager.Repository;
 
 
@@ -9,6 +10,7 @@ namespace CIS560_RecipeManager.DataGenerator
 {
     static class DataGenerator
     {
+        // Ingredient Configuration
         private static int minIngredientNameSize = 1;
         private static int maxIngredientNameSize = 2;
 
@@ -17,6 +19,11 @@ namespace CIS560_RecipeManager.DataGenerator
 
         private static int minPrice = 0;
         private static int maxPrice = 1000;
+
+
+        //Category Configuration
+        private static int minCategoryNameSize = 1;
+        private static int maxCategoryNameSize = 2;
 
         private static List<string> measures = new List<string> {"cup", "quart", "unit", "pound", "kilogram",
             "ounce", "gallon", "barrel",
@@ -51,9 +58,26 @@ namespace CIS560_RecipeManager.DataGenerator
             return addedIngredientIds;
         }
 
-        public static List<int> GenerateRecipeCategories()
+        public static List<int> GenerateRecipeCategories(IQuery query, int numberOfCategories)
         {
-            throw new NotImplementedException("Cannot make categories yet");
+
+            List<string> words = Properties.Resources.wordlist.Split('\n').ToList();
+            List<int> addedCategoryIds = new List<int>();
+            Random rand = new Random();
+            for (int i = 0; i < numberOfCategories; i++)
+            {
+                int numberOfWordsInName = rand.Next(minCategoryNameSize, maxCategoryNameSize + 1);
+                string name = words
+                    // Randomly order the list
+                    // Not efficient
+                    .OrderBy(_ => rand.NextDouble())
+                    .Take(numberOfWordsInName)
+                    .Aggregate((x, y) => x + " " + y);
+                RecipeCategory ing = query.CreateRecipeCategory(name);
+                addedCategoryIds.Add(ing.Id);
+            }
+
+            return addedCategoryIds;
         }
 
         public static List<int> GenerateRecipe()
