@@ -29,34 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.recipeDatabaseDataSet_DEMO = new CIS560_RecipeManager.RecipeDatabaseDataSet_DEMO();
-            this.recipeDatabaseDataSetDEMOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uxPantryItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.pantryItemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemUnitMeasurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityInPantryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
-            this.pantryItemTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter();
             this.uxButton_AddIngredient = new System.Windows.Forms.Button();
             this.uxButton_UpdateIngredient = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).BeginInit();
+            this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceInCentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.formattedPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uxPantryItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pantryItemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // recipeDatabaseDataSet_DEMO
-            // 
-            this.recipeDatabaseDataSet_DEMO.DataSetName = "RecipeDatabaseDataSet_DEMO";
-            this.recipeDatabaseDataSet_DEMO.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // recipeDatabaseDataSetDEMOBindingSource
-            // 
-            this.recipeDatabaseDataSetDEMOBindingSource.DataSource = this.recipeDatabaseDataSet_DEMO;
-            this.recipeDatabaseDataSetDEMOBindingSource.Position = 0;
             // 
             // uxPantryItemsDataGridView
             // 
@@ -67,20 +52,22 @@
             this.uxPantryItemsDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uxPantryItemsDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.uxPantryItemsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.uxPantryItemsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.uxPantryItemsDataGridView.ColumnHeadersHeight = 40;
             this.uxPantryItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.uxPantryItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.pantryItemNameDataGridViewTextBoxColumn,
-            this.itemUnitMeasurementDataGridViewTextBoxColumn,
-            this.quantityInPantryDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.unitDataGridViewTextBoxColumn,
+            this.priceInCentsDataGridViewTextBoxColumn,
+            this.formattedPriceDataGridViewTextBoxColumn});
             this.uxPantryItemsDataGridView.DataSource = this.pantryItemBindingSource;
             this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(12, 12);
             this.uxPantryItemsDataGridView.MultiSelect = false;
@@ -92,50 +79,6 @@
             this.uxPantryItemsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uxPantryItemsDataGridView.Size = new System.Drawing.Size(529, 317);
             this.uxPantryItemsDataGridView.TabIndex = 0;
-            // 
-            // pantryItemNameDataGridViewTextBoxColumn
-            // 
-            this.pantryItemNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.pantryItemNameDataGridViewTextBoxColumn.DataPropertyName = "PantryItemName";
-            this.pantryItemNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.pantryItemNameDataGridViewTextBoxColumn.Name = "pantryItemNameDataGridViewTextBoxColumn";
-            this.pantryItemNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pantryItemNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.pantryItemNameDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // itemUnitMeasurementDataGridViewTextBoxColumn
-            // 
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.DataPropertyName = "ItemUnitMeasurement";
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.HeaderText = "Unit of Measurement for Item";
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.Name = "itemUnitMeasurementDataGridViewTextBoxColumn";
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemUnitMeasurementDataGridViewTextBoxColumn.Width = 500;
-            // 
-            // quantityInPantryDataGridViewTextBoxColumn
-            // 
-            this.quantityInPantryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.quantityInPantryDataGridViewTextBoxColumn.DataPropertyName = "QuantityInPantry";
-            this.quantityInPantryDataGridViewTextBoxColumn.HeaderText = "Quantity of Item in Pantry";
-            this.quantityInPantryDataGridViewTextBoxColumn.Name = "quantityInPantryDataGridViewTextBoxColumn";
-            this.quantityInPantryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.quantityInPantryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.quantityInPantryDataGridViewTextBoxColumn.Width = 447;
-            // 
-            // pantryItemBindingSource
-            // 
-            this.pantryItemBindingSource.DataMember = "PantryItem";
-            this.pantryItemBindingSource.DataSource = this.recipeDatabaseDataSet;
-            // 
-            // recipeDatabaseDataSet
-            // 
-            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
-            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // pantryItemTableAdapter
-            // 
-            this.pantryItemTableAdapter.ClearBeforeFill = true;
             // 
             // uxButton_AddIngredient
             // 
@@ -159,6 +102,46 @@
             this.uxButton_UpdateIngredient.UseVisualStyleBackColor = true;
             this.uxButton_UpdateIngredient.Click += new System.EventHandler(this.updateIngredientButton_Click);
             // 
+            // pantryItemBindingSource
+            // 
+            this.pantryItemBindingSource.DataMember = "IngredientList";
+            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitDataGridViewTextBoxColumn
+            // 
+            this.unitDataGridViewTextBoxColumn.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn.Name = "unitDataGridViewTextBoxColumn";
+            this.unitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceInCentsDataGridViewTextBoxColumn
+            // 
+            this.priceInCentsDataGridViewTextBoxColumn.DataPropertyName = "PriceInCents";
+            this.priceInCentsDataGridViewTextBoxColumn.HeaderText = "PriceInCents";
+            this.priceInCentsDataGridViewTextBoxColumn.Name = "priceInCentsDataGridViewTextBoxColumn";
+            this.priceInCentsDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // formattedPriceDataGridViewTextBoxColumn
+            // 
+            this.formattedPriceDataGridViewTextBoxColumn.DataPropertyName = "FormattedPrice";
+            this.formattedPriceDataGridViewTextBoxColumn.HeaderText = "FormattedPrice";
+            this.formattedPriceDataGridViewTextBoxColumn.Name = "formattedPriceDataGridViewTextBoxColumn";
+            this.formattedPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // uiPantry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,28 +154,21 @@
             this.Name = "uiPantry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pantry Items";
-            this.Load += new System.EventHandler(this.uiPantryItems_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet_DEMO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSetDEMOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxPantryItemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pantryItemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private RecipeDatabaseDataSet_DEMO recipeDatabaseDataSet_DEMO;
-        private System.Windows.Forms.BindingSource recipeDatabaseDataSetDEMOBindingSource;
         private System.Windows.Forms.DataGridView uxPantryItemsDataGridView;
-        private RecipeDatabaseDataSet recipeDatabaseDataSet;
         private System.Windows.Forms.BindingSource pantryItemBindingSource;
-        private RecipeDatabaseDataSetTableAdapters.PantryItemTableAdapter pantryItemTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pantryItemNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemUnitMeasurementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityInPantryDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button uxButton_AddIngredient;
         private System.Windows.Forms.Button uxButton_UpdateIngredient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceInCentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn formattedPriceDataGridViewTextBoxColumn;
     }
 }

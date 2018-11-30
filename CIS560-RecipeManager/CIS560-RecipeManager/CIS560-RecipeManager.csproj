@@ -94,6 +94,7 @@
     <Compile Include="PantryManager\Ingredient.cs" />
     <Compile Include="PantryManager\Pantry.cs" />
     <Compile Include="PantryManager\PantryController.cs" />
+    <Compile Include="PantryManager\PantryViewModel.cs" />
     <Compile Include="PantryManager\uiAddIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,7 +247,9 @@
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.PantryManager.PantryViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.EditRecipeViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />

@@ -14,22 +14,15 @@ namespace CIS560_RecipeManager
     public partial class uiPantry : Form
     {
         private Action _launchAddIngredientDelegate;
+        private PantryViewModel _viewModel;
 
-        public uiPantry(Action launchAddIngredientDelegate)
+        public uiPantry(Action launchAddIngredientDelegate, PantryViewModel viewModel)
         {
+            _viewModel = viewModel;
             _launchAddIngredientDelegate = launchAddIngredientDelegate;
             InitializeComponent();
-
-            //small reordering of units and quantity
-            uxPantryItemsDataGridView.Columns[2].DisplayIndex = 1;
-            uxPantryItemsDataGridView.Columns[1].DisplayIndex = 2;
-        }
-
-        private void uiPantryItems_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.PantryItem' table. You can move, or remove it, as needed.
-            this.pantryItemTableAdapter.Fill(this.recipeDatabaseDataSet.PantryItem);
-
+            pantryItemBindingSource.DataSource = _viewModel.IngredientList;
+            uxPantryItemsDataGridView.DataSource = pantryItemBindingSource;
         }
 
         private void addIngredientButton_Click(object sender, EventArgs e)
