@@ -61,11 +61,73 @@ namespace CIS560_RecipeManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to wordlist.txt.
+        ///   Looks up a localized string similar to a
+        ///AAA
+        ///AAAS
+        ///aardvark
+        ///Aarhus
+        ///Aaron
+        ///ABA
+        ///Ababa
+        ///aback
+        ///abacus
+        ///abalone
+        ///abandon
+        ///abase
+        ///abash
+        ///abate
+        ///abbas
+        ///abbe
+        ///abbey
+        ///abbot
+        ///Abbott
+        ///abbreviate
+        ///abc
+        ///abdicate
+        ///abdomen
+        ///abdominal
+        ///abduct
+        ///Abe
+        ///abed
+        ///Abel
+        ///Abelian
+        ///Abelson
+        ///Aberdeen
+        ///Abernathy
+        ///aberrant
+        ///aberrate
+        ///abet
+        ///abetted
+        ///abetting
+        ///abeyance
+        ///abeyant
+        ///abhor
+        ///abhorred
+        ///abhorrent
+        ///abide
+        ///Abidjan
+        ///Abigail
+        ///abject
+        ///abjure
+        ///ablate
+        ///ablaze
+        ///able
+        ///ablution
+        ///abnegation
+        ///Abner
+        ///abnormal
+        ///Abo
+        ///aboard
+        ///abode
+        ///abolish
+        ///abolition
+        ///abominable
+        ///abominate
+        ///abor [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string WordList {
+        internal static string wordlist {
             get {
-                return ResourceManager.GetString("WordList", resourceCulture);
+                return ResourceManager.GetString("wordlist", resourceCulture);
             }
         }
     }
