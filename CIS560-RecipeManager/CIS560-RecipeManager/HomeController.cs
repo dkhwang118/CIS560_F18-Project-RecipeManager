@@ -14,13 +14,13 @@ namespace CIS560_RecipeManager
         private RecipeController _recipeController;
         private PantryController _pantryController;
         private ShoppingListController _shoppingListController;
-        private StatsFormController _statsFormController;
+        private StatsController _statsController;
 
 
         private Action _launchRecipeManager;
         private Action _launchPantryManager;
         private Action _launchShoppingListManager;
-        private Action _launchStatsFormManager;
+        private Action _launchStatsManager;
 
         private RecipeInventory _recipeInventory;
         private MyPantry _pantry;
@@ -37,6 +37,7 @@ namespace CIS560_RecipeManager
             _recipeController = new RecipeController(_recipeInventory, _pantry);
             _pantryController = new PantryController(_pantry);
             _shoppingListController = new ShoppingListController(_query, _pantry, _recipeInventory);
+            _statsController = new StatsController(_query);
 
             _launchRecipeManager = _recipeController.LaunchRecipeForm;
             _launchPantryManager = _pantryController.LaunchPantryForm;

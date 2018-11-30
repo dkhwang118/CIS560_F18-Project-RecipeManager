@@ -192,7 +192,13 @@
     <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatsFormManager\StatsFormController.cs" />
+    <Compile Include="StatsManager\StatsController.cs" />
+    <Compile Include="StatsManager\uiStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsManager\uiStats.Designer.cs">
+      <DependentUpon>uiStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
