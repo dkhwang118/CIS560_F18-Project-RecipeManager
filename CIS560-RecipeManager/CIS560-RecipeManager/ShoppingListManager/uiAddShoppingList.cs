@@ -37,8 +37,6 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private void uxButton_CreateShoppingListFromRecipe_Click(object sender, EventArgs e)
         {
             ICollection<Recipe> recipes = new List<Recipe>();
-            int idData = 0;
-            int idRecipe = 0;
             foreach (DataGridViewRow row in uxDataGridView_RecipesForShoppingList.SelectedRows)
             {
                 for(int i = 0; i < _recipeInventory.VisibleRecipes.Count; i++)
