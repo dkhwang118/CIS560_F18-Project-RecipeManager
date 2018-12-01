@@ -35,20 +35,23 @@
             this.cookRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rateRecipeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RecipeDataGridView = new System.Windows.Forms.DataGridView();
-            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
             this.FormattedPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableWithPantryCheckBox = new System.Windows.Forms.CheckBox();
+            this.budgetCheckBox = new System.Windows.Forms.CheckBox();
+            this.dollarSelector = new System.Windows.Forms.NumericUpDown();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RecipeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeContextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dollarSelector)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uxButton_AddRecipe
             // 
-            this.uxButton_AddRecipe.Location = new System.Drawing.Point(328, 297);
+            this.uxButton_AddRecipe.Location = new System.Drawing.Point(328, 339);
             this.uxButton_AddRecipe.Name = "uxButton_AddRecipe";
             this.uxButton_AddRecipe.Size = new System.Drawing.Size(98, 34);
             this.uxButton_AddRecipe.TabIndex = 2;
@@ -97,7 +100,7 @@
             this.FormattedPrice,
             this.Rating});
             this.RecipeDataGridView.DataSource = this.RecipeBindingSource;
-            this.RecipeDataGridView.Location = new System.Drawing.Point(27, 77);
+            this.RecipeDataGridView.Location = new System.Drawing.Point(27, 107);
             this.RecipeDataGridView.Margin = new System.Windows.Forms.Padding(1);
             this.RecipeDataGridView.MultiSelect = false;
             this.RecipeDataGridView.Name = "RecipeDataGridView";
@@ -108,18 +111,6 @@
             this.RecipeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecipeDataGridView_CellDoubleClick);
             this.RecipeDataGridView.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.RecipeDataGridView_RowContextMenuStripNeeded);
             this.RecipeDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RecipeDataGridView_MouseDown);
-            // 
-            // availableWithPantryCheckBox
-            // 
-            this.availableWithPantryCheckBox.AutoSize = true;
-            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(27, 22);
-            this.availableWithPantryCheckBox.Margin = new System.Windows.Forms.Padding(1);
-            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
-            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(265, 41);
-            this.availableWithPantryCheckBox.TabIndex = 4;
-            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
-            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
-            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
             // 
             // FormattedPrice
             // 
@@ -136,6 +127,36 @@
             this.Rating.HeaderText = "Rating";
             this.Rating.Name = "Rating";
             this.Rating.ReadOnly = true;
+            // 
+            // availableWithPantryCheckBox
+            // 
+            this.availableWithPantryCheckBox.AutoSize = true;
+            this.availableWithPantryCheckBox.Location = new System.Drawing.Point(27, 22);
+            this.availableWithPantryCheckBox.Margin = new System.Windows.Forms.Padding(1);
+            this.availableWithPantryCheckBox.Name = "availableWithPantryCheckBox";
+            this.availableWithPantryCheckBox.Size = new System.Drawing.Size(265, 41);
+            this.availableWithPantryCheckBox.TabIndex = 4;
+            this.availableWithPantryCheckBox.Text = "Only show recipes I can make with my pantry";
+            this.availableWithPantryCheckBox.UseVisualStyleBackColor = true;
+            this.availableWithPantryCheckBox.CheckedChanged += new System.EventHandler(this.availableWithPantryCheckBox_CheckedChanged);
+            // 
+            // budgetCheckBox
+            // 
+            this.budgetCheckBox.AutoSize = true;
+            this.budgetCheckBox.Location = new System.Drawing.Point(27, 64);
+            this.budgetCheckBox.Margin = new System.Windows.Forms.Padding(1);
+            this.budgetCheckBox.Name = "budgetCheckBox";
+            this.budgetCheckBox.Size = new System.Drawing.Size(272, 41);
+            this.budgetCheckBox.TabIndex = 5;
+            this.budgetCheckBox.Text = "Only show recipes with a dollar cost less than: ";
+            this.budgetCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // dollarSelector
+            // 
+            this.dollarSelector.Location = new System.Drawing.Point(275, 60);
+            this.dollarSelector.Name = "dollarSelector";
+            this.dollarSelector.Size = new System.Drawing.Size(120, 20);
+            this.dollarSelector.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -163,7 +184,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 360);
+            this.ClientSize = new System.Drawing.Size(464, 386);
+            this.Controls.Add(this.dollarSelector);
+            this.Controls.Add(this.budgetCheckBox);
             this.Controls.Add(this.availableWithPantryCheckBox);
             this.Controls.Add(this.RecipeDataGridView);
             this.Controls.Add(this.uxButton_AddRecipe);
@@ -174,6 +197,7 @@
             this.Text = "Home";
             this.recipeContextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RecipeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dollarSelector)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RecipeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,5 +220,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
+        private System.Windows.Forms.CheckBox budgetCheckBox;
+        private System.Windows.Forms.NumericUpDown dollarSelector;
     }
 }
