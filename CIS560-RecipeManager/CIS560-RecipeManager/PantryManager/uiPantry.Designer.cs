@@ -31,12 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uxPantryItemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.uxButton_AddIngredient = new System.Windows.Forms.Button();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pantryItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uxButton_AddIngredient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.uxPantryItemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pantryItemBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -60,9 +57,6 @@
             this.uxPantryItemsDataGridView.ColumnHeadersHeight = 40;
             this.uxPantryItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.uxPantryItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn5,
             this.Quantity});
             this.uxPantryItemsDataGridView.DataSource = this.pantryItemBindingSource;
             this.uxPantryItemsDataGridView.Location = new System.Drawing.Point(12, 12);
@@ -77,6 +71,12 @@
             this.uxPantryItemsDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.uxPantryItemsDataGridView_CellEndEdit);
             this.uxPantryItemsDataGridView.BindingContextChanged += new System.EventHandler(this.uxPantryItemsDataGridView_BindingContextChanged);
             // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
             // uxButton_AddIngredient
             // 
             this.uxButton_AddIngredient.Location = new System.Drawing.Point(399, 337);
@@ -87,41 +87,6 @@
             this.uxButton_AddIngredient.Text = "Add Ingredient";
             this.uxButton_AddIngredient.UseVisualStyleBackColor = true;
             this.uxButton_AddIngredient.Click += new System.EventHandler(this.addIngredientButton_Click);
-            // 
-            // Quantity
-            // 
-            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Unit";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Unit";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "FormattedPrice";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // pantryItemBindingSource
-            // 
-            this.pantryItemBindingSource.DataMember = "IngredientList";
-            this.pantryItemBindingSource.DataSource = typeof(CIS560_RecipeManager.PantryManager.PantryViewModel);
             // 
             // uiPantry
             // 
@@ -149,9 +114,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceInCentsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn formattedPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
     }
 }
