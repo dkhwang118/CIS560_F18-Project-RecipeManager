@@ -21,7 +21,7 @@ namespace CIS560_RecipeManager
 
         private void PopulateIngredientQuantities()
         {
-            for (int i = 0; i < uxPantryItemsDataGridView.RowCount; i++)
+            for (int i = 0; i < _pantry.IngredientQuantities.Count && i < uxPantryItemsDataGridView.RowCount; i++)
             {
                 uxPantryItemsDataGridView.Rows[i].Cells[3].Value = _pantry.IngredientQuantities[i];
             }
@@ -31,6 +31,7 @@ namespace CIS560_RecipeManager
         {
             _launchAddIngredientDelegate();
             _pantry.PopulateBindingLists();
+            PopulateIngredientQuantities();
         }
 
         private void uxPantryItemsDataGridView_BindingContextChanged(object sender, EventArgs e)
