@@ -95,7 +95,6 @@
     <Compile Include="PantryManager\Ingredient.cs" />
     <Compile Include="PantryManager\Pantry.cs" />
     <Compile Include="PantryManager\PantryController.cs" />
-    <Compile Include="PantryManager\PantryViewModel.cs" />
     <Compile Include="PantryManager\uiAddIngredient.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGenerator\DataGenerator.cs" />
     <Compile Include="DGVGrouper\DataGridViewGrouper.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -94,34 +95,59 @@
     <Compile Include="PantryManager\Ingredient.cs" />
     <Compile Include="PantryManager\Pantry.cs" />
     <Compile Include="PantryManager\PantryController.cs" />
+    <Compile Include="PantryManager\PantryViewModel.cs" />
     <Compile Include="PantryManager\uiAddIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PantryManager\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
     <Compile Include="PantryManager\uiUpdateIngredient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PantryManager\uiUpdateIngredient.Designer.cs">
       <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+>>>>>>> origin/master
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="RecipeManager\EditRecipeViewModel.cs" />
+    <Compile Include="RecipeManager\RateRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeManager\RateRecipeForm.Designer.cs">
+      <DependentUpon>RateRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeManager\Recipe.cs" />
     <Compile Include="RecipeManager\RecipeController.cs" />
-    <Compile Include="RecipeManager\RecipeIngredient.cs" />
     <Compile Include="RecipeManager\RecipeInventory.cs" />
     <Compile Include="Repository\Query\CookRecipe.cs" />
+    <Compile Include="Repository\Query\CreateShoppingList.cs" />
     <Compile Include="Repository\Query\DeleteRecipe.cs" />
+    <Compile Include="Repository\Query\GetAffordableRecipes.cs" />
+    <Compile Include="Repository\Query\GetAvgRatingPerCategory.cs" />
+    <Compile Include="Repository\Query\GetPantryContents.cs" />
+    <Compile Include="Repository\Query\GetAllRecipes.cs" />
+    <Compile Include="Repository\Query\GetAllShoppingLists.cs" />
     <Compile Include="Repository\Query\GetAvailableRecipes.cs" />
     <Compile Include="Repository\Query\CreateRecipeCategory.cs" />
     <Compile Include="Repository\Query\CreateIngredient.cs" />
     <Compile Include="Repository\Query\CreateRecipe.cs" />
     <Compile Include="Repository\Query\DeleteRecipeCategory.cs" />
     <Compile Include="Repository\Query\GetRecipeCategories.cs" />
+    <Compile Include="Repository\Query\GetRecipeCategory.cs" />
+    <Compile Include="Repository\Query\GetRecipesCookedLeastRecent.cs" />
+    <Compile Include="Repository\Query\GetRecipesNotCooked.cs" />
+    <Compile Include="Repository\Query\GetTopRatedRecipesWithTies.cs" />
+    <Compile Include="Repository\Query\RateRecipe.cs" />
     <Compile Include="Repository\Query\ReadRecipe.cs" />
     <Compile Include="Repository\Query\ReadIngredient.cs" />
     <Compile Include="Repository\IQuery.cs" />
@@ -131,7 +157,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Repository\QueryStub\QueryStub.cs" />
     <Compile Include="Repository\Query\UpdateIngredientQuantity.cs" />
     <Compile Include="Repository\Query\UpdateRecipe.cs" />
     <Compile Include="ShoppingListManager\ShoppingList.cs" />
@@ -159,6 +184,24 @@
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListManager\ShoppingListController.cs" />
+    <Compile Include="ShoppingListManager\uiAddShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiAddShoppingList.Designer.cs">
+      <DependentUpon>uiAddShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShoppingList.Designer.cs">
+      <DependentUpon>uiShoppingList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,41 +220,50 @@
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
 <<<<<<< HEAD
+=======
     <EmbeddedResource Include="PantryManager\uiUpdateIngredient.resx">
       <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RecipeManager\uiAddRecipeForm.resx">
-      <DependentUpon>uiAddRecipeForm.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
-      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
->>>>>>> master
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+>>>>>>> origin/master
+    <EmbeddedResource Include="RecipeManager\RateRecipeForm.resx">
+      <DependentUpon>RateRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
+      <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiRecipe.resx">
       <DependentUpon>uiRecipe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiAddShoppingList.resx">
+      <DependentUpon>uiAddShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiShoppingList.resx">
+      <DependentUpon>uiShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
+      <DependentUpon>uiShowShoppingList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.PantryManager.PantryViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.EditRecipeViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\MyPantry.datasource" />
     <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
+    <None Include="Properties\DataSources\uiPantry.datasource" />
     <None Include="Properties\DataSources\uiRecipe.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -257,9 +309,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\wordlist.txt" />
     <Content Include="Sql\GetAvailableRecipes.sql" />
     <Content Include="Sql\SampleData\AddPantryItem.sql" />
     <Content Include="Sql\SampleData\AddRecipe.sql" />
+    <Content Include="Sql\SampleData\wordlist-citation.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
