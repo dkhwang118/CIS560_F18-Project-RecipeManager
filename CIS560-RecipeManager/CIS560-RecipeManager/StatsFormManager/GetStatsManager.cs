@@ -27,7 +27,7 @@ namespace CIS560_RecipeManager.StatsFormManager
             // method to update the DGV with query information.
         }
 
-        public IDictionary<Recipe, string> GetLeastRecentlyCookedRecipes()
+        public IDictionary<string, string> GetLeastRecentlyCookedRecipes()
         {
             return _query.GetRecipesCookedLeastRecent();
         }

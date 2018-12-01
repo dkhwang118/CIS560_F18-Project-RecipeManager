@@ -59,22 +59,31 @@
             // 
             // uxDGV_RecipesCookedStatsOutput
             // 
+            this.uxDGV_RecipesCookedStatsOutput.AllowUserToAddRows = false;
+            this.uxDGV_RecipesCookedStatsOutput.AllowUserToDeleteRows = false;
+            this.uxDGV_RecipesCookedStatsOutput.AllowUserToResizeColumns = false;
+            this.uxDGV_RecipesCookedStatsOutput.AllowUserToResizeRows = false;
+            this.uxDGV_RecipesCookedStatsOutput.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.uxDGV_RecipesCookedStatsOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.uxDGV_RecipesCookedStatsOutput.Location = new System.Drawing.Point(494, 41);
+            this.uxDGV_RecipesCookedStatsOutput.Location = new System.Drawing.Point(492, 41);
             this.uxDGV_RecipesCookedStatsOutput.Name = "uxDGV_RecipesCookedStatsOutput";
+            this.uxDGV_RecipesCookedStatsOutput.ReadOnly = true;
+            this.uxDGV_RecipesCookedStatsOutput.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.uxDGV_RecipesCookedStatsOutput.RowTemplate.Height = 33;
-            this.uxDGV_RecipesCookedStatsOutput.Size = new System.Drawing.Size(784, 669);
+            this.uxDGV_RecipesCookedStatsOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDGV_RecipesCookedStatsOutput.Size = new System.Drawing.Size(800, 669);
             this.uxDGV_RecipesCookedStatsOutput.TabIndex = 2;
+            this.uxDGV_RecipesCookedStatsOutput.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.uxDGV_RecipesCookedStatsOutput_CellDoubleClick);
             // 
             // uiNotCookedLatelyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 779);
+            this.ClientSize = new System.Drawing.Size(1330, 749);
             this.Controls.Add(this.uxDGV_RecipesCookedStatsOutput);
             this.Controls.Add(this.uxButton_ShowUncookedRecipes);
             this.Controls.Add(this.uxButton_ShowLeastRecentCookedRecipes);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "uiNotCookedLatelyForm";
             this.Text = "What have I not cooked lately?";

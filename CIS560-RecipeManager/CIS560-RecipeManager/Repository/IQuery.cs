@@ -43,7 +43,7 @@ namespace CIS560_RecipeManager
 
         IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory();
 
-        IDictionary<Recipe, string> GetRecipesCookedLeastRecent();
+        IDictionary<string, string> GetRecipesCookedLeastRecent();
 
         ICollection<Recipe> GetRecipesNotCooked();
     }
