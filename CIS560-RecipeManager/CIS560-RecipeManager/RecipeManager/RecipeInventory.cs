@@ -110,9 +110,17 @@ namespace CIS560_RecipeManager.RecipeManager
             _query.RateRecipe(recipe, rating);
         }
 
-        public void CookRecipe(Recipe recipe)
+        public bool TryCookRecipe(Recipe recipe)
         {
-            _query.CookRecipe(recipe);
+            try
+            {
+                _query.CookRecipe(recipe);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

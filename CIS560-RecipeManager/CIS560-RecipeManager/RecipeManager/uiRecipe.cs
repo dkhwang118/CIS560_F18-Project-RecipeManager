@@ -68,8 +68,14 @@ namespace CIS560_RecipeManager
         {
             var row = RecipeDataGridView.SelectedRows[0];
             Recipe recipe = (Recipe)row.DataBoundItem;
-            _recipeInventory.CookRecipe(recipe);
-            MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
+            if (_recipeInventory.TryCookRecipe(recipe))
+            {
+                MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
+            }
+            else
+            {
+                MessageBox.Show("Sorry! You don't have enough ingredients.");
+            }
         }
 
         private void RecipeDataGridView_MouseDown(object sender, MouseEventArgs e)
