@@ -37,7 +37,7 @@ namespace CIS560_RecipeManager.StatsFormManager
             return _query.GetRecipesNotCooked();
         }
 
-        public ICollection<Recipe> GetTopRatedRecipesWithTies(int amtPerCategory = 5)
+        public ICollection<Recipe> GetTopRatedRecipesWithTies(int amtPerCategory)
         {
             return _query.GetTopRatedRecipesWithTies(amtPerCategory);
         }

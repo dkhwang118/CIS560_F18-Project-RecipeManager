@@ -18,5 +18,12 @@ namespace CIS560_RecipeManager.StatsFormManager
             _statsManager = gsm;
             InitializeComponent();
         }
+
+        private void uxButton_GetTopRatedRecipesPerCategory_Click(object sender, EventArgs e)
+        {
+            RecipeRatingsBindingSource.DataSource = _statsManager.GetTopRatedRecipesWithTies(Convert.ToInt32(uxTextBox_AmtPerCategoryToReturn.Text));
+            uxDGV_RecipeRatingOutput.DataSource = RecipeRatingsBindingSource;
+
+        }
     }
 }

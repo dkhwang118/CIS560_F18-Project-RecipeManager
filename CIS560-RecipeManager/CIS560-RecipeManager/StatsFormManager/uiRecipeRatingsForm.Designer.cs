@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.uxButton_GetTopRatedRecipesPerCategory = new System.Windows.Forms.Button();
             this.uxLabel_GetTopRatedRecipesPerCategory = new System.Windows.Forms.Label();
             this.uxLabel_GetTopRatedRecipesPerCategory2ndHalf = new System.Windows.Forms.Label();
             this.uxTextBox_AmtPerCategoryToReturn = new System.Windows.Forms.TextBox();
             this.uxDGV_RecipeRatingOutput = new System.Windows.Forms.DataGridView();
+            this.RecipeRatingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uxDGV_RecipeRatingOutput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeRatingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uxButton_GetTopRatedRecipesPerCategory
@@ -44,6 +47,7 @@
             this.uxButton_GetTopRatedRecipesPerCategory.TabIndex = 0;
             this.uxButton_GetTopRatedRecipesPerCategory.Text = "Get Recipes";
             this.uxButton_GetTopRatedRecipesPerCategory.UseVisualStyleBackColor = true;
+            this.uxButton_GetTopRatedRecipesPerCategory.Click += new System.EventHandler(this.uxButton_GetTopRatedRecipesPerCategory_Click);
             // 
             // uxLabel_GetTopRatedRecipesPerCategory
             // 
@@ -67,11 +71,16 @@
             // 
             // uxTextBox_AmtPerCategoryToReturn
             // 
+            this.uxTextBox_AmtPerCategoryToReturn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uxTextBox_AmtPerCategoryToReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxTextBox_AmtPerCategoryToReturn.Location = new System.Drawing.Point(168, 59);
             this.uxTextBox_AmtPerCategoryToReturn.Name = "uxTextBox_AmtPerCategoryToReturn";
             this.uxTextBox_AmtPerCategoryToReturn.Size = new System.Drawing.Size(55, 44);
             this.uxTextBox_AmtPerCategoryToReturn.TabIndex = 3;
+            this.uxTextBox_AmtPerCategoryToReturn.Text = "5";
+            this.uxTextBox_AmtPerCategoryToReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // uxDGV_RecipeRatingOutput
             // 
@@ -98,6 +107,7 @@
             this.Name = "uiRecipeRatingsForm";
             this.Text = "Recipe Ratings";
             ((System.ComponentModel.ISupportInitialize)(this.uxDGV_RecipeRatingOutput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RecipeRatingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,5 +120,6 @@
         private System.Windows.Forms.Label uxLabel_GetTopRatedRecipesPerCategory2ndHalf;
         private System.Windows.Forms.TextBox uxTextBox_AmtPerCategoryToReturn;
         private System.Windows.Forms.DataGridView uxDGV_RecipeRatingOutput;
+        private System.Windows.Forms.BindingSource RecipeRatingsBindingSource;
     }
 }
