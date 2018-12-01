@@ -16,8 +16,10 @@ namespace CIS560_RecipeManager.ShoppingListManager
     {
         private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
-        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory)
+        private ICollection<Recipe> _recipes;
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes)
         {
+            _recipes = recipes;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             _getShoppingListDelegate = getShoppingList;
@@ -35,15 +37,17 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private void uxButton_CreateShoppingListFromRecipe_Click(object sender, EventArgs e)
         {
             ICollection<Recipe> recipes = new List<Recipe>();
-            foreach(Recipe recipe in _recipeInventory.VisibleRecipes)
+            int idData = 0;
+            int idRecipe = 0;
+            foreach (DataGridViewRow row in uxDataGridView_RecipesForShoppingList.SelectedRows)
             {
-                foreach (DataGridViewRow row in uxDataGridView_RecipesForShoppingList.SelectedRows)
+                for(int i = 0; i < _recipeInventory.VisibleRecipes.Count; i++)
                 {
-                    if(recipe.Name == row.DataBoundItem.ToString())
+                    if (_recipeInventory.VisibleRecipes[i].Id == Convert.ToInt32(row.Cells["ID"].Value.ToString()))
                     {
-                        recipes.Add(recipe);
+                        recipes.Add(_recipeInventory.VisibleRecipes[i]);
                     }
-                }      
+                } 
             }
             _getShoppingListDelegate(uxTextBox_ShoppingListName.Text, recipes);
             Close();

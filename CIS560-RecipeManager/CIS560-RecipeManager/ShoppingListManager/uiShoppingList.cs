@@ -29,14 +29,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.ShoppingList' table. You can move, or remove it, as needed.
             this.shoppingListTableAdapter.Fill(this.recipeDatabaseDataSet.ShoppingList);
-            foreach(ShoppingList list in _shoppingLists)
-            {
-                for(int i = 0; i < _shoppingLists.Count; i ++)
-                {
-                    uxDataGridView_ShoppingList.Rows[i].Cells[0].Value = list.Name;
-                }
-            }
-
+            //foreach(ShoppingList list in _shoppingLists)
+            //{
+            //    for(int i = 0; i < _shoppingLists.Count; i ++)
+            //    {
+            //        uxDataGridView_ShoppingList.Rows[i].Cells[0].Value = list.Name;
+            //    }
+            //}
         }
 
         private void uxButton_AddShoppingList_Click(object sender, EventArgs e)

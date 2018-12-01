@@ -33,13 +33,14 @@
             this.uxTextBox_ShoppingListName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.uxDataGridView_RecipesForShoppingList = new System.Windows.Forms.DataGridView();
-            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.recipesTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.RecipesTableAdapter();
             this.RecipeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_RecipesForShoppingList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // uxButton_CreateShoppingListFromRecipe
@@ -73,22 +74,24 @@
             this.uxDataGridView_RecipesForShoppingList.AutoGenerateColumns = false;
             this.uxDataGridView_RecipesForShoppingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.uxDataGridView_RecipesForShoppingList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RecipeNameColumn});
+            this.RecipeNameColumn,
+            this.ID});
             this.uxDataGridView_RecipesForShoppingList.DataSource = this.recipesBindingSource;
             this.uxDataGridView_RecipesForShoppingList.Location = new System.Drawing.Point(-1, -1);
             this.uxDataGridView_RecipesForShoppingList.Name = "uxDataGridView_RecipesForShoppingList";
+            this.uxDataGridView_RecipesForShoppingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uxDataGridView_RecipesForShoppingList.Size = new System.Drawing.Size(455, 205);
             this.uxDataGridView_RecipesForShoppingList.TabIndex = 5;
-            // 
-            // recipeDatabaseDataSet
-            // 
-            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
-            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // recipesBindingSource
             // 
             this.recipesBindingSource.DataMember = "Recipes";
             this.recipesBindingSource.DataSource = this.recipeDatabaseDataSet;
+            // 
+            // recipeDatabaseDataSet
+            // 
+            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
+            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // recipesTableAdapter
             // 
@@ -100,6 +103,14 @@
             this.RecipeNameColumn.DataPropertyName = "RecipeName";
             this.RecipeNameColumn.HeaderText = "Recipe";
             this.RecipeNameColumn.Name = "RecipeNameColumn";
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "RecipeID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // uiAddShoppingList
             // 
@@ -114,8 +125,8 @@
             this.Text = "Add a Shopping List";
             this.Load += new System.EventHandler(this.uiAddShoppingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_RecipesForShoppingList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +141,6 @@
         private System.Windows.Forms.BindingSource recipesBindingSource;
         private RecipeDatabaseDataSetTableAdapters.RecipesTableAdapter recipesTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecipeNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }
