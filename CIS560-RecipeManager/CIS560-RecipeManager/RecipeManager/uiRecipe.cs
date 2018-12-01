@@ -10,16 +10,19 @@ namespace CIS560_RecipeManager
         private Action _launchAddRecipeForm;
         private Action<Recipe> _launchEditRecipeForm;
         private RecipeInventory _recipeInventory;
+        private Func<Recipe, bool> _cookRecipe;
         private DataGridViewGrouper _grouper;
 
         public uiRecipe(
             Action launchAddRecipeForm,
             Action<Recipe> launchEditRecipeForm,
+            Func<Recipe, bool> cookRecipe,
             RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
             _launchEditRecipeForm = launchEditRecipeForm;
             _recipeInventory = recipeInventory;
+            _cookRecipe = cookRecipe;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.VisibleRecipes;
             RecipeDataGridView.DataSource = RecipeBindingSource;
@@ -68,7 +71,7 @@ namespace CIS560_RecipeManager
         {
             var row = RecipeDataGridView.SelectedRows[0];
             Recipe recipe = (Recipe)row.DataBoundItem;
-            if (_recipeInventory.TryCookRecipe(recipe))
+            if (_cookRecipe(recipe))
             {
                 MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
             }
