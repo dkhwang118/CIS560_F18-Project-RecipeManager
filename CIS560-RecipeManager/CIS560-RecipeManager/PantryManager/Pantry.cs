@@ -36,6 +36,8 @@ namespace CIS560_RecipeManager
 
         public void PopulateBindingLists()
         {
+            IngredientList.Clear();
+            IngredientQuantities.Clear();
             foreach (var kvp in PantryContents)
             {
                 IngredientList.Add(kvp.Key);
