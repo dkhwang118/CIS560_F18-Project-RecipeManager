@@ -9,9 +9,6 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
-        //private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
-        //public Action<string, ICollection<Recipe>> GetShoppinglistDelegate;
-        //public Action<ShoppingList> GoShoppingDelegate;
         private ShoppingListInventory _shoppingInventory;
         private MyPantry _pantry;
         private RecipeInventory _recipeInventory;
@@ -22,7 +19,6 @@ namespace CIS560_RecipeManager.ShoppingListManager
             _shoppingInventory = shoppingListInventory;
             _pantry = pantry;
             _recipeInventory = recipeInventory;
-            //_shoppingLists = _queryRepository.GetAllShoppingLists();
         }
         public void LaunchShoppingListForm()
         {
@@ -34,24 +30,10 @@ namespace CIS560_RecipeManager.ShoppingListManager
             new uiAddShoppingList(_shoppingInventory.CreateShoppingList, _recipeInventory, recipes, _shoppingInventory).Show();
         }
 
-        //public void GetShoppingList(string name, ICollection<Recipe> recipes)
-        //{
-        //    ShoppingList shoppingList = _queryRepository.CreateShoppingList(name, recipes);
-        //    _shoppingLists.Add(shoppingList);
-        //}
-
         public void LaunchShowShoppingListForm(ShoppingList currentShoppingList)
         {
             new uiShowShoppingList(currentShoppingList).Show();
         }
-
-        //public void GoShopping(ShoppingList list)
-        //{
-        //    foreach(KeyValuePair<Ingredient, int> ingred in list.ShoppingListItems)
-        //    {
-        //        _queryRepository.UpdateIngredientQuantity(ingred.Value, ingred.Key);
-        //    }
-        //}
 
     }
 }

@@ -12,7 +12,6 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiShowShoppingList : Form
     {
-        //private Action<ShoppingList> _showShoppingListDelegate;
         private ShoppingList _currentShoppingList;
         public uiShowShoppingList(ShoppingList currentShoppingList)
         {
