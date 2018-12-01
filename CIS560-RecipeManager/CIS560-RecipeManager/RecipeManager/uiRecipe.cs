@@ -74,6 +74,7 @@ namespace CIS560_RecipeManager
             if (_cookRecipe(recipe))
             {
                 MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
+                UpdateDataGridView();
             }
             else
             {
@@ -104,13 +105,13 @@ namespace CIS560_RecipeManager
                     var row = RecipeDataGridView.SelectedRows[0];
                     Recipe recipe = (Recipe)row.DataBoundItem;
                     _recipeInventory.RateRecipe(recipe, form.Rating);
-                    updateDataGridView(); // update DGV before MessageBox for "instant" update to DGV
+                    UpdateDataGridView(); // update DGV before MessageBox for "instant" update to DGV
                     MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
                 }
             }
         }
 
-        private void updateDataGridView()
+        private void UpdateDataGridView()
         {
             if (budgetCheckBox.Checked)
             {
@@ -140,12 +141,12 @@ namespace CIS560_RecipeManager
 
         private void availableWithPantryCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            updateDataGridView();
+            UpdateDataGridView();
         }
 
         private void budgetCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            updateDataGridView();
+            UpdateDataGridView();
         }
     }
 }
