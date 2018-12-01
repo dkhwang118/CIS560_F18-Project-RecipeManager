@@ -79,13 +79,13 @@ namespace CIS560_RecipeManager.RecipeManager
                 int updatedQuantity = _pantry.PantryContents[item.Key] - item.Value;
 
                 //update the Ingredient quantity in the pantry
-                _pantry.UpdateIngredientQuantity(updatedQuantity, item.Key);
+                _pantry.UpdateIngredientQuantity(item.Key, updatedQuantity);
             }
         }
 
         public void LaunchAddIngredientForm()
         {
-            new uiAddIngredient(CreateIngredient).Show();
+            new uiAddIngredient(CreateIngredient).ShowDialog();
         }
 
         public void CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)

@@ -16,7 +16,7 @@ namespace CIS560_RecipeManager
         {
             get
             {
-                return "$" + (PriceInCents/100).ToString("#.##");
+                return "$" + (PriceInCents/100.0).ToString("0.##");
             }
         }
 
