@@ -148,5 +148,10 @@ namespace CIS560_RecipeManager
         {
             UpdateDataGridView();
         }
+
+        private void uxDollarSelector_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+        }
     }
 }
