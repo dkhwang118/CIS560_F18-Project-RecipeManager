@@ -14,8 +14,8 @@ namespace CIS560_RecipeManager.DataGenerator
         private static int minIngredientNameSize = 1;
         private static int maxIngredientNameSize = 2;
 
-        private static int minQuantity = 0;
-        private static int maxQuantity = 10;
+        private static int minStartingQuantity = 0;
+        private static int maxStartingQuantity = 10;
 
         private static int minPrice = 0;
         private static int maxPrice = 1000;
@@ -45,12 +45,17 @@ namespace CIS560_RecipeManager.DataGenerator
         private static int minRecipeIngredientQuantity = 1;
         private static int maxRecipeIngredientQuantity = 10;
 
-        public static void GenerateAndInsertData()
+        public static void GenerateAndInsertData(IQuery query,
+            int numberOfRecipes,
+            int numberOfCategories,
+            int numberOfIngredients)
         {
-            throw new NotImplementedException("Data Generator not Implemented");
+            var categories = GenerateRecipeCategories(query, numberOfCategories);
+            var ingredients = GenerateIngredients(query, numberOfIngredients);
+            GenerateRecipe(query, numberOfRecipes, categories, ingredients);
         }
 
-        public static IList<Ingredient> GenerateIngredients(IQuery query, int numberOfIngredients)
+        public static List<Ingredient> GenerateIngredients(IQuery query, int numberOfIngredients)
         {
             List<string> words = Properties.Resources.wordlist.Split('\n').ToList();
             List<Ingredient> addedIngredientIds = new List<Ingredient>();
@@ -65,7 +70,7 @@ namespace CIS560_RecipeManager.DataGenerator
                     .Take(numberOfWordsInName)
                     .Aggregate((x, y) => x + " " + y);
                 string measure = measures[rand.Next(measures.Count)];
-                int startQuantity = rand.Next(minQuantity, maxQuantity + 1);
+                int startQuantity = rand.Next(minStartingQuantity, maxStartingQuantity + 1);
                 int priceInCents = rand.Next(minPrice, maxPrice + 1);
                 Ingredient ing = query.CreateIngredient(name, measure, startQuantity, priceInCents);
                 addedIngredientIds.Add(ing);
@@ -74,11 +79,11 @@ namespace CIS560_RecipeManager.DataGenerator
             return addedIngredientIds;
         }
 
-        public static List<int> GenerateRecipeCategories(IQuery query, int numberOfCategories)
+        public static List<RecipeCategory> GenerateRecipeCategories(IQuery query, int numberOfCategories)
         {
 
             List<string> words = Properties.Resources.wordlist.Split('\n').ToList();
-            List<int> addedCategoryIds = new List<int>();
+            List<RecipeCategory> categories = new List<RecipeCategory>();
             Random rand = new Random();
             for (int i = 0; i < numberOfCategories; i++)
             {
@@ -90,14 +95,14 @@ namespace CIS560_RecipeManager.DataGenerator
                     .Take(numberOfWordsInName)
                     .Aggregate((x, y) => x + " " + y);
                 RecipeCategory ing = query.CreateRecipeCategory(name);
-                addedCategoryIds.Add(ing.Id);
+                categories.Add(ing);
             }
 
-            return addedCategoryIds;
+            return categories;
         }
 
         public static List<Recipe> GenerateRecipe(IQuery query, int numberOfRecipes,
-            IReadOnlyList<RecipeCategory> categoryIds, IReadOnlyList<Ingredient> ingredients)
+            IReadOnlyList<RecipeCategory> categories, IReadOnlyList<Ingredient> ingredients)
         {
 
             List<string> words = Properties.Resources.wordlist.Split('\n').ToList();
@@ -115,13 +120,13 @@ namespace CIS560_RecipeManager.DataGenerator
 
                 string description = words
                     .OrderBy(_ => rand.NextDouble())
-                    .Take(numberOfWordsInName)
+                    .Take(numberOfWordsInDescription)
                     .Aggregate((x, y) => rand.NextDouble() < probOfNewlineInDescription ? x + "\n" + y : x + " " + y );
 
-                RecipeCategory categoryId = categoryIds[rand.Next(categoryIds.Count)];
+                RecipeCategory categoryId = categories[rand.Next(categories.Count)];
 
                 Dictionary<Ingredient, int> recipeIngredients = new Dictionary<Ingredient, int>();
-                int numberOfIngredients = rand.Next(minRecipeIngredients, Math.Max(maxRecipeIngredients + 1, ingredients.Count));
+                int numberOfIngredients = rand.Next(minRecipeIngredients, Math.Min(maxRecipeIngredients + 1, ingredients.Count));
 
                 foreach (var ing in ingredients
                     .OrderBy(_ => rand.NextDouble())
