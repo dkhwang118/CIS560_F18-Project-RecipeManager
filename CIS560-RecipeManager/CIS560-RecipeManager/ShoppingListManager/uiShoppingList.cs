@@ -15,10 +15,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private Action _launchAddShoppingListDelegate;
         private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
         private Action<ShoppingList> _launchShowShoppingListDelegate;
-        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ICollection<ShoppingList> shoppingLists)
+        private Action<ShoppingList> _launchGoShoppingDelegate;
+        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ICollection<ShoppingList> shoppingLists, Action<ShoppingList> goShoppingDelegate)
         {
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
+            _launchGoShoppingDelegate = goShoppingDelegate;
             _shoppingLists = shoppingLists;
             InitializeComponent();
         }
@@ -50,6 +52,16 @@ namespace CIS560_RecipeManager.ShoppingListManager
                 current = (ShoppingList)row.DataBoundItem;
             }
             _launchShowShoppingListDelegate(current);
+        }
+
+        private void uxButton_ShopFromList_Click(object sender, EventArgs e)
+        {
+            ShoppingList current = new ShoppingList(0, "name");
+            foreach (DataGridViewRow row in uxDataGridView_ShoppingList.SelectedRows)
+            {
+                current = (ShoppingList)row.DataBoundItem;
+            }
+            _launchGoShoppingDelegate(current);
         }
     }
 }

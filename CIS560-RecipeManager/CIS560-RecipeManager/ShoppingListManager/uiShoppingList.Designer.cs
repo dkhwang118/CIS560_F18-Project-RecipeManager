@@ -35,6 +35,7 @@
             this.shoppingListTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter();
             this.uxButton_AddShoppingList = new System.Windows.Forms.Button();
             this.uxButton_ShowShoppingList = new System.Windows.Forms.Button();
+            this.uxButton_ShopFromList = new System.Windows.Forms.Button();
             this.shoppingListNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_ShoppingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shoppingListBindingSource)).BeginInit();
@@ -76,7 +77,7 @@
             this.uxButton_AddShoppingList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.uxButton_AddShoppingList.Location = new System.Drawing.Point(21, 174);
             this.uxButton_AddShoppingList.Name = "uxButton_AddShoppingList";
-            this.uxButton_AddShoppingList.Size = new System.Drawing.Size(150, 52);
+            this.uxButton_AddShoppingList.Size = new System.Drawing.Size(162, 52);
             this.uxButton_AddShoppingList.TabIndex = 1;
             this.uxButton_AddShoppingList.Text = "Add Shopping List";
             this.uxButton_AddShoppingList.UseVisualStyleBackColor = true;
@@ -93,6 +94,17 @@
             this.uxButton_ShowShoppingList.UseVisualStyleBackColor = true;
             this.uxButton_ShowShoppingList.Click += new System.EventHandler(this.uxButton_ShowShoppingList_Click);
             // 
+            // uxButton_ShopFromList
+            // 
+            this.uxButton_ShopFromList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.uxButton_ShopFromList.Location = new System.Drawing.Point(112, 252);
+            this.uxButton_ShopFromList.Name = "uxButton_ShopFromList";
+            this.uxButton_ShopFromList.Size = new System.Drawing.Size(185, 47);
+            this.uxButton_ShopFromList.TabIndex = 3;
+            this.uxButton_ShopFromList.Text = "Shopped Using This List";
+            this.uxButton_ShopFromList.UseVisualStyleBackColor = true;
+            this.uxButton_ShopFromList.Click += new System.EventHandler(this.uxButton_ShopFromList_Click);
+            // 
             // shoppingListNameDataGridViewTextBoxColumn
             // 
             this.shoppingListNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -104,7 +116,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 238);
+            this.ClientSize = new System.Drawing.Size(443, 323);
+            this.Controls.Add(this.uxButton_ShopFromList);
             this.Controls.Add(this.uxButton_ShowShoppingList);
             this.Controls.Add(this.uxButton_AddShoppingList);
             this.Controls.Add(this.uxDataGridView_ShoppingList);
@@ -127,5 +140,6 @@
         private System.Windows.Forms.Button uxButton_AddShoppingList;
         private System.Windows.Forms.Button uxButton_ShowShoppingList;
         private System.Windows.Forms.DataGridViewTextBoxColumn shoppingListNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button uxButton_ShopFromList;
     }
 }
