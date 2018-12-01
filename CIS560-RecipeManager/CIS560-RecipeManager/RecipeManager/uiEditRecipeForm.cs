@@ -81,6 +81,12 @@ namespace CIS560_RecipeManager
 
         private void uxOKButton_Click(object sender, EventArgs e)
         {
+            if (_viewModel.RecipeIngredients.Count == 0)
+            {
+                MessageBox.Show("Your recipe needs ingredients!");
+                return;
+            }
+
             IDictionary<Ingredient, int> ingredients = new Dictionary<Ingredient, int>();
 
             for (int i = 0; i < _viewModel.RecipeIngredients.Count; i++)

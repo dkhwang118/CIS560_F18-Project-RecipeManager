@@ -17,7 +17,7 @@ namespace CIS560_RecipeManager
     {
         private IQuery _query;
 
-        public IDictionary<Ingredient, int> PantryContents { get; } //a dictionary containing key value pairs of what is in the pantry
+        public IDictionary<Ingredient, int> PantryContents { get; set; } //a dictionary containing key value pairs of what is in the pantry
                                                                     //Ingredient for the ingredients
                                                                     //the integer represents the quantity of the ingredient
         public BindingList<Ingredient> IngredientList { get; }
@@ -30,6 +30,12 @@ namespace CIS560_RecipeManager
             _query = query;
             IngredientList = new BindingList<Ingredient>();
             IngredientQuantities = new List<int>();
+            PantryContents = _query.GetPantryContents();
+            PopulateBindingLists();
+        }
+
+        public void RefreshItems()
+        {
             PantryContents = _query.GetPantryContents();
             PopulateBindingLists();
         }
