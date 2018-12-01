@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
@@ -70,6 +71,30 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
+        public void OnlyDisplayBudgetRecipes(int max)
+        {
+            var budget = _query.GetAffordableRecipes(max * 100);
+            VisibleRecipes.Clear();
+            foreach(var r in budget)
+            {
+                VisibleRecipes.Add(r);
+            }
+        }
+
+        public void OnlyDisplayAvailableAndBudgetRecipes(int max)
+        {
+            var available = _query.GetAvailableRecipes();
+            var budget = _query.GetAffordableRecipes(max * 100);
+            VisibleRecipes.Clear();
+            foreach (var r in _totalRecipes)
+            {
+                if(available.Any(x => x.Id == r.Id &&budget.Any(y => y.Id == r.Id)))
+                {
+                    VisibleRecipes.Add(r);
+                }
+            }
+        }
+
         public void DisplayAllRecipes()
         {
             VisibleRecipes.Clear();
@@ -83,6 +108,11 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             recipe.Rating = rating;
             _query.RateRecipe(recipe, rating);
+        }
+
+        public void CookRecipe(Recipe recipe)
+        {
+            _query.CookRecipe(recipe);
         }
     }
 }
