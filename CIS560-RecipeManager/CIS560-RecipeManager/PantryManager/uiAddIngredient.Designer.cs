@@ -83,7 +83,7 @@
             this.label1.Location = new System.Drawing.Point(641, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(508, 38);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 6;
             this.label1.Text = "(e.g. cup, quart, ounce, gram, etc)";
             // 
             // uxLabel_PantryQuantity
@@ -93,7 +93,7 @@
             this.uxLabel_PantryQuantity.Location = new System.Drawing.Point(19, 79);
             this.uxLabel_PantryQuantity.Name = "uxLabel_PantryQuantity";
             this.uxLabel_PantryQuantity.Size = new System.Drawing.Size(540, 55);
-            this.uxLabel_PantryQuantity.TabIndex = 5;
+            this.uxLabel_PantryQuantity.TabIndex = 4;
             this.uxLabel_PantryQuantity.Text = "Initial Quantity in Pantry:";
             // 
             // uxTextBox_PantryQuantity
@@ -102,14 +102,14 @@
             this.uxTextBox_PantryQuantity.Location = new System.Drawing.Point(203, 76);
             this.uxTextBox_PantryQuantity.Name = "uxTextBox_PantryQuantity";
             this.uxTextBox_PantryQuantity.Size = new System.Drawing.Size(432, 62);
-            this.uxTextBox_PantryQuantity.TabIndex = 6;
+            this.uxTextBox_PantryQuantity.TabIndex = 5;
             // 
             // uxButton_AddIngredient
             // 
             this.uxButton_AddIngredient.Location = new System.Drawing.Point(203, 144);
             this.uxButton_AddIngredient.Name = "uxButton_AddIngredient";
             this.uxButton_AddIngredient.Size = new System.Drawing.Size(432, 33);
-            this.uxButton_AddIngredient.TabIndex = 7;
+            this.uxButton_AddIngredient.TabIndex = 9;
             this.uxButton_AddIngredient.Text = "Add Ingredient to Pantry List";
             this.uxButton_AddIngredient.UseVisualStyleBackColor = true;
             this.uxButton_AddIngredient.Click += new System.EventHandler(this.uxButton_AddIngredient_Click);
@@ -129,7 +129,7 @@
             this.label2.Location = new System.Drawing.Point(66, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(335, 55);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 7;
             this.label2.Text = "Price in Cents:";
             // 
             // uiAddIngredient
