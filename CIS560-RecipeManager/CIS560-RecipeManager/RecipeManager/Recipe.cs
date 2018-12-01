@@ -43,7 +43,7 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             get
             {
-                return "$" + (PriceInCents / 100).ToString("#.##");
+                return "$" + (PriceInCents / 100.0).ToString("0.##");
             }
         }
 

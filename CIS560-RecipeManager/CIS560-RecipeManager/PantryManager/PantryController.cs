@@ -14,12 +14,13 @@ namespace CIS560_RecipeManager.PantryManager
 
         public void LaunchPantryForm()
         {
-            new uiPantry(LaunchAddIngredientForm).Show();
+            new uiPantry(
+                LaunchAddIngredientForm,_pantry).ShowDialog();
         }
 
         public void LaunchAddIngredientForm()
         {
-            new uiAddIngredient(CreateIngredient).Show();
+            new uiAddIngredient(CreateIngredient).ShowDialog();
         }
 
         public void CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)

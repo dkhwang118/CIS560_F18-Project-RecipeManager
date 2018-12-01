@@ -2,13 +2,29 @@
 	@MaxMoneyToSpendInCents INT
 
 AS
-SELECT DISTINCT tempCTE.RecipeID, tempCTE.RecipeCostInCents
+SELECT DISTINCT recipeCostCTE.RecipeID, recipeCostCTE.RecipeCostInCents
 FROM 
-( 
-	SELECT r.RecipeID, 
-		(SUM(pItem.UnitPriceInCents * (rIng.RecipeQuantity - pItem.QuantityInPantry)) OVER(PARTITION BY r.RecipeID)) RecipeCostInCents
-	FROM	[dbo].Recipes r
-	INNER JOIN [dbo].RecipeIngredient rIng ON r.RecipeID = rIng.RecipeID
-	INNER JOIN [dbo].PantryItem pItem ON rIng.PantryItemID = pItem.PantryItemID
-	) tempCTE
-WHERE RecipeCostInCents <= @MaxMoneyToSpendInCents 
+(
+	SELECT ingToBuyCTE.RecipeID, 
+		(SUM(ingToBuyCTE.IngCostInCents) OVER (PARTITION BY ingToBuyCTE.RecipeID)) AS RecipeCostInCents
+	FROM
+	(
+		SELECT rIng.PantryItemID, rIng.RecipeID, 
+			SUM(pItem.UnitPriceInCents * (rIng.RecipeQuantity - pItem.QuantityInPantry)) AS IngCostInCents
+		FROM	[dbo].RecipeIngredient rIng
+			LEFT JOIN [dbo].PantryItem pItem ON rIng.PantryItemID = pItem.PantryItemID
+			LEFT JOIN [dbo].Recipes r ON rIng.RecipeID = r.RecipeID
+		WHERE (pItem.QuantityInPantry - rIng.RecipeQuantity) < 0
+		GROUP BY rIng.PantryItemID, rIng.RecipeID
+		UNION
+		SELECT rIng.PantryItemID, rIng.RecipeID, 
+			SUM(0) AS IngCostInCents
+		FROM	[dbo].RecipeIngredient rIng
+			LEFT JOIN [dbo].PantryItem pItem ON rIng.PantryItemID = pItem.PantryItemID
+			LEFT JOIN [dbo].Recipes r ON rIng.RecipeID = r.RecipeID
+		WHERE (pItem.QuantityInPantry - rIng.RecipeQuantity) >= 0
+		GROUP BY rIng.PantryItemID, rIng.RecipeID
+		) ingToBuyCTE
+
+	) RecipeCostCTE
+	WHERE recipeCostCTE.RecipeCostInCents <= @MaxMoneyToSpendInCents
