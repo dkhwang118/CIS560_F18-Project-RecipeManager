@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CIS560_RecipeManager.RecipeManager;
 
 namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiShoppingList : Form
     {
-        private Action _launchAddShoppingListDelegate;
+        private Action<string, ICollection<Recipe>> _launchAddShoppingListDelegate;
+        private ShoppingListInventory _shoppingListInventory;
         private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
         private Action<ShoppingList> _launchShowShoppingListDelegate;
-        private Action<ShoppingList> _launchGoShoppingDelegate;
-        public uiShoppingList(Action launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ICollection<ShoppingList> shoppingLists, Action<ShoppingList> goShoppingDelegate)
+        public uiShoppingList(Action<string, ICollection<Recipe>> launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ShoppingListInventory shoppingListInventory)
         {
+            _shoppingListInventory = shoppingListInventory;
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
-            _launchGoShoppingDelegate = goShoppingDelegate;
-            _shoppingLists = shoppingLists;
             InitializeComponent();
         }
 
@@ -29,18 +29,14 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.ShoppingList' table. You can move, or remove it, as needed.
             this.shoppingListTableAdapter.Fill(this.recipeDatabaseDataSet.ShoppingList);
-            //foreach(ShoppingList list in _shoppingLists)
-            //{
-            //    for(int i = 0; i < _shoppingLists.Count; i ++)
-            //    {
-            //        uxDataGridView_ShoppingList.Rows[i].Cells[0].Value = list.Name;
-            //    }
-            //}
         }
 
         private void uxButton_AddShoppingList_Click(object sender, EventArgs e)
         {
-            _launchAddShoppingListDelegate();
+            string name = "";
+            ICollection<Recipe> recipes = new List<Recipe>();
+            _launchAddShoppingListDelegate(name, recipes);
+            uxDataGridView_ShoppingList.Update();
         }
 
         private void uxButton_ShowShoppingList_Click(object sender, EventArgs e)
@@ -50,7 +46,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
             {
                 current = (ShoppingList)row.DataBoundItem;
             }
-            _launchShowShoppingListDelegate(current);
+            new uiShowShoppingList(current).Show();
         }
 
         private void uxButton_ShopFromList_Click(object sender, EventArgs e)
@@ -60,7 +56,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
             {
                 current = (ShoppingList)row.DataBoundItem;
             }
-            _launchGoShoppingDelegate(current);
+            _shoppingListInventory.UpdateIngredients(current);
         }
     }
 }

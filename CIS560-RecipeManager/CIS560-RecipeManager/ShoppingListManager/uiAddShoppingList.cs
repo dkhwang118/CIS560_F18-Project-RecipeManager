@@ -17,8 +17,10 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
         private ICollection<Recipe> _recipes;
-        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes)
+        private ShoppingListInventory _shoppingListInventory;
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes, ShoppingListInventory shoppingListInventory)
         {
+            _shoppingListInventory = shoppingListInventory;
             _recipes = recipes;
             _recipeInventory = recipeInventory;
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
                     }
                 } 
             }
-            _getShoppingListDelegate(uxTextBox_ShoppingListName.Text, recipes);
+            _shoppingListInventory.CreateShoppingList(uxTextBox_ShoppingListName.Text, recipes);
             Close();
         }
     }

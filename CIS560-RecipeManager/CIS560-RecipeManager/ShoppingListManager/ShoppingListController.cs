@@ -9,50 +9,49 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
-        private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
-        public Action<string, ICollection<Recipe>> GetShoppinglistDelegate;
-        public Action<ShoppingList> GoShoppingDelegate;
-        private IQuery _queryRepository;
+        //private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
+        //public Action<string, ICollection<Recipe>> GetShoppinglistDelegate;
+        //public Action<ShoppingList> GoShoppingDelegate;
+        private ShoppingListInventory _shoppingInventory;
         private MyPantry _pantry;
         private RecipeInventory _recipeInventory;
         public ShoppingListController(
-            IQuery query,
+            ShoppingListInventory shoppingListInventory,
             MyPantry pantry, RecipeInventory recipeInventory)
         {
-            _queryRepository = query;
+            _shoppingInventory = shoppingListInventory;
             _pantry = pantry;
             _recipeInventory = recipeInventory;
-            _shoppingLists = _queryRepository.GetAllShoppingLists();
+            //_shoppingLists = _queryRepository.GetAllShoppingLists();
         }
         public void LaunchShoppingListForm()
         {
-            new uiShoppingList(LaunchAddShoppingListForm, LaunchShowShoppingListForm, _shoppingLists, GoShoppingDelegate).Show();
+            new uiShoppingList(LaunchAddShoppingListForm, LaunchShowShoppingListForm, _shoppingInventory).Show();
         }
 
-        public void LaunchAddShoppingListForm()
+        public void LaunchAddShoppingListForm(string name, ICollection<Recipe> recipes)
         {
-            ICollection<Recipe> recipes = _queryRepository.GetAllRecipes();
-            new uiAddShoppingList(GetShoppingList, _recipeInventory, recipes).Show();
+            new uiAddShoppingList(_shoppingInventory.CreateShoppingList, _recipeInventory, recipes, _shoppingInventory).Show();
         }
 
-        public void GetShoppingList(string name, ICollection<Recipe> recipes)
-        {
-            ShoppingList shoppingList = _queryRepository.CreateShoppingList(name, recipes);
-            _shoppingLists.Add(shoppingList);
-        }
+        //public void GetShoppingList(string name, ICollection<Recipe> recipes)
+        //{
+        //    ShoppingList shoppingList = _queryRepository.CreateShoppingList(name, recipes);
+        //    _shoppingLists.Add(shoppingList);
+        //}
 
         public void LaunchShowShoppingListForm(ShoppingList currentShoppingList)
         {
             new uiShowShoppingList(currentShoppingList).Show();
         }
 
-        public void GoShopping(ShoppingList list)
-        {
-            foreach(KeyValuePair<Ingredient, int> ingred in list.ShoppingListItems)
-            {
-                _queryRepository.UpdateIngredientQuantity(ingred.Value, ingred.Key);
-            }
-        }
+        //public void GoShopping(ShoppingList list)
+        //{
+        //    foreach(KeyValuePair<Ingredient, int> ingred in list.ShoppingListItems)
+        //    {
+        //        _queryRepository.UpdateIngredientQuantity(ingred.Value, ingred.Key);
+        //    }
+        //}
 
     }
 }
