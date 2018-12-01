@@ -27,6 +27,8 @@ namespace CIS560_RecipeManager
         {
             
             _query = new Query();
+            DataGenerator.DataGenerator.GenerateAndInsertData(_query, 20, 10, 50);
+
             _recipeInventory = new RecipeInventory(_query);
             _pantry = new MyPantry(_query);
 

@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGenerator\DataGenerator.cs" />
     <Compile Include="DGVGrouper\DataGridViewGrouper.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -100,6 +101,11 @@
     </Compile>
     <Compile Include="PantryManager\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RecipeDatabaseDataSet.cs">
       <DependentUpon>RecipeDatabaseDataSet.xsd</DependentUpon>
@@ -204,21 +210,16 @@
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\RateRecipeForm.resx">
       <DependentUpon>RateRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecipeManager\uiEditRecipeForm.resx">
       <DependentUpon>uiEditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="PantryManager\uiPantry.resx">
       <DependentUpon>uiPantry.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,15 +288,17 @@
   <ItemGroup>
     <Content Include="DGVGrouper\DataGridViewGrouper.csproj" />
     <Content Include="RecipeDatabase.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="RecipeDatabase_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\wordlist.txt" />
     <Content Include="Sql\GetAvailableRecipes.sql" />
     <Content Include="Sql\SampleData\AddPantryItem.sql" />
     <Content Include="Sql\SampleData\AddRecipe.sql" />
+    <Content Include="Sql\SampleData\wordlist-citation.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
