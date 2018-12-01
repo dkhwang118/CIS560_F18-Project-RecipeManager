@@ -108,8 +108,8 @@
             // shoppingListNameDataGridViewTextBoxColumn
             // 
             this.shoppingListNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.shoppingListNameDataGridViewTextBoxColumn.DataPropertyName = "Shopping List Name";
-            this.shoppingListNameDataGridViewTextBoxColumn.HeaderText = "ShoppingListName";
+            this.shoppingListNameDataGridViewTextBoxColumn.DataPropertyName = "ShoppingListName";
+            this.shoppingListNameDataGridViewTextBoxColumn.HeaderText = "Shopping List Name";
             this.shoppingListNameDataGridViewTextBoxColumn.Name = "shoppingListNameDataGridViewTextBoxColumn";
             // 
             // uiShoppingList
@@ -139,7 +139,7 @@
         private RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter shoppingListTableAdapter;
         private System.Windows.Forms.Button uxButton_AddShoppingList;
         private System.Windows.Forms.Button uxButton_ShowShoppingList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shoppingListNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button uxButton_ShopFromList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shoppingListNameDataGridViewTextBoxColumn;
     }
 }

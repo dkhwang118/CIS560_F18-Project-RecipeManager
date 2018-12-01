@@ -15,13 +15,9 @@ namespace CIS560_RecipeManager.ShoppingListManager
     public partial class uiAddShoppingList : Form
     {
         private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
-        private RecipeInventory _recipeInventory;
-        public uiAddShoppingList(RecipeInventory recipeInventory, Action<string, ICollection<Recipe>> getShoppingList)
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList)
         {
-            _recipeInventory = recipeInventory;
             InitializeComponent();
-            recipesBindingSource.DataSource = _recipeInventory.VisibleRecipes;
-            uxDataGridView_RecipesForShoppingList.DataSource = recipesBindingSource;
             _getShoppingListDelegate = getShoppingList;
         }
 
@@ -29,7 +25,8 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
             this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
-
+            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
+            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
 
         }
 

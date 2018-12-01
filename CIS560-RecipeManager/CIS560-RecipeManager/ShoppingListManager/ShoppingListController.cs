@@ -14,16 +14,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
         public Action<ShoppingList> GoShoppingDelegate;
         private IQuery _queryRepository;
         private MyPantry _pantry;
-        private RecipeInventory _recipeInventory;
         
         public ShoppingListController(
             IQuery query,
-            MyPantry pantry,
-            RecipeInventory recipeInventory)
+            MyPantry pantry)
         {
             _queryRepository = query;
             _pantry = pantry;
-            _recipeInventory = recipeInventory;
             _shoppingLists = _queryRepository.GetAllShoppingLists();
         }
         public void LaunchShoppingListForm()
@@ -33,7 +30,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         public void LaunchAddShoppingListForm()
         {
-            new uiAddShoppingList(_recipeInventory, GetShoppingList).Show();
+            new uiAddShoppingList(GetShoppingList).Show();
         }
 
         public void GetShoppingList(string name, ICollection<Recipe> recipes)

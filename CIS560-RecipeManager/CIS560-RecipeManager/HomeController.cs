@@ -34,7 +34,7 @@ namespace CIS560_RecipeManager
 
             _recipeController = new RecipeController(_recipeInventory, _pantry);
             _pantryController = new PantryController(_pantry);
-            _shoppingListController = new ShoppingListController(_query, _pantry, _recipeInventory);
+            _shoppingListController = new ShoppingListController(_query, _pantry);
 
             _launchRecipeManager = _recipeController.LaunchRecipeForm;
             _launchPantryManager = _pantryController.LaunchPantryForm;
