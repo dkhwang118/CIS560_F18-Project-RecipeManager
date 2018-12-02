@@ -34,13 +34,5 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             ShoppingLists.Add(_query.CreateShoppingList(name, recipes));
         }
-
-        public void UpdateIngredients(ShoppingList shoppingList)
-        {
-            foreach(KeyValuePair<Ingredient, int> ingred in shoppingList.ShoppingListItems)
-            {
-                _query.UpdateIngredientQuantity(ingred.Value, ingred.Key);
-            }
-        }
     }
 }

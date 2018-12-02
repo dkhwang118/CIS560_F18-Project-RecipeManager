@@ -22,7 +22,11 @@ namespace CIS560_RecipeManager.ShoppingListManager
         }
         public void LaunchShoppingListForm()
         {
-            new uiShoppingList(LaunchAddShoppingListForm, LaunchShowShoppingListForm, _shoppingInventory).Show();
+            new uiShoppingList(
+                LaunchAddShoppingListForm, 
+                LaunchShowShoppingListForm,
+                AddShoppingListToPantry,
+                _shoppingInventory).Show();
         }
 
         public void LaunchAddShoppingListForm(string name, ICollection<Recipe> recipes)
@@ -33,6 +37,14 @@ namespace CIS560_RecipeManager.ShoppingListManager
         public void LaunchShowShoppingListForm(ShoppingList currentShoppingList)
         {
             new uiShowShoppingList(currentShoppingList).Show();
+        }
+
+        public void AddShoppingListToPantry(ShoppingList shoppingList)
+        {
+            foreach (KeyValuePair<Ingredient, int> ingred in shoppingList.ShoppingListItems)
+            {
+                _pantry.AddIngredientQuantity(ingred.Key, ingred.Value);
+            }
         }
 
     }

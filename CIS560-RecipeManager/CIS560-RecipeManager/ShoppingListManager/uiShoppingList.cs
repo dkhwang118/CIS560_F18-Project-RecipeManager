@@ -15,10 +15,16 @@ namespace CIS560_RecipeManager.ShoppingListManager
     {
         private Action<string, ICollection<Recipe>> _launchAddShoppingListDelegate;
         private ShoppingListInventory _shoppingListInventory;
-        private ICollection<ShoppingList> _shoppingLists = new List<ShoppingList>();
         private Action<ShoppingList> _launchShowShoppingListDelegate;
-        public uiShoppingList(Action<string, ICollection<Recipe>> launchAddShoppingListDelegate, Action<ShoppingList> launchShowShoppingListDelegate, ShoppingListInventory shoppingListInventory)
+        private Action<ShoppingList> _addShoppingListToPantry;
+
+        public uiShoppingList(
+            Action<string, ICollection<Recipe>> launchAddShoppingListDelegate, 
+            Action<ShoppingList> launchShowShoppingListDelegate,
+            Action<ShoppingList> addShoppingListToPantry,
+            ShoppingListInventory shoppingListInventory)
         {
+            _addShoppingListToPantry = addShoppingListToPantry;
             _shoppingListInventory = shoppingListInventory;
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
@@ -51,7 +57,8 @@ namespace CIS560_RecipeManager.ShoppingListManager
             {
                 current = (ShoppingList)row.DataBoundItem;
             }
-            _shoppingListInventory.UpdateIngredients(current);
+            _addShoppingListToPantry(current);
+            MessageBox.Show("Added " + current.Name + " items back to pantry!");
         }
     }
 }
