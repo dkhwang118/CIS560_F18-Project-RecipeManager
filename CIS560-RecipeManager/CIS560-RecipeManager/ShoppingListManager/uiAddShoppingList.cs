@@ -14,14 +14,16 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiAddShoppingList : Form
     {
-        private GetShoppinglistDelegate _getShoppingListDelegate;
+        private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
-        public uiAddShoppingList(RecipeInventory recipeInventory, GetShoppinglistDelegate getShoppingList)
+        private ICollection<Recipe> _recipes;
+        private ShoppingListInventory _shoppingListInventory;
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes, ShoppingListInventory shoppingListInventory)
         {
+            _shoppingListInventory = shoppingListInventory;
+            _recipes = recipes;
             _recipeInventory = recipeInventory;
             InitializeComponent();
-            recipesBindingSource.DataSource = _recipeInventory.VisibleRecipes;
-            uxDataGridView_RecipesForShoppingList.DataSource = recipesBindingSource;
             _getShoppingListDelegate = getShoppingList;
         }
 
@@ -29,18 +31,28 @@ namespace CIS560_RecipeManager.ShoppingListManager
         {
             // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
             this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
-
+            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
+            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
 
         }
 
         private void uxButton_CreateShoppingListFromRecipe_Click(object sender, EventArgs e)
         {
-            ICollection<Recipe> recipes = null;
+            ICollection<Recipe> recipes = new List<Recipe>();
             foreach (DataGridViewRow row in uxDataGridView_RecipesForShoppingList.SelectedRows)
             {
-                recipes.Add((Recipe)row.DataBoundItem);
+                if (row.Index > 0 && row.Index < _recipeInventory.VisibleRecipes.Count)
+                {
+                    for (int i = 0; i < _recipeInventory.VisibleRecipes.Count; i++)
+                    {
+                        if (_recipeInventory.VisibleRecipes[i].Id == Convert.ToInt32(row.Cells["ID"].Value.ToString()))
+                        {
+                            recipes.Add(_recipeInventory.VisibleRecipes[i]);
+                        }
+                    }
+                }
             }
-            _getShoppingListDelegate(recipes);
+            _shoppingListInventory.CreateShoppingList(uxTextBox_ShoppingListName.Text, recipes);
             Close();
         }
     }

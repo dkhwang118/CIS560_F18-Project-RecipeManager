@@ -22,10 +22,6 @@ namespace CIS560_RecipeManager.RecipeManager
             new uiRecipe(
                 LaunchAddRecipeForm,
                 LaunchEditRecipeForm,
-                _recipeInventory.OnlyDisplayAvailableRecipes,
-                _recipeInventory.DisplayAllRecipes,
-                _recipeInventory.RateRecipe,
-                _recipeInventory.DeleteRecipe,
                 CookRecipe,
                 _recipeInventory).ShowDialog();
         }
@@ -69,29 +65,25 @@ namespace CIS560_RecipeManager.RecipeManager
                     .ShowDialog();
         }
 
-        public void CookRecipe(Recipe recipe)
-        {
-            foreach (KeyValuePair<Ingredient, int> item in recipe.MeasuredIngredients)
-            {
-                //If we don't allow the user to delete Ingredients, there should
-                //never be an Ingredient that doesn't exist in the Pantry, so we should
-                //just let the IDictionary throw a KeyNotFoundException
-                int updatedQuantity = _pantry.PantryContents[item.Key] - item.Value;
-
-                //update the Ingredient quantity in the pantry
-                _pantry.UpdateIngredientQuantity(updatedQuantity, item.Key);
-            }
-        }
-
         public void LaunchAddIngredientForm()
         {
-            new uiAddIngredient(CreateIngredient).Show();
+            new uiAddIngredient(CreateIngredient).ShowDialog();
         }
 
         public void CreateIngredient(string name, string unitOfMeasure, int quantity, int unitPriceInCents)
         {
             var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity, unitPriceInCents);
             _viewModel.AddIngredientToTotal(ingredient);
+        }
+
+        public bool CookRecipe(Recipe recipe)
+        {
+            var success = _recipeInventory.TryCookRecipe(recipe);
+            if (success)
+            {
+                _pantry.RefreshItems();
+            }
+            return success;
         }
     }
 }

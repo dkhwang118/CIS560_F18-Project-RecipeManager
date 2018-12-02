@@ -42,7 +42,7 @@ namespace CIS560_RecipeManager.Repository
                         }
                         else
                         {
-                            throw new Exception("Query returned no results!");
+                            throw new Exception("Query returned no results! No recipes have been rated!");
                         }
                         
                         // Close reader to prevent DB issues; reader doesn't seem to automatically close upon closing the transaction

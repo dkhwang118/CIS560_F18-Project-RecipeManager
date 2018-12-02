@@ -9,32 +9,20 @@ namespace CIS560_RecipeManager
     {
         private Action _launchAddRecipeForm;
         private Action<Recipe> _launchEditRecipeForm;
-        private Action _showOnlyAvailableRecipes;
-        private Action _showAllRecipes;
-        private Action<Recipe, int> _rateRecipe;
-        private Action<Recipe> _deleteRecipeDelegate;
-        private Action<Recipe> _cookRecipeDelegate;
         private RecipeInventory _recipeInventory;
+        private Func<Recipe, bool> _cookRecipe;
         private DataGridViewGrouper _grouper;
 
         public uiRecipe(
             Action launchAddRecipeForm,
             Action<Recipe> launchEditRecipeForm,
-            Action showOnlyAvailableRecipes,
-            Action showAllRecipes,
-            Action<Recipe, int> rateRecipe,
-            Action<Recipe> deleteRecipeDelegate,
-            Action<Recipe> cookRecipeDelegate,
+            Func<Recipe, bool> cookRecipe,
             RecipeInventory recipeInventory)
         {
             _launchAddRecipeForm = launchAddRecipeForm;
             _launchEditRecipeForm = launchEditRecipeForm;
-            _showOnlyAvailableRecipes = showOnlyAvailableRecipes;
-            _showAllRecipes = showAllRecipes;
-            _deleteRecipeDelegate = deleteRecipeDelegate;
-            _cookRecipeDelegate = cookRecipeDelegate;
             _recipeInventory = recipeInventory;
-            _rateRecipe = rateRecipe;
+            _cookRecipe = cookRecipe;
             InitializeComponent();
             RecipeBindingSource.DataSource = _recipeInventory.VisibleRecipes;
             RecipeDataGridView.DataSource = RecipeBindingSource;
@@ -76,15 +64,22 @@ namespace CIS560_RecipeManager
         {
             var row = RecipeDataGridView.SelectedRows[0];
             Recipe recipe = (Recipe)row.DataBoundItem;
-            _deleteRecipeDelegate(recipe);
+            _recipeInventory.DeleteRecipe(recipe);
         }
 
         private void cookRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var row = RecipeDataGridView.SelectedRows[0];
             Recipe recipe = (Recipe)row.DataBoundItem;
-            _cookRecipeDelegate(recipe);
-            MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
+            if (_cookRecipe(recipe))
+            {
+                MessageBox.Show("Successfully cooked " + recipe.Name + " recipe!");
+                UpdateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Sorry! You don't have enough ingredients.");
+            }
         }
 
         private void RecipeDataGridView_MouseDown(object sender, MouseEventArgs e)
@@ -100,11 +95,6 @@ namespace CIS560_RecipeManager
             }
         }
 
-        private void availableWithPantryCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            updateDataGridView();
-        }
-
         private void rateRecipeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var form = new RateRecipeForm())
@@ -114,23 +104,54 @@ namespace CIS560_RecipeManager
                 {
                     var row = RecipeDataGridView.SelectedRows[0];
                     Recipe recipe = (Recipe)row.DataBoundItem;
-                    _rateRecipe(recipe, form.Rating);
-                    updateDataGridView(); // update DGV before MessageBox for "instant" update to DGV
+                    _recipeInventory.RateRecipe(recipe, form.Rating);
+                    UpdateDataGridView(); // update DGV before MessageBox for "instant" update to DGV
                     MessageBox.Show("Successfully rated " + recipe.Name + " recipe!");
                 }
             }
         }
 
-        private void updateDataGridView()
+        private void UpdateDataGridView()
         {
-            if (availableWithPantryCheckBox.Checked)
+            if (budgetCheckBox.Checked)
             {
-                _showOnlyAvailableRecipes();
+                int max = Convert.ToInt32(uxDollarSelector.Value);
+                if (availableWithPantryCheckBox.Checked)
+                {
+                    _recipeInventory.OnlyDisplayAvailableAndBudgetRecipes(max);
+                }
+                else
+                {
+                    _recipeInventory.OnlyDisplayBudgetRecipes(max);
+                }
             }
             else
             {
-                _showAllRecipes();
+                if (availableWithPantryCheckBox.Checked)
+                {
+                    _recipeInventory.OnlyDisplayAvailableRecipes();
+                }
+                else
+                {
+                    _recipeInventory.DisplayAllRecipes();
+                }
             }
+        }
+
+
+        private void availableWithPantryCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+        }
+
+        private void budgetCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+        }
+
+        private void uxDollarSelector_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
         }
     }
 }

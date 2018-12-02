@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CIS560_RecipeManager.RecipeManager
 {
@@ -70,6 +71,45 @@ namespace CIS560_RecipeManager.RecipeManager
             }
         }
 
+        public void OnlyDisplayBudgetRecipes(int max)
+        {
+            VisibleRecipes.Clear();
+            foreach(var r in GetBudgetRecipes(max))
+            {
+                VisibleRecipes.Add(r);
+            }
+        }
+
+        public void OnlyDisplayAvailableAndBudgetRecipes(int max)
+        {
+            var available = _query.GetAvailableRecipes();
+
+            var budget = GetBudgetRecipes(max);
+            VisibleRecipes.Clear();
+            foreach (var r in _totalRecipes)
+            {
+                if(available.Any(x => x.Id == r.Id && budget.Any(y => y.Id == r.Id)))
+                {
+                    VisibleRecipes.Add(r);
+                }
+            }
+        }
+
+        private ICollection<Recipe> GetBudgetRecipes(int max)
+        {
+            ICollection<Recipe> budgetRecipes;
+            try
+            {
+                budgetRecipes = _query.GetAffordableRecipes(max * 100);
+            }
+            catch (Exception e)
+            {
+                //if the database can't find any affordable recipes, just populate with an empty list
+                budgetRecipes = new List<Recipe>();
+            }
+            return budgetRecipes;
+        }
+
         public void DisplayAllRecipes()
         {
             VisibleRecipes.Clear();
@@ -83,6 +123,19 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             recipe.Rating = rating;
             _query.RateRecipe(recipe, rating);
+        }
+
+        public bool TryCookRecipe(Recipe recipe)
+        {
+            try
+            {
+                _query.CookRecipe(recipe);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

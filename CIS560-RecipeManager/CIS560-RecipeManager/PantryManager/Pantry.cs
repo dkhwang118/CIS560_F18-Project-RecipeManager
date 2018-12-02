@@ -17,15 +17,38 @@ namespace CIS560_RecipeManager
     {
         private IQuery _query;
 
-        public IDictionary<Ingredient, int> PantryContents { get; } //a dictionary containing key value pairs of what is in the pantry
-        //Ingredient for the ingredients
-        //the integer represents the quantity of the ingredient
+        public IDictionary<Ingredient, int> PantryContents { get; set; } //a dictionary containing key value pairs of what is in the pantry
+                                                                    //Ingredient for the ingredients
+                                                                    //the integer represents the quantity of the ingredient
+        public BindingList<Ingredient> IngredientList { get; }
+
+        public List<int> IngredientQuantities { get; }
 
 
         public MyPantry(IQuery query)
         {
             _query = query;
+            IngredientList = new BindingList<Ingredient>();
+            IngredientQuantities = new List<int>();
             PantryContents = _query.GetPantryContents();
+            PopulateBindingLists();
+        }
+
+        public void RefreshItems()
+        {
+            PantryContents = _query.GetPantryContents();
+            PopulateBindingLists();
+        }
+
+        public void PopulateBindingLists()
+        {
+            IngredientList.Clear();
+            IngredientQuantities.Clear();
+            foreach (var kvp in PantryContents)
+            {
+                IngredientList.Add(kvp.Key);
+                IngredientQuantities.Add(kvp.Value);
+            }
         }
 
         //updates the pantry contents with an ingredient and quantity
@@ -36,10 +59,17 @@ namespace CIS560_RecipeManager
             return ingredient;
         }
 
-        public void UpdateIngredientQuantity(int quantity, Ingredient ingredient)
+        public void UpdateIngredientQuantity(Ingredient ingredient, int quantity)
         {
             PantryContents[ingredient] = quantity;
             _query.UpdateIngredientQuantity(quantity, ingredient);
+        }
+
+        public void AddIngredientQuantity(Ingredient ing, int quantity)
+        {
+            PantryContents[ing] += quantity;
+            _query.UpdateIngredientQuantity(PantryContents[ing], ing);
+            RefreshItems();
         }
     }
 }

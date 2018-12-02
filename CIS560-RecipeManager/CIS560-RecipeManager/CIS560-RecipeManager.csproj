@@ -101,12 +101,6 @@
     <Compile Include="PantryManager\uiAddIngredient.Designer.cs">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
     </Compile>
-    <Compile Include="PantryManager\uiUpdateIngredient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PantryManager\uiUpdateIngredient.Designer.cs">
-      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +174,7 @@
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListManager\ShoppingListController.cs" />
+    <Compile Include="ShoppingListManager\ShoppingListInventory.cs" />
     <Compile Include="ShoppingListManager\uiAddShoppingList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +193,26 @@
     <Compile Include="ShoppingListManager\uiShowShoppingList.Designer.cs">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatsFormManager\StatsFormController.cs" />
+    <Compile Include="StatsFormManager\GetStatsManager.cs" />
+    <Compile Include="StatsFormManager\uiNotCookedLatelyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiNotCookedLatelyForm.Designer.cs">
+      <DependentUpon>uiNotCookedLatelyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsFormManager\uiRecipeRatingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiRecipeRatingsForm.Designer.cs">
+      <DependentUpon>uiRecipeRatingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatsFormManager\uiStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatsFormManager\uiStats.Designer.cs">
+      <DependentUpon>uiStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="uiHome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PantryManager\uiAddIngredient.resx">
       <DependentUpon>uiAddIngredient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PantryManager\uiUpdateIngredient.resx">
-      <DependentUpon>uiUpdateIngredient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -243,16 +255,30 @@
     <EmbeddedResource Include="ShoppingListManager\uiShowShoppingList.resx">
       <DependentUpon>uiShowShoppingList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiNotCookedLatelyForm.resx">
+      <DependentUpon>uiNotCookedLatelyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiRecipeRatingsForm.resx">
+      <DependentUpon>uiRecipeRatingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatsFormManager\uiStats.resx">
+      <DependentUpon>uiStats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="uiHome.resx">
       <DependentUpon>uiHome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.PantryManager.PantryViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.AddRecipeViewModel.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.EditRecipeViewModel.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe+BindingIngredient.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.ShoppingListManager.ShoppingListInventory.datasource" />
+    <None Include="Properties\DataSources\MyPantry.datasource" />
     <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
+    <None Include="Properties\DataSources\uiPantry.datasource" />
     <None Include="Properties\DataSources\uiRecipe.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
