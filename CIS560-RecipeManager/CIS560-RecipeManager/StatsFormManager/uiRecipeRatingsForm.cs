@@ -23,7 +23,12 @@ namespace CIS560_RecipeManager.StatsFormManager
         {
             RecipeRatingsBindingSource.DataSource = _statsManager.GetTopRatedRecipesWithTies(Convert.ToInt32(uxTextBox_AmtPerCategoryToReturn.Text));
             uxDGV_RecipeRatingOutput.DataSource = RecipeRatingsBindingSource;
+        }
 
+        private void uxButton_GetAvgRecpieRatingPerCat_Click(object sender, EventArgs e)
+        {
+            RecipeRatingsBindingSource.DataSource = _statsManager.GetAvgRatingPerCategory();
+            uxDGV_RecipeRatingOutput.DataSource = RecipeRatingsBindingSource;
         }
     }
 }

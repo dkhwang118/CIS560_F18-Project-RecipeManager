@@ -42,5 +42,10 @@ namespace CIS560_RecipeManager.StatsFormManager
             return _query.GetTopRatedRecipesWithTies(amtPerCategory);
         }
 
+        public IDictionary<RecipeCategory, decimal> GetAvgRatingPerCategory()
+        {
+            return _query.GetAvgRatingPerCategory();
+        }
+
     }
 }
