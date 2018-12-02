@@ -10,9 +10,9 @@ namespace CIS560_RecipeManager.Repository
 {
     public partial class Query : IQuery
     {
-        public IDictionary<Recipe, string> GetRecipesCookedLeastRecent()
+        public IDictionary<string, string> GetRecipesCookedLeastRecent()
         {
-            Dictionary<Recipe, string> returnDict = new Dictionary<Recipe, string>();
+            Dictionary<string, string> returnDict = new Dictionary<string, string>();
             Dictionary<int, string> tempRecipeIDs = new Dictionary<int, string>(); // Dict holds recipeID and LastDateCooked
             using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
@@ -50,7 +50,7 @@ namespace CIS560_RecipeManager.Repository
             // Create a recipe object for each RecipeID found, then place into returnDict
             foreach (KeyValuePair<int, string> kvp in tempRecipeIDs)
             {
-                returnDict.Add(ReadRecipe(kvp.Key), kvp.Value);
+                returnDict.Add(ReadRecipe(kvp.Key).Name, kvp.Value);
             }
             return returnDict;
         }
