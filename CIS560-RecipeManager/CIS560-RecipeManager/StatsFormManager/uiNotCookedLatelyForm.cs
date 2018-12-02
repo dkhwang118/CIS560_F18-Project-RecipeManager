@@ -48,8 +48,8 @@ namespace CIS560_RecipeManager.StatsFormManager
                 uxDGV_RecipesCookedStatsOutput.Columns[i].Visible = false;
             }
             uxDGV_RecipesCookedStatsOutput.Columns[1].MinimumWidth = 800;
+            uxDGV_RecipesCookedStatsOutput.Columns[1].HeaderText = "Uncooked Recipe Name";
             uxDGV_RecipesCookedStatsOutput.Columns[1].Visible = true;
-
         }
 
         private void uxDGV_RecipesCookedStatsOutput_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
