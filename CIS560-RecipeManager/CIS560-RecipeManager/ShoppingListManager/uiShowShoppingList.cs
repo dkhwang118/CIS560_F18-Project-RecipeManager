@@ -22,7 +22,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
         private void uiShowShoppingList_Load(object sender, EventArgs e)
         {
             int count = 0;
-            foreach(KeyValuePair<Ingredient, int> i in _currentShoppingList.ShoppingListItems)
+            foreach (KeyValuePair<Ingredient, int> i in _currentShoppingList.ShoppingListItems)
             {
                 count++;
                 uxDataGridView_ShowShoppingList.Rows[count].Cells[0].Value = i.Key;

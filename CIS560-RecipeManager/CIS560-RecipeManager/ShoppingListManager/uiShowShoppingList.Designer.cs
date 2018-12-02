@@ -28,21 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.uxDataGridView_ShowShoppingList = new System.Windows.Forms.DataGridView();
             this.uxDataGridView_IngredientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uxDataGridView_IngredientQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shoppingListItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
-            this.shoppingListItemTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListItemTableAdapter();
-            this.shoppingListItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.shoppingListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shoppingListTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_ShowShoppingList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // uxDataGridView_ShowShoppingList
@@ -73,34 +62,6 @@
             this.uxDataGridView_IngredientQuantity.Name = "uxDataGridView_IngredientQuantity";
             this.uxDataGridView_IngredientQuantity.ReadOnly = true;
             // 
-            // shoppingListItemBindingSource
-            // 
-            this.shoppingListItemBindingSource.DataMember = "ShoppingListItem";
-            this.shoppingListItemBindingSource.DataSource = this.recipeDatabaseDataSet;
-            // 
-            // recipeDatabaseDataSet
-            // 
-            this.recipeDatabaseDataSet.DataSetName = "RecipeDatabaseDataSet";
-            this.recipeDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // shoppingListItemTableAdapter
-            // 
-            this.shoppingListItemTableAdapter.ClearBeforeFill = true;
-            // 
-            // shoppingListItemBindingSource1
-            // 
-            this.shoppingListItemBindingSource1.DataMember = "ShoppingListItem";
-            this.shoppingListItemBindingSource1.DataSource = this.recipeDatabaseDataSet;
-            // 
-            // shoppingListBindingSource
-            // 
-            this.shoppingListBindingSource.DataMember = "ShoppingList";
-            this.shoppingListBindingSource.DataSource = this.recipeDatabaseDataSet;
-            // 
-            // shoppingListTableAdapter
-            // 
-            this.shoppingListTableAdapter.ClearBeforeFill = true;
-            // 
             // uiShowShoppingList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,10 +72,6 @@
             this.Text = "Current Shopping List";
             this.Load += new System.EventHandler(this.uiShowShoppingList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_ShowShoppingList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListItemBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shoppingListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,12 +79,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView uxDataGridView_ShowShoppingList;
-        private RecipeDatabaseDataSet recipeDatabaseDataSet;
-        private System.Windows.Forms.BindingSource shoppingListItemBindingSource;
-        private RecipeDatabaseDataSetTableAdapters.ShoppingListItemTableAdapter shoppingListItemTableAdapter;
-        private System.Windows.Forms.BindingSource shoppingListItemBindingSource1;
-        private System.Windows.Forms.BindingSource shoppingListBindingSource;
-        private RecipeDatabaseDataSetTableAdapters.ShoppingListTableAdapter shoppingListTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn uxDataGridView_IngredientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn uxDataGridView_IngredientQuantity;
     }
