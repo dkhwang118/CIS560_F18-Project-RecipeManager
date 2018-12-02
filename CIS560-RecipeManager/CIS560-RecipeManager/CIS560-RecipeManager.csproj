@@ -246,6 +246,7 @@
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.ShoppingListManager.ShoppingListInventory.datasource" />
     <None Include="Properties\DataSources\MyPantry.datasource" />
     <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
     <None Include="Properties\DataSources\uiPantry.datasource" />

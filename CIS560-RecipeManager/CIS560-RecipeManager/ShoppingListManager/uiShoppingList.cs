@@ -23,12 +23,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
             _launchShowShoppingListDelegate = launchShowShoppingListDelegate;
             _launchAddShoppingListDelegate = launchAddShoppingListDelegate;
             InitializeComponent();
-        }
-
-        private void uiShoppingList_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.ShoppingList' table. You can move, or remove it, as needed.
-            this.shoppingListTableAdapter.Fill(this.recipeDatabaseDataSet.ShoppingList);
+            shoppingListBindingSource.DataSource = _shoppingListInventory.ShoppingLists;
         }
 
         private void uxButton_AddShoppingList_Click(object sender, EventArgs e)
