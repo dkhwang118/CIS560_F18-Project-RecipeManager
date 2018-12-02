@@ -41,13 +41,16 @@ namespace CIS560_RecipeManager.ShoppingListManager
             ICollection<Recipe> recipes = new List<Recipe>();
             foreach (DataGridViewRow row in uxDataGridView_RecipesForShoppingList.SelectedRows)
             {
-                for(int i = 0; i < _recipeInventory.VisibleRecipes.Count; i++)
+                if (row.Index > 0 && row.Index < _recipeInventory.VisibleRecipes.Count)
                 {
-                    if (_recipeInventory.VisibleRecipes[i].Id == Convert.ToInt32(row.Cells["ID"].Value.ToString()))
+                    for (int i = 0; i < _recipeInventory.VisibleRecipes.Count; i++)
                     {
-                        recipes.Add(_recipeInventory.VisibleRecipes[i]);
+                        if (_recipeInventory.VisibleRecipes[i].Id == Convert.ToInt32(row.Cells["ID"].Value.ToString()))
+                        {
+                            recipes.Add(_recipeInventory.VisibleRecipes[i]);
+                        }
                     }
-                } 
+                }
             }
             _shoppingListInventory.CreateShoppingList(uxTextBox_ShoppingListName.Text, recipes);
             Close();
