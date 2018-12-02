@@ -33,11 +33,11 @@
             this.uxTextBox_ShoppingListName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.uxDataGridView_RecipesForShoppingList = new System.Windows.Forms.DataGridView();
+            this.RecipeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.recipeDatabaseDataSet = new CIS560_RecipeManager.RecipeDatabaseDataSet();
             this.recipesTableAdapter = new CIS560_RecipeManager.RecipeDatabaseDataSetTableAdapters.RecipesTableAdapter();
-            this.RecipeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.uxDataGridView_RecipesForShoppingList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeDatabaseDataSet)).BeginInit();
@@ -79,9 +79,26 @@
             this.uxDataGridView_RecipesForShoppingList.DataSource = this.recipesBindingSource;
             this.uxDataGridView_RecipesForShoppingList.Location = new System.Drawing.Point(-1, -1);
             this.uxDataGridView_RecipesForShoppingList.Name = "uxDataGridView_RecipesForShoppingList";
+            this.uxDataGridView_RecipesForShoppingList.ReadOnly = true;
             this.uxDataGridView_RecipesForShoppingList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.uxDataGridView_RecipesForShoppingList.Size = new System.Drawing.Size(455, 205);
             this.uxDataGridView_RecipesForShoppingList.TabIndex = 5;
+            // 
+            // RecipeNameColumn
+            // 
+            this.RecipeNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RecipeNameColumn.DataPropertyName = "RecipeName";
+            this.RecipeNameColumn.HeaderText = "Recipe";
+            this.RecipeNameColumn.Name = "RecipeNameColumn";
+            this.RecipeNameColumn.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "RecipeID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // recipesBindingSource
             // 
@@ -96,21 +113,6 @@
             // recipesTableAdapter
             // 
             this.recipesTableAdapter.ClearBeforeFill = true;
-            // 
-            // RecipeNameColumn
-            // 
-            this.RecipeNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RecipeNameColumn.DataPropertyName = "RecipeName";
-            this.RecipeNameColumn.HeaderText = "Recipe";
-            this.RecipeNameColumn.Name = "RecipeNameColumn";
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "RecipeID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
             // 
             // uiAddShoppingList
             // 
