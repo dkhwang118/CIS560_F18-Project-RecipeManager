@@ -24,12 +24,19 @@ namespace CIS560_RecipeManager.StatsFormManager
 
         private void uxButton_ShowLeastRecentCookedRecipes_Click(object sender, EventArgs e)
         {
-            RecentlyCookedBindingSource.DataSource = _statsManager.GetLeastRecentlyCookedRecipes();
-            uxDGV_RecipesCookedStatsOutput.DataSource = RecentlyCookedBindingSource;
-            uxDGV_RecipesCookedStatsOutput.Columns[0].MinimumWidth = 200;
-            uxDGV_RecipesCookedStatsOutput.Columns[1].MinimumWidth = 200;
-            uxDGV_RecipesCookedStatsOutput.Columns[0].HeaderText = "Recipe Name";
-            uxDGV_RecipesCookedStatsOutput.Columns[1].HeaderText = "Date Last Cooked";
+            try
+            {
+                RecentlyCookedBindingSource.DataSource = _statsManager.GetLeastRecentlyCookedRecipes();
+                uxDGV_RecipesCookedStatsOutput.DataSource = RecentlyCookedBindingSource;
+                uxDGV_RecipesCookedStatsOutput.Columns[0].MinimumWidth = 200;
+                uxDGV_RecipesCookedStatsOutput.Columns[1].MinimumWidth = 200;
+                uxDGV_RecipesCookedStatsOutput.Columns[0].HeaderText = "Recipe Name";
+                uxDGV_RecipesCookedStatsOutput.Columns[1].HeaderText = "Date Last Cooked";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void uxButton_ShowUncookedRecipes_Click(object sender, EventArgs e)
