@@ -21,12 +21,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         private void uiShowShoppingList_Load(object sender, EventArgs e)
         {
-            int count = 0;
             foreach (KeyValuePair<Ingredient, int> i in _currentShoppingList.ShoppingListItems)
             {
-                count++;
-                uxDataGridView_ShowShoppingList.Rows[count].Cells[0].Value = i.Key;
-                uxDataGridView_ShowShoppingList.Rows[count].Cells[1].Value = i.Value;
+                DataGridViewRow row = (DataGridViewRow)uxDataGridView_ShowShoppingList.Rows[0].Clone();
+                row.Cells[0].Value = i.Key.Name;
+                row.Cells[1].Value = i.Value;
+                uxDataGridView_ShowShoppingList.Rows.Add(row);
             }
         }
     }
