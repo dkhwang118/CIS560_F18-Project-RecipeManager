@@ -54,7 +54,6 @@ namespace CIS560_RecipeManager.Repository
                         connection.Close();
                     }
                 }
-
                 UpdateIngredientQuantity((currentQuantity - kvp.Value), kvp.Key); // subtract the quantity given by recipe from the ingredient quantity in pantry
             }
 
