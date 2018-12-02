@@ -80,10 +80,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uxTextBox_AmtPerCategoryToReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxTextBox_AmtPerCategoryToReturn.Location = new System.Drawing.Point(84, 31);
+            this.uxTextBox_AmtPerCategoryToReturn.Location = new System.Drawing.Point(85, 29);
             this.uxTextBox_AmtPerCategoryToReturn.Margin = new System.Windows.Forms.Padding(2);
             this.uxTextBox_AmtPerCategoryToReturn.Name = "uxTextBox_AmtPerCategoryToReturn";
-            this.uxTextBox_AmtPerCategoryToReturn.Size = new System.Drawing.Size(39, 26);
+            this.uxTextBox_AmtPerCategoryToReturn.Size = new System.Drawing.Size(25, 26);
             this.uxTextBox_AmtPerCategoryToReturn.TabIndex = 3;
             this.uxTextBox_AmtPerCategoryToReturn.Text = "5";
             this.uxTextBox_AmtPerCategoryToReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

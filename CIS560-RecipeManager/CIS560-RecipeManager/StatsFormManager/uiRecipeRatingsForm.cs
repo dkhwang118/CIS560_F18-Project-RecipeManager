@@ -29,6 +29,8 @@ namespace CIS560_RecipeManager.StatsFormManager
         {
             RecipeRatingsBindingSource.DataSource = _statsManager.GetAvgRatingPerCategory();
             uxDGV_RecipeRatingOutput.DataSource = RecipeRatingsBindingSource;
+            uxDGV_RecipeRatingOutput.Columns[0].HeaderText = "Recipe Category";
+            uxDGV_RecipeRatingOutput.Columns[1].HeaderText = "Average Recipe Rating";
         }
     }
 }
