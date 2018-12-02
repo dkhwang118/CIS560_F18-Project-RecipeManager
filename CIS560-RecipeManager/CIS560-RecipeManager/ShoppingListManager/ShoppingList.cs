@@ -19,7 +19,14 @@ namespace CIS560_RecipeManager
 
         public void AddShoppingListItem(Ingredient i, int quantity)
         {
-            ShoppingListItems.Add(i, quantity);
+            if (ShoppingListItems.Keys.Contains(i))
+            {
+                ShoppingListItems[i] += quantity;
+            }
+            else
+            {
+                ShoppingListItems.Add(i, quantity);
+            }
         }
     }
 }

@@ -180,6 +180,7 @@
             this.uxDollarSelector.Name = "uxDollarSelector";
             this.uxDollarSelector.Size = new System.Drawing.Size(120, 20);
             this.uxDollarSelector.TabIndex = 6;
+            this.uxDollarSelector.ValueChanged += new System.EventHandler(this.uxDollarSelector_ValueChanged);
             // 
             // uiRecipe
             // 

@@ -9,42 +9,42 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public class ShoppingListController
     {
-        private List<ShoppingList> _shoppingLists;
-        public delegate ShoppingList GetShoppinglistDelegate(ICollection<Recipe> recipes);
-        private IQuery _queryRepository;
+        private ShoppingListInventory _shoppingInventory;
         private MyPantry _pantry;
         private RecipeInventory _recipeInventory;
-        
         public ShoppingListController(
-            IQuery query,
-            MyPantry pantry,
-            RecipeInventory recipeInventory)
+            ShoppingListInventory shoppingListInventory,
+            MyPantry pantry, RecipeInventory recipeInventory)
         {
-            _queryRepository = query;
+            _shoppingInventory = shoppingListInventory;
             _pantry = pantry;
             _recipeInventory = recipeInventory;
         }
-
         public void LaunchShoppingListForm()
         {
-            new uiShoppingList(LaunchAddShoppingListForm, LaunchShowShoppingListForm).Show();
+            new uiShoppingList(
+                LaunchAddShoppingListForm, 
+                LaunchShowShoppingListForm,
+                AddShoppingListToPantry,
+                _shoppingInventory).Show();
         }
 
-        public void LaunchAddShoppingListForm()
+        public void LaunchAddShoppingListForm(string name, ICollection<Recipe> recipes)
         {
-            new uiAddShoppingList(_recipeInventory, GetShoppingList).Show();
+            new uiAddShoppingList(_shoppingInventory.CreateShoppingList, _recipeInventory, recipes, _shoppingInventory).Show();
         }
 
-        public ShoppingList GetShoppingList(ICollection<Recipe> recipes)
+        public void LaunchShowShoppingListForm(ShoppingList currentShoppingList)
         {
-            ShoppingList shoppingList = _queryRepository.CreateShoppingList("ShoppingListName", recipes); // Need to pass a string value here to name the shopping list
-            _shoppingLists.Add(shoppingList);
-            return shoppingList;
+            new uiShowShoppingList(currentShoppingList).Show();
         }
 
-        public void LaunchShowShoppingListForm()
+        public void AddShoppingListToPantry(ShoppingList shoppingList)
         {
-            new uiShowShoppingList().Show();
+            foreach (KeyValuePair<Ingredient, int> ingred in shoppingList.ShoppingListItems)
+            {
+                _pantry.AddIngredientQuantity(ingred.Key, ingred.Value);
+            }
         }
 
     }

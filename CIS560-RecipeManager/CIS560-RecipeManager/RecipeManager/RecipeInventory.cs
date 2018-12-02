@@ -73,9 +73,8 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public void OnlyDisplayBudgetRecipes(int max)
         {
-            var budget = _query.GetAffordableRecipes(max * 100);
             VisibleRecipes.Clear();
-            foreach(var r in budget)
+            foreach(var r in GetBudgetRecipes(max))
             {
                 VisibleRecipes.Add(r);
             }
@@ -84,15 +83,31 @@ namespace CIS560_RecipeManager.RecipeManager
         public void OnlyDisplayAvailableAndBudgetRecipes(int max)
         {
             var available = _query.GetAvailableRecipes();
-            var budget = _query.GetAffordableRecipes(max * 100);
+
+            var budget = GetBudgetRecipes(max);
             VisibleRecipes.Clear();
             foreach (var r in _totalRecipes)
             {
-                if(available.Any(x => x.Id == r.Id &&budget.Any(y => y.Id == r.Id)))
+                if(available.Any(x => x.Id == r.Id && budget.Any(y => y.Id == r.Id)))
                 {
                     VisibleRecipes.Add(r);
                 }
             }
+        }
+
+        private ICollection<Recipe> GetBudgetRecipes(int max)
+        {
+            ICollection<Recipe> budgetRecipes;
+            try
+            {
+                budgetRecipes = _query.GetAffordableRecipes(max * 100);
+            }
+            catch (Exception e)
+            {
+                //if the database can't find any affordable recipes, just populate with an empty list
+                budgetRecipes = new List<Recipe>();
+            }
+            return budgetRecipes;
         }
 
         public void DisplayAllRecipes()

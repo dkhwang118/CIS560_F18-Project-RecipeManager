@@ -22,6 +22,7 @@ namespace CIS560_RecipeManager.RecipeManager
             new uiRecipe(
                 LaunchAddRecipeForm,
                 LaunchEditRecipeForm,
+                CookRecipe,
                 _recipeInventory).ShowDialog();
         }
 
@@ -73,6 +74,16 @@ namespace CIS560_RecipeManager.RecipeManager
         {
             var ingredient = _pantry.CreateIngredient(name, unitOfMeasure, quantity, unitPriceInCents);
             _viewModel.AddIngredientToTotal(ingredient);
+        }
+
+        public bool CookRecipe(Recipe recipe)
+        {
+            var success = _recipeInventory.TryCookRecipe(recipe);
+            if (success)
+            {
+                _pantry.RefreshItems();
+            }
+            return success;
         }
     }
 }

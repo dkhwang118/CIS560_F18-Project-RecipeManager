@@ -174,6 +174,7 @@
       <DependentUpon>uiPantry.cs</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListManager\ShoppingListController.cs" />
+    <Compile Include="ShoppingListManager\ShoppingListInventory.cs" />
     <Compile Include="ShoppingListManager\uiAddShoppingList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +275,7 @@
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.Recipe1.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.RecipeInventory.datasource" />
     <None Include="Properties\DataSources\CIS560_RecipeManager.RecipeManager.uiRecipeDetailForm.datasource" />
+    <None Include="Properties\DataSources\CIS560_RecipeManager.ShoppingListManager.ShoppingListInventory.datasource" />
     <None Include="Properties\DataSources\MyPantry.datasource" />
     <None Include="Properties\DataSources\uiAddRecipeForm.datasource" />
     <None Include="Properties\DataSources\uiPantry.datasource" />

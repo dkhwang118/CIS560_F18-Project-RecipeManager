@@ -48,7 +48,7 @@ namespace CIS560_RecipeManager.Repository
                         // Insert into ShoppingListItem Table
                         using (var transactionMulti = new TransactionScope())
                         {
-                            using (var commandMulti = new SqlCommand("[dbo].CreateShoppingListItem", connection))
+                            using (var commandMulti = new SqlCommand("[dbo].CreateOrUpdateShoppingListItem", connection))
                             {
                                 commandMulti.CommandType = CommandType.StoredProcedure;
                                 commandMulti.Parameters.AddWithValue("PantryItemID", pantryItemId);
