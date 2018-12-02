@@ -64,6 +64,13 @@ namespace CIS560_RecipeManager
             PantryContents[ingredient] = quantity;
             _query.UpdateIngredientQuantity(quantity, ingredient);
         }
+
+        public void AddIngredientQuantity(Ingredient ing, int quantity)
+        {
+            PantryContents[ing] += quantity;
+            _query.UpdateIngredientQuantity(PantryContents[ing], ing);
+            RefreshItems();
+        }
     }
 }
 

@@ -19,6 +19,7 @@ namespace CIS560_RecipeManager
         private Action _launchShoppingListManager;
 
         private RecipeInventory _recipeInventory;
+        private ShoppingListInventory _shoppingInventory;
         private MyPantry _pantry;
 
         private IQuery _query;
@@ -30,11 +31,12 @@ namespace CIS560_RecipeManager
             DataGenerator.DataGenerator.GenerateAndInsertData(_query, 20, 10, 50);
 
             _recipeInventory = new RecipeInventory(_query);
+            _shoppingInventory = new ShoppingListInventory(_query);
             _pantry = new MyPantry(_query);
 
             _recipeController = new RecipeController(_recipeInventory, _pantry);
             _pantryController = new PantryController(_pantry);
-            _shoppingListController = new ShoppingListController(_query, _pantry, _recipeInventory);
+            _shoppingListController = new ShoppingListController(_shoppingInventory, _pantry, _recipeInventory);
 
             _launchRecipeManager = _recipeController.LaunchRecipeForm;
             _launchPantryManager = _pantryController.LaunchPantryForm;

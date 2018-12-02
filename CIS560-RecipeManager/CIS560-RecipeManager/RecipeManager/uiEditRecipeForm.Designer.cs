@@ -51,6 +51,9 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalIngredientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recipeIngredientsDGV)).BeginInit();
@@ -165,8 +168,8 @@
             this.recipeIngredientsDGV.AutoGenerateColumns = false;
             this.recipeIngredientsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.recipeIngredientsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn1,
-            this.unitDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn2,
+            this.unitDataGridViewTextBoxColumn2,
             this.Quantity});
             this.recipeIngredientsDGV.DataSource = this.recipeIngredientsBindingSource;
             this.recipeIngredientsDGV.Location = new System.Drawing.Point(287, 135);
@@ -210,12 +213,12 @@
             this.ingredientContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem});
             this.ingredientContextMenuStrip.Name = "ingredientContextMenuStrip";
-            this.ingredientContextMenuStrip.Size = new System.Drawing.Size(204, 56);
+            this.ingredientContextMenuStrip.Size = new System.Drawing.Size(108, 26);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(203, 52);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -237,21 +240,31 @@
             this.categoryComboBox.Size = new System.Drawing.Size(365, 21);
             this.categoryComboBox.TabIndex = 11;
             // 
-            // nameDataGridViewTextBoxColumn1
+            // nameDataGridViewTextBoxColumn2
             // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // unitDataGridViewTextBoxColumn1
+            // unitDataGridViewTextBoxColumn2
             // 
             this.unitDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.unitDataGridViewTextBoxColumn1.DataPropertyName = "Unit";
             this.unitDataGridViewTextBoxColumn1.HeaderText = "Unit";
             this.unitDataGridViewTextBoxColumn1.Name = "unitDataGridViewTextBoxColumn1";
             this.unitDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            // 
+            this.unitDataGridViewTextBoxColumn2.DataPropertyName = "Unit";
+            this.unitDataGridViewTextBoxColumn2.HeaderText = "Unit";
+            this.unitDataGridViewTextBoxColumn2.Name = "unitDataGridViewTextBoxColumn2";
+            this.unitDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // Quantity
             // 
@@ -305,6 +318,8 @@
         private System.Windows.Forms.BindingSource totalIngredientsBindingSource;
         private System.Windows.Forms.BindingSource recipeIngredientsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
         private System.Windows.Forms.ContextMenuStrip ingredientContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Label label3;
@@ -312,8 +327,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitDataGridViewTextBoxColumn2;
     }
 }

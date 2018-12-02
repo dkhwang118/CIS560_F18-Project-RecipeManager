@@ -108,5 +108,12 @@ namespace CIS560_RecipeManager.Repository
         {
             // update recipe rating in DB
         }
+
+        public ICollection<ShoppingList> GetAllShoppingLists()
+        {
+            ICollection<ShoppingList> shoppingLists = null;
+            shoppingLists.Add(new ShoppingList(0, "first"));
+            return shoppingLists;
+        }
     }
 }
