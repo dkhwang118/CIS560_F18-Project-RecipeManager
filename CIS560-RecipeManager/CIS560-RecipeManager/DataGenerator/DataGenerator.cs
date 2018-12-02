@@ -18,7 +18,7 @@ namespace CIS560_RecipeManager.DataGenerator
         private static int maxStartingQuantity = 10;
 
         private static int minPrice = 0;
-        private static int maxPrice = 1000;
+        private static int maxPrice = 300;
 
 
         //Category Configuration
@@ -39,11 +39,11 @@ namespace CIS560_RecipeManager.DataGenerator
             "furlong", "inch", "pinch", "dash"};
 
         private static int minRecipeIngredients = 1;
-        private static int maxRecipeIngredients = 10;
+        private static int maxRecipeIngredients = 5;
 
 
         private static int minRecipeIngredientQuantity = 1;
-        private static int maxRecipeIngredientQuantity = 10;
+        private static int maxRecipeIngredientQuantity = 3;
 
         public static void GenerateAndInsertData(IQuery query,
             int numberOfRecipes,
