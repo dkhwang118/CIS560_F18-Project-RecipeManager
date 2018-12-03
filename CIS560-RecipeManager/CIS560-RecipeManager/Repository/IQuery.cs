@@ -46,5 +46,7 @@ namespace CIS560_RecipeManager
         IDictionary<string, string> GetRecipesCookedLeastRecent();
 
         ICollection<Recipe> GetRecipesNotCooked();
+
+        int NumberMakeable(Recipe recipe);
     }
 }

@@ -80,7 +80,7 @@ namespace CIS560_RecipeManager.Repository
                     }
                 }
                     
-                return new Recipe(recipeID, recipeName, recipeDescription, category, measuredIngredients); // return an Ingredient object with the same data that has been written to the DB
+                return new Recipe(recipeID, recipeName, recipeDescription, category, measuredIngredients, this); // return an Ingredient object with the same data that has been written to the DB
             } // should close connection here automatically
         }
     }

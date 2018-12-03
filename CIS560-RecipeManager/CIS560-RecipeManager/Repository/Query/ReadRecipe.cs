@@ -114,7 +114,7 @@ namespace CIS560_RecipeManager.Repository
                 measuredIngredients[ingredient] = ingredientID.Value;
             }
 
-            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients,rating);
+            Recipe recipe = new Recipe(recipeId, name, description, GetRecipeCategory(recipeId), measuredIngredients, this, rating);
             return recipe;
         }
     }

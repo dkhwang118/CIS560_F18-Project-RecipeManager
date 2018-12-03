@@ -26,6 +26,16 @@ namespace CIS560_RecipeManager.RecipeManager
 
         public IDictionary<Ingredient, int> MeasuredIngredients { get; private set; }
 
+        public int NumberMakeable
+        {
+            get
+            {
+                return _query.NumberMakeable(this);
+            }
+        }
+
+        private IQuery _query;
+
         public int PriceInCents
         {
             get
@@ -55,6 +65,7 @@ namespace CIS560_RecipeManager.RecipeManager
             string description,
             RecipeCategory category,
             IDictionary<Ingredient, int> measuredIngredients,
+            IQuery query,
             int? rating = null)
         {
             Id = id;
@@ -63,6 +74,7 @@ namespace CIS560_RecipeManager.RecipeManager
             Category = category;
             MeasuredIngredients = measuredIngredients;
             if (rating != null) Rating = rating;
+            _query = query;
         }
 
         public override string ToString()
