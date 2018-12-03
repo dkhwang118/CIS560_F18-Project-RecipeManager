@@ -32,6 +32,7 @@ namespace CIS560_RecipeManager.StatsFormManager
                 uxDGV_RecipesCookedStatsOutput.Columns[1].MinimumWidth = 200;
                 uxDGV_RecipesCookedStatsOutput.Columns[0].HeaderText = "Recipe Name";
                 uxDGV_RecipesCookedStatsOutput.Columns[1].HeaderText = "Date Last Cooked";
+                uxDGV_RecipesCookedStatsOutput.AutoResizeColumnHeadersHeight();
             }
             catch (Exception ex)
             {
@@ -50,6 +51,8 @@ namespace CIS560_RecipeManager.StatsFormManager
             uxDGV_RecipesCookedStatsOutput.Columns[1].MinimumWidth = 800;
             uxDGV_RecipesCookedStatsOutput.Columns[1].HeaderText = "Uncooked Recipe Name";
             uxDGV_RecipesCookedStatsOutput.Columns[1].Visible = true;
+            uxDGV_RecipesCookedStatsOutput.AutoResizeColumnHeadersHeight();
+
         }
 
         private void uxDGV_RecipesCookedStatsOutput_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
