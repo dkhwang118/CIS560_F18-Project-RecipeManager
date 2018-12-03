@@ -58,18 +58,17 @@ namespace CIS560_RecipeManager.Repository
             }
 
             // Update RecipesCookedDates table
-            using (var connection = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
+            using (var connection2 = new SqlConnection(Properties.Settings.Default.RecipeDatabaseConnectionString))
             {
-                using (var transaction = new TransactionScope())
+                connection2.Open();
+                using (var transaction2 = new TransactionScope())
                 {
-                    using (var command = new SqlCommand("[dbo].UpdateRecipesCookedDates", connection))
+                    using (var command2 = new SqlCommand("[dbo].UpdateRecipesCookedDates", connection2))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("RecipeID", recipe.Id);
+                        command2.CommandType = CommandType.StoredProcedure;
+                        command2.Parameters.AddWithValue("RecipeID", recipe.Id);
 
-                        connection.Open();
-
-                        command.ExecuteNonQuery(); // no results coming back
+                        command2.ExecuteNonQuery(); // no results coming back
                     }
                 } // should close transaction here automatically
             } // should close connection here automatically

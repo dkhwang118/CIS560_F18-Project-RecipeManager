@@ -136,7 +136,7 @@ namespace CIS560_RecipeManager.DataGenerator
                     recipeIngredients[ing] = amount;
                 }
 
-                Recipe recipe = query.CreateRecipe(name, description, categoryId, recipeIngredients);
+                Recipe recipe = query.CreateRecipe(name, description, categoryId, recipeIngredients, rand.Next(1,6));
                 addedRecipe.Add(recipe);
             }
 
