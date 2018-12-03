@@ -30,16 +30,9 @@ namespace CIS560_RecipeManager.Repository
                 using (var transaction = new TransactionScope())
                 {
                     connection.Open();
-                    using (var command = new SqlCommand(@"
-
-SELECT MIN(PI.QuantityInPantry / RI.RecipeQuantity)
-FROM [dbo].RecipeIngredient RI
-    JOIN PantryItem PI ON RI.PantryItemID = PI.PantryItemID
-WHERE RI.RecipeID = @RecipeID
-GROUP BY RI.RecipeID
-", connection))
+                    using (var command = new SqlCommand("[dbo].NumberMakeable", connection))
                     {
-                        //command.CommandType = CommandType.StoredProcedure;
+                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("RecipeID", recipe.Id);
 
                         var result = command.ExecuteReader();
