@@ -28,10 +28,12 @@ namespace CIS560_RecipeManager.StatsFormManager
             uxDGV_RecipeRatingOutput.Columns[4].Visible = false; // MeasuredIngredientss list
             uxDGV_RecipeRatingOutput.Columns[5].Visible = false; // priceInCents
             uxDGV_RecipeRatingOutput.Columns[6].Visible = false; // formatted price
+            uxDGV_RecipeRatingOutput.Columns[7].Visible = false; // formatted price
+
 
             uxDGV_RecipeRatingOutput.Columns[1].HeaderText = "Recipe Name";
             uxDGV_RecipeRatingOutput.Columns[3].HeaderText = "Recipe Category";
-            uxDGV_RecipeRatingOutput.Columns[7].HeaderText = "Recipe Rating";
+            uxDGV_RecipeRatingOutput.Columns[8].HeaderText = "Recipe Rating";
             uxDGV_RecipeRatingOutput.Columns[3].DisplayIndex = 0;
         }
 

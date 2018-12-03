@@ -41,10 +41,11 @@ namespace CIS560_RecipeManager.Repository
                                 topRatedRecipeIDs.Add(result.GetFieldValue<int>(2));
                             }
                         }
-                        else
+                        // Else statement here removed for ease; simply returns no results in the list, thus showing no results in the DGV
+                        /*else
                         {
-                            throw new Exception("Query returned no results");
-                        }
+                            throw new NullReferenceException("Query returned no results");
+                        }*/
                         result.Close();
                     }
                 }
