@@ -13,13 +13,13 @@ namespace CIS560_RecipeManager.ShoppingListManager
 {
     public partial class uiShoppingList : Form
     {
-        private Action<string, ICollection<Recipe>> _launchAddShoppingListDelegate;
+        private Action _launchAddShoppingListDelegate;
         private ShoppingListInventory _shoppingListInventory;
         private Action<ShoppingList> _launchShowShoppingListDelegate;
         private Action<ShoppingList> _addShoppingListToPantry;
 
         public uiShoppingList(
-            Action<string, ICollection<Recipe>> launchAddShoppingListDelegate, 
+            Action launchAddShoppingListDelegate, 
             Action<ShoppingList> launchShowShoppingListDelegate,
             Action<ShoppingList> addShoppingListToPantry,
             ShoppingListInventory shoppingListInventory)
@@ -34,9 +34,7 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         private void uxButton_AddShoppingList_Click(object sender, EventArgs e)
         {
-            string name = "";
-            ICollection<Recipe> recipes = new List<Recipe>();
-            _launchAddShoppingListDelegate(name, recipes);
+            _launchAddShoppingListDelegate();
             uxDataGridView_ShoppingList.Update();
         }
 

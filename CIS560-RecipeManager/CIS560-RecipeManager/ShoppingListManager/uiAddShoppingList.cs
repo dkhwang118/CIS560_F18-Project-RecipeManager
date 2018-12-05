@@ -9,12 +9,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
     {
         private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
-        private ICollection<Recipe> _recipes;
         private ShoppingListInventory _shoppingListInventory;
-        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes, ShoppingListInventory shoppingListInventory)
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, 
+            RecipeInventory recipeInventory, 
+            ShoppingListInventory shoppingListInventory)
         {
             _shoppingListInventory = shoppingListInventory;
-            _recipes = recipes;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             _getShoppingListDelegate = getShoppingList;

@@ -29,9 +29,9 @@ namespace CIS560_RecipeManager.ShoppingListManager
                 _shoppingInventory).Show();
         }
 
-        public void LaunchAddShoppingListForm(string name, ICollection<Recipe> recipes)
+        public void LaunchAddShoppingListForm()
         {
-            new uiAddShoppingList(_shoppingInventory.CreateShoppingList, _recipeInventory, recipes, _shoppingInventory).Show();
+            new uiAddShoppingList(_shoppingInventory.CreateShoppingList, _recipeInventory, _shoppingInventory).Show();
         }
 
         public void LaunchShowShoppingListForm(ShoppingList currentShoppingList)
