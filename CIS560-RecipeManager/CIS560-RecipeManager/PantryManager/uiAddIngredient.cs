@@ -22,11 +22,6 @@ namespace CIS560_RecipeManager.Pantry
             _createIngredientDelegate = createIngredient;
         }
 
-        /// <summary>
-        /// Click event for the "Add Ingredient" button on the Add Ingredient Form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
             int pantryQuantity;
