@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static CIS560_RecipeManager.ShoppingListManager.ShoppingListController;
 using CIS560_RecipeManager.RecipeManager;
 
 namespace CIS560_RecipeManager.ShoppingListManager
@@ -16,12 +9,12 @@ namespace CIS560_RecipeManager.ShoppingListManager
     {
         private Action<string, ICollection<Recipe>> _getShoppingListDelegate;
         private RecipeInventory _recipeInventory;
-        private ICollection<Recipe> _recipes;
         private ShoppingListInventory _shoppingListInventory;
-        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, RecipeInventory recipeInventory, ICollection<Recipe> recipes, ShoppingListInventory shoppingListInventory)
+        public uiAddShoppingList(Action<string, ICollection<Recipe>> getShoppingList, 
+            RecipeInventory recipeInventory, 
+            ShoppingListInventory shoppingListInventory)
         {
             _shoppingListInventory = shoppingListInventory;
-            _recipes = recipes;
             _recipeInventory = recipeInventory;
             InitializeComponent();
             _getShoppingListDelegate = getShoppingList;
@@ -29,9 +22,6 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         private void uiAddShoppingList_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
-            this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
-            // TODO: This line of code loads data into the 'recipeDatabaseDataSet.Recipes' table. You can move, or remove it, as needed.
             this.recipesTableAdapter.Fill(this.recipeDatabaseDataSet.Recipes);
 
         }

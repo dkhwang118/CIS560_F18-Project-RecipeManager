@@ -75,9 +75,9 @@
             // 
             // uxButton_ExtraFeatures
             // 
-            this.uxButton_ExtraFeatures.Location = new System.Drawing.Point(68, 246);
+            this.uxButton_ExtraFeatures.Location = new System.Drawing.Point(40, 246);
             this.uxButton_ExtraFeatures.Name = "uxButton_ExtraFeatures";
-            this.uxButton_ExtraFeatures.Size = new System.Drawing.Size(228, 43);
+            this.uxButton_ExtraFeatures.Size = new System.Drawing.Size(290, 45);
             this.uxButton_ExtraFeatures.TabIndex = 4;
             this.uxButton_ExtraFeatures.Text = "Extra Features";
             this.uxButton_ExtraFeatures.UseVisualStyleBackColor = true;
