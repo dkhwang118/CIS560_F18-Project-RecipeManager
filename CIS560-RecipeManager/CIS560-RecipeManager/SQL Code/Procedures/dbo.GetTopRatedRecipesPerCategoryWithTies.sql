@@ -17,3 +17,7 @@ FROM
 		INNER JOIN [dbo].RecipeCategory rc ON ratedRecipes.CategoryID = rc.CategoryID
 	
 ) tempCTE WHERE tempCTE.RankInCategory <= @RecipesPerCategory
+
+--RETURNs a number of rows based on the user-defined "@RecipesPerCategory" parameter, which limits the return to recipes and recipe information
+--whose RecipeRating Ranking within each individual category is less than or equal to @RecipesPerCategory. 
+--Effectively gets the top ranked Recipes per Recipe Category

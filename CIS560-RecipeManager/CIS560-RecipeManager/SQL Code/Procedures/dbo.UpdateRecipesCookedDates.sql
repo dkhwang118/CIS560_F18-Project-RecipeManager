@@ -23,3 +23,4 @@ WHEN NOT MATCHED THEN
 		VALUES (@RecipeID, 1, SYSDATETIMEOFFSET());
 		
 --CREATE OR UPDATE a row in RecipesCookedDates table when the user "cooks" a recipe
+--CREATEs a row when the recipe is "cooked" for the first time; UPDATEs a row when the Recipe has already been cooked before
