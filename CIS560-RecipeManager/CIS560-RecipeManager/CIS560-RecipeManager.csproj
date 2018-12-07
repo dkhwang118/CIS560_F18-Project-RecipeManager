@@ -326,10 +326,58 @@
       <DependentUpon>RecipeDatabase.mdf</DependentUpon>
     </Content>
     <None Include="Resources\wordlist.txt" />
-    <Content Include="Sql\GetAvailableRecipes.sql" />
-    <Content Include="Sql\SampleData\AddPantryItem.sql" />
-    <Content Include="Sql\SampleData\AddRecipe.sql" />
-    <Content Include="Sql\SampleData\wordlist-citation.txt" />
+    <Content Include="SQL Code\Data\AddPantryItem.sql" />
+    <Content Include="SQL Code\Data\AddRecipe.sql" />
+    <Content Include="SQL Code\Data\Recipe-Manager_DataFolder_readme.txt" />
+    <Content Include="SQL Code\Data\wordlist-citation.txt" />
+    <Content Include="SQL Code\Procedures\dbo.AddRecipeIngredient.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateIngredient.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateOrUpdateShoppingListItem.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateRecipe.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateRecipeCategory.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateRecipeWithoutRating.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateShoppingList.sql" />
+    <Content Include="SQL Code\Procedures\dbo.CreateShoppingListItem.sql" />
+    <Content Include="SQL Code\Procedures\dbo.DeleteRecipeById.sql" />
+    <Content Include="SQL Code\Procedures\dbo.DeleteRecipeCategory.sql" />
+    <Content Include="SQL Code\Procedures\dbo.DeleteRecipeCategoryById.sql" />
+    <Content Include="SQL Code\Procedures\dbo.DeleteRecipeIngredientsByRecipeId.sql" />
+    <Content Include="SQL Code\Procedures\dbo.FindPantryItemByID.sql" />
+    <Content Include="SQL Code\Procedures\dbo.FindRecipeIngredientInfoByID.sql" />
+    <Content Include="SQL Code\Procedures\dbo.FindRecipeItemByID.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAffordableRecipes.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAllIngredients.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAllRecipeCategories.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAllRecipeIDs.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAllShoppingListsAdvanced.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAvgRatingPerCategory.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetRecipeCategory.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetRecipesCookedLeastRecent.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetRecipesNotCooked.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetTopRatedRecipesPerCategoryWithTies.sql" />
+    <Content Include="SQL Code\Procedures\dbo.NumberMakeable.sql" />
+    <Content Include="SQL Code\Procedures\dbo.RateRecipe.sql" />
+    <Content Include="SQL Code\Procedures\dbo.UpdateIngredientQuantity.sql" />
+    <Content Include="SQL Code\Procedures\dbo.UpdateRecipeInRecipeTable.sql" />
+    <Content Include="SQL Code\Procedures\dbo.UpdateRecipesCookedDates.sql" />
+    <Content Include="SQL Code\Procedures\_backup_oldStoredProcedures\dbo.AddRecipeCategory.sql" />
+    <Content Include="SQL Code\Procedures\_backup_oldStoredProcedures\dbo.CreateRecipeWithRating.sql" />
+    <Content Include="SQL Code\Procedures\_backup_oldStoredProcedures\dbo.DeleteRecipeCategoryByName.sql" />
+    <Content Include="SQL Code\Procedures\_backup_oldStoredProcedures\dbo.GetAllShoppingListItems.sql" />
+    <Content Include="SQL Code\Procedures\_backup_oldStoredProcedures\dbo.GetAllShoppingLists.sql" />
+    <Content Include="SQL Code\SampleData\AddPantryItem.sql" />
+    <Content Include="SQL Code\SampleData\AddRecipe.sql" />
+    <Content Include="SQL Code\SampleData\wordlist-citation.txt" />
+    <Content Include="SQL Code\Tables\dbo.PantryItem.sql" />
+    <Content Include="SQL Code\Tables\dbo.RecipeCategory.sql" />
+    <Content Include="SQL Code\Tables\dbo.RecipeIngredient.sql" />
+    <Content Include="SQL Code\Tables\dbo.Recipes.sql" />
+    <Content Include="SQL Code\Tables\dbo.RecipesCookedDates.sql" />
+    <Content Include="SQL Code\Tables\dbo.ShoppingList.sql" />
+    <Content Include="SQL Code\Tables\dbo.ShoppingListItem.sql" />
+    <Content Include="Sql_backup\SampleData\AddPantryItem.sql" />
+    <Content Include="Sql_backup\SampleData\AddRecipe.sql" />
+    <Content Include="Sql_backup\SampleData\wordlist-citation.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -344,7 +392,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Sql\Procedures\" />
+    <Folder Include="Sql_backup\Procedures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
