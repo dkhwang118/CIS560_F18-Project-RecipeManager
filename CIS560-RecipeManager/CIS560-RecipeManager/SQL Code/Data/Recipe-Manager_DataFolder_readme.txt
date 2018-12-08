@@ -1,8 +1,4 @@
 CIS 560 - Project Team 01
 
-NOTE: No specific data generation .sql scripts were used to create the default data or to populate 
-the database with randomly generated data. Small amounts of default data was inserted into the tables through
-the "Server Explorer" functionality in Visual Studio 2017 to check the basic queries against persistent data,
-but the majority of the data seen in the application is randomly generated upon load using the 
-"DataGenerator" class, defined in the "DataGenerator.cs" file. Loading of this generated data can be prevented 
-by commenting-out line 35 in the "HomeController.cs" file.
+NOTE: Simple data generation scripts are included inside this folder for basic testing purposes, though the real testing occurred using the DataGenerator class as written in the "DataGenerator.cs" file in the main repo in the "DataGenerator" folder.
+The default data created by the scripts in this folder are already present in the repo database, but if one wishes to ONLY use the non-generated default data, commenting-out line 35 in the "HomeController.cs" file will prevent the data generation.
