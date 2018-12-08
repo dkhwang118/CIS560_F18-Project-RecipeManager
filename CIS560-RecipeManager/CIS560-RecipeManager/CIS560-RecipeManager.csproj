@@ -350,6 +350,7 @@
     <Content Include="SQL Code\Procedures\dbo.GetAllRecipeCategories.sql" />
     <Content Include="SQL Code\Procedures\dbo.GetAllRecipeIDs.sql" />
     <Content Include="SQL Code\Procedures\dbo.GetAllShoppingListsAdvanced.sql" />
+    <Content Include="SQL Code\Procedures\dbo.GetAvailableRecipes.sql" />
     <Content Include="SQL Code\Procedures\dbo.GetAvgRatingPerCategory.sql" />
     <Content Include="SQL Code\Procedures\dbo.GetRecipeCategory.sql" />
     <Content Include="SQL Code\Procedures\dbo.GetRecipesCookedLeastRecent.sql" />
