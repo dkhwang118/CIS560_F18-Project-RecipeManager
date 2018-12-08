@@ -25,20 +25,28 @@ namespace CIS560_RecipeManager.Pantry
         private void uxButton_AddIngredient_Click(object sender, EventArgs e)
         {
             int pantryQuantity;
+            int priceInCents;
 
-            if (int.TryParse(uxTextBox_PantryQuantity.Text, out pantryQuantity))
+            bool validPantry = int.TryParse(uxTextBox_PantryQuantity.Text, out pantryQuantity);
+            bool validPrice = int.TryParse(uxTextBox_PriceInCents.Text, out priceInCents);
+            
+            if (validPantry && validPrice)
             {
                 _createIngredientDelegate(
-                uxTextBox_IngredientName.Text,
-                uxTextBox_UnitMeasurement.Text,
-                Convert.ToInt32(uxTextBox_PantryQuantity.Text),
-                Convert.ToInt32(uxTextBox_PriceInCents.Text)
+                    uxTextBox_IngredientName.Text,
+                    uxTextBox_UnitMeasurement.Text,
+                    pantryQuantity,
+                    priceInCents
                 );
                 Close();
             }
+            else if (!validPantry)
+            {
+                MessageBox.Show("Pantry Quantity must contain only a whole number.");
+            }
             else
             {
-                MessageBox.Show("Pantry Quantity field must contain only a whole number.");
+                MessageBox.Show("Price in cents must contain only a whole number.");
             }
         }
     }
