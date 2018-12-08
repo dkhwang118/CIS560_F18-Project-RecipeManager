@@ -328,6 +328,9 @@
     <None Include="Resources\wordlist.txt" />
     <Content Include="SQL Code\Data\AddPantryItem.sql" />
     <Content Include="SQL Code\Data\AddRecipe.sql" />
+    <Content Include="SQL Code\Data\AddRecipesCookedDates.sql" />
+    <Content Include="SQL Code\Data\AddShoppingList.sql" />
+    <Content Include="SQL Code\Data\AddShoppingListItems.sql" />
     <Content Include="SQL Code\Data\Recipe-Manager_DataFolder_readme.txt" />
     <Content Include="SQL Code\Data\wordlist-citation.txt" />
     <Content Include="SQL Code\Procedures\dbo.AddRecipeIngredient.sql" />
