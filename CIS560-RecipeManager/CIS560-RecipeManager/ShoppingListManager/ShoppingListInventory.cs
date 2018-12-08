@@ -32,6 +32,16 @@ namespace CIS560_RecipeManager.ShoppingListManager
 
         public void CreateShoppingList(string name, ICollection<Recipe> recipes)
         {
+            ShoppingList result;
+            try
+            {
+                result = _query.CreateShoppingList(name, recipes);
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                System.Windows.Forms.MessageBox.Show($"Error, a shopping list with the name \"{name}\" already exists. Shopping List was not created.");
+                return;
+            }
             ShoppingLists.Add(_query.CreateShoppingList(name, recipes));
         }
     }
